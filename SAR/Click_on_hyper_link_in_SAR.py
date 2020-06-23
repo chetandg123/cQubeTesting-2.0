@@ -1,0 +1,39 @@
+import time
+
+from selenium.webdriver.support.select import Select
+
+from Data.parameters import Data
+from reuse_func import GetData
+
+
+class Hyperlink():
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def click_on_hyperlinks(self):
+        state = GetData()
+        state.click_on_state(self.driver)
+        time.sleep(3)
+        dist = Select(self.driver.find_element_by_id("choose_dist"))
+        dist.select_by_index(1)
+        time.sleep(3)
+        block = Select(self.driver.find_element_by_id("choose_block"))
+        block.select_by_index(1)
+        time.sleep(3)
+        cluster = Select(self.driver.find_element_by_id("choose_cluster"))
+        cluster.select_by_index(1)
+        time.sleep(5)
+        self.driver.find_element_by_xpath(Data.sr_school_hyper).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.sr_cluster_hyper).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.sr_dist_hyper).click()
+        time.sleep(4)
+        result1 = self.driver.find_element_by_id('choose_block').is_displayed()
+        time.sleep(2)
+        result2 = self.driver.find_element_by_id('choose_cluster').is_displayed()
+        time.sleep(2)
+        dist = Select(self.driver.find_element_by_id('choose_dist'))
+        choose_dist = dist.first_selected_option.text
+        return result1, result2, choose_dist
