@@ -14,6 +14,8 @@ class Home():
     def click_HomeButton(self):
             self.driver.find_element_by_id(Data.homeicon).click()
             time.sleep(3)
+            return self.driver.page_source
+
 
 
 

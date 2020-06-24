@@ -1,6 +1,10 @@
 import configparser
 import sys
 import os
+
+from SAR import student_attendance_sanity_testing
+from SR import semester_report
+
 sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
 from get_dir import pwd
 from CRC import crc
@@ -22,7 +26,9 @@ class MyTestSuite(unittest.TestCase):
         sanity_test.addTests([
             # file name .class name
             unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
+            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_sanity_testing.cQube_Student_Attendance),
             unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_report.cQube_Semester_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
         ])

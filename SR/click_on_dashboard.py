@@ -12,3 +12,4 @@ class Dashboard():
         time.sleep(3)
         self.driver.find_element_by_xpath(Data.sr_by_xpath).click()
         time.sleep(3)
+

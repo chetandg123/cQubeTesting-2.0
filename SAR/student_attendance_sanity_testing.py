@@ -1,6 +1,9 @@
 import time
 import unittest
 
+from selenium.webdriver.support.select import Select
+
+from Data.parameters import Data
 from SAR.Click_on_hyper_link_in_SAR import Hyperlink
 from SAR.arg import arg
 from SAR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
@@ -34,13 +37,10 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.x = arg()
-        self.year = self.x.list[0]
-        self.month = self.x.list[1]
-        self.data.select_month_year(self.year,self.month)
-
-        # self.x = arg()
-        # self.data.select_month_year('2019','August')
-        # time.sleep(5)
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = year.first_selected_option.text
+        self.month = month.first_selected_option.text
 
     def test_click_on_dashboard(self):
         dashboard = Dashboard(self.driver)

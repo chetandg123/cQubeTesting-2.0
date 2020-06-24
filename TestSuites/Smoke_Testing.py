@@ -1,6 +1,10 @@
 import configparser
 import sys
 import os
+
+from SAR import student_attendance_smoke_testing
+from SR import semester_report_smoke_testing
+
 sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
 from get_dir import pwd
 from CRC import crc
@@ -21,10 +25,9 @@ class MyTestSuite(unittest.TestCase):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             # file name .class name
-            # unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
-            # unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
-            # unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
-            # unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
+            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_smoke_testing.cQube_Student_Attendance),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_smoke_testing.cQube_Semester_Report),
+
         ])
         p= pwd()
         outfile = open(p.get_smoke_report_path(), "w")

@@ -49,7 +49,7 @@ class GetData():
 
     def click_on_state(self, driver):
         self.driver = driver
-        self.driver.find_element_by_css_selector(Data.hyper_link).click()
+        self.driver.find_element_by_css_selector(Data.sar_hyper_link).click()
         time.sleep(2)
 
     def navigate_passwordchange(self):
