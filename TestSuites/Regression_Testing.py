@@ -1,44 +1,55 @@
-import configparser
 import sys
-import os
-sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
-from get_dir import pwd
-from CRC import crc
-from Login import cQube_login
-from SI.MAP import SI_mapreport
-from SI.Report import SI_Report
+import time
+
+from selenium import webdriver
+from selenium.webdriver.support.select import Select
+
+from Data.parameters import Data
+from SAR.arg import arg
+from TestSuites.cQube import MyTestSuite
+from  get_dir import pwd
+#pwd = Data()
+from reuse_func import GetData
+
+p = pwd()
+sys.path.append(p.get_system_path())
+
+
+class TestCases():
+    data = GetData()
+    driver = data.get_driver()
+    data.open_cqube_appln(driver)
+    data.login_cqube(driver)
+    data.navigate_to_student_report()
+    time.sleep(3)
+    select_year = Select(driver.find_element_by_name(Data.select_year))
+    select_month = Select(driver.find_element_by_name(Data.select_month))
+    time.sleep(3)
+
+    year = []
+    month = []
+
+    for x in select_year.options:
+        year.append(x.text)
+    for y in select_month.options:
+        month.append(y.text)
+
+    for x in range(1, len(year)):
+        for y in range(1,len(month)):
+            a = arg()
+            a.list.append(year[x])
+            a.list.append(month[y])
+            cal = MyTestSuite()
+            cal.test_Issue01(month[y])
+            a.list.clear()
+    cal_crc_sr_si = MyTestSuite()
+    cal_crc_sr_si.test_Issue02()
+    driver.close()
 
 
 
 
-import unittest
-from fileinput import close
-from HTMLTestRunner import HTMLTestRunner
-
-class MyTestSuite(unittest.TestCase):
-
-    def test_Issue(self):
-        regression_test = unittest.TestSuite()
-        regression_test.addTests([
-            # file name .class name
-            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
-        ])
-        p= pwd()
-        outfile = open(p.get_regression_report_path(), "w")
-
-        runner1 = HTMLTestRunner.HTMLTestRunner(
-            stream=outfile,
-            title='Sanity Test Report',
-            verbosity=1,
-
-        )
-
-        runner1.run(regression_test)
-        outfile.close()
 
 
-if __name__ == '__main__':
-    unittest.main()
+
+
