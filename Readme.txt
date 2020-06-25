@@ -14,6 +14,15 @@ python -m unittest TestSuites/Functional_Testing.py
 python -m unittest TestSuites/Regression_Testing.py
 python -m unittest TestSuites/Sanity_Testing.py
 
+sudo apt update
+sudo apt install python-pip
+pip --version
+
+
+pip install HTMLTestRunner-Python3
+pip install pandas
+pip install selenium
+
 
 
 
