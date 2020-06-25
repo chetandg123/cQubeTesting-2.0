@@ -6,6 +6,7 @@ import unittest
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class BlockwiseCsv():
@@ -16,8 +17,10 @@ class BlockwiseCsv():
         self.month = month.strip()
 
     def click_download_icon_of_blocks(self):
+        state = GetData()
+        state.click_on_state(self.driver)
         self.driver.find_element_by_id(Data.SAR_Blocks_btn).click()
-        time.sleep(5)
+        time.sleep(15)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
