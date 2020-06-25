@@ -29,8 +29,9 @@ class GetData():
         return config['config']['password']
 
     def get_driver(self):
-
-        self.driver=webdriver.Chrome(executable_path=self.p.get_driver_path())
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
     def open_cqube_appln(self,driver):
