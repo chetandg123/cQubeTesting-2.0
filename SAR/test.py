@@ -1,3 +1,26 @@
+import unittest
+class Test(unittest.TestCase):
+
+    count = 0
+    def test_add(self):
+        self.count = self.count +1
+        print("adding")
+    def test_sub(self):
+        self.count = self.count + 1
+        print("subtracitn")
+    def test_div(self):
+        self.count = self.count + 1
+        print("dividing")
+    print(count)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
+
+
 # import time
 #
 # from selenium.common.exceptions import WebDriverException

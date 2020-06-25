@@ -17,7 +17,7 @@ class BlockwiseCsv():
 
     def click_download_icon_of_blocks(self):
         self.driver.find_element_by_id(Data.SAR_Blocks_btn).click()
-        time.sleep(15)
+        time.sleep(5)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
@@ -26,3 +26,5 @@ class BlockwiseCsv():
 
     def remove_csv(self):
         os.remove(self.filename)
+
+

@@ -21,6 +21,7 @@ class DistrictCsvDownload():
         count = 0
         for x in range(20, len(select_district.options)):
             select_district.select_by_index(x)
+            time.sleep(2)
             self.driver.find_element_by_id('download').click()
             time.sleep(3)
             p = pwd()

@@ -1,7 +1,7 @@
 import configparser
 import os
 import time
-
+import logging
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
@@ -13,6 +13,12 @@ from get_dir import pwd
 class GetData():
     def __init__(self):
         self.p = pwd()
+
+
+    def put_log(self,received_msg):
+        logging.basicConfig(filename=self.p.get_log_dir(),filemode='w',format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S',level=logging.INFO)
+        logging.info(received_msg)
+
     def get_domain_name(self):
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
@@ -30,6 +36,8 @@ class GetData():
 
     def get_driver(self):
         options = webdriver.ChromeOptions()
+        prefs = {'download.default_directory': self.p.get_download_dir()}
+        options.add_experimental_option('prefs', prefs)
         options.add_argument('--headless')
         self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver

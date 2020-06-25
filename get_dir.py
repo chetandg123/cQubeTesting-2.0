@@ -53,6 +53,11 @@ class pwd():
         return image_path
 
     def get_download_dir(self):
-        home_path = Path.home()
-        download_path = os.path.join(str(home_path), 'cQubeTesting')
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads')
         return download_path
+
+    def get_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/test.log')
+        return log_dir_path

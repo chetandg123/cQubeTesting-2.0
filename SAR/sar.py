@@ -86,6 +86,7 @@ class cQube_Student_Attendance(unittest.TestCase):
     #         raise self.failureException("hyperlinks are not working")
     #
     def test_districtwise_csv_download(self):
+        self.data.put_log('district wise downloade started')
         csv = DistrictwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_district()
         if result:
@@ -95,6 +96,7 @@ class cQube_Student_Attendance(unittest.TestCase):
             raise self.failureException("District wise csv report download is not working")
 
     def test_blockwise_csv_download(self):
+        self.data.put_log('block wise csv download started')
         csv = BlockwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_blocks()
         if result:
@@ -104,6 +106,7 @@ class cQube_Student_Attendance(unittest.TestCase):
             raise self.failureException("Block wise csv report download is not working")
 
     def test_clusterwise_csv_download(self):
+        self.data.put_log('cluster wise csv download started')
         csv = ClusterwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_clusters()
         if result:
@@ -113,6 +116,7 @@ class cQube_Student_Attendance(unittest.TestCase):
             raise self.failureException("Cluster wise csv report download is not working")
 
     def test_schoolwise_cv_download(self):
+        self.data.put_log('school wise csv download started')
         csv = SchoolwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_schools()
         if result:
@@ -120,7 +124,7 @@ class cQube_Student_Attendance(unittest.TestCase):
             csv.remove_csv()
         else:
             raise self.failureException("School wise csv report download is not working")
-    #
+    # #
     # def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
     #     tc = TotalSchools(self.driver)
     #     schools, Bschools = tc.block_no_of_schools()
@@ -154,29 +158,29 @@ class cQube_Student_Attendance(unittest.TestCase):
     #     else:
     #         raise self.failureException('Home Icon is not working')
 
-    def test_block_per_district_csv_download(self):
-        dist = DistrictCsvDownload(self.driver,self.year,self.month)
-        result = dist.check_districts_csv_download()
-        if result == 0:
-            print("Block per district csv report download is working")
-        else:
-            raise self.failureException("Block per district csv report download is not working")
+    # def test_block_per_district_csv_download(self):
+    #     dist = DistrictCsvDownload(self.driver,self.year,self.month)
+    #     result = dist.check_districts_csv_download()
+    #     if result == 0:
+    #         print("Block per district csv report download is working")
+    #     else:
+    #         raise self.failureException("Block per district csv report download is not working")
 
-    def test_cluster_per_block_csv_download(self):
-        block = ClusterPerBlockCsvDownload(self.driver,self.year,self.month)
-        result = block.check_csv_download()
-        if result == 0:
-            print("Cluster per block csv report download is working")
-        else:
-            raise self.failureException("Cluster per block csv report download is not working")
-
-    def test_schools_per_cluster_csv_download(self):
-        schools = SchoolsPerClusterCsvDownload(self.driver,self.year,self.month)
-        result = schools.check_csv_download()
-        if result == 0:
-            print("Schools per cluster csv report download is working")
-        else:
-            raise self.failureException("Schools per cluster csv report download is working")
+    # def test_cluster_per_block_csv_download(self):
+    #     block = ClusterPerBlockCsvDownload(self.driver,self.year,self.month)
+    #     result = block.check_csv_download()
+    #     if result == 0:
+    #         print("Cluster per block csv report download is working")
+    #     else:
+    #         raise self.failureException("Cluster per block csv report download is not working")
+    #
+    # def test_schools_per_cluster_csv_download(self):
+    #     schools = SchoolsPerClusterCsvDownload(self.driver,self.year,self.month)
+    #     result = schools.check_csv_download()
+    #     if result == 0:
+    #         print("Schools per cluster csv report download is working")
+    #     else:
+    #         raise self.failureException("Schools per cluster csv report download is working")
 
     # def test_dots_on_each_districts(self):
     #     dist = DotsOnDistricts(self.driver)
