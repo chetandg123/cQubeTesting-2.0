@@ -54,5 +54,5 @@ class pwd():
 
     def get_download_dir(self):
         home_path = Path.home()
-        download_path = os.path.join(str(home_path), 'Downloads')
+        download_path = os.path.join(str(home_path), 'cQubeTesting')
         return download_path

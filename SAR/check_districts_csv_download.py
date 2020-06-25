@@ -19,7 +19,7 @@ class DistrictCsvDownload():
         state.click_on_state(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
-        for x in range(len(select_district.options) - 1, len(select_district.options)):
+        for x in range(20, len(select_district.options)):
             select_district.select_by_index(x)
             self.driver.find_element_by_id('download').click()
             time.sleep(3)
