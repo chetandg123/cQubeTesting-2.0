@@ -38,28 +38,28 @@ class MyTestSuite(unittest.TestCase):
         runner1.run(regression_test)
         outfile.close()
 
-    # def test_Issue02(self):
-    #     regression_test = unittest.TestSuite()
-    #     regression_test.addTests([
-    #         # file name .class name
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(semester_report.cQube_Semester_Report),
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
-    #     ])
-    #     p= pwd()
-    #     outfile = open(p.get_regression_report_path(), "a")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title='Regression Test Report',
-    #         verbosity=1,
-    #
-    #     )
-    #
-    #     runner1.run(regression_test)
-    #     outfile.close()
+    def test_Issue02(self):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            # file name .class name
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
+            unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_report.cQube_Semester_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
+        ])
+        p= pwd()
+        outfile = open(p.get_regression_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Regression Test Report',
+            verbosity=1,
+
+        )
+
+        runner1.run(regression_test)
+        outfile.close()
 
 
 if __name__ == '__main__':

@@ -1,8 +1,13 @@
 import unittest
+
+from reuse_func import GetData
+
+
 class Test(unittest.TestCase):
 
-    count = 0
     def test_add(self):
+        self.data = GetData()
+
         self.count = self.count +1
         print("adding")
     def test_sub(self):
@@ -11,7 +16,7 @@ class Test(unittest.TestCase):
     def test_div(self):
         self.count = self.count + 1
         print("dividing")
-    print(count)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -28,13 +28,16 @@ class TestCases():
         month.append(y.text)
 
     for x in range(1, len(year)):
-        for y in range(3,len(month)):
+        for y in range(1,len(month)):
             a = arg()
             a.list.append(year[x])
             a.list.append(month[y])
+            log = GetData()
+            log.put_log(month[y]+"started")
             cal = MyTestSuite()
             cal.test_Issue01(month[y])
+            log.put_log(month[y] + "ended")
             a.list.clear()
-    # cal_crc_sr_si = MyTestSuite()
-    # cal_crc_sr_si.test_Issue02()
+    cal_crc_sr_si = MyTestSuite()
+    cal_crc_sr_si.test_Issue02()
     driver.close()
