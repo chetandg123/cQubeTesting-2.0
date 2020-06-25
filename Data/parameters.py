@@ -260,12 +260,28 @@ class Data():
 
     CRC1 = "//*[@id='cluster']/option[2]"
 
+
+
+    #student Attendance Report
+    sar_hyper_link = "p>span"
+    sar_year = "year"
+    sar_month = "month"
+    sar_download = "download"
+
+    sar_district ="choose_dist"
+    sar_block ="choose_block"
+    sar_cluster="choose_cluster"
+
    #semester Report
     sr_by_xpath = "//*[@id='sr']"
     sr_by_id = "sr"
     sr_block_btn= "block"
     sr_cluster_btn = "cluster"
     sr_schools_btn = "school"
+
+    sr_district = "choose_dist"
+    sr_block = "choose_block"
+    sr_cluster = "choose_cluster"
 
     #hyper = "//*[@id='dist_level']/span"
     sr_dist_hyper = "//*[@id='block']/span[1]"

@@ -25,7 +25,7 @@ class DotsOnDistrictsBlock():
         time.sleep(3)
 
         count = 0
-        for x in range(32, len(select_district.options)):
+        for x in range(len(select_district.options), len(select_district.options)):
             select_district.select_by_index(x)
             time.sleep(2)
             for y in range(len(select_block.options) - 1, len(select_block.options)):

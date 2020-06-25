@@ -12,3 +12,7 @@ class Blocks():
         time.sleep(15)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         return dots
+
+        element = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, Data.SAR_Blocks_btn))
+        )

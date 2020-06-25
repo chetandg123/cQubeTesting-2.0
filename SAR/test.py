@@ -1,26 +1,32 @@
-import time
+year = "2019"
+month ="October"
 
-from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.support.select import Select
+print("District_wise_report_"+month+"_"+year+".csv")
+print("District_wise_report_October_2019.csv")
 
-from Data.parameters import Data
-from get_dir import pwd
-from reuse_func import GetData
-
-p = pwd()
-getdata = GetData()
-driver = getdata.get_driver()
-getdata.open_cqube_appln(driver)
-getdata.login_cqube(driver)
-dots = driver.find_elements_by_class_name(Data.dots)
-actions = ActionChains(driver)
-list = []
-for x in dots:
-    actions.move_to_element(x).perform()
-    print("data is "+ x.text)
-    dots.pop(0)
-    time.sleep(3)
+# import time
+#
+# from selenium import webdriver
+# from selenium.webdriver import ActionChains
+# from selenium.webdriver.support.select import Select
+#
+# from Data.parameters import Data
+# from get_dir import pwd
+# from reuse_func import GetData
+#
+# p = pwd()
+# getdata = GetData()
+# driver = getdata.get_driver()
+# getdata.open_cqube_appln(driver)
+# getdata.login_cqube(driver)
+# dots = driver.find_elements_by_class_name(Data.dots)
+# actions = ActionChains(driver)
+# list = []
+# for x in dots:
+#     actions.move_to_element(x).perform()
+#     print("data is "+ x.text)
+#     dots.pop(0)
+#     time.sleep(3)
 # actions.move_to_element(dots).perform()
 
 
