@@ -3,8 +3,6 @@ import sys
 import os
 
 from SR import semester_report
-
-sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
 from get_dir import pwd
 from CRC import crc
 from Login import cQube_login

@@ -4,8 +4,6 @@ import os
 
 from SAR import sar
 from SR import semester_report
-
-sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
 from get_dir import pwd
 from CRC import crc
 from Login import cQube_login
@@ -51,7 +49,7 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
         ])
         p= pwd()
-        outfile = open(p.get_regression_report_path(), "w")
+        outfile = open(p.get_regression_report_path(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,

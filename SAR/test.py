@@ -1,8 +1,33 @@
-year = "2019"
-month ="October"
-
-print("District_wise_report_"+month+"_"+year+".csv")
-print("District_wise_report_October_2019.csv")
+# import time
+#
+# from selenium.common.exceptions import WebDriverException
+# from selenium.webdriver.chrome.options import Options
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.select import Select
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from Data.parameters import Data
+# from get_dir import pwd
+# from reuse_func import GetData
+#
+# p = pwd()
+# getdata = GetData()
+#
+# options = Options()
+# options.page_load_strategy = 'normal'
+# driver = webdriver.Chrome(options=options,executable_path='/home/devraj/PycharmProjects/cQubeTesting/Driver/chromedriver')
+#
+# getdata.open_cqube_appln(driver)
+# getdata.login_cqube(driver)
+# driver.find_element_by_id(Data.SAR_Schools_btn).click()
+#
+# wait = WebDriverWait(driver,30)
+# elemnet =wait.until(EC.element_to_be_clickable((By.ID,'home')))
+#
+# dots = driver.find_elements_by_class_name(Data.dots)
+# print(len(dots))
+# time.sleep(2)
 
 # import time
 #

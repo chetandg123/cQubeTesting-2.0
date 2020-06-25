@@ -4,8 +4,6 @@ import os
 
 from SAR import student_attendance_sanity_testing
 from SR import semester_report
-
-sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
 from get_dir import pwd
 from CRC import crc
 from Login import cQube_login

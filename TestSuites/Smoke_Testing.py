@@ -1,19 +1,14 @@
-import configparser
-import sys
 import os
 
+from CRC import smoke_crc
+from Login import smoke_login
 from SAR import student_attendance_smoke_testing
+from SI.MAP import smoke_si_map
+from SI.Report import smoke_si_report
 from SR import semester_report_smoke_testing
 
-sys.path.append('/home/devraj/PycharmProjects/cQubeTesting')
+
 from get_dir import pwd
-from CRC import crc
-from Login import cQube_login
-from SI.MAP import SI_mapreport
-from SI.Report import SI_Report
-
-
-
 
 import unittest
 from fileinput import close
@@ -25,8 +20,16 @@ class MyTestSuite(unittest.TestCase):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             # file name .class name
+            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_login.cQube_Login_smoke_Test),
             unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_smoke_testing.cQube_Student_Attendance),
+
+
+            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_crc.cQube_CRC_Report),
+
             unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_smoke_testing.cQube_Semester_Report),
+
+            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_si_map.cQube_SI_Map_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_si_report.cQube_SI_Report)
 
         ])
         p= pwd()
