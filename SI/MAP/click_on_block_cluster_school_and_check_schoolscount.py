@@ -35,7 +35,8 @@ class Block_school_count():
             sschool = self.driver.find_element_by_id(Data.sc_no_of_schools).text
             time.sleep(3)
             sres = re.sub('\D', "", sschool)
+            time.sleep(5)
             return res ,bres ,cres,sres
         except exceptions.ElementClickInterceptedException :
             print("no of schools are same ")
-            time.sleep(3)
+            time.sleep(5)

@@ -13,6 +13,11 @@ class Logout_function():
        self.driver.find_element_by_xpath(Data.hyper).click()
        time.sleep(5)
        self.driver.find_element_by_id(Data.logout).click()
+       time.sleep(2)
+       if "cQube" in self.driver.title:
+           print("login page is displayed")
+       else:
+           print("logout is not working")
        time.sleep(4)
        data  = GetData()
        data.login_cqube(self.driver)

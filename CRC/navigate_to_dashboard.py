@@ -12,9 +12,10 @@ class Dashboard_menu():
         self.driver.find_element_by_xpath(Data.hyper).click()
         time.sleep(5)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        print("Navigated to dashboard menu ")
+        title = self.driver.find_element_by_id(Data.Dashboard).text
         time.sleep(2)
         self.driver.find_element_by_id(Data.CRC).click()
-        time.sleep(3)
+        time.sleep(5)
+        return title
 
 

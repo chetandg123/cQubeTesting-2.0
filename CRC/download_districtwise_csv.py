@@ -20,6 +20,7 @@ class Districtwise_donwload():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = p.get_download_dir() + "/District_level_CRC_Report.csv"
+        time.sleep(4)
         return os.path.isfile(self.filename)
 
     def remove_csv(self):

@@ -8,7 +8,7 @@ class si_report():
         self.driver = driver
     def test_url(self):
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
         print("school infra report page")
+        time.sleep(5)
 
 

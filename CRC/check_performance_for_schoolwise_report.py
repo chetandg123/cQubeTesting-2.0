@@ -24,6 +24,7 @@ class download_schoolwise_csv():
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(25)
             self.filename = p.get_download_dir() + "/School_level_CRC_Report.csv"
+            time.sleep(4)
             return os.path.isfile(self.filename)
 
 

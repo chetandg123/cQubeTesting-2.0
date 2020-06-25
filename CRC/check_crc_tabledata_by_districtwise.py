@@ -12,6 +12,7 @@ class schoolwise_tabledata():
     def __init__(self,driver):
         self.driver =driver
     def test_table_data(self):
+
         self.driver.find_element_by_xpath(Data.hyper).click()
         time.sleep(5)
         table_data = []

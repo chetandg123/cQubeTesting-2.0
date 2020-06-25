@@ -56,9 +56,5 @@ class clusterlevel_tabledata_loading():
                     if number_of_rows ==0:
                         count = count + 1
                         print("District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "school" +select_cluster.first_selected_option.text + "table data is not loaded")
-
-        if count !=0:
-            raise self.failureException('Data not found on table')
-        else:
-            print("District , block and cluster table data is loaded within 3 seconds ")
+        return count
 

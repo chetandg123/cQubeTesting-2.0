@@ -11,8 +11,10 @@ class District_options():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         time.sleep(5)
         Districts = self.driver.find_elements_by_xpath(Data.sc_choosedist)
+        count = len(Districts)-1
         for i in range(len(Districts)):
             Districts[i].click()
             time.sleep(5)
             print(Districts[i].text)
 
+        return count

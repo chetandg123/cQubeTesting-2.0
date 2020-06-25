@@ -17,6 +17,7 @@ class School_infra_options():
         time.sleep(3)
         report = self.driver.find_element_by_id(Data.Report).text
         mapreport = self.driver.find_element_by_id(Data.Reportmap).text
+        time.sleep(4)
         return report , mapreport
 
 

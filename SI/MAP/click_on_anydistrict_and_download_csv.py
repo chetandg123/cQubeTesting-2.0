@@ -15,4 +15,5 @@ class download_icon():
         self.driver.find_element_by_xpath(Data.scm_dist).click()
         time.sleep(4)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
+        time.sleep(5)
+

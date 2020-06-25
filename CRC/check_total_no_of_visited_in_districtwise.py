@@ -33,7 +33,7 @@ class visited():
             visit = self.driver.find_element_by_id("visited").text
             time.sleep(3)
             res = re.sub('\D',"",visit)
-            time.sleep(3)
+            time.sleep(4)
             return res,total
 
     def remove_file(self):

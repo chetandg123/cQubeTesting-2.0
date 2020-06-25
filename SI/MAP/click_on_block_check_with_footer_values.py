@@ -20,7 +20,7 @@ class school_count():
        schools = self.driver.find_element_by_id(Data.sc_no_of_schools).text
        time.sleep(3)
        res = re.sub("\D", "", schools)
-       time.sleep(4)
+       time.sleep(5)
        return res
 
 

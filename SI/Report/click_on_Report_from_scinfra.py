@@ -28,3 +28,4 @@ class check_schoolinfra_report():
             # return text
         except exceptions.NoSuchElementException:
             print("school infra report page is present on screen")
+            time.sleep(5)

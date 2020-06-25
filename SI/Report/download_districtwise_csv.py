@@ -21,6 +21,7 @@ class download_district_wise_csv():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = p.get_download_dir() + "/Dist_level_Infra_Report.csv"
+        time.sleep(5)
         return os.path.isfile(self.filename)
 
 

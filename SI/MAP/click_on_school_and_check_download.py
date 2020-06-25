@@ -18,11 +18,12 @@ class school_wise_download():
             self.driver.find_element_by_id(Data.scm_school).click()
             time.sleep(25)
             dots = self.driver.find_elements_by_class_name(Data.dots)
-            time.sleep(4)
+            time.sleep(5)
             count =len(dots)-1
-            time.sleep(3)
+            time.sleep(5)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(5)
             return count
         except exceptions.ElementClickInterceptedException:
             print("School level csv downloaded!")
+        time.sleep(4)

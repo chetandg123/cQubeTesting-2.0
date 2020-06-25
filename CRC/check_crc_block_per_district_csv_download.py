@@ -20,6 +20,7 @@ class blockwise():
         time.sleep(5)
         select_district =Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
+        dists = len(select_district.options)-1
         p = pwd()
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
@@ -30,8 +31,8 @@ class blockwise():
             if os.path.isfile(filename) != True:
                 print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                 count = count + 1
+            time.sleep(3)
             if os.path.isfile(filename) == True:
                 os.remove(filename)
-        return count
 
-
+        return dists

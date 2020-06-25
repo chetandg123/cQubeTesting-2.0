@@ -223,6 +223,7 @@ class GetData():
     def test_mouse_over(self):
         self.driver.implicitly_wait(20)
         lists = self.driver.find_elements_by_class_name(Data.dots)
+        count = len(lists)-1
         time.sleep(5)
         def mouseover(i):
             action = ActionChains(self.driver)
@@ -234,7 +235,7 @@ class GetData():
         while i < len(lists):
             mouseover(i)
             i = i + 1
-
+        return count
     def Table_data(self):
         tabledata = self.driver.find_elements_by_xpath(Data.distrows)
         for i in range(len(tabledata)):

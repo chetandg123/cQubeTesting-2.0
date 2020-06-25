@@ -25,6 +25,6 @@ class click_on_home():
         cluster.select_by_index(1)
         time.sleep(5)
         self.driver.find_element_by_id(Data.homeicon).click()
-        time.sleep(2)
+        time.sleep(5)
 
 

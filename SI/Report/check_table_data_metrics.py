@@ -22,16 +22,8 @@ class download_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = p.get_download_dir() + "/Dist_level_Infra_Report.csv"
-        # with open(self.filename) as fin:
-        #     csv_reader = csv.reader(fin, delimiter=',')
-        #     header = next(csv_reader)
-        #     total = 0
-        #     for row in csv.reader(fin):
-        #         total += int(row[5])
-        #     visit = self.driver.find_element_by_id("visited").text
-        #     time.sleep(3)
-        #     res = re.sub('\D',"",visit)
-        #     time.sleep(5)
+
+        time.sleep(5)
         return os.path.isfile(self.filename)
 
     def remove_csv(self):

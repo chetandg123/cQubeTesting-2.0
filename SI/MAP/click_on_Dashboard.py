@@ -15,6 +15,6 @@ class click_dashboard():
         self.driver.find_element_by_xpath(Data.School_infra).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.Reportmap).click()
-        time.sleep(4)
+        time.sleep(5)
         return text
 

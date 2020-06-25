@@ -16,5 +16,6 @@ class home_button():
         time.sleep(3)
         self.driver.find_element_by_id(Data.homeicon).click()
         down =  self.driver.find_element_by_id(Data.Download)
+        time.sleep(5)
         return down.is_displayed()
 

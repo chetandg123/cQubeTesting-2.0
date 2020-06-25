@@ -22,7 +22,9 @@ class download_blockwise_csv():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(10)
         self.filename = p.get_download_dir() + "/Block_level_CRC_Report.csv"
+        time.sleep(4)
         return os.path.isfile(self.filename)
+
     def remove_file(self):
         os.remove(self.filename)
 

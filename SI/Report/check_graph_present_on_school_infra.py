@@ -14,3 +14,4 @@ class check_with_graph():
             print("Scattor plot is present")
         else:
             print("Scattor plot is not present")
+        time.sleep(4)

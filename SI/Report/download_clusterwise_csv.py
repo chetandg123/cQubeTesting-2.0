@@ -19,8 +19,9 @@ class donwload_clusterwise_csv():
         District_wise.select_by_index(3)
         time.sleep(5)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(20)
+        time.sleep(25)
         self.filename = p.get_download_dir() + "/Cluster_level_Infra_Report.csv"
+        time.sleep(5)
         return os.path.isfile(self.filename)
 
     def remove_csv(self):

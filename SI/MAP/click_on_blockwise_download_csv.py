@@ -14,5 +14,10 @@ class cluster_level_map_check():
         time.sleep(3)
         self.driver.find_element_by_xpath(Data.scm_blk).click()
         time.sleep(3)
+        lists = self.driver.find_elements_by_class_name(Data.dots)
+        time.sleep(2)
+        count = len(lists)-1
+        time.sleep(2)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
+        return count

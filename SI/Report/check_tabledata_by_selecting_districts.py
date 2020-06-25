@@ -49,9 +49,9 @@ class districtwise_tabledata():
                 if number_of_rows ==0:
                     count = count + 1
                     print("District" + select_district.first_selected_option.text + "table data not found")
+            time.sleep(3)
+            return count
 
-            if count !=0:
-                raise self.failureException('Data not found on table')
 
         except exceptions.NoSuchElementException:
             print("ok")

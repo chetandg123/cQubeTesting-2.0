@@ -9,6 +9,8 @@ class Check_order_of_tabledata():
     def test_order(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         time.sleep(5)
+        title = self.driver.find_element_by_id(Data.Dashboard).text
+        time.sleep(3)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
         self.driver.find_element_by_id(Data.CRC).click()
@@ -28,4 +30,5 @@ class Check_order_of_tabledata():
 
         self.driver.find_element_by_xpath(Data.hyper).click()
         time.sleep(5)
+        return title
 
