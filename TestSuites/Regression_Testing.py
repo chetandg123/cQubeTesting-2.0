@@ -37,6 +37,7 @@ class TestCases():
             cal = MyTestSuite()
             cal.test_Issue01(month[y])
             log.put_log(month[y] + "ended")
+
             a.list.clear()
     cal_crc_sr_si = MyTestSuite()
     cal_crc_sr_si.test_Issue02()
