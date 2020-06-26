@@ -16,7 +16,6 @@ class districtwise_tabledata():
     def test_table_data(self):
         self.driver.find_element_by_xpath(Data.hyper).click()
         time.sleep(5)
-        print("block level table is loading")
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
         for k in range(1, len(select_district.options)):

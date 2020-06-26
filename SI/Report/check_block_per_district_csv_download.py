@@ -17,7 +17,7 @@ class blocklevel_csv():
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         p = pwd()
         count = 0
-        for x in range(32, len(select_district.options)):
+        for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             time.sleep(5)
             self.driver.find_element_by_id('download').click()

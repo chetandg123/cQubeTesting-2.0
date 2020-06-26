@@ -47,7 +47,7 @@ class cQube_SI_Report(unittest.TestCase):
 
     def test_blockwise_from_selectbox(self):
         b =blocklevel_csv(self.driver)
-        res = b.test_search()
+        res = b.test_each_district()
         self.assertEqual(0,res,msg="some files are not downloaded")
 
     def test_clusterwise_from_selectbox(self):
@@ -97,11 +97,11 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertTrue(res,msg="Table is not exist")
         time.sleep(5)
 
-    def test_tabledata_clusterwise(self):
-        b = clusterwise_tabledata(self.driver)
-        res = b.test_table_data()
-        if res != 0:
-            raise self.failureException('Data not found on table')
+    # def test_tabledata_clusterwise(self):
+    #     b = clusterwise_tabledata(self.driver)
+    #     res = b.test_table_data()
+    #     if res != 0:
+    #         raise self.failureException('Data not found on table')
 
     def test_tabledata_blockwise(self):
         b =blockwise_tabledata(self.driver)
@@ -158,11 +158,11 @@ class cQube_SI_Report(unittest.TestCase):
         b.remove_csv()
         time.sleep(5)
 
-    def test_donwload_clusterwise(self):
-        b = donwload_clusterwise_csv(self.driver)
-        res = b.test_clusterwise()
-        self.assertTrue(res, msg="File is not downloaded")
-        b.remove_csv()
+    # def test_donwload_clusterwise(self):
+    #     b = donwload_clusterwise_csv(self.driver)
+    #     res = b.test_clusterwise()
+    #     self.assertTrue(res, msg="File is not downloaded")
+    #     b.remove_csv()
 
     def test_schoolwise_donwload(self):
         b = school_wise_donwload(self.driver)
