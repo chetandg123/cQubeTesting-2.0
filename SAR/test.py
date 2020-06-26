@@ -1,30 +1,40 @@
+import time
+
+from reuse_func import GetData
+
+data = GetData()
+logger = data.get_regression_log()
+
 import unittest
 
 from reuse_func import GetData
 
 
 class Test(unittest.TestCase):
+    total = 3
 
-    def test_add(self):
-        self.data = GetData()
+    def test_add(self,):
+        data = GetData()
+        logger = data.get_regression_log()
+        log = GetData()
+        print("adding",)
+        time.sleep(3)
 
-        self.count = self.count +1
-        print("adding")
     def test_sub(self):
-        self.count = self.count + 1
+        data = GetData()
+        logger = data.get_regression_log()
         print("subtracitn")
+        time.sleep(3)
+
     def test_div(self):
-        self.count = self.count + 1
+        data = GetData()
+        logger = data.get_regression_log()
         print("dividing")
+        time.sleep(3)
 
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-
 
 # import time
 #
@@ -81,14 +91,6 @@ if __name__ == '__main__':
 #     dots.pop(0)
 #     time.sleep(3)
 # actions.move_to_element(dots).perform()
-
-
-
-
-
-
-
-
 
 
 # from selenium import webdriver

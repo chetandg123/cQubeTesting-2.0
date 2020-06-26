@@ -45,6 +45,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.year = year.first_selected_option.text
         self.month = month.first_selected_option.text
 
+
     def test_click_on_student_attendence_report(self):
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
