@@ -1,51 +1,66 @@
-import time
-from selenium import webdriver
-from selenium.webdriver.support.select import Select
+import configparser
+import sys
+import os
 
-from Data.parameters import Data
-from SAR.arg import arg
-from TestSuites.cQube import MyTestSuite
-from  get_dir import pwd
-#pwd = Data()
-from reuse_func import GetData
-class TestCases():
-    data = GetData()
-    driver = data.get_driver()
-    data.open_cqube_appln(driver)
-    data.login_cqube(driver)
-    data.navigate_to_student_report()
+from SAR import sar
+from SR import semester_report_regression_testing
+from get_dir import pwd
+from CRC import crc
+from Login import cQube_login
+from SI.MAP import SI_mapreport
+from SI.Report import SI_Report
 
-    errMsg = driver.find_element_by_css_selector('p#errMsg')
-    if errMsg.text == 'No data found':
-        print("No data in the page")
-        driver.close()
-        exit(0)
-    else:
-        time.sleep(3)
-        select_year = Select(driver.find_element_by_name(Data.select_year))
-        select_month = Select(driver.find_element_by_name(Data.select_month))
-        time.sleep(3)
 
-        year = []
-        month = []
 
-        for x in select_year.options:
-            year.append(x.text)
-        for y in select_month.options:
-            month.append(y.text)
 
-        for x in range(1, len(year)):
-            for y in range(1,len(month)):
-                a = arg()
-                a.list.append(year[x])
-                a.list.append(month[y])
-                log = GetData()
-                logger = log.get_regression_log()
-                logger.info(month[y]+"started")
-                cal = MyTestSuite()
-                cal.test_Issue01(month[y])
-                logger.info(month[y] + "ended")
-                a.list.clear()
-        cal_crc_sr_si = MyTestSuite()
-        cal_crc_sr_si.test_Issue02()
-        driver.close()
+import unittest
+from fileinput import close
+from HTMLTestRunner import HTMLTestRunner
+
+class MyTestSuite(unittest.TestCase):
+    def test_Issue01(self,month):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            # file name .class name
+            unittest.defaultTestLoader.loadTestsFromTestCase(sar.cQube_Student_Attendance),
+
+        ])
+        p= pwd()
+        outfile = open(p.get_regression_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title= month + 'Regression Test Report',
+            verbosity=1,
+
+        )
+
+        runner1.run(regression_test)
+        outfile.close()
+
+    def test_Issue02(self):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            # file name .class name
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
+            unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_regression_testing.cQube_Semester_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
+        ])
+        p= pwd()
+        outfile = open(p.get_regression_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Regression Test Report',
+            verbosity=1,
+
+        )
+
+        runner1.run(regression_test)
+        outfile.close()
+
+
+if __name__ == '__main__':
+    unittest.main()

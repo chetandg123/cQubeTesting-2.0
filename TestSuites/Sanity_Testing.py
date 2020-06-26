@@ -3,7 +3,7 @@ import sys
 import os
 
 from SAR import student_attendance_sanity_testing
-from SR import semester_report
+from SR import semester_report_sanity_testing
 from get_dir import pwd
 from CRC import crc
 from Login import cQube_login
@@ -26,7 +26,7 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(cQube_login.cQube_Login_Test),
             unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_sanity_testing.cQube_Student_Attendance),
             unittest.defaultTestLoader.loadTestsFromTestCase(crc.cQube_CRC_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester_report.cQube_Semester_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_sanity_testing.cQube_Semester_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(SI_mapreport.cQube_SI_Map_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(SI_Report.cQube_SI_Report)
         ])

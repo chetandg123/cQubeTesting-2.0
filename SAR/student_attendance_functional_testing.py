@@ -35,16 +35,15 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.total_tests = 20
         self.tests = [0] * 21
         self.data = GetData()
-        self.logger = self.data.get_sanity_log()
+        self.logger = self.data.get_functional_log()
 
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.x = arg()
-        year = Select(self.driver.find_element_by_id(Data.sar_year))
-        month = Select(self.driver.find_element_by_id(Data.sar_month))
-        self.year = year.first_selected_option.text
-        self.month = month.first_selected_option.text
+        self.year = self.x.list[0]
+        self.month = self.x.list[1]
+        self.data.select_month_year(self.year, self.month)
 
     def test_click_on_dashboard(self):
         self.tests.pop()
