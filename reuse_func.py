@@ -21,25 +21,25 @@ class GetData():
 
     def get_smoke_log(self):
         logging.basicConfig(filename=self.p.get_smoke_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
-                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
         logger = logging.getLogger()
         return logger
 
     def get_functional_log(self):
         logging.basicConfig(filename=self.p.get_functional_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
-                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
         logger = logging.getLogger()
         return logger
 
     def get_sanity_log(self):
         logging.basicConfig(filename=self.p.get_sanity_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
-                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
         logger = logging.getLogger()
         return logger
 
     def get_regression_log(self):
         logging.basicConfig(filename=self.p.get_regression_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
-                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
         logger = logging.getLogger()
         return logger
 
