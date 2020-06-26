@@ -32,8 +32,12 @@ class TestCases():
             a = arg()
             a.list.append(year[x])
             a.list.append(month[y])
+            log = GetData()
+            log.put_log(month[y]+"started")
             cal = MyTestSuite()
             cal.test_Issue01(month[y])
+            log.put_log(month[y] + "ended")
+
             a.list.clear()
     cal_crc_sr_si = MyTestSuite()
     cal_crc_sr_si.test_Issue02()

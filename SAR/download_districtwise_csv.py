@@ -18,6 +18,7 @@ class DistrictwiseCsv():
     def click_download_icon_of_district(self):
         state = GetData()
         state.click_on_state(self.driver)
+        time.sleep(2)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()

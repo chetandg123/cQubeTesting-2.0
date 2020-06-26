@@ -5,6 +5,7 @@ import unittest
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class ClusterwiseCsv():
@@ -15,6 +16,8 @@ class ClusterwiseCsv():
         self.month = month.strip()
 
     def click_download_icon_of_clusters(self):
+        state = GetData()
+        state.click_on_state(self.driver)
         self.driver.find_element_by_id(Data.SAR_Clusters_btn).click()
         time.sleep(15)
         self.driver.find_element_by_id(Data.Download).click()
