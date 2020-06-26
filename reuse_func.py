@@ -33,6 +33,8 @@ class GetData():
         options.add_argument('--headless')
         self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver
+        # self.driver = webdriver.Chrome(executable_path=self.p.get_driver_path())
+        # return self.driver
 
     def open_cqube_appln(self,driver):
         self.driver = driver
@@ -107,7 +109,6 @@ class GetData():
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
         self.driver.find_element_by_id(Data.CRC).click()
-
     def Details_text(self):
         Details = self.driver.find_elements_by_xpath(Data.details)
         time.sleep(5)

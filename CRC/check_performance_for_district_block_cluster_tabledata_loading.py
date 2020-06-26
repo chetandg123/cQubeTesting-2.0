@@ -20,7 +20,7 @@ class clusterlevel_tabledata_loading():
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         select_cluster = Select(self.driver.find_element_by_name('myCluster'))
         count = 0
-        for k in range(1, len(select_district.options)):
+        for k in range(len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(k)
             time.sleep(3)
             for l in range(1, len(select_block.options)):

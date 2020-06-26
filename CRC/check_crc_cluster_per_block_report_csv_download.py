@@ -14,16 +14,16 @@ class cluster_csv():
 
     def __init__(self, driver):
         self.driver = driver
+        self.filename =''
     def test_clusterlevel(self):
+
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         time.sleep(5)
-        print("cluster  level is donwloaded")
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count = 0
-        dist = len(select_district.options)-1
         p =pwd()
-        for x in range(1, len(select_district.options)):
+        for x in range(len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(x)
             time.sleep(4)
             for y in range(1, len(select_block.options)):
@@ -38,7 +38,7 @@ class cluster_csv():
                 if os.path.isfile(filename) == True:
                     os.remove(filename)
 
-        return dist
+        return count
 
 
 

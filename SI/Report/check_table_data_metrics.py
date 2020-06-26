@@ -22,9 +22,8 @@ class download_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = p.get_download_dir() + "/Dist_level_Infra_Report.csv"
-
-        time.sleep(5)
-        return os.path.isfile(self.filename)
-
+        time.sleep(3)
+        value =  os.path.isfile(self.filename)
+        return value
     def remove_csv(self):
         os.remove(self.filename)

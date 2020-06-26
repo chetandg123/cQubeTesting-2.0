@@ -48,7 +48,7 @@ class cQube_SI_Report(unittest.TestCase):
     def test_blockwise_from_selectbox(self):
         b =blocklevel_csv(self.driver)
         res = b.test_search()
-        self.assertEqual(0, res, msg="Districtwise csv not present for all districts ")
+        self.assertEqual(0,res,msg="some files are not downloaded")
 
     def test_clusterwise_from_selectbox(self):
         b = clusterlevel_csv(self.driver)
@@ -140,15 +140,15 @@ class cQube_SI_Report(unittest.TestCase):
     def test_school_report(self):
         b=check_schoolinfra_report(self.driver)
         res = b.test_report()
-        self.assertEqual("cQube - Dashboard",res,msg="Dashboard is not exists!")
+        self.assertEqual("menu",res,msg="Dashboard is not exists!")
 
-    def check_orderwise(self):
+    def test_check_orderwise(self):
         b =check_order_of_tabledata(self.driver)
+        print("Table record order wise..")
         res = b.test_tablevalue()
 
     def test_plotvalue(self):
         b =Graph_values(self.driver)
-        print("Table record order wise..")
         res = b.test_plots()
 
     def test_donwload_blockwise(self):
@@ -158,17 +158,17 @@ class cQube_SI_Report(unittest.TestCase):
         b.remove_csv()
         time.sleep(5)
 
-    # def test_donwload_clusterwise(self):
-    #     b = donwload_clusterwise_csv(self.driver)
-    #     res = b.test_clusterwise()
-    #     self.assertTrue(res, msg="File is not downloaded")
-    #     b.remove_csv()
-    #
-    # def test_schoolwise_donwload(self):
-    #     b = school_wise_donwload(self.driver)
-    #     res = b.test_schoolwise()
-    #     self.assertTrue(res, msg="File is not downloaded")
-    #     b.remove_csv()
+    def test_donwload_clusterwise(self):
+        b = donwload_clusterwise_csv(self.driver)
+        res = b.test_clusterwise()
+        self.assertTrue(res, msg="File is not downloaded")
+        b.remove_csv()
+
+    def test_schoolwise_donwload(self):
+        b = school_wise_donwload(self.driver)
+        res = b.test_schoolwise()
+        self.assertTrue(res, msg="File is not downloaded")
+        b.remove_csv()
 
     def test_download_districtwise(self):
         b = download_district_wise_csv(self.driver)
@@ -192,9 +192,8 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertEqual("cQube",self.driver.title,msg="logout is not working ")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
+        time.sleep(3)
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
-
-

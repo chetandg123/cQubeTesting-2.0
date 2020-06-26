@@ -60,7 +60,7 @@ class cQube_Login_Test(unittest.TestCase):
     def test_invalids(self):
         b =login_test_invalidvalues(self.driver)
         res =b.test_login()
-        self.assertEqual(res,"User validity exceeded" , msg="Failed")
+        self.assertEqual(res,"User not found" , msg="Failed")
 
 
     def test_invalidpassword(self):
