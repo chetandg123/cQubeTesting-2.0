@@ -15,9 +15,33 @@ class GetData():
         self.p = pwd()
 
 
-    def put_log(self,received_msg):
-        logging.basicConfig(filename=self.p.get_log_dir(),filemode='w',format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S',level=logging.INFO)
-        logging.info(received_msg)
+    # def put_log(self,received_msg):
+    #     logging.basicConfig(filename=self.p.get_log_dir(),filemode='w',format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S',level=logging.INFO)
+    #     logging.info(received_msg)
+
+    def get_smoke_log(self):
+        logging.basicConfig(filename=self.p.get_smoke_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+        logger = logging.getLogger()
+        return logger
+
+    def get_functional_log(self):
+        logging.basicConfig(filename=self.p.get_functional_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+        logger = logging.getLogger()
+        return logger
+
+    def get_sanity_log(self):
+        logging.basicConfig(filename=self.p.get_sanity_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+        logger = logging.getLogger()
+        return logger
+
+    def get_regression_log(self):
+        logging.basicConfig(filename=self.p.get_regression_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.DEBUG)
+        logger = logging.getLogger()
+        return logger
 
     def get_domain_name(self):
         config = configparser.ConfigParser()
@@ -38,7 +62,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -46,11 +70,11 @@ class GetData():
         self.driver = driver
         self.driver.maximize_window()
         self.driver.get(self.get_domain_name())
-        self.driver.implicitly_wait(30)
+        self.driver.implicitly_wait(60)
 
     def login_cqube(self,driver):
         self.driver = driver
-        self.driver.implicitly_wait(30)
+        self.driver.implicitly_wait(60)
         self.driver.find_element_by_id(Data.email).send_keys(self.get_username())
         self.driver.find_element_by_id(Data.passwd).send_keys(self.get_password())
         self.driver.find_element_by_id(Data.login).click()
@@ -60,6 +84,10 @@ class GetData():
         self.driver = driver
         self.driver.find_element_by_css_selector(Data.sar_hyper_link).click()
         time.sleep(2)
+
+    def get_data_status(self):
+        errMsg = self.driver.find_element_by_css_selector('p#errMsg')
+        return errMsg
 
     def navigate_passwordchange(self):
         self.driver.implicitly_wait(10)
@@ -274,4 +302,3 @@ class GetData():
             time.sleep(3)
             driver = cqube(self.driver)
             driver.CRC_footers()
-

@@ -18,6 +18,7 @@ class TestCases():
     errMsg = driver.find_element_by_css_selector('p#errMsg')
     if errMsg.text == 'No data found':
         print("No data in the page")
+        driver.close()
         exit(0)
     else:
         time.sleep(3)

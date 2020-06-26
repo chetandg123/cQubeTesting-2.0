@@ -36,7 +36,10 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
+        self.total_tests = 15
+        self.tests = [0] * 15
         self.data = GetData()
+        self.logger = self.data.get_smoke_log()
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
@@ -47,14 +50,18 @@ class cQube_Student_Attendance(unittest.TestCase):
 
 
     def test_click_on_student_attendence_report(self):
+        self.tests.pop()
+        self.logger.info("test_click_on_student_attendence_report is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
         if "Student Attendance Report" in result:
             print("Student Attendance Report is Working")
         else:
             raise self.failureException("Student Attendance Report Is Not Working")
+        self.logger.info("test_click_on_student_attendence_report is completed...")
 
     def test_click_on_blocks(self):
+        self.logger.info("test_click_on_blocks is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -66,8 +73,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Blocks Button is working")
         except WebDriverException:
             raise self.failureException("Blocks Button is not clickable")
+        self.logger.info("test_click_on_student_attendence_report is completed...")
 
     def test_click_on_clusters(self):
+        self.logger.info("test_click_on_clusters is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -79,8 +88,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Cluster Button is working")
         except WebDriverException:
             raise self.failureException("Cluster Button is not working")
+        self.logger.info("test_click_on_student_attendence_report is completed...")
 
     def test_click_on_schools(self):
+        self.logger.info("test_click_on_schools is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -92,8 +103,9 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Schools Button is working")
         except WebDriverException:
             raise self.failureException("Schools Button is not working")
-
+        self.logger.info("test_click_on_student_attendence_report is completed...")
     def test_logout(self):
+        self.logger.info("test_logout is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -106,16 +118,20 @@ class cQube_Student_Attendance(unittest.TestCase):
             time.sleep(5)
         except WebDriverException:
             raise self.failureException("Logout Button is not working")
+        self.logger.info("test_logout is completed...")
 
     def test_check_hyperlinks(self):
+        self.logger.info("test_check_hyperlinks is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         hyperlinks = Hyperlink(self.driver)
         result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
         if result1 == False and result2 == False and choose_dist == "Choose a District ":
             print("hyperlinks are working")
         else:
             raise self.failureException("hyperlinks are not working")
+        self.logger.info("test_check_hyperlinks is completed...")
 
     def test_select_year(self):
+        self.logger.info("test_select_year is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         year = Select(self.driver.find_element_by_id(Data.sar_year))
@@ -126,8 +142,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Select year is working")
         except WebDriverException:
             raise self.failureException("Select Year is not working")
+        self.logger.info("test_select_year is completed...")
 
     def test_select_month(self):
+        self.logger.info("test_select_month is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         month = Select(self.driver.find_element_by_id(Data.sar_month))
@@ -138,8 +156,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Select month is working")
         except WebDriverException:
             raise self.failureException("Select month is not working")
+        self.logger.info("test_select_month is completed...")
 
     def test_choose_district(self):
+        self.logger.info("test_choose_district is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
@@ -150,8 +170,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Choose District is working")
         except WebDriverException:
             raise self.failureException("Choose District is not working")
+        self.logger.info("test_choose_district is completed...")
 
     def test_choose_block(self):
+        self.logger.info("test_choose_block is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
@@ -167,8 +189,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Choose District and Block is working")
         except WebDriverException:
             raise self.failureException("Choose District and Block is not working")
+        self.logger.info("test_choose_block is completed...")
 
     def test_choose_cluster(self):
+        self.logger.info("test_choose_cluster is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
@@ -188,8 +212,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Choose District,Block and Cluster is working")
         except WebDriverException:
             raise self.failureException("Choose District,Block and Cluster is not working")
+        self.logger.info("test_choose_cluster is completed...")
 
     def test_home_icon(self):
+        self.logger.info("test_home_icon is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         home = Home(self.driver)
         home.click_on_blocks_click_on_home_icon()
         result = home.click_HomeButton()
@@ -197,8 +223,10 @@ class cQube_Student_Attendance(unittest.TestCase):
             print("Home Icon is Working")
         else:
             raise self.failureException('Home Icon is not working')
+        self.logger.info("test_home_icon is completed...")
 
     def test_download(self):
+        self.logger.info("test_download is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         element = self.driver.find_element_by_id(Data.sar_download)
@@ -209,17 +237,21 @@ class cQube_Student_Attendance(unittest.TestCase):
             time.sleep(5)
         except WebDriverException:
             raise self.failureException("Download Button is not working")
+        self.logger.info("test_download is completed...")
 
     def test_markers_on_map(self):
+        self.logger.info("test_markers_on_map is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         state = GetData()
         state.click_on_state(self.driver)
         dots = self.driver.find_elements_by_class_name(Data.dots)
-        if int(len(dots)-1) != 0:
+        if int(len(dots) - 1) != 0:
             print('Markers are present on the map')
         else:
             raise self.failureException("Markers are not present on the map")
+        self.logger.info("test_markers_on_map is completed...")
 
     def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
+        self.logger.info("test_no_of_schools_is_equals_at_districts_blocks_clusters_schools is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         tc = TotalSchools(self.driver)
         schools, Bschools = tc.block_no_of_schools()
         self.assertEqual(int(schools), int(Bschools), msg="Block level no of schools are not equal to no of schools ")
@@ -227,8 +259,10 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.assertEqual(int(schools), int(Cschools), msg="Cluster level no of schools are not equal to no of schools ")
         schools, Sschools = tc.schools_no_of_schools()
         self.assertEqual(int(schools), int(Sschools), msg="Cluster level no of schools are not equal to no of schools ")
+        self.logger.info("test_no_of_schools_is_equals_at_districts_blocks_clusters_schools is completed...")
 
     def test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools(self):
+        self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is running"+" "+"Total :" + str(self.total_tests) + "Remaining :" + str(len(self.tests)))
         tc = TotalStudents(self.driver)
         student_count, Bstudents = tc.block_total_no_of_students()
         self.assertEqual(int(student_count), int(Bstudents), msg="Block level no of students are not equal")
@@ -236,7 +270,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.assertEqual(int(student_count), int(Cstudents), msg="Cluster level no of students are not equal")
         student_count, Sstudents = tc.schools_total_no_of_students()
         self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
-
+        self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
 
     @classmethod
     def tearDownClass(cls):
