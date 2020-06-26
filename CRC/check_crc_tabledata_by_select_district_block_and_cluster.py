@@ -15,16 +15,14 @@ class check_district_block_cluster_tabledata():
     def test_table_data(self):
         self.driver.find_element_by_xpath(Data.hyper).click()
         time.sleep(5)
-        print("table data is loaded")
-        time.sleep(3)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         select_cluster = Select(self.driver.find_element_by_name('myCluster'))
         count = 0
-        for k in range(1, len(select_district.options)):
+        for k in range( len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(k)
             time.sleep(3)
-            for l in range(1, len(select_block.options)):
+            for l in range(len(select_block.options)-1, len(select_block.options)):
                 select_block.select_by_index(l)
                 time.sleep(4)
                 table_data = []

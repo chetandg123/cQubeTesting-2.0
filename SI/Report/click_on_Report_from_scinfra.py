@@ -16,7 +16,8 @@ class check_schoolinfra_report():
             time.sleep(3)
             self.driver.find_element_by_id(Data.Dashboard).click()
             time.sleep(2)
-            text = self.driver.find_element_by_xpath(Data.header).text
+            text = self.driver.find_element_by_id(Data.Dashboard).text
+            print(text)
             self.driver.find_element_by_xpath(Data.School_infra).click()
             time.sleep(3)
             self.driver.find_element_by_id(Data.Report).click()
@@ -25,7 +26,7 @@ class check_schoolinfra_report():
                 print("Shool infrastructure report page")
             else:
                 print("School infrastructure report page is not exist")
-            # return text
+            return text
         except exceptions.NoSuchElementException:
             print("school infra report page is present on screen")
             time.sleep(5)

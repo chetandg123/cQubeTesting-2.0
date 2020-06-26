@@ -17,7 +17,7 @@ class download_district_wise_csv():
         p =pwd()
         District_wise=Select(self.driver.find_element_by_name("downloadType"))
         District_wise.select_by_index(1)
-        time.sleep(3)
+        time.sleep(4)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = p.get_download_dir() + "/Dist_level_Infra_Report.csv"

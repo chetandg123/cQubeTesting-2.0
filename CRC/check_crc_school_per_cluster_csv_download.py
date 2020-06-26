@@ -43,5 +43,4 @@ class crc_schoollevel():
                         count = count + 1
                     if os.path.isfile(filename) == True:
                         os.remove(filename)
-                else:
-                    print("school level crc report is not downloaded")
+        return count

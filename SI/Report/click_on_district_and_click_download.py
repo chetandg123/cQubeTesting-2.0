@@ -17,10 +17,11 @@ class download_districtwise():
         time.sleep(5)
         dist = Select(self.driver.find_element_by_name(Data.select_district))
         dist.select_by_index(10)
-        time.sleep(4)
-        self.driver.find_element_by_id(Data.Download)
         time.sleep(3)
+        self.driver.find_element_by_id(Data.Download).click()
+        time.sleep(5)
         self.filename = p.get_download_dir() + "/blockPerDistrict_report.csv"
+        time.sleep(3)
         return os.path.isfile(self.filename)
 
     def remove_csv(self):

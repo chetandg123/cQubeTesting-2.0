@@ -10,6 +10,7 @@ from get_dir import pwd
 class Districtwise_donwload():
     def __init__(self,driver):
         self.driver = driver
+        self.filename =''
     def test_districtwise(self):
         self.driver.find_element_by_xpath(Data.hyper).click()
         time.sleep(5)

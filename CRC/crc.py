@@ -56,7 +56,7 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_blockwise_data(self):
         b = blockwise(self.driver)
         result = b.test_blocklevel()
-        self.assertNotEqual(0,result,msg="Districts are present in select box")
+        self.assertEqual(0,result,msg="some district files are not downloaded")
 
     def test_clusterwise_csv_download(self):
         b = cluster_csv(self.driver)
@@ -66,23 +66,24 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_school_level(self):
         b =crc_schoollevel(self.driver)
         result = b.test_schoollevel()
+        self.assertEqual(0,result,msg="cluster level records not downloaded")
 
-    def test_school_table_data(self):
+    def test_table_data(self):
         b= schoolwise_tabledata(self.driver)
         result = b.test_table_data()
         self.assertNotEqual(0,result,"Data not found on table")
 
-    def test_schoolwise_tabledata(self):
-        b =check_district_block_cluster_tabledata(self.driver)
-        result = b.test_table_data()
-        if result != 0:
-            raise self.failureException('Data not found on table')
+    # def test_schoolwise_tabledata(self):
+    #     b =check_district_block_cluster_tabledata(self.driver)
+    #     result = b.test_table_data()
+    #     if result != 0:
+    #         raise self.failureException('Data not found on table')
 
-    def test_blockwise_tabledata(self):
-        b =blockwise_tabledata(self.driver)
-        result  = b.test_table_data()
-        if result != 0:
-            raise self.failureException('Data not found on table')
+    # def test_clusterwise_tabledata(self):
+    #     b =blockwise_tabledata(self.driver)
+    #     result  = b.test_table_data()
+    #     if result != 0:
+    #         raise self.failureException('Data not found on table')
 
     def test_districtwise_tabledata(self):
          b= districtwise_tabledata(self.driver)
@@ -102,12 +103,12 @@ class cQube_CRC_Report(unittest.TestCase):
         print("Block wise csv file is downloaded within 10 seconds")
         b.remove_file()
 
-    # def test_peformance_clusterwise(self):
-    #     b = download_clusterwise_csv(self.driver)
-    #     result = b.test_clusterwise()
-    #     self.assertTrue(result, msg = "File is not downloaded")
-    #     print("cluster wise csv file is downloaded within 10 seconds")
-    #     b.remove_file()
+    def test_peformance_clusterwise(self):
+        b = download_clusterwise_csv(self.driver)
+        result = b.test_clusterwise()
+        self.assertTrue(result, msg = "File is not downloaded")
+        print("cluster wise csv file is downloaded within 10 seconds")
+        b.remove_file()
 
 
     def test_peformance_districtwise(self):
@@ -125,13 +126,13 @@ class cQube_CRC_Report(unittest.TestCase):
     #     b.remove_file()
 
 
-    def test_tabledata_loading_clusterlevel(self):
-        b = clusterlevel_tabledata_loading(self.driver)
-        result = b.test_table_data()
-        if result != 0:
-            raise self.failureException('Data not found on table')
-        else:
-            print("District , block and cluster table data is loaded within 3 seconds ")
+    # def test_tabledata_loading_clusterlevel(self):
+    #     b = clusterlevel_tabledata_loading(self.driver)
+    #     result = b.test_table_data()
+    #     if result != 0:
+    #         raise self.failureException('Data not found on table')
+    #     else:
+    #         print("District , block and cluster table data is loaded within 3 seconds ")
 
     def test_peformance_of_crc_report(self):
         b = CRC_report(self.driver)
@@ -140,13 +141,13 @@ class cQube_CRC_Report(unittest.TestCase):
             print("CRC report page is exists")
         else:
             print("CRC report page is not loaded ")
-    #
-    # def test_schoolwise_csv(self):
-    #     b = download_schoollevel_csv(self.driver)
-    #     result = b.test_schoolwise()
-    #     self.assertTrue(result, msg="File is not downloaded within 20 seconds")
-    #     b.remove_csv()
 
+    def test_schoolwise_csv(self):
+        b = download_schoollevel_csv(self.driver)
+        result = b.test_schoolwise()
+        self.assertTrue(result, msg="File is not downloaded within 20 seconds")
+        b.remove_csv()
+    #
     def test_orderwise_tabledataa(self):
         b = Check_order_of_tabledata(self.driver)
         result = b.test_order()
@@ -175,11 +176,11 @@ class cQube_CRC_Report(unittest.TestCase):
         self.assertTrue(result, msg="File is not downloaded")
         b.remove_file()
 
-    # def test_donwoad_clusterwise_csv(self):
-    #     b = load_clusterwise_csv(self.driver)
-    #     result = b.test_clusterwise()
-    #     self.assertTrue(result, msg = "File is not downloaded")
-    #     b.remove_file()
+    def test_donwoad_clusterwise_csv(self):
+        b = load_clusterwise_csv(self.driver)
+        result = b.test_clusterwise()
+        self.assertTrue(result, msg = "File is not downloaded")
+        b.remove_file()
 
 
     def test_visited(self):
@@ -199,18 +200,18 @@ class cQube_CRC_Report(unittest.TestCase):
         res1, res2 = b.test_schools()
         self.assertEqual(int(res1), res2, msg="total no of school are mismatching in district level")
         b.remove_csv()
-
+    #
     def test_download_districtwise(self):
         b = Districtwise_donwload(self.driver)
         result  = b.test_districtwise()
         self.assertTrue(result, msg="File is not downloaded")
         b.remove_csv()
 
-    # def test_download_schoolwise(self):
-    #     b =school_wise_download(self.driver)
-    #     res = b.test_schoolwise()
-    #     self.assertTrue(res, msg="File is not downloaded")
-    #     b.remove_file()
+    def test_download_schoolwise(self):
+        b =school_wise_download(self.driver)
+        res = b.test_schoolwise()
+        self.assertTrue(res, msg="File is not downloaded")
+        b.remove_file()
 
     def test_logout(self):
         b = Logout_function(self.driver)

@@ -14,32 +14,10 @@ class GetData():
     def __init__(self):
         self.p = pwd()
 
-    def get_smoke_log(self):
-        logging.basicConfig(filename=self.p.get_smoke_testing_log_dir(), filemode='w',
-                            format='%(asctime)s : %(levelname)s : %(message)s ',datefmt='%d-%m-%y %I:%M:%S:%P', level=logging.DEBUG)
-        logger = logging.getLogger()
-        return logger
 
-    def get_functional_log(self):
-        logging.basicConfig(filename=self.p.get_functional_testing_log_dir(), filemode='w',
-                            format='%(asctime)s : %(levelname)s : %(message)s ',datefmt='%d-%m-%y %I:%M:%S:%P', level=logging.DEBUG)
-        logger = logging.getLogger()
-        return logger
-
-    def get_regression_log(self):
-        logging.basicConfig(filename=self.p.get_regression_testing_log_dir(), filemode='w',
-                            format='%(asctime)s : %(levelname)s : %(message)s ',datefmt='%d-%m-%y %I:%M:%S:%P', level=logging.DEBUG)
-        logger = logging.getLogger()
-        return logger
-
-    def get_sanity_log(self):
-        logging.basicConfig(filename=self.p.get_sanity_testing_log_dir(), filemode='w',
-                            format='%(asctime)s : %(levelname)s : %(message)s ',datefmt='%d-%m-%y %I:%M:%S:%P', level=logging.DEBUG)
-        logger = logging.getLogger()
-        return logger
-
-    def count(self,count):
-        return count-1
+    def put_log(self,received_msg):
+        logging.basicConfig(filename=self.p.get_log_dir(),filemode='w',format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S',level=logging.INFO)
+        logging.info(received_msg)
 
     def get_domain_name(self):
         config = configparser.ConfigParser()
@@ -61,16 +39,16 @@ class GetData():
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
         options.add_argument('--headless')
-        self.driver = webdriver.Chrome(chrome_options=options, executable_path=self.p.get_driver_path())
+        self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
-    def open_cqube_appln(self, driver):
+    def open_cqube_appln(self,driver):
         self.driver = driver
         self.driver.maximize_window()
         self.driver.get(self.get_domain_name())
         self.driver.implicitly_wait(30)
 
-    def login_cqube(self, driver):
+    def login_cqube(self,driver):
         self.driver = driver
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.email).send_keys(self.get_username())
@@ -90,6 +68,7 @@ class GetData():
         self.driver.find_element_by_xpath(Data.user_options).click()
         time.sleep(2)
 
+
     def navigate_to_student_report(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -97,7 +76,6 @@ class GetData():
         self.driver.find_element_by_id(Data.SAR).click()
         time.sleep(6)
         # self.driver.find_element_by_xpath("//*[@id='SAR']")
-
     def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -114,7 +92,7 @@ class GetData():
         time.sleep(2)
         self.driver.find_element_by_id(Data.Reportmap).click()
 
-    def select_month_year(self, y, m):
+    def select_month_year(self,y,m):
         year = Select(self.driver.find_element_by_name(Data.select_year))
         month = Select(self.driver.find_element_by_name(Data.select_month))
         time.sleep(2)
@@ -131,6 +109,7 @@ class GetData():
         self.driver.find_element_by_xpath("//*[@id='sr']").click()
         time.sleep(5)
 
+
     def navigate_to_crc_report(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -141,11 +120,11 @@ class GetData():
         Details = self.driver.find_elements_by_xpath(Data.details)
         time.sleep(5)
         for i in range(len(Details)):
-            print(Details[i].text)
+           print(Details[i].text)
 
     def Click_HomeButton(self):
-        self.driver.find_element_by_id(Data.homeicon).click()
-        time.sleep(3)
+            self.driver.find_element_by_id(Data.homeicon).click()
+            time.sleep(3)
 
     def CRC_footers(self):
         footer = self.driver.find_elements_by_xpath(Data.footer)
@@ -214,14 +193,12 @@ class GetData():
         time.sleep(3)
         self.driver.find_element_by_xpath("//*[@id='select']/select/option[5]").click()
         time.sleep(3)
-
     def crc_table_value(self):
         rows = self.driver.find_elements_by_xpath(Data.distrows)
         for j in range(len(rows)):
             print(rows[j].text)
             time.sleep(2)
-
-    # SAR_2
+    #SAR_2
     def blocks_names(self):
         self.driver.find_element_by_xpath(Data.SAR_Bnames).click()
         time.sleep(15)
@@ -255,9 +232,8 @@ class GetData():
     def test_mouse_over(self):
         self.driver.implicitly_wait(20)
         lists = self.driver.find_elements_by_class_name(Data.dots)
-        count = len(lists) - 1
+        count = len(lists)-1
         time.sleep(5)
-
         def mouseover(i):
             action = ActionChains(self.driver)
             action.move_to_element(lists[i]).perform()
@@ -269,7 +245,6 @@ class GetData():
             mouseover(i)
             i = i + 1
         return count
-
     def Table_data(self):
         tabledata = self.driver.find_elements_by_xpath(Data.distrows)
         for i in range(len(tabledata)):
@@ -278,6 +253,7 @@ class GetData():
         for i in range(len(footer)):
             print(footer[i].text)
             time.sleep(5)
+
 
     def x_yaxis(self):
         xaxis_lists = self.driver.find_elements_by_xpath(Data.xaxis)
@@ -299,12 +275,3 @@ class GetData():
             driver = cqube(self.driver)
             driver.CRC_footers()
 
-    def get_smoke_total_test_cases(self):
-        self.tests = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, \
-                      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ]
-        return  self.tests
-
-    def get_remaining_smoke_total_test_cases(self,rem):
-        self.rem =rem
-        self.rem.pop()
-        return self.rem
