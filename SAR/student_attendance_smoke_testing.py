@@ -37,7 +37,7 @@ class cQube_Student_Attendance(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.total_tests = 15
-        self.tests = [0] * 15
+        self.tests = [0] * 16
         self.data = GetData()
         self.logger = self.data.get_smoke_log()
         self.driver = self.data.get_driver()
@@ -51,7 +51,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_click_on_student_attendence_report(self):
         self.tests.pop()
-        self.logger.info("test_click_on_student_attendence_report is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_click_on_student_attendence_report is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
         if "Student Attendance Report" in result:
@@ -62,7 +62,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_click_on_blocks(self):
         self.tests.pop()
-        self.logger.info("test_click_on_blocks is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_click_on_blocks is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -78,7 +78,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_click_on_clusters(self):
         self.tests.pop()
-        self.logger.info("test_click_on_clusters is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_click_on_clusters is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -94,7 +94,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_click_on_schools(self):
         self.tests.pop()
-        self.logger.info("test_click_on_schools is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_click_on_schools is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -109,7 +109,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.logger.info("test_click_on_student_attendence_report is completed...")
     def test_logout(self):
         self.tests.pop()
-        self.logger.info("test_logout is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_logout is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
@@ -126,7 +126,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_check_hyperlinks(self):
         self.tests.pop()
-        self.logger.info("test_check_hyperlinks is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_check_hyperlinks is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         hyperlinks = Hyperlink(self.driver)
         result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
         if result1 == False and result2 == False and choose_dist == "Choose a District ":
@@ -137,7 +137,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_select_year(self):
         self.tests.pop()
-        self.logger.info("test_select_year is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_select_year is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         year = Select(self.driver.find_element_by_id(Data.sar_year))
@@ -152,7 +152,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_select_month(self):
         self.tests.pop()
-        self.logger.info("test_select_month is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_select_month is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         month = Select(self.driver.find_element_by_id(Data.sar_month))
@@ -167,7 +167,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_choose_district(self):
         self.tests.pop()
-        self.logger.info("test_choose_district is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_choose_district is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
@@ -182,7 +182,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_choose_block(self):
         self.tests.pop()
-        self.logger.info("test_choose_block is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_choose_block is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
@@ -202,7 +202,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_choose_cluster(self):
         self.tests.pop()
-        self.logger.info("test_choose_cluster is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_choose_cluster is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
@@ -226,7 +226,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_home_icon(self):
         self.tests.pop()
-        self.logger.info("test_home_icon is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_home_icon is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         home = Home(self.driver)
         home.click_on_blocks_click_on_home_icon()
         result = home.click_HomeButton()
@@ -238,7 +238,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_download(self):
         self.tests.pop()
-        self.logger.info("test_download is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_download is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         element = self.driver.find_element_by_id(Data.sar_download)
@@ -253,7 +253,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_markers_on_map(self):
         self.tests.pop()
-        self.logger.info("test_markers_on_map is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_markers_on_map is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         state = GetData()
         state.click_on_state(self.driver)
         dots = self.driver.find_elements_by_class_name(Data.dots)
@@ -265,7 +265,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
         self.tests.pop()
-        self.logger.info("test_no_of_schools_is_equals_at_districts_blocks_clusters_schools is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_no_of_schools_is_equals_at_districts_blocks_clusters_schools is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         tc = TotalSchools(self.driver)
         schools, Bschools = tc.block_no_of_schools()
         self.assertEqual(int(schools), int(Bschools), msg="Block level no of schools are not equal to no of schools ")
@@ -277,7 +277,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     def test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools(self):
         self.tests.pop()
-        self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)))
+        self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         tc = TotalStudents(self.driver)
         student_count, Bstudents = tc.block_total_no_of_students()
         self.assertEqual(int(student_count), int(Bstudents), msg="Block level no of students are not equal")
