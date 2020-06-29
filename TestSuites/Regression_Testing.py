@@ -53,7 +53,6 @@ class MyTestSuite(unittest.TestCase):
         outfile.close()
         self.logger.info("Login execution ended")
 
-
     def test_Issue02(self):
         self.data.navigate_to_student_report()
         self.errMsg = self.data.get_data_status()
@@ -84,24 +83,22 @@ class MyTestSuite(unittest.TestCase):
                     regression_test = unittest.TestSuite()
                     regression_test.addTests([
                         # file name .class name
-                        unittest.defaultTestLoader.loadTestsFromTestCase(
-                            student_attendance_regression_testing.cQube_Student_Attendance),
-
+                        unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_regression_testing.cQube_Student_Attendance),
                     ])
                     p = pwd()
                     outfile = open(p.get_regression_report_path(), "a")
 
                     runner1 = HTMLTestRunner.HTMLTestRunner(
                         stream=outfile,
-                        title=month + "Student Attendance" + 'Regression Test Report',
+                        title=month[y] + "Student Attendance" + 'Regression Test Report',
                         verbosity=1,
 
                     )
-
                     runner1.run(regression_test)
                     outfile.close()
                     self.logger.info(month[y] + "ended")
                     a.list.clear()
+
 
             self.logger.info("student attendance report execution ended")
 
