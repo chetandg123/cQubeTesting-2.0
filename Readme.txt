@@ -3,35 +3,27 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 
 google-chrome --version
 
-
-mkdir Downloads
-
-cd cQubeTesting
-source venv/bin/activate
-
-config file need to be filled
-
+config file need to be filled go to cQubeTesting Folder -> config.ini
 [config]
-domain=https://cqube.tibilprojects.com/
-username=srinivas@cqube.com
-password=tibil123
+domain=
+username=
+password=
 
-
-python -m unittest TestSuites/Smoke_Testing.py
-python -m unittest TestSuites/Functional_Testing.py
-python -m unittest TestSuites/Regression_Testing.py
-python -m unittest TestSuites/Sanity_Testing.py
+python3 -m unittest TestSuites/Run_Smoke_Testing.py
+python3 -m unittest TestSuites/Run_Functional_Testing.py
+python3 -m unittest TestSuites/Run_Regression_Testing.py
+python3 -m unittest TestSuites/Run_Sanity_Testing.py
 
 sudo apt update
-sudo apt install python-pip
-pip --version
+sudo apt install python3-pip
+pip3 --version
 
 
-pip install HTMLTestRunner-Python3
-pip install pandas
-pip install selenium
-pip install configparser
-pip install pathlib
+pip3 install HTMLTestRunner-Python3
+pip3 install pandas
+pip3 install selenium
+pip3 install configparser
+pip3 install pathlib
 
 
 
