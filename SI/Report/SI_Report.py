@@ -43,7 +43,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
-        time.sleep(5)
+        self.data.page_loading(self.driver)
 
     def test_blockwise_from_selectbox(self):
         b =blocklevel_csv(self.driver)
@@ -90,12 +90,12 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_graph_and_table_present_on_school_infra()
         try:
             tablehead = self.driver.find_element_by_tag_name("table")
-            time.sleep(5)
+            self.data.page_loading(self.driver)
             return tablehead.is_displayed()
         except exceptions.NoSuchElementException:
             print("Table is present ")
         self.assertTrue(res,msg="Table is not exist")
-        time.sleep(5)
+        self.data.page_loading(self.driver)
 
     # def test_tabledata_clusterwise(self):
     #     b = clusterwise_tabledata(self.driver)
@@ -120,17 +120,17 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_donwload()
         self.assertTrue(res,msg="districtwise file is not downloaded")
         b.remove_csv()
-        time.sleep(3)
+        self.data.page_loading(self.driver)
 
     def test_cluster_home(self):
         b = check_home(self.driver)
-        time.sleep(5)
+        self.data.page_loading(self.driver)
         res = b.test_home()
         if "school-infrastructure" in self.driver.current_url:
             print("School infra report page")
         else:
             print("school infra page not loaded")
-        time.sleep(2)
+        self.data.page_loading(self.driver)
 
     def test_donwload_options(self):
         b =Hyperlink(self.driver)
@@ -156,7 +156,7 @@ class cQube_SI_Report(unittest.TestCase):
         res =b.test_block()
         self.assertTrue(res, msg = "File is not downloaded")
         b.remove_csv()
-        time.sleep(5)
+        self.data.page_loading(self.driver)
 
     # def test_donwload_clusterwise(self):
     #     b = donwload_clusterwise_csv(self.driver)
@@ -192,7 +192,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertEqual("cQube",self.driver.title,msg="logout is not working ")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
-        time.sleep(3)
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

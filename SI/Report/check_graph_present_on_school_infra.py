@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class check_with_graph():
@@ -8,10 +9,11 @@ class check_with_graph():
         self.driver = driver
 
     def test_graph(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         if "myChart" in self.driver.page_source:
             print("Scattor plot is present")
         else:
             print("Scattor plot is not present")
-        time.sleep(4)
+        self.p.page_loading(self.driver)

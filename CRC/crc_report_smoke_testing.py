@@ -34,7 +34,7 @@ class cQube_CRC_Report(unittest.TestCase):
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
             self.data.navigate_to_crc_report()
-            time.sleep(5)
+            self.data.page_loading(self.driver)
 
     def test_logout(self):
         self.tests.pop()
@@ -59,7 +59,7 @@ class cQube_CRC_Report(unittest.TestCase):
             print("Navigated back to crc report")
         else:
             print("CRC report is not loaded ")
-        time.sleep(2)
+        self.data.page_loading(self.driver)
         self.logger.info("test_navigate_crc is completed...")
 
     def test_dash_menu(self):

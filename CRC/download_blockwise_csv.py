@@ -5,6 +5,7 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class donwload_blockwise_csv():
@@ -13,15 +14,16 @@ class donwload_blockwise_csv():
 
     def test_blockwise(self):
         p =pwd()
+        self.cal  = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         District_wise=Select(self.driver.find_element_by_id("downloader"))
         District_wise.select_by_visible_text(" Block_Wise Report ")
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(10)
+        time.sleep(2)
         self.filename = p.get_download_dir() + "/Block_level_CRC_Report.csv"
-        time.sleep(4)
+        time.sleep(2)
         return os.path.isfile(self.filename)
     def remove_file(self):
         os.remove(self.filename)

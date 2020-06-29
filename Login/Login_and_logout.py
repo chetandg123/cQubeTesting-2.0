@@ -8,10 +8,10 @@ class test_logout():
     def __init__(self,driver):
         self.driver = driver
     def test_logoutbtn(self):
-        p = GetData()
-        p.login_cqube(self.driver)
+        self.p = GetData()
+        self.p.login_cqube(self.driver)
         self.driver.find_element_by_id(Data.Logout).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         if "login" in self.driver.current_url:
             print("login page visible")
         else:

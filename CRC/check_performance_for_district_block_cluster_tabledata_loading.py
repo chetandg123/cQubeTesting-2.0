@@ -7,6 +7,7 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class clusterlevel_tabledata_loading():
@@ -14,22 +15,23 @@ class clusterlevel_tabledata_loading():
         self.driver = driver
 
     def test_table_data(self):
+        self.p =GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         select_cluster = Select(self.driver.find_element_by_name('myCluster'))
         count = 0
         for k in range(len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(k)
-            time.sleep(3)
+            self.p.page_loading(self.driver)
             for l in range(1, len(select_block.options)):
                 select_block.select_by_index(l)
-                time.sleep(3)
+                self.p.page_loading(self.driver)
                 table_data = []
                 for m in range(1, len(select_cluster.options)):
                     select_cluster.select_by_index(m)
-                    time.sleep(3)
+                    self.p.page_loading(self.driver)
 
                     li2 = self.driver.find_elements_by_xpath('//*[@id="table"]/tbody/tr')
                     for x in li2:

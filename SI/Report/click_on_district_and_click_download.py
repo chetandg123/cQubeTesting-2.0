@@ -5,6 +5,7 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class download_districtwise():
@@ -13,15 +14,16 @@ class download_districtwise():
 
     def test_donwload(self):
         p = pwd()
+        self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         dist = Select(self.driver.find_element_by_name(Data.select_district))
         dist.select_by_index(10)
-        time.sleep(3)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(5)
+        time.sleep(2)
         self.filename = p.get_download_dir() + "/blockPerDistrict_report.csv"
-        time.sleep(3)
+        self.p.page_loading(self.driver)
         return os.path.isfile(self.filename)
 
     def remove_csv(self):

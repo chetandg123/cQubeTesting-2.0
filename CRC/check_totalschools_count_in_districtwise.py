@@ -7,6 +7,7 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class school_count():
@@ -14,13 +15,14 @@ class school_count():
         self.driver =driver
     def test_schools(self):
         p = pwd()
+        self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         District_wise = Select(self.driver.find_element_by_id("downloader"))
         District_wise.select_by_visible_text(" Dist_Wise Report ")
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(5)
+        time.sleep(2)
         self.filename = p.get_download_dir() + "/District_level_CRC_Report.csv"
         # self.assertTrue(os.path.isfile(self.filename), msg="File is not downloaded")
         with open(self.filename) as fin:
@@ -32,7 +34,7 @@ class school_count():
             visit = self.driver.find_element_by_id("schools").text
             time.sleep(3)
             res = re.sub('\D',"",visit)
-            time.sleep(4)
+            time.sleep(1)
             return res,total
 
     def remove_csv(self):

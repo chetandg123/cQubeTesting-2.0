@@ -4,6 +4,7 @@ import time
 from Data.parameters import Data
 
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class plot_values():
@@ -11,17 +12,18 @@ class plot_values():
         self.driver =driver
 
     def test_plots(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         xaxis_lists = self.driver.find_elements_by_xpath(Data.xaxis)
         yaxis_lists = self.driver.find_elements_by_xpath(Data.yaxis)
         count = len(xaxis_lists)-1
 
         for i in range(len(xaxis_lists)):
             xaxis_lists[i].click()
-            time.sleep(3)
+            self.p.page_loading(self.driver)
         for j in range(len(yaxis_lists)):
                 yaxis_lists[j].click()
-                time.sleep(4)
+                self.p.page_loading(self.driver)
         time.sleep(3)
         return count

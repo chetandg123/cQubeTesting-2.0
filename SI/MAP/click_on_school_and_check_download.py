@@ -3,7 +3,7 @@ import time
 from selenium.common import exceptions
 
 from Data.parameters import Data
-
+from reuse_func import GetData
 
 
 class school_wise_download():
@@ -12,18 +12,18 @@ class school_wise_download():
         self.driver.implicitly_wait(20)
 
     def test_schoolwise(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         try:
             self.driver.find_element_by_id(Data.scm_school).click()
-            time.sleep(25)
+            self.p.page_loading(self.driver)
             dots = self.driver.find_elements_by_class_name(Data.dots)
-            time.sleep(5)
+            self.p.page_loading(self.driver)
             count =len(dots)-1
-            time.sleep(5)
             self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(5)
+            time.sleep(2)
             return count
         except exceptions.ElementClickInterceptedException:
             print("School level csv downloaded!")
-        time.sleep(4)
+        self.p.page_loading(self.driver)

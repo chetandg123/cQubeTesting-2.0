@@ -25,6 +25,7 @@ class cQube_Login_Test(unittest.TestCase):
         self.logger = self.data.get_functional_log()
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
+        self.data.page_loading(self.driver)
 
     def  test_login_without_credentails(self):
         self.tests.pop()

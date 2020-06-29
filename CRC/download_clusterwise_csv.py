@@ -5,6 +5,7 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class load_clusterwise_csv():
@@ -13,14 +14,15 @@ class load_clusterwise_csv():
 
     def test_clusterwise(self):
         p = pwd()
+        self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         District_wise = Select(self.driver.find_element_by_id("downloader"))
         District_wise.select_by_visible_text(" Cluster_Wise Report ")
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(14)
+        time.sleep(2)
         self.filename = p.get_download_dir() + "/Cluster_level_CRC_Report.csv"
-        time.sleep(4)
+        self.p.page_loading(self.driver)
         return os.path.isfile(self.filename)
 
 

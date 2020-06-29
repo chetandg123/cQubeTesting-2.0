@@ -5,6 +5,7 @@ from selenium import webdriver
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class login_with_wrong_values():
@@ -15,13 +16,11 @@ class login_with_wrong_values():
 
         self.driver.find_element_by_id(Data.email).send_keys("tibil@yahoo.com")
         self.driver.find_element_by_id(Data.passwd).send_keys("tib")
-        time.sleep(2)
         self.driver.find_element_by_id(Data.login).click()
-        time.sleep(3)
+        self.p = GetData()
+        self.p.page_loading(self.driver)
         errormsg = self.driver.find_element_by_xpath("/html/body/app-root/app-login/div/div[2]/div[2]/form/div[2]/div/label").text
-        time.sleep(2)
         self.driver.find_element_by_id(Data.email).clear()
         self.driver.find_element_by_id(Data.passwd).clear()
-        time.sleep(2)
         return errormsg
 

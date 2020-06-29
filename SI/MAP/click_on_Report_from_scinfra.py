@@ -3,6 +3,7 @@ import time
 from selenium.common import exceptions
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class click_report():
@@ -10,16 +11,16 @@ class click_report():
            self.driver = driver
 
        def test_infra(self):
+           self.p = GetData()
            self.driver.find_element_by_xpath(Data.hyper_link).click()
-           time.sleep(5)
+           self.p.page_loading(self.driver)
            try:
                self.driver.find_element_by_id(Data.Dashboard).click()
-               # text = self.driver.find_element_by_xpath(Data.header).text
                self.driver.find_element_by_xpath(Data.School_infra).click()
-               time.sleep(3)
+               self.p.page_loading(self.driver)
                self.driver.find_element_by_id(Data.Report).click()
-               time.sleep(3)
+               self.p.page_loading(self.driver)
                # return text
            except exceptions.ElementClickInterceptedException:
                print("school infra report page ")
-           time.sleep(5)
+           self.p.page_loading(self.driver)

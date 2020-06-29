@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class School_infra_test():
@@ -8,15 +9,16 @@ class School_infra_test():
         self.driver = driver
 
     def test_dashboard_option(self):
+        self.p = GetData()
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.School_infra).click()
-        time.sleep(2)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Reportmap).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
 
 
 

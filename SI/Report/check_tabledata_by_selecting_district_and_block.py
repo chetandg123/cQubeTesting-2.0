@@ -5,6 +5,7 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class blockwise_tabledata():
@@ -12,9 +13,10 @@ class blockwise_tabledata():
     def __init__(self,driver):
         self.driver = driver
     def test_table_data(self):
+        self.p = GetData()
         print("cluster level table data is loaded...")
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count = 0
@@ -23,7 +25,7 @@ class blockwise_tabledata():
             time.sleep(2)
             for l in range(1, len(select_block.options)):
                 select_block.select_by_index(l)
-                time.sleep(2)
+                self.p.page_loading(self.driver)
                 table_data = []
 
                 li2 = self.driver.find_elements_by_xpath('//*[@id="table"]/tbody/tr')
