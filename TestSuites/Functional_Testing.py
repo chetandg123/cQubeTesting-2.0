@@ -78,7 +78,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='School Infra Report RFunctional Test Report',
+            title='School Infra Report Functional Test Report',
             verbosity=1,
         )
 
