@@ -1,11 +1,11 @@
 
 import os
 
-from CRC import smoke_crc
-from Login import smoke_login
+from CRC import smoke_crc, crc_report_smoke_testing
+from Login import smoke_login, login_smoke_testing
 from SAR import student_attendance_smoke_testing
-from SI.MAP import smoke_si_map
-from SI.Report import smoke_si_report
+from SI.MAP import smoke_si_map, School_Map_smoke_testing
+from SI.Report import smoke_si_report, School_report_smoke_testing
 from SR import semester_report_smoke_testing
 
 
@@ -21,7 +21,7 @@ class MyTestSuite(unittest.TestCase):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             # file name .class name
-            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_login.cQube_Login_smoke_Test),
+            unittest.defaultTestLoader.loadTestsFromTestCase(login_smoke_testing.cQube_Login_smoke_Test),
         ])
         p= pwd()
         outfile = open(p.get_smoke_report_path(), "w")
@@ -57,7 +57,7 @@ class MyTestSuite(unittest.TestCase):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             # file name .class name
-            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_crc.cQube_CRC_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_smoke_testing.cQube_CRC_Report),
         ])
         p = pwd()
         outfile = open(p.get_smoke_report_path(), "a")
@@ -92,7 +92,7 @@ class MyTestSuite(unittest.TestCase):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             # file name .class name
-            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_si_map.cQube_SI_Map_Report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(School_Map_smoke_testing.cQube_SI_Map_Report),
 
         ])
         p = pwd()
@@ -110,7 +110,7 @@ class MyTestSuite(unittest.TestCase):
     def test_Issue06(self):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
-            unittest.defaultTestLoader.loadTestsFromTestCase(smoke_si_report.cQube_SI_Report)
+            unittest.defaultTestLoader.loadTestsFromTestCase(School_report_smoke_testing.cQube_SI_Report)
         ])
         p = pwd()
         outfile = open(p.get_smoke_report_path(), "a")
