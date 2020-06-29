@@ -21,7 +21,7 @@ class cQube_Login_smoke_Test(unittest.TestCase):
         b = Login_to_cqube(self.driver)
         res = b.test_login()
         self.assertEqual("cQube", self.driver.title, msg="login is not working")
-        self.logger.info("test_click_on_student_attendence_report is completed...")
+        self.logger.info("test_login_to_cqube is completed...")
 
     @classmethod
     def tearDownClass(cls):
