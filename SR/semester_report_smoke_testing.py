@@ -46,14 +46,14 @@ class cQube_Semester_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_click_on_blocks is running" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        state = GetData()
-        state.click_on_state(self.driver)
+        self.data = GetData()
+        self.data.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.ID, Data.sr_block_btn))
         )
         try:
             element.click()
-            time.sleep(5)
+            self.data.page_loading(self.driver)
             print("Blocks Button is working")
         except WebDriverException:
             raise self.failureException("Blocks Button is not clickable")
@@ -70,7 +70,7 @@ class cQube_Semester_Report(unittest.TestCase):
         )
         try:
             element.click()
-            time.sleep(15)
+            self.data.page_loading(self.driver)
             print("Cluster Button is working")
         except WebDriverException:
             raise self.failureException("Cluster Button is not working")
@@ -87,7 +87,7 @@ class cQube_Semester_Report(unittest.TestCase):
         )
         try:
             element.click()
-            time.sleep(30)
+            self.data.page_loading(self.driver)
             print("Schools Button is working")
         except WebDriverException:
             raise self.failureException("Schools Button is not working")
@@ -107,7 +107,7 @@ class cQube_Semester_Report(unittest.TestCase):
             element.click()
             print("Logout Button is working")
             self.data.login_cqube(self.driver)
-            time.sleep(5)
+            self.data.page_loading(self.driver)
         except WebDriverException:
             raise self.failureException("Logout Button is not working")
         self.logger.info("test_logout is completed...")
@@ -134,7 +134,7 @@ class cQube_Semester_Report(unittest.TestCase):
         try:
             for x in range(1, len(choose_district.options)):
                 choose_district.select_by_index(x)
-                time.sleep(2)
+                self.data.page_loading(self.driver)
             print("Choose District is working")
         except WebDriverException:
             raise self.failureException("Choose District is not working")
@@ -152,10 +152,10 @@ class cQube_Semester_Report(unittest.TestCase):
         try:
             for x in range(len(choose_district.options) - 1, len(choose_district.options)):
                 choose_district.select_by_index(x)
-                time.sleep(2)
+                self.data.page_loading(self.driver)
                 for y in range(len(choose_block.options) - 1, len(choose_block.options)):
                     choose_block.select_by_index(y)
-                    time.sleep(2)
+                    self.data.page_loading(self.driver)
             print("Choose District and Block is working")
         except WebDriverException:
             raise self.failureException("Choose District and Block is not working")
@@ -174,13 +174,13 @@ class cQube_Semester_Report(unittest.TestCase):
         try:
             for x in range(len(choose_district.options) - 1, len(choose_district.options)):
                 choose_district.select_by_index(x)
-                time.sleep(2)
+                self.data.page_loading(self.driver)
                 for y in range(len(choose_block.options) - 1, len(choose_block.options)):
                     choose_block.select_by_index(y)
-                    time.sleep(2)
+                    self.data.page_loading(self.driver)
                     for z in range(1, len(choose_cluster.options)):
                         choose_cluster.select_by_index(z)
-                        time.sleep(2)
+                        self.data.page_loading(self.driver)
             print("Choose District,Block and Cluster is working")
         except WebDriverException:
             raise self.failureException("Choose District,Block and Cluster is not working")

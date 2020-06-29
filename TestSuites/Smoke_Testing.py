@@ -1,11 +1,11 @@
 
 import os
 
-from CRC import smoke_crc, crc_report_smoke_testing
-from Login import smoke_login, login_smoke_testing
+from CRC import crc_report_smoke_testing
+from Login import login_smoke_testing
 from SAR import student_attendance_smoke_testing
-from SI.MAP import smoke_si_map, School_Map_smoke_testing
-from SI.Report import smoke_si_report, School_report_smoke_testing
+from SI.MAP import School_Map_smoke_testing
+from SI.Report import School_report_smoke_testing
 from SR import semester_report_smoke_testing
 
 

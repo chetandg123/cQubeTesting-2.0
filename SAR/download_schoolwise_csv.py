@@ -16,10 +16,11 @@ class SchoolwiseCsv():
         self.month = month.strip()
 
     def click_download_icon_of_schools(self):
-        state = GetData()
-        state.click_on_state(self.driver)
+        cal = GetData()
+        cal.click_on_state(self.driver)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.SAR_Schools_btn).click()
-        time.sleep(30)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()

@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class Dashboard():
@@ -8,6 +9,8 @@ class Dashboard():
         self.driver = driver
 
     def click_on_dashboard(self):
+        cal = GetData()
+        cal.click_on_state(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.SAR).click()

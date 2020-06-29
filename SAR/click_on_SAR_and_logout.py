@@ -9,7 +9,6 @@ class Logout():
 
     def click_on_logout(self):
         self.driver.find_element_by_id(Data.Logout).click()
-        time.sleep(3)
         return self.driver.title
 
 

@@ -5,6 +5,7 @@ import unittest
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class DotsOnDistrictsBlock():
@@ -12,17 +13,18 @@ class DotsOnDistrictsBlock():
         self.driver = driver
 
     def check_dots_on_each_districts_block(self):
-        self.driver.find_element_by_css_selector('p >span').click()
-        time.sleep(5)
+        cal = GetData()
+        cal.click_on_state(self.driver)
+        cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         count = 0
         for x in range(32, len(select_district.options)):
             select_district.select_by_index(x)
-            time.sleep(2)
+            cal.page_loading(self.driver)
             for y in range( len(select_block.options) - 1, len(select_block.options)):
                 select_block.select_by_index(y)
-                time.sleep(2)
+                cal.page_loading(self.driver)
                 dots = self.driver.find_elements_by_class_name(Data.dots)
                 if int(len(dots) - 1) == 0:
                     print("District" + select_district.first_selected_option.text +"Block"+select_block.first_selected_option.text+ "Markers are not found")

@@ -86,7 +86,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         )
         try:
             element.click()
-            time.sleep(15)
+            self.data.page_loading(self.driver)
             print("Cluster Button is working")
         except WebDriverException:
             raise self.failureException("Cluster Button is not working")
@@ -102,7 +102,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         )
         try:
             element.click()
-            time.sleep(30)
+            self.data.page_loading(self.driver)
             print("Schools Button is working")
         except WebDriverException:
             raise self.failureException("Schools Button is not working")
@@ -119,7 +119,7 @@ class cQube_Student_Attendance(unittest.TestCase):
             element.click()
             print("Logout Button is working")
             self.data.login_cqube(self.driver)
-            time.sleep(5)
+            self.data.page_loading(self.driver)
         except WebDriverException:
             raise self.failureException("Logout Button is not working")
         self.logger.info("test_logout is completed...")
@@ -144,7 +144,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         try:
             for x in range(1, len(year.options)):
                 year.select_by_index(x)
-                time.sleep(5)
+                self.data.page_loading(self.driver)
             print("Select year is working")
         except WebDriverException:
             raise self.failureException("Select Year is not working")
@@ -159,7 +159,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         try:
             for x in range(1, len(month.options)):
                 month.select_by_index(x)
-                time.sleep(5)
+                self.data.page_loading(self.driver)
             print("Select month is working")
         except WebDriverException:
             raise self.failureException("Select month is not working")
@@ -174,7 +174,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         try:
             for x in range(1, len(choose_district.options)):
                 choose_district.select_by_index(x)
-                time.sleep(2)
+                self.data.page_loading(self.driver)
             print("Choose District is working")
         except WebDriverException:
             raise self.failureException("Choose District is not working")
@@ -183,18 +183,17 @@ class cQube_Student_Attendance(unittest.TestCase):
     def test_choose_block(self):
         self.tests.pop()
         self.logger.info("test_choose_block is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
-        state = GetData()
-        state.click_on_state(self.driver)
+        self.data.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
         choose_block = Select(self.driver.find_element_by_id(Data.sar_block))
 
         try:
             for x in range(len(choose_district.options) - 1, len(choose_district.options)):
                 choose_district.select_by_index(x)
-                time.sleep(2)
+                self.data.page_loading(self.driver)
                 for y in range(len(choose_block.options) - 1, len(choose_block.options)):
                     choose_block.select_by_index(y)
-                    time.sleep(2)
+                    self.data.page_loading(self.driver)
             print("Choose District and Block is working")
         except WebDriverException:
             raise self.failureException("Choose District and Block is not working")
@@ -203,8 +202,7 @@ class cQube_Student_Attendance(unittest.TestCase):
     def test_choose_cluster(self):
         self.tests.pop()
         self.logger.info("test_choose_cluster is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
-        state = GetData()
-        state.click_on_state(self.driver)
+        self.data.click_on_state(self.driver)
         choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
         choose_block = Select(self.driver.find_element_by_id(Data.sar_block))
         choose_cluster = Select(self.driver.find_element_by_id(Data.sar_cluster))
@@ -212,13 +210,13 @@ class cQube_Student_Attendance(unittest.TestCase):
         try:
             for x in range(len(choose_district.options) - 1, len(choose_district.options)):
                 choose_district.select_by_index(x)
-                time.sleep(2)
+                self.data.page_loading(self.driver)
                 for y in range(len(choose_block.options) - 1, len(choose_block.options)):
                     choose_block.select_by_index(y)
-                    time.sleep(2)
+                    self.data.page_loading(self.driver)
                     for z in range(1, len(choose_cluster.options)):
                         choose_cluster.select_by_index(z)
-                        time.sleep(2)
+                        self.data.page_loading(self.driver)
             print("Choose District,Block and Cluster is working")
         except WebDriverException:
             raise self.failureException("Choose District,Block and Cluster is not working")
@@ -246,7 +244,6 @@ class cQube_Student_Attendance(unittest.TestCase):
             element.click()
             time.sleep(2)
             print("Download Button is working")
-            time.sleep(5)
         except WebDriverException:
             raise self.failureException("Download Button is not working")
         self.logger.info("test_download is completed...")

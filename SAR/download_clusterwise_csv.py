@@ -16,12 +16,13 @@ class ClusterwiseCsv():
         self.month = month.strip()
 
     def click_download_icon_of_clusters(self):
-        state = GetData()
-        state.click_on_state(self.driver)
+        cal = GetData()
+        cal.click_on_state(self.driver)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.SAR_Clusters_btn).click()
-        time.sleep(15)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(5)
+        time.sleep(2)
         p = pwd()
         self.filename = p.get_download_dir() + "/Cluster_wise_report_" + self.month + "_" + self.year + ".csv"
         return os.path.isfile(self.filename)
