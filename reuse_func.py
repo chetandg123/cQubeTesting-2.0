@@ -3,6 +3,7 @@ import os
 import time
 import logging
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
 
@@ -62,7 +63,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -79,6 +80,20 @@ class GetData():
         self.driver.find_element_by_id(Data.passwd).send_keys(self.get_password())
         self.driver.find_element_by_id(Data.login).click()
         time.sleep(3)
+
+    def page_loading(self,driver):
+        try:
+            driver.implicitly_wait(2)
+            self.driver = driver
+            for x in range(1, 10):
+                elem = self.driver.find_element_by_id('loader').text
+                if str(elem) == "Loading…":
+                    time.sleep(1)
+                if str(elem) != "Loading…":
+                    time.sleep(1)
+                    break
+        except NoSuchElementException:
+            pass
 
     def click_on_state(self, driver):
         self.driver = driver
