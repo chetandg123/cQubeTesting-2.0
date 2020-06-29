@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class check_order_of_tabledata():
@@ -8,17 +9,18 @@ class check_order_of_tabledata():
         self.driver =driver
 
     def test_tablevalue(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.d_names).click()
-        time.sleep(2)
+        self.p.page_loading(self.driver)
         values = self.driver.find_elements_by_xpath("//th[1]")
         for i in values:
             print(i.get_attribute("aria-sort"))
 
-        time.sleep(6)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.d_names).click()
-        time.sleep(2)
+        self.p.page_loading(self.driver)
         value = self.driver.find_elements_by_xpath("//th[1]")
         for i in value:
             print(i.get_attribute("aria-sort"))

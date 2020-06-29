@@ -5,6 +5,7 @@ from selenium.common import exceptions
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class districtwise_tabledata():
@@ -13,15 +14,16 @@ class districtwise_tabledata():
 
 
     def test_table_data(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         try:
 
             select_district = Select(self.driver.find_element_by_name('myDistrict'))
             count = 0
             for k in range(1, len(select_district.options)):
                 select_district.select_by_index(k)
-                time.sleep(2)
+                self.p.page_loading(self.driver)
                 table_data = []
 
                 li2 = self.driver.find_elements_by_xpath('//*[@id="table"]/tbody/tr')

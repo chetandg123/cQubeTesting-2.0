@@ -56,7 +56,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure_map()
-        time.sleep(5)
+        self.data.page_loading(self.driver)
 
     def test_check_district_names(self):
         b = District_names(self.driver)
@@ -142,7 +142,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
             print("School infra map based report")
         else:
             print("school infra map report is not loaded ")
-        time.sleep(2)
 
     def test_school_count(self):
         b = school_count(self.driver)
@@ -189,7 +188,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b=click_dashboard(self.driver)
         res =b.test_dashboard()
         self.assertEqual("cQube - Dashboard",res,msg="Dashboard is not exists!")
-        time.sleep(5)
+        self.data.page_loading(self.driver)
 
 
 
@@ -219,7 +218,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
             print("school infra map based report present")
         else:
             print("home icon is not working ")
-        time.sleep(2)
 
     def test_infrascores(self):
         b=click_on_infrascores(self.driver)
@@ -238,7 +236,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b =click_on_reportmap(self.driver)
         res = b.test_reportmap()
         self.assertEqual("cQube - Dashboard",res,msg="Dashboard is not exists!")
-        time.sleep(2)
 
     def test_schoolwise_download(self):
         b=school_wise_download(self.driver)
@@ -266,7 +263,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
             print("School infra map based report page exist")
         else:
             print("School infra map based report page not exist")
-        time.sleep(5)
+        self.data.page_loading(self.driver)
 
     def test_infrascore_click(self):
         b = select_infrascore_options(self.driver)

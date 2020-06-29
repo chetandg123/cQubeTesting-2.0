@@ -3,19 +3,20 @@ import time
 from selenium import webdriver
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class Dashboard_menu():
     def __init__(self,driver):
         self.driver = driver
     def test_dashboard(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
         title = self.driver.find_element_by_id(Data.Dashboard).text
-        time.sleep(2)
         self.driver.find_element_by_id(Data.CRC).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         return title
 
 

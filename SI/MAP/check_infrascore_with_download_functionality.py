@@ -5,6 +5,7 @@ import time
 from selenium.webdriver.support.select import Select
 
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class SchoolInfra_scores():
@@ -12,12 +13,13 @@ class SchoolInfra_scores():
         self.driver = driver
 
     def infra_score(self):
+        self.p = GetData()
         self.driver.find_element_by_css_selector('p >span').click()
-        time.sleep(3)
+        self.p.page_loading(self.driver)
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(1)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         self.filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -33,8 +35,9 @@ class SchoolInfra_scores():
     def Boys_toilet_percentage(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(2)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -49,8 +52,9 @@ class SchoolInfra_scores():
     def drinking_water(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(3)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -65,8 +69,9 @@ class SchoolInfra_scores():
     def Electricity(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(4)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -81,8 +86,9 @@ class SchoolInfra_scores():
     def girls_toilet(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(5)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -97,8 +103,9 @@ class SchoolInfra_scores():
     def Handpump(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(6)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -113,8 +120,9 @@ class SchoolInfra_scores():
     def Handwash(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(7)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -129,8 +137,9 @@ class SchoolInfra_scores():
     def Library(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(8)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -145,8 +154,9 @@ class SchoolInfra_scores():
     def Solar_panel(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(9)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -161,8 +171,9 @@ class SchoolInfra_scores():
     def Tapwater(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(10)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0
@@ -177,8 +188,9 @@ class SchoolInfra_scores():
     def Toilet(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(11)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
-        time.sleep(3)
+        time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/District_wise_report.csv"
         row_count = 0

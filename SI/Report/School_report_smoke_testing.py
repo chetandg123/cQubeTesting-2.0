@@ -69,7 +69,7 @@ class cQube_SI_Report(unittest.TestCase):
             print("hyperlinks are working")
         else:
             raise self.failureException("hyperlinks are not working")
-        time.sleep(5)
+        self.data.page_loading(self.driver)
         self.logger.info("test_check_hyperlinks is completed...")
 
     def test_schoolreport(self):
@@ -90,12 +90,12 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_graph_and_table_present_on_school_infra()
         try:
             tablehead = self.driver.find_element_by_tag_name("table")
-            time.sleep(5)
+            self.data.page_loading(self.driver)
             return tablehead.is_displayed()
         except exceptions.NoSuchElementException:
             print("Table is present ")
         self.assertTrue(res,msg="Table is not exist")
-        time.sleep(5)
+        self.data.page_loading(self.driver)
         self.logger.info("test_tabledata is completed...")
 
     def test_cluster_home(self):
@@ -103,13 +103,13 @@ class cQube_SI_Report(unittest.TestCase):
         self.logger.info("test_cluster_home" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = check_home(self.driver)
-        time.sleep(5)
+        self.data.page_loading(self.driver)
         res = b.test_home()
         if "school-infrastructure" in self.driver.current_url:
             print("School infra report page")
         else:
             print("school infra page not loaded")
-        time.sleep(2)
+        self.data.page_loading(self.driver)
         self.logger.info("test_cluster_home is completed...")
 
     def test_check_orderwise(self):
@@ -142,7 +142,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
         self.logger.info("test_logout is completed...")
-        time.sleep(3)
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

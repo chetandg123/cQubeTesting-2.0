@@ -3,6 +3,7 @@ import time
 from selenium.common import exceptions
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class check_with_table():
@@ -11,5 +12,6 @@ class check_with_table():
         self.driver = driver
 
     def test_graph_and_table_present_on_school_infra(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)

@@ -14,6 +14,8 @@ class cQube_Login_smoke_Test(unittest.TestCase):
         self.logger = self.data.get_smoke_log()
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
+        self.data.page_loading(self.driver)
+
     def test_login_to_cqube(self):
         self.tests.pop()
         self.logger.info("test_login_to_cqube" + " " + "Total :" + " " + str(

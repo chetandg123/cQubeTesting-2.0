@@ -3,6 +3,7 @@ import time
 
 from Data.parameters import Data
 from get_dir import pwd
+from reuse_func import GetData
 
 
 class login_test_invalidvalues():
@@ -12,12 +13,10 @@ class login_test_invalidvalues():
 
         self.driver.find_element_by_id(Data.email).send_keys("abc@cqube.com")
         self.driver.find_element_by_id(Data.passwd).send_keys("abc123")
-        time.sleep(2)
         self.driver.find_element_by_id(Data.login).click()
-        time.sleep(3)
+        self.p = GetData()
+        self.p.page_loading(self.driver)
         errormsg = self.driver.find_element_by_xpath("//p").text
-        time.sleep(2)
         self.driver.find_element_by_id(Data.email).clear()
         self.driver.find_element_by_id(Data.passwd).clear()
-        time.sleep(2)
         return errormsg

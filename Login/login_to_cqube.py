@@ -9,12 +9,10 @@ class Login_to_cqube():
         self.driver =driver
 
     def test_login(self):
-        d = GetData()
-        self.driver.find_element_by_id(Data.email).send_keys(d.get_username())
-        self.driver.find_element_by_id(Data.passwd).send_keys(d.get_password())
-        time.sleep(2)
+        self.p = GetData()
+        self.driver.find_element_by_id(Data.email).send_keys(self.p.get_username())
+        self.driver.find_element_by_id(Data.passwd).send_keys(self.p.get_password())
         self.driver.find_element_by_id(Data.login).click()
-        time.sleep(3)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.logout).click()
-        time.sleep(2)
 

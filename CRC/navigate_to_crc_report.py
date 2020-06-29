@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class loading_crc():
@@ -8,10 +9,11 @@ class loading_crc():
         self.driver = driver
 
     def test_crc(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.CRC).click()
-        time.sleep(4)
+        self.p.page_loading(self.driver)
 

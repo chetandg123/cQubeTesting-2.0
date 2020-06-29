@@ -3,7 +3,7 @@ import time
 
 
 from Data.parameters import Data
-
+from reuse_func import GetData
 
 
 class school_count():
@@ -11,16 +11,16 @@ class school_count():
        self.driver = driver
 
    def test_count(self):
+       self.p = GetData()
        self.driver.find_element_by_xpath(Data.hyper_link).click()
-       time.sleep(5)
+       self.p.page_loading(self.driver)
        self.driver.find_element_by_xpath(Data.hyper_link).click()
-       time.sleep(5)
+       self.p.page_loading(self.driver)
        self.driver.find_element_by_id(Data.scm_block).click()
-       time.sleep(10)
+       self.p.page_loading(self.driver)
        schools = self.driver.find_element_by_id(Data.sc_no_of_schools).text
-       time.sleep(3)
        res = re.sub("\D", "", schools)
-       time.sleep(5)
+       self.p.page_loading(self.driver)
        return res
 
 

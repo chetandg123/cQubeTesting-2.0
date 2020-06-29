@@ -6,31 +6,32 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
-
+from reuse_func import GetData
 
 
 class select_Dist_block_cluster():
     def __init__(self,driver):
         self.driver =driver
     def test_select_district_block_cluster(self):
+        self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_id("choose_dist"))
         select_block = Select(self.driver.find_element_by_id("choose_block"))
         select_cluster = Select(self.driver.find_element_by_id("choose_cluster"))
         count = 0
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
-            time.sleep(4)
+            self.p.page_loading(self.driver)
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
-                time.sleep(4)
+                self.p.page_loading(self.driver)
                 for z in range(1, len(select_cluster.options)):
                     select_cluster.select_by_index(z)
-                    time.sleep(4)
+                    self.p.page_loading(self.driver)
                     dots = self.driver.find_elements_by_class_name(Data.dots)
                     schools = self.driver.find_element_by_id(Data.sc_no_of_schools).text
-                    time.sleep(4)
+                    self.p.page_loading(self.driver)
                     res = re.sub('\D', "", schools)
                     if int(len(dots) - 1) != int(res):
                         count = count + 1

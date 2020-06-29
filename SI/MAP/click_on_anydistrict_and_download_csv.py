@@ -2,7 +2,7 @@ import time
 
 
 from Data.parameters import Data
-
+from reuse_func import GetData
 
 
 class download_icon():
@@ -10,10 +10,11 @@ class download_icon():
         self.driver = driver
 
     def test_donwload(self):
+        self.p =GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.scm_dist).click()
-        time.sleep(4)
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(5)
+        self.p.page_loading(self.driver)
 
