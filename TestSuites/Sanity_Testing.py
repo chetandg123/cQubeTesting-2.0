@@ -1,6 +1,7 @@
 import configparser
 import sys
 import os
+import time
 
 from SAR import student_attendance_sanity_testing
 from SR import semester_report_sanity_testing
@@ -49,10 +50,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue02(self):
         self.data.navigate_to_student_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the student attendance report page")
         else:
             self.logger.info("student attendance report execution started")
             sanity_test = unittest.TestSuite()
@@ -76,10 +77,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue03(self):
         self.data.navigate_to_crc_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the crc report page")
         else:
             self.logger.info("crc report execution started")
             sanity_test = unittest.TestSuite()
@@ -103,10 +104,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue04(self):
         self.data.navigate_to_semester_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the semester report page")
         else:
             self.logger.info("semester report execution started")
 
@@ -131,10 +132,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue05(self):
         self.data.navigate_to_school_infrastructure_map()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the school infrastructure map page")
         else:
             self.logger.info("school infra map report execution started")
             sanity_test = unittest.TestSuite()
@@ -158,10 +159,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue06(self):
         self.data.navigate_to_school_infrastructure()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the school infrastructure report page")
         else:
             self.logger.info("school infra report execution started")
             sanity_test = unittest.TestSuite()

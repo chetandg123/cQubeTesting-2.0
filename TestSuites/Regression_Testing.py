@@ -23,6 +23,7 @@ from reuse_func import GetData
 
 
 class MyTestSuite(unittest.TestCase):
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -30,7 +31,6 @@ class MyTestSuite(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-
 
     def test_Issue01(self):
         self.logger.info("Login execution started")
@@ -55,10 +55,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue02(self):
         self.data.navigate_to_student_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the student attendance report page")
         else:
             self.logger.info("student attendance report execution started")
             time.sleep(3)
@@ -83,7 +83,8 @@ class MyTestSuite(unittest.TestCase):
                     regression_test = unittest.TestSuite()
                     regression_test.addTests([
                         # file name .class name
-                        unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_regression_testing.cQube_Student_Attendance),
+                        unittest.defaultTestLoader.loadTestsFromTestCase(
+                            student_attendance_regression_testing.cQube_Student_Attendance),
                     ])
                     p = pwd()
                     outfile = open(p.get_regression_report_path(), "a")
@@ -99,15 +100,14 @@ class MyTestSuite(unittest.TestCase):
                     self.logger.info(month[y] + "ended")
                     a.list.clear()
 
-
             self.logger.info("student attendance report execution ended")
 
     def test_Issue03(self):
         self.data.navigate_to_crc_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the crc report page")
         else:
             self.logger.info("crc report execution started")
             regression_test = unittest.TestSuite()
@@ -131,16 +131,17 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue04(self):
         self.data.navigate_to_semester_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the semester report page")
         else:
             self.logger.info("semester report execution started")
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 # file name .class name
-                unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_regression_testing.cQube_Semester_Report),
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    semester_report_regression_testing.cQube_Semester_Report),
             ])
             p = pwd()
             outfile = open(p.get_regression_report_path(), "a")
@@ -158,10 +159,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue05(self):
         self.data.navigate_to_school_infrastructure_map()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the school infrastructure map report page")
         else:
             self.logger.info("school infra map report execution started")
             regression_test = unittest.TestSuite()
@@ -185,10 +186,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue06(self):
         self.data.navigate_to_school_infrastructure()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the school infrastructure report page")
         else:
             self.logger.info("school infra report execution started")
             regression_test = unittest.TestSuite()

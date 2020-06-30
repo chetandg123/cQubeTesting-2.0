@@ -123,6 +123,7 @@ class GetData():
         self.driver.find_element_by_id(Data.SAR).click()
         cal.page_loading(self.driver)
         # self.driver.find_element_by_xpath("//*[@id='SAR']")
+
     def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -337,3 +338,4 @@ class GetData():
             time.sleep(3)
             driver = cqube(self.driver)
             driver.CRC_footers()
+

@@ -1,6 +1,7 @@
 import configparser
 import sys
 import os
+import time
 
 from SR import semester_report_functional_testing
 from get_dir import pwd
@@ -26,12 +27,14 @@ class MyTestSuite(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
 
+
     def test_Issue01(self):
+
         self.data.navigate_to_crc_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the crc report page")
         else:
             self.logger.info("crc report execution started")
 
@@ -55,10 +58,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue02(self):
         self.data.navigate_to_semester_report()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the semester report page")
         else:
             self.logger.info("semester report execution started")
             functional_test = unittest.TestSuite()
@@ -81,12 +84,12 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue03(self):
         self.data.navigate_to_school_infrastructure_map()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the school infra map page")
         else:
-            self.logger.info("school infra map report execution started")
+            self.logger.info("school infrastructure map report execution started")
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
@@ -107,10 +110,10 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue04(self):
         self.data.navigate_to_school_infrastructure()
+        time.sleep(2)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the page")
-            self.driver.close()
+            print("No data in the school infrastructure report page")
         else:
             self.logger.info("school infra report execution started")
             functional_test = unittest.TestSuite()
