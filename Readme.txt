@@ -9,6 +9,14 @@ domain=
 username=
 password=
 
+for testing admin login separation 
+
+admin_domain= vpn based admin login url
+admin_username= admin email 
+admin_password= valud password
+admin_cqube_domain= vpn based cQbue application domain
+
+
 python3 -m unittest TestSuites/Run_Smoke_Testing.py
 python3 -m unittest TestSuites/Run_Functional_Testing.py
 python3 -m unittest TestSuites/Run_Regression_Testing.py
