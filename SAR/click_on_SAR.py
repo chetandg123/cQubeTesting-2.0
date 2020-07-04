@@ -12,12 +12,13 @@ class DahboardSar():
 
     def click_on_sar(self):
         try:
-            state = GetData()
-            state.click_on_state(self.driver)
-            time.sleep(2)
+            cal = GetData()
+            cal.click_on_state(self.driver)
+            cal.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Dashboard).click()
-            time.sleep(5)
+            time.sleep(1)
             self.driver.find_element_by_id(Data.SAR).click()
+            cal.page_loading(self.driver)
             return self.driver.page_source
         except ElementClickInterceptedException:
             print("Element not found and test failed")

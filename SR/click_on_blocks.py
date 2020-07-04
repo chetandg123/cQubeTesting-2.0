@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from reuse_func import GetData
 
 
 class Blocks():
@@ -9,6 +10,7 @@ class Blocks():
 
     def check_markers_on_block_map(self):
         self.driver.find_element_by_id(Data.sr_block_btn).click()
-        time.sleep(15)
+        cal = GetData()
+        cal.page_loading(self.driver)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         return dots

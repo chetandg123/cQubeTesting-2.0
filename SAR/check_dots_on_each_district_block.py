@@ -16,21 +16,18 @@ class DotsOnDistrictsBlock():
         self.driver = driver
 
     def check_dots_on_each_districts_block(self):
-        state = GetData()
-        state.click_on_state(self.driver)
-        time.sleep(3)
+        cal = GetData()
+        cal.click_on_state(self.driver)
+        cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
-        time.sleep(3)
         select_block = Select(self.driver.find_element_by_name('myBlock'))
-        time.sleep(3)
-
         count = 0
         for x in range(len(select_district.options), len(select_district.options)):
             select_district.select_by_index(x)
-            time.sleep(2)
+            cal.page_loading(self.driver)
             for y in range(len(select_block.options) - 1, len(select_block.options)):
                 select_block.select_by_index(y)
-                time.sleep(2)
+                cal.page_loading(self.driver)
                 dots = self.driver.find_elements_by_class_name(Data.dots)
                 if int(len(dots) - 1) == 0:
                     print("District" + select_district.first_selected_option.text +"Block"+select_block.first_selected_option.text+ "Markers are not found")

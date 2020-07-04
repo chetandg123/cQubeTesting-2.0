@@ -3,6 +3,8 @@ import time
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from reuse_func import GetData
+
 
 class Hyperlink():
 
@@ -10,23 +12,24 @@ class Hyperlink():
         self.driver = driver
 
     def click_on_hyperlinks(self):
-        self.driver.find_element_by_css_selector('p >span').click()
-        time.sleep(5)
+        cal = GetData()
+        cal.click_on_state(self.driver)
+        cal.page_loading(self.driver)
         dist = Select(self.driver.find_element_by_id("choose_dist"))
         dist.select_by_index(1)
-        time.sleep(3)
+        cal.page_loading(self.driver)
         block = Select(self.driver.find_element_by_id("choose_block"))
         block.select_by_index(1)
-        time.sleep(3)
+        cal.page_loading(self.driver)
         cluster = Select(self.driver.find_element_by_id("choose_cluster"))
         cluster.select_by_index(1)
-        time.sleep(5)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.sr_school_hyper).click()
-        time.sleep(2)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.sr_cluster_hyper).click()
-        time.sleep(2)
+        cal.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.sr_dist_hyper).click()
-        time.sleep(4)
+        cal.page_loading(self.driver)
         result1 = self.driver.find_element_by_id('choose_block').is_displayed()
         time.sleep(2)
         result2 = self.driver.find_element_by_id('choose_cluster').is_displayed()

@@ -15,19 +15,20 @@ class ClusterPerBlockCsvDownload():
         self.month = month.strip()
 
     def check_csv_download(self):
-        state = GetData()
-        state.click_on_state(self.driver)
+        cal = GetData()
+        cal.click_on_state(self.driver)
+        cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count = 0
         for x in range(len(select_district.options) - 1, len(select_district.options)):
             select_district.select_by_index(x)
-            time.sleep(2)
+            cal.page_loading(self.driver)
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
-                time.sleep(2)
+                cal.page_loading(self.driver)
                 self.driver.find_element_by_id('download').click()
-                time.sleep(3)
+                time.sleep(2)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/Cluster_per_block_report_" + self.month + "_" + self.year + ".csv"
                 if not os.path.isfile(self.filename):
