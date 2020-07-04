@@ -13,7 +13,8 @@ class login_with_wrong_values():
         self.driver = driver
 
     def test_wrongvalues(self):
-
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.email).send_keys("tibil@yahoo.com")
         self.driver.find_element_by_id(Data.passwd).send_keys("tib")
         self.driver.find_element_by_id(Data.login).click()

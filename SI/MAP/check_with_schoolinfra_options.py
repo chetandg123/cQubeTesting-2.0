@@ -20,6 +20,7 @@ class School_infra_options():
         report = self.driver.find_element_by_id(Data.Report).text
         mapreport = self.driver.find_element_by_id(Data.Reportmap).text
         self.p.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.Reportmap).click()
         return report , mapreport
 
 

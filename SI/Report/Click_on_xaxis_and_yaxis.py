@@ -22,7 +22,7 @@ class Graph_values():
             for x in range(1, len(x_axis.options)):
                 x_axis.select_by_index(x)
                 self.p.page_loading(self.driver)
-                for y in range(1, len(y_axis.options)):
+            for y in range(1, len(y_axis.options)):
                     y_axis.select_by_index(y)
                     self.p.page_loading(self.driver)
         except exceptions.NoSuchElementException:

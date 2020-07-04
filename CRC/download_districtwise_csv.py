@@ -13,17 +13,17 @@ class Districtwise_donwload():
         self.driver = driver
         self.filename =''
     def test_districtwise(self):
-        self.p = GetData()
-        self.driver.find_element_by_xpath(Data.hyper).click()
-        self.p.page_loading(self.driver)
         p =pwd()
+        self.cal = GetData()
+        self.driver.find_element_by_xpath(Data.hyper).click()
+        self.cal.page_loading(self.driver)
         District_wise=Select(self.driver.find_element_by_id("downloader"))
         District_wise.select_by_visible_text(" Dist_Wise Report ")
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(2)
+        time.sleep(3)
         self.filename = p.get_download_dir() + "/District_level_CRC_Report.csv"
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         return os.path.isfile(self.filename)
 
     def remove_csv(self):

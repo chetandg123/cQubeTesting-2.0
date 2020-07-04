@@ -13,17 +13,16 @@ class school_wise_download():
 
     def test_schoolwise(self):
         self.p = GetData()
+        self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        try:
-            self.driver.find_element_by_id(Data.scm_school).click()
-            self.p.page_loading(self.driver)
-            dots = self.driver.find_elements_by_class_name(Data.dots)
-            self.p.page_loading(self.driver)
-            count =len(dots)-1
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(2)
-            return count
-        except exceptions.ElementClickInterceptedException:
-            print("School level csv downloaded!")
+        self.driver.find_element_by_id(Data.scm_school).click()
         self.p.page_loading(self.driver)
+        time.sleep(25)
+        dots = self.driver.find_elements_by_class_name(Data.dots)
+        self.p.page_loading(self.driver)
+        count =len(dots)-1
+        self.driver.find_element_by_id(Data.Download).click()
+        time.sleep(25)
+        return count
+

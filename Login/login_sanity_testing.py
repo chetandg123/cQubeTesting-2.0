@@ -4,6 +4,8 @@ import unittest
 from Login.Invalid_credentials_check import login_test
 from Login.Login_and_logout import test_logout
 from Login.check_login_with_empty_inputs import login_without_inputs
+from Login.click_on_back_in_ruser import test_backbtn
+from Login.click_on_ruser import ruser
 from Login.login_test_with_invalid_email import login_test_for_credentials
 from Login.login_to_cQube import Login_to_cQube
 from Login.login_to_cqube import Login_to_cqube
@@ -19,8 +21,8 @@ class cQube_Login_Test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 12
-        self.tests = [0] * 13
+        self.total_tests = 14
+        self.tests = [0] * 15
         self.data = GetData()
         self.logger = self.data.get_sanity_log()
         self.driver = self.data.get_driver()
@@ -136,6 +138,24 @@ class cQube_Login_Test(unittest.TestCase):
         self.assertEqual(res,"Enter atleast 4 characters" , msg="Failed")
         self.logger.info("test_wrong_values is completed...")
 
+    def test_ruserbtn(self):
+        self.tests.pop()
+        self.logger.info("test_ruserbtn" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = ruser(self.driver)
+        res = b.test_ruser_page()
+        self.data.page_loading(self.driver)
+        self.logger.info("test_ruserbtn is completed...")
+
+    def test_back_btn(self):
+        self.tests.pop()
+        self.logger.info("test_back_btn" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = test_backbtn(self.driver)
+        res = b.test_ruser_back()
+        self.assertEqual("cQube", self.driver.title, msg="login page does not exist")
+        self.data.page_loading(self.driver)
+        self.logger.info("test_back_btn is completed...")
 
     @classmethod
     def tearDownClass(cls):

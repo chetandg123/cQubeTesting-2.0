@@ -2,6 +2,7 @@ import configparser
 import sys
 import os
 
+from Landing_Page import cQube_home_page
 from SAR import student_attendance_sanity_testing
 from SR import semester_report_sanity_testing
 from get_dir import pwd
@@ -21,6 +22,7 @@ class MyTestSuite(unittest.TestCase):
         sanity_test.addTests([
             # file name .class name
             unittest.defaultTestLoader.loadTestsFromTestCase(login_sanity_testing.cQube_Login_Test),
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_home_page.cQube_Home),
             unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_sanity_testing.cQube_Student_Attendance),
             unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_sanity_testing.cQube_CRC_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_sanity_testing.cQube_Semester_Report),

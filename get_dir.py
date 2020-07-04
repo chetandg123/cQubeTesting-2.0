@@ -76,3 +76,12 @@ class pwd():
         cwd = os.path.dirname(__file__)
         log_dir_path = os.path.join(cwd, 'Logs/test_regression_testing.log')
         return log_dir_path
+
+    def get_clear_fields(self,driver):
+        self.driver = driver
+        self.driver.find_element_by_id("fname").clear()
+        self.driver.find_element_by_id("mname").clear()
+        self.driver.find_element_by_id("lname").clear()
+        self.driver.find_element_by_id("email").clear()
+        self.driver.find_element_by_id("designattion").clear()
+        self.driver.find_element_by_id("passswd").clear()

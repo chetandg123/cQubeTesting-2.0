@@ -12,6 +12,14 @@ class Data():
 
     loginbtn = "//button[@type='submit']"
     # loginbtn ="login"
+    # admin login
+
+    cuser ="//a[1]"
+    cpass ="//a[2]"
+    dashboard_options = "//a/div/td[2]"
+    reportuser ="reportviewer@cqube.com"
+    reportpass = "report123"
+    back_btn ="//div[@class='col-sm-6']/a"
 
     dots = "leaflet-interactive"
     SAR_Details = "//div[@class='row']/div[@class='col-sm-4']/span"

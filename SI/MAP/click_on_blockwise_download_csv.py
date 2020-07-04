@@ -20,5 +20,5 @@ class cluster_level_map_check():
         self.p.page_loading(self.driver)
         count = len(lists)-1
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(2)
+        time.sleep(3)
         return count

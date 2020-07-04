@@ -81,7 +81,7 @@ class cQube_CRC_Report(unittest.TestCase):
         b.remove_file()
         self.logger.info("test_download_blockwise_csv is completed...")
 
-    def test_donwoad_clusterwise_csv(self):
+    def test_download_clusterwise_csv(self):
         self.tests.pop()
         self.logger.info("test_donwoad_clusterwise_csv" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
@@ -89,7 +89,7 @@ class cQube_CRC_Report(unittest.TestCase):
         result = b.test_clusterwise()
         self.assertTrue(result, msg="File is not downloaded")
         b.remove_file()
-        self.logger.info("test_donwoad_clusterwise_csv is completed...")
+        self.logger.info("test_download_clusterwise_csv is completed...")
 
     def test_visited(self):
         self.tests.pop()

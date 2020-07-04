@@ -13,11 +13,12 @@ class SchoolInfra_scores():
         self.driver = driver
 
     def infra_score(self):
-        self.p = GetData()
+        self.cal = GetData()
         self.driver.find_element_by_css_selector('p >span').click()
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(1)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -35,7 +36,7 @@ class SchoolInfra_scores():
     def Boys_toilet_percentage(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(2)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -52,7 +53,7 @@ class SchoolInfra_scores():
     def drinking_water(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(3)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -69,7 +70,7 @@ class SchoolInfra_scores():
     def Electricity(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(4)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -86,7 +87,7 @@ class SchoolInfra_scores():
     def girls_toilet(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(5)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -103,7 +104,7 @@ class SchoolInfra_scores():
     def Handpump(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(6)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -120,7 +121,7 @@ class SchoolInfra_scores():
     def Handwash(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(7)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -137,7 +138,7 @@ class SchoolInfra_scores():
     def Library(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(8)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -154,7 +155,7 @@ class SchoolInfra_scores():
     def Solar_panel(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(9)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -171,7 +172,7 @@ class SchoolInfra_scores():
     def Tapwater(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(10)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
@@ -188,7 +189,7 @@ class SchoolInfra_scores():
     def Toilet(self):
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(11)
-        self.p.page_loading(self.driver)
+        self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()

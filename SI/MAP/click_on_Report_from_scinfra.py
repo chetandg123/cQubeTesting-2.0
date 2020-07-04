@@ -16,11 +16,9 @@ class click_report():
            self.p.page_loading(self.driver)
            try:
                self.driver.find_element_by_id(Data.Dashboard).click()
-               self.driver.find_element_by_xpath(Data.School_infra).click()
                self.p.page_loading(self.driver)
+               self.driver.find_element_by_xpath(Data.School_infra).click()
                self.driver.find_element_by_id(Data.Report).click()
                self.p.page_loading(self.driver)
-               # return text
            except exceptions.ElementClickInterceptedException:
                print("school infra report page ")
-           self.p.page_loading(self.driver)

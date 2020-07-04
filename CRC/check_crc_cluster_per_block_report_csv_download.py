@@ -17,19 +17,19 @@ class cluster_csv():
         self.driver = driver
         self.filename =''
     def test_clusterlevel(self):
-        self.p = GetData()
+        self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(5)
+        self.cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count = 0
         p =pwd()
         for x in range(len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(x)
-            self.p.page_loading(self.driver)
+            self.cal.page_loading(self.driver)
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
-                self.p.page_loading(self.driver)
+                self.cal.page_loading(self.driver)
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
                 filename = p.get_download_dir() + "/Cluster_level_CRC_Report"

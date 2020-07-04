@@ -315,5 +315,46 @@ class GetData():
         for i in range(len(dist)):
             dist[i].click()
             time.sleep(3)
-            driver = cqube(self.driver)
-            driver.CRC_footers()
+            # driver = cqube(self.driver)
+            # driver.CRC_footers()
+
+    #Admin login separation
+    def get_admin_domain_name(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['admin_domain']
+
+    def get_admin_username(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['admin_username']
+
+    def get_admin_password(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['admin_password']
+
+    def get_vpn_cqube(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['admin_cqube_domain']
+
+    def open_admin_appln(self,driver):
+        self.driver = driver
+        self.driver.maximize_window()
+        self.driver.get(self.get_admin_domain_name())
+        self.driver.implicitly_wait(60)
+
+    def login_admin(self,driver):
+        self.driver = driver
+        self.driver.implicitly_wait(60)
+        self.driver.find_element_by_id(Data.email).send_keys(self.get_admin_username())
+        self.driver.find_element_by_id(Data.passwd).send_keys(self.get_admin_password())
+        self.driver.find_element_by_id(Data.login).click()
+        time.sleep(3)
+
+    def open_vpn_cqube(self,driver):
+        self.driver = driver
+        self.driver.maximize_window()
+        self.driver.get(self.get_vpn_cqube())
+        self.driver.implicitly_wait(60)

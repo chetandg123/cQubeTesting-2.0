@@ -19,6 +19,7 @@ class click_on_home():
         self.p.page_loading(self.driver)
         count1 = len(dots) - 1
 
+        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.scm_cluster).click()
         self.p.page_loading(self.driver)
         dots = self.driver.find_elements_by_class_name(Data.dots)
@@ -28,9 +29,10 @@ class click_on_home():
 
         self.driver.find_element_by_id(Data.scm_school).click()
         self.p.page_loading(self.driver)
+        time.sleep(25)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         self.p.page_loading(self.driver)
         count3 = len(dots) - 1
-        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.homeicon).click()
+        self.p.page_loading(self.driver)
         return count1 , count2 ,count3

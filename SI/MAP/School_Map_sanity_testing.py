@@ -4,13 +4,13 @@ import unittest
 from selenium.common import exceptions
 
 from SI.MAP.Click_on_School_infra import click_schoolinfra
+from SI.MAP.check_districtwise_school import districtlevel_school
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
 from SI.MAP.check_with_districts_from_select_box import District_names
 from SI.MAP.check_with_map_on_schoolinfra import check_markers_on_map
-from SI.MAP.check_with_schoolinfra_options import School_infra_options
 
+from SI.MAP.check_with_schoolinfra_options import School_infra_options
 from SI.MAP.click_on_Dashboard import click_dashboard
-from SI.MAP.click_on_District_block_and_clusters import select_Dist_block_cluster
 from SI.MAP.click_on_Report_from_scinfra import click_report
 from SI.MAP.click_on_Reportmap import click_on_reportmap
 from SI.MAP.click_on_anydistrict_and_download_csv import download_icon
@@ -21,24 +21,27 @@ from SI.MAP.click_on_block_check_with_footer_values import school_count
 from SI.MAP.click_on_block_cluster_school_and_check_schoolscount import Block_school_count
 from SI.MAP.click_on_blocks import click_on_blocks
 
+from SI.MAP.click_on_blocks_and_scores import block_btn_scores
 from SI.MAP.click_on_blocksbtn_and_check_download import Blockwise_csv_download
 from SI.MAP.click_on_blockwise_download_csv import cluster_level_map_check
 from SI.MAP.click_on_cluster_and_home import click_cluster_and_home
 from SI.MAP.click_on_cluster_check_download import clusterwise_download
-from SI.MAP.click_on_clusters import cluster_button
 
+from SI.MAP.click_on_clusters import cluster_button
+from SI.MAP.click_on_clusters_and_scores import cluster_btn_scores
 from SI.MAP.click_on_district_and_homeicon import district_home
 from SI.MAP.click_on_district_options import District_options
 from SI.MAP.click_on_hyperlink import click_on_hyperlink
+
 from SI.MAP.click_on_infra_score import click_on_infrascores
 from SI.MAP.click_on_infra_scores_options import select_infrascore_options
-
 from SI.MAP.click_on_school_and_check_download import school_wise_download
 from SI.MAP.click_on_school_infrastructure import School_infra_test
 from SI.MAP.click_on_schools import click_schoolwise
+
+from SI.MAP.click_on_schools_and_scores import schools_btn_scores
 from SI.MAP.download_clusterlevel_csv import cluster_level_csv
 from SI.MAP.download_districtwise_csv import districtwise_csv
-
 from SI.MAP.mouseover_on_districtwise import mouseover
 from SI.MAP.select_district_block_from_select_box import select_blockwise
 
@@ -49,8 +52,8 @@ class cQube_SI_Map_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 32
-        self.tests = [0] * 33
+        self.total_tests = 35
+        self.tests = [0] * 36
         self.data = GetData()
         self.logger = self.data.get_sanity_log()
         self.driver = self.data.get_driver()
@@ -58,7 +61,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure_map()
         time.sleep(5)
-
     def test_check_district_names(self):
         self.tests.pop()
         self.logger.info("test_check_district_names" + " " + "Total :" + " " + str(
@@ -135,6 +137,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         res1, res2 = b.test_options()
         self.assertEqual(res1, "Report", msg="option is not available")
         self.assertEqual(res2, "Map based Report", msg="option is not available")
+        self.data.page_loading(self.driver)
         self.logger.info("test_school_infra_options is completed...")
 
     def test_download(self):
@@ -143,6 +146,10 @@ class cQube_SI_Map_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = download_icon(self.driver)
         res = b.test_donwload()
+        if "school-infra-map" in self.driver.current_url:
+            print("School infrastructure map based report present")
+        else:
+            print("School infra map report is not exist")
         self.logger.info("test_download is completed...")
 
     def test_click_on_home(self):
@@ -177,6 +184,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.assertNotEqual(0, int(res), msg="wrong schools count")
         self.logger.info("test_school_count is completed...")
 
+
     def test_no_of_schools(self):
         self.tests.pop()
         self.logger.info("test_no_of_schools" + " " + "Total :" + " " + str(
@@ -186,6 +194,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.assertEqual(int(r), int(r1), msg="mis match found in no of school in block level")
         self.assertEqual(int(r), int(r2), msg="mis match found in no of school in cluster level")
         self.assertEqual(int(r), int(r3), msg="mis match found in no of school in school level")
+        self.data.page_loading(self.driver)
         self.logger.info("test_no_of_schools is completed...")
 
     def test_click_on_block(self):
@@ -263,16 +272,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
             print("home icon is not working ")
         self.logger.info("test_click_home_in_districtwise is completed...")
 
-    def test_dist_block_cluster(self):
-        self.tests.pop()
-        self.logger.info("test_dist_block_cluster" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        b = select_Dist_block_cluster(self.driver)
-        res = b.test_select_district_block_cluster()
-        if res != 0:
-            raise self.failureException('data not matched')
-        self.logger.info("test_dist_block_cluster is completed...")
-
     def test_district_options(self):
         self.tests.pop()
         self.logger.info("test_district_options" + " " + "Total :" + " " + str(
@@ -308,11 +307,13 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.logger.info("test_report" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = click_report(self.driver)
+        self.data.page_loading(self.driver)
         res = b.test_infra()
         if "school-infrastructure" in self.driver.current_url:
             print("Shool infrastructure report page")
         else:
             print("School infrastructure report page is not exist")
+        self.data.page_loading(self.driver)
         self.logger.info("test_report is completed...")
 
     def test_reportmap(self):
@@ -320,8 +321,10 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.logger.info("test_reportmap" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = click_on_reportmap(self.driver)
+        self.data.page_loading(self.driver)
         res = b.test_reportmap()
         self.assertEqual("cQube - Dashboard", res, msg="Dashboard is not exists!")
+        self.data.page_loading(self.driver)
         self.logger.info("test_reportmap is completed...")
 
     def test_schoolwise_download(self):
@@ -330,7 +333,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = school_wise_download(self.driver)
         res = b.test_schoolwise()
-        self.data.page_loading(self.driver)
+        time.sleep(3)
         self.assertNotEqual(0, res, msg="Records are not present on map ")
         self.logger.info("test_schoolwise_download is completed...")
 
@@ -409,6 +412,43 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = select_blockwise(self.driver)
         res = b.test_dist_blocks()
         self.logger.info("test_blockwise is completed...")
+
+    def test_block_scores(self):
+        self.tests.pop()
+        self.logger.info("test_block_scores" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = block_btn_scores(self.driver)
+        result = b.test_click_blocks()
+        self.data.page_loading(self.driver)
+        self.logger.info("test_block_scores is completed...")
+
+    def test_clusters_scores(self):
+        self.tests.pop()
+        self.logger.info("test_clusters_scores" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = cluster_btn_scores(self.driver)
+        result = b.test_click_clusters()
+        self.data.page_loading(self.driver)
+        self.logger.info("test_clusters_scores is completed...")
+
+    def test_schools_scores(self):
+        self.tests.pop()
+        self.logger.info("test_schools_scores" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = schools_btn_scores(self.driver)
+        res = b.test_click_schools()
+        self.data.page_loading(self.driver)
+        self.logger.info("test_schools_scores is completed...")
+
+    def test_districtwise_school(self):
+        self.tests.pop()
+        self.logger.info("test_districtwise_school" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = districtlevel_school(self.driver)
+        result = b.test_districtwise_schoolscount()
+        self.assertNotEqual(0, result, msg="markers are not present on map ")
+        self.data.page_loading(self.driver)
+        self.logger.info("test_districtwise_school is completed...")
 
     @classmethod
     def tearDownClass(cls):

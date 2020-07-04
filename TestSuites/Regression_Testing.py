@@ -2,6 +2,7 @@ import configparser
 import sys
 import os
 
+from Landing_Page import cQube_home_page
 from SAR import sar
 from SR import semester_report_regression_testing
 from get_dir import pwd
@@ -40,6 +41,7 @@ class MyTestSuite(unittest.TestCase):
         regression_test.addTests([
             # file name .class name
             unittest.defaultTestLoader.loadTestsFromTestCase(login_regression_testing.cQube_Login_Test),
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_home_page.cQube_Home),
             unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_regression_testing.cQube_CRC_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_regression_testing.cQube_Semester_Report),
             unittest.defaultTestLoader.loadTestsFromTestCase(School_Map_regression_testing.cQube_SI_Map_Report),

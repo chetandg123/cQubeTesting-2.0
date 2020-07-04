@@ -13,9 +13,9 @@ class click_on_reportmap():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        text = self.driver.find_element_by_xpath(Data.header).text
-        self.driver.find_element_by_xpath(Data.School_infra).click()
         self.p.page_loading(self.driver)
+        text = self.driver.find_element_by_tag_name("h4").text
+        self.driver.find_element_by_xpath(Data.School_infra).click()
         self.driver.find_element_by_id(Data.Reportmap).click()
         self.p.page_loading(self.driver)
         if "school-infra-map" in self.driver.current_url:
