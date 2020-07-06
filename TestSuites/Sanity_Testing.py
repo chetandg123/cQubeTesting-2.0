@@ -3,6 +3,7 @@ import sys
 import os
 import time
 
+from Landing_Page import cQube_home_page
 from SAR import student_attendance_sanity_testing
 from SR import semester_report_sanity_testing
 from get_dir import pwd
@@ -31,8 +32,8 @@ class MyTestSuite(unittest.TestCase):
         self.logger.info("Login execution started")
         sanity_test = unittest.TestSuite()
         sanity_test.addTests([
-            # file name .class name
             unittest.defaultTestLoader.loadTestsFromTestCase(login_sanity_testing.cQube_Login_Test),
+
         ])
         p= pwd()
         outfile = open(p.get_sanity_report_path(), "a")

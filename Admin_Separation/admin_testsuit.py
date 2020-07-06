@@ -22,7 +22,7 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(test_login_to_admin_page.Test_admin_login),
         ])
         p= pwd()
-        outfile = open("/home/chetan/Desktop/cQube/cQubeTesting/Admin_Separation/admin_separation.html", "w")
+        outfile = open(p.get_admin_login_path(), "w")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,

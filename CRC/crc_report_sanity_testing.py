@@ -41,8 +41,8 @@ class cQube_CRC_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-            self.total_tests =29
-            self.tests = [0] * 30
+            self.total_tests = 27
+            self.tests = [0] * 28
             self.data = GetData()
             self.logger = self.data.get_sanity_log()
             self.driver = self.data.get_driver()
