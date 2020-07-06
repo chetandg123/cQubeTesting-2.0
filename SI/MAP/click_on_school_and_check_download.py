@@ -13,7 +13,7 @@ class school_wise_download():
 
     def test_schoolwise(self):
         self.p = GetData()
-        self.driver.implicitly_wait(20)
+        self.driver.implicitly_wait(30)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.scm_school).click()

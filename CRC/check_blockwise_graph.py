@@ -9,6 +9,7 @@ class Blockwise_graph():
         self.driver = driver
 
     def test_blockwise_graph(self):
+        self.driver.implicitly_wait(20)
         self.p = GetData()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper).click()

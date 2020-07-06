@@ -269,6 +269,9 @@ class cQube_CRC_Report(unittest.TestCase):
         self.logger.info("test_dash_menu is completed...")
 
     def test_districtwise_graph(self):
+        self.tests.pop()
+        self.logger.info("test_districtwise_graph" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = districtwise_graph(self.driver)
         res = b.test_districtwise_graph()
         if "myChart" in self.driver.page_source:
@@ -276,8 +279,12 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
+        self.logger.info("test_districtwise_graph is completed...")
 
     def test_blockwise_graph(self):
+        self.tests.pop()
+        self.logger.info("test_blockwise_graph" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Blockwise_graph(self.driver)
         res = b.test_blockwise_graph()
         if "myChart" in self.driver.page_source:
@@ -285,8 +292,12 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
+        self.logger.info("test_blockwise_graph is completed...")
 
     def test_clusterwise_graph(self):
+        self.tests.pop()
+        self.logger.info("test_clusterwise_graph" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = cluster_graph(self.driver)
         res = b.test_clusterwise_graph()
         if "myChart" in self.driver.page_source:
@@ -294,11 +305,16 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
+        self.logger.info("test_clusterwise_graph is completed...")
 
     def test_districtwise_schoolsvisited(self):
+        self.tests.pop()
+        self.logger.info("test_districtwise_schoolsvisited" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = districtwise_visits(self.driver)
         result = b.test_districtwise_schoolvisited()
         self.data.page_loading(self.driver)
+        self.logger.info("test_districtwise_schoolsvisited is completed...")
 
 
     @classmethod

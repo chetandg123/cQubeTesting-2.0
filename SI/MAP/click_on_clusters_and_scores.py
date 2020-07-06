@@ -11,7 +11,7 @@ class cluster_btn_scores():
         self.driver = driver
 
     def test_click_clusters(self):
-        self.driver.implicitly_wait(20)
+        self.driver.implicitly_wait(30)
         self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
