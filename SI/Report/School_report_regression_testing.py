@@ -11,22 +11,25 @@ from SI.Report.check_districtwise_graph import districtwise_graph
 
 from SI.Report.check_graph_present_on_school_infra import check_with_graph
 from SI.Report.check_homebtn import home_button
+from SI.Report.check_sc_scattor_blockwise_records import school_blockwise
+from SI.Report.check_sc_scattor_clusterwise_records import Test_schoolwise
+from SI.Report.check_sc_scattor_districtwise_records import test_districtwise
+
 from SI.Report.check_table_data_metrics import download_report
 from SI.Report.check_table_present_on_schoolinfra import check_with_table
 from SI.Report.check_tabledata_by_selecting_districts import districtwise_tabledata
-
 from SI.Report.check_with_hyperlink import Hyperlink
 from SI.Report.click_on_Report_from_scinfra import check_schoolinfra_report
+
 from SI.Report.click_on_district_and_click_download import download_districtwise
 from SI.Report.click_on_district_block_cluster_home import check_home
 from SI.Report.click_on_table_and_check_with_orderof_values import check_order_of_tabledata
-
 from SI.Report.download_blockwise_csv import donwload_blockwise_csv
 from SI.Report.download_districtwise_csv import download_district_wise_csv
+
 from SI.Report.navigate_to_SI_report import si_report
 from SI.Report.navigate_to_dashboard import check_dashboard
 from SI.Report.navigate_to_schoolinfra_and_click_on_logout import schoolinfra_logout
-
 from reuse_func import GetData
 
 
@@ -34,8 +37,8 @@ class cQube_SI_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 21
-        self.tests = [0] * 22
+        self.total_tests = 24
+        self.tests = [0] * 25
         self.data = GetData()
         self.logger = self.data.get_regression_log()
         self.driver = self.data.get_driver()
@@ -274,6 +277,35 @@ class cQube_SI_Report(unittest.TestCase):
             print("School infra plot plot is not exist..")
         self.data.page_loading(self.driver)
         self.logger.info("test_clusterwise_graph is completed...")
+
+    def test_sc_scator_districtwise(self):
+            self.tests.pop()
+            self.logger.info("test_sc_scator_districtwise" + " " + "Total :" + " " + str(
+                    self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+            b = test_districtwise(self.driver)
+            result = b.test_districtwise()
+            self.logger.info("test_sc_scator_districtwise is completed...")
+
+
+    def test_sc_scator_blockwise(self):
+            self.tests.pop()
+            self.logger.info("test_sc_scator_blockwise" + " " + "Total :" + " " + str(
+                    self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+            b = school_blockwise(self.driver)
+            result = b.test_blockwise()
+            self.logger.info("test_sc_scator_blockwise is completed...")
+
+
+
+    def test_sc_scator_clusterwise(self):
+            self.tests.pop()
+            self.logger.info("test_sc_scator_clusterwise" + " " + "Total :" + " " + str(
+                    self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+            b = Test_schoolwise(self.driver)
+            result = b.test_clusterwise()
+            self.logger.info("test_sc_scator_clusterwise is completed...")
+
+
 
     @classmethod
     def tearDownClass(cls):

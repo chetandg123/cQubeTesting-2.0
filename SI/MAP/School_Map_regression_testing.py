@@ -6,41 +6,45 @@ from selenium.common import exceptions
 from SI.MAP.Click_on_School_infra import click_schoolinfra
 from SI.MAP.check_districtwise_school import districtlevel_school
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
+from SI.MAP.check_sc_map_blockwise_records import school_map_blockwise
+from SI.MAP.check_sc_map_clusterwise_records import test_school_map_schoollevel_records
+
+from SI.MAP.check_sc_map_districtwise_records import sc_map_districtwise
 from SI.MAP.check_with_districts_from_select_box import District_names
 from SI.MAP.check_with_map_on_schoolinfra import check_markers_on_map
-
 from SI.MAP.check_with_schoolinfra_options import School_infra_options
 from SI.MAP.click_on_Dashboard import click_dashboard
+
 from SI.MAP.click_on_Report_from_scinfra import click_report
 from SI.MAP.click_on_Reportmap import click_on_reportmap
 from SI.MAP.click_on_anydistrict_and_download_csv import download_icon
-
 from SI.MAP.click_on_blk_clus_school_and_home import click_on_home
 from SI.MAP.click_on_block_and_home import block_level_home
+
 from SI.MAP.click_on_block_check_with_footer_values import school_count
 from SI.MAP.click_on_block_cluster_school_and_check_schoolscount import Block_school_count
 from SI.MAP.click_on_blocks import click_on_blocks
-
 from SI.MAP.click_on_blocks_and_scores import block_btn_scores
 from SI.MAP.click_on_blocksbtn_and_check_download import Blockwise_csv_download
+
 from SI.MAP.click_on_blockwise_download_csv import cluster_level_map_check
 from SI.MAP.click_on_cluster_and_home import click_cluster_and_home
 from SI.MAP.click_on_cluster_check_download import clusterwise_download
-
 from SI.MAP.click_on_clusters import cluster_button
 from SI.MAP.click_on_clusters_and_scores import cluster_btn_scores
+
 from SI.MAP.click_on_district_and_homeicon import district_home
 from SI.MAP.click_on_district_options import District_options
 from SI.MAP.click_on_hyperlink import click_on_hyperlink
-
 from SI.MAP.click_on_infra_score import click_on_infrascores
 from SI.MAP.click_on_infra_scores_options import select_infrascore_options
+
 from SI.MAP.click_on_school_and_check_download import school_wise_download
 from SI.MAP.click_on_school_infrastructure import School_infra_test
 from SI.MAP.click_on_schools import click_schoolwise
-
 from SI.MAP.click_on_schools_and_scores import schools_btn_scores
 from SI.MAP.download_clusterlevel_csv import cluster_level_csv
+
 from SI.MAP.download_districtwise_csv import districtwise_csv
 from SI.MAP.mouseover_on_districtwise import mouseover
 from SI.MAP.select_district_block_from_select_box import select_blockwise
@@ -52,8 +56,8 @@ class cQube_SI_Map_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 35
-        self.tests = [0] * 36
+        self.total_tests = 39
+        self.tests = [0] * 40
         self.data = GetData()
         self.logger = self.data.get_regression_log()
         self.driver = self.data.get_driver()
@@ -450,6 +454,30 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.assertNotEqual(0, result, msg="markers are not present on map ")
         self.data.page_loading(self.driver)
         self.logger.info("test_districtwise_school is completed...")
+
+    def test_sc_map_districtwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_districtwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = sc_map_districtwise(self.driver)
+        result = b.test_schools()
+        self.logger.info("test_sc_map_districtwise is completed...")
+
+    def test_sc_map_blockwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_blockwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = school_map_blockwise(self.driver)
+        result = b.test_schools()
+        self.logger.info("test_sc_map_blockwise is completed...")
+
+    def test_sc_map_clusterwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_clusterwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = test_school_map_schoollevel_records(self.driver)
+        result = b.test_total_students()
+        self.logger.info("test_sc_map_clusterwise is completed...")
 
     @classmethod
     def tearDownClass(cls):
