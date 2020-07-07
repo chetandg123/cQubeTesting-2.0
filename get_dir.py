@@ -79,7 +79,7 @@ class pwd():
 
     def get_regression_testing_log_dir(self):
         cwd = os.path.dirname(__file__)
-        log_dir_path = os.path.join(cwd, 'Logs/test_regression_testing.log')
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/test_regression_testing.log')
         return log_dir_path
 
     def get_clear_fields(self,driver):

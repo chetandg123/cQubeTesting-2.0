@@ -36,6 +36,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
+        self.data.navigate_to_student_report()
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
         self.year = year.first_selected_option.text
