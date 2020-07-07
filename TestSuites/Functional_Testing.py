@@ -1,17 +1,16 @@
 import configparser
 import sys
+sys.path.append("/home/chetan/Desktop/cQube/cQubeTesting")
 import os
 import time
 
 from SR import semester_report_functional_testing
 from get_dir import pwd
-from CRC import crc, crc_report_functional_testing
-from Login import cQube_login
-from SI.MAP import SI_mapreport, School_Map_functional_testing
-from SI.Report import SI_Report, School_report_functional_testing
+from CRC import crc_report_functional_testing
+from SI.MAP import School_Map_functional_testing
+from SI.Report import School_report_functional_testing
 
 import unittest
-from fileinput import close
 from HTMLTestRunner import HTMLTestRunner
 
 from reuse_func import GetData
