@@ -35,7 +35,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Login Regression Test Report',
+                title='Student Attendance Regression Test Report',
                 verbosity=1,
 
             )
