@@ -21,17 +21,17 @@ class pwd():
 
     def get_sanity_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/sanity_testing_report.html')
+        report_path = os.path.join(cwd, 'Reports/SanityReports/sanity_testing_report.html')
         return report_path
 
     def get_regression_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/regression_testing_report.html')
+        report_path = os.path.join(cwd, 'Reports/RegressionReports/regression_testing_report.html')
         return report_path
 
     def get_smoke_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/smoke_testing_report.html')
+        report_path = os.path.join(cwd, 'Reports/SmokeReports/smoke_testing_report.html')
         return report_path
     def get_functional_report_path(self):
         cwd = os.path.dirname(__file__)
