@@ -6,6 +6,9 @@ from selenium.common import exceptions
 from SI.MAP.Click_on_School_infra import click_schoolinfra
 from SI.MAP.check_districtwise_school import districtlevel_school
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
+from SI.MAP.check_sc_map_blockwise_records import school_map_blockwise
+from SI.MAP.check_sc_map_clusterwise_records import test_school_map_schoollevel_records
+from SI.MAP.check_sc_map_districtwise_records import sc_map_districtwise
 from SI.MAP.check_with_districts_from_select_box import District_names
 from SI.MAP.check_with_map_on_schoolinfra import check_markers_on_map
 
@@ -52,8 +55,8 @@ class cQube_SI_Map_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 35
-        self.tests = [0] * 36
+        self.total_tests = 39
+        self.tests = [0] * 40
         self.data = GetData()
         self.logger = self.data.get_regression_log()
         self.driver = self.data.get_driver()
@@ -450,6 +453,30 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.assertNotEqual(0, result, msg="markers are not present on map ")
         self.data.page_loading(self.driver)
         self.logger.info("test_districtwise_school is completed...")
+
+    def test_sc_map_districtwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_districtwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = sc_map_districtwise(self.driver)
+        result = b.test_schools()
+        self.logger.info("test_sc_map_districtwise is completed...")
+
+    def test_sc_map_blockwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_blockwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = school_map_blockwise(self.driver)
+        result = b.test_schools()
+        self.logger.info("test_sc_map_blockwise is completed...")
+
+    def test_sc_map_clusterwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_clusterwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = test_school_map_schoollevel_records(self.driver)
+        result = b.test_total_students()
+        self.logger.info("test_sc_map_clusterwise is completed...")
 
     @classmethod
     def tearDownClass(cls):
