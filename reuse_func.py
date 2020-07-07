@@ -15,11 +15,6 @@ class GetData():
     def __init__(self):
         self.p = pwd()
 
-
-    # def put_log(self,received_msg):
-    #     logging.basicConfig(filename=self.p.get_log_dir(),filemode='w',format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S',level=logging.INFO)
-    #     logging.info(received_msg)
-
     def get_smoke_log(self):
         logging.basicConfig(filename=self.p.get_smoke_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
                             datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
@@ -63,7 +58,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         self.driver=webdriver.Chrome(chrome_options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
