@@ -10,7 +10,6 @@ from CRC.check_crc_tabledata_by_districtwise import schoolwise_tabledata
 from CRC.check_crc_tabledata_by_selecting_districts import districtwise_tabledata
 
 from CRC.check_districtlevel_visited import districtwise_visits
-from CRC.check_districtwise_graph import districtwise_graph
 from CRC.check_homebtn import Homebutton
 from CRC.check_performance_for_blockwise_report import download_blockwise_csv
 from CRC.check_performance_for_clusterwise_report import download_clusterwise_csv
