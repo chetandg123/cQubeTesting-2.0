@@ -14,5 +14,6 @@ class Login_to_cqube():
         self.driver.find_element_by_id(Data.passwd).send_keys(self.p.get_password())
         self.driver.find_element_by_id(Data.login).click()
         self.p.page_loading(self.driver)
+        time.sleep(2)
         self.driver.find_element_by_id(Data.logout).click()
 
