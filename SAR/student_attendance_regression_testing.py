@@ -49,6 +49,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
         dashboard = Dashboard(self.driver)
         dashboard.click_on_dashboard()
+        print("Navigating to Dashboard is working")
 
         self.logger.info("test_click_on_dashboard is completed...")
 
@@ -60,7 +61,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
         if "Student Attendance Report" in result:
-            print("This is Student Attendance Report page")
+            print("Navigating to Student Attendance Report is working")
         else:
             print("SAR page does not exist!...")
 
@@ -74,7 +75,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         block = Blocks(self.driver)
         result = block.check_markers_on_block_map()
         self.assertNotEqual(0, len(result) - 1, msg="Dots are not present on map")
-
+        print("Blocks button is working")
+        print("Markers are present on the map")
         self.logger.info("test_click_on_blocks is completed...")
 
     def test_click_on_clusters(self):
@@ -85,7 +87,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         cluster = Clusters(self.driver)
         result = cluster.check_markers_on_clusters_map()
         self.assertNotEqual(0, len(result) - 1, msg="Dots are not present on map")
-
+        print("Clusters button is working")
+        print("Markers are present on the map")
         self.logger.info("test_click_on_clusters is completed...")
 
     def test_click_on_schools(self):
@@ -96,7 +99,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         school = Schools(self.driver)
         result = school.check_markers_on_clusters_map()
         self.assertNotEqual(0, int(len(result) - 1), msg="Dots are not present on map")
-
+        print("Schools button is working")
+        print("Markers are present on the map")
         self.logger.info("test_click_on_schools is completed...")
 
     def test_logout(self):
@@ -107,6 +111,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         logout = Logout(self.driver)
         result = logout.click_on_logout()
         self.assertEqual("cQube", result, msg="login page is not exist!..")
+        print("Logout Functionality is working")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_student_report()
         self.logger.info("test_logout is completed...")
@@ -171,9 +176,9 @@ class cQube_Student_Attendance(unittest.TestCase):
 
         self.logger.info("test_clusterwise_csv_download is completed...")
 
-    def test_schoolwise_cv_download(self):
+    def test_schoolwise_csv_download(self):
         self.tests.pop()
-        self.logger.info("test_schoolwise_cv_download is running" + " " + "Total :" + " " + str(
+        self.logger.info("test_schoolwise_csv_download is running" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
 
         csv = SchoolwiseCsv(self.driver, self.year, self.month)
@@ -184,7 +189,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         else:
             raise self.failureException("School wise csv report download is not working")
 
-        self.logger.info("test_schoolwise_cv_download is completed...")
+        self.logger.info("test_schoolwise_csv_download is completed...")
 
     def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
         self.tests.pop()
@@ -198,7 +203,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.assertEqual(int(schools), int(Cschools), msg="Cluster level no of schools are not equal to no of schools ")
         schools, Sschools = tc.schools_no_of_schools()
         self.assertEqual(int(schools), int(Sschools), msg="Cluster level no of schools are not equal to no of schools ")
-
+        print("Total number of schools equals on clicking of blocks,clusters,schools")
         self.logger.info("test_no_of_schools_is_equals_at_districts_blocks_clusters_schools is completed...")
 
     def test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools(self):
@@ -213,7 +218,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.assertEqual(int(student_count), int(Cstudents), msg="Cluster level no of students are not equal")
         student_count, Sstudents = tc.schools_total_no_of_students()
         self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
-
+        print("Total number of students equals on clicking of blocks,clusters,schools")
         self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
 
     def test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level(self):
@@ -225,7 +230,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = cluster.comapre_cluster()
         if result != 0:
             raise self.failureException('data not matched')
-
+        print("No of schools and No of Dots are equal at cluster level")
         self.logger.info("test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is completed...")
 
     def test_home_icon(self):
@@ -237,7 +242,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         home.click_on_blocks_click_on_home_icon()
         result = home.click_HomeButton()
         if "Student Attendance Report" in result:
-            print("This is Student Attendance Report page")
+            print("Home Icon is working")
         else:
             raise self.failureException('Home Icon is not working')
 
@@ -252,6 +257,9 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = dist.check_districts_csv_download()
         if result == 0:
             print("Block per district csv report download is working")
+            print("on selection of each district")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
         else:
             raise self.failureException("Block per district csv report download is working")
 
@@ -266,6 +274,9 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = block.check_csv_download()
         if result == 0:
             print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
         else:
             raise self.failureException("Cluster per block csv report download is working")
 
@@ -279,7 +290,10 @@ class cQube_Student_Attendance(unittest.TestCase):
         schools = SchoolsPerClusterCsvDownload(self.driver,self.year,self.month)
         result = schools.check_csv_download()
         if result == 0:
-            print("Schools per cluster csv report download is working")
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
         else:
             raise self.failureException("Schools per cluster csv report download is working")
 
@@ -294,7 +308,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = dist.check_dots_on_each_districts()
         if result != 0:
             raise self.failureException('data not found')
-
+        else:
+            print("Markers are present on selection of each district")
         self.logger.info("test_dots_on_each_districts is completed...")
 
     def test_dots_on_each_districts_and_each_block(self):
@@ -306,7 +321,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = dist_block.check_dots_on_each_districts_block()
         if result != 0:
             raise self.failureException('data not found')
-
+        else:
+            print("Markers are present on selection of each district and block")
         self.logger.info("test_dots_on_each_districts_and_each_block is completed...")
 
     @classmethod
