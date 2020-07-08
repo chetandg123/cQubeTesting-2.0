@@ -1,8 +1,4 @@
-import time
-from selenium import webdriver
-from selenium.webdriver.support.select import Select
-
-from TestSuites.Smoke_Testing import MyTestSuite
+from TestSuites.SmokeTestSuite.Smoke_Testing import MyTestSuite
 from reuse_func import GetData
 
 
