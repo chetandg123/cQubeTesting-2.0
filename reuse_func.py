@@ -131,8 +131,8 @@ class GetData():
         self.driver.find_element_by_id(Data.Reportmap).click()
 
     def select_month_year(self,y,m):
-        year = Select(self.driver.find_element_by_name(Data.select_year))
-        month = Select(self.driver.find_element_by_name(Data.select_month))
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
         time.sleep(2)
         year.select_by_visible_text(y)
         time.sleep(2)
