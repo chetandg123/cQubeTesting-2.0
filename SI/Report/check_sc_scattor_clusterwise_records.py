@@ -23,7 +23,7 @@ class Test_schoolwise():
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         select_cluster = Select(self.driver.find_element_by_name('myCluster'))
-
+        count = 0
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
@@ -36,6 +36,7 @@ class Test_schoolwise():
                     nodata = self.driver.find_element_by_id("errMsg").text
                     if nodata == "No data found":
                         print(select_cluster.options[z].text, "no data found!")
+                        count = count + 1
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
@@ -48,3 +49,4 @@ class Test_schoolwise():
                                 if len(csv_dict) == 0:
                                     print(select_district.options[z].text,"does not contain Table records")
                             os.remove(self.filename)
+        return  count

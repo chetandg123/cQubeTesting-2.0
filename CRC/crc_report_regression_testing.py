@@ -345,6 +345,7 @@ class cQube_CRC_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = test_crc_report_districtwise(self.driver)
         result = b.test_districtwise()
+        self.assertEqual(0,result,msg="no data found")
         print('checked with districts records')
         self.logger.info("test_crc_districtwise is completed...")
 
@@ -355,6 +356,7 @@ class cQube_CRC_Report(unittest.TestCase):
         b = crc_blockwise_records(self.driver)
         result = b.test_blockwise()
         print("checked with blockwise records")
+        self.assertEqual(0,result,msg="No data found ")
         self.logger.info("test_crc_blockwise is completed...")
 
     def test_crc_clusterwise(self):
@@ -363,6 +365,7 @@ class cQube_CRC_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = crc_schoolevel_records(self.driver)
         result = b.test_schoolwise()
+        self.assertEqual(0,result,msg="no data found  ")
         print("checked with clusterwise records")
         self.logger.info("test_crc_clusterwise is completed...")
 

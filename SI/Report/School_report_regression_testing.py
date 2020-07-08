@@ -294,6 +294,7 @@ class cQube_SI_Report(unittest.TestCase):
                     self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
             b = test_districtwise(self.driver)
             result = b.test_districtwise()
+            self.assertEqual(0,result,msg="No data found")
             print("Checked with each district wise records")
             self.logger.info("test_sc_scator_districtwise is completed...")
 
@@ -304,6 +305,7 @@ class cQube_SI_Report(unittest.TestCase):
                     self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
             b = school_blockwise(self.driver)
             result = b.test_blockwise()
+            self.assertEqual(0,result,msg="No data found")
             print("Checked with each block wise records")
             self.logger.info("test_sc_scator_blockwise is completed...")
 
@@ -315,6 +317,7 @@ class cQube_SI_Report(unittest.TestCase):
                     self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
             b = Test_schoolwise(self.driver)
             result = b.test_clusterwise()
+            self.assertEqual(0,result,msg="No data found")
             print("Checked with each clusterwise wise records")
             self.logger.info("test_sc_scator_clusterwise is completed...")
 
