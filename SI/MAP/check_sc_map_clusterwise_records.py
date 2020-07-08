@@ -18,6 +18,7 @@ class test_school_map_schoollevel_records():
     def test_total_students(self):
         p = pwd()
         self.cal = GetData()
+        self.driver.implicitly_wait(100)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))

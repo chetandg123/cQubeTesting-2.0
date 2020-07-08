@@ -21,9 +21,7 @@ class Test_admin_login(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.data.login_admin(self.driver)
 
-    def test_admin_page(self):
-        pagetitle = self.driver.find_element_by_tag_name("h1").text
-        self.assertEqual("Create User",pagetitle,msg="Admin login page is not exists")
+
 
     def test_login_to_adminpage(self):
         self.data.page_loading(self.driver)
@@ -108,7 +106,7 @@ class Test_admin_login(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id("newPasswd").send_keys("")
         self.driver.find_element_by_id("cnfPasswd").send_keys("")
-        self.driver.find_element_by_id("btn").click()
+        # self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
 
 

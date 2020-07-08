@@ -17,11 +17,11 @@ class download_districtwise():
         self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
-        dist = Select(self.driver.find_element_by_name(Data.select_district))
+        dist = Select(self.driver.find_element_by_name("myDistrict"))
         dist.select_by_index(10)
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(2)
+        time.sleep(3)
         self.filename = p.get_download_dir() + "/blockPerDistrict_report.csv"
         self.cal.page_loading(self.driver)
         return os.path.isfile(self.filename)

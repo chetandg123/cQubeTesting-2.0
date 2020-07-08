@@ -12,6 +12,7 @@ class Hyperlink():
 
     def click_on_hyperlinks(self):
         self.p = GetData()
+        self.driver.implicitly_wait(20)  # seconds
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
         dist = Select(self.driver.find_element_by_name("myDistrict"))

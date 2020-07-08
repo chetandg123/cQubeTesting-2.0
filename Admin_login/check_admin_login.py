@@ -27,8 +27,8 @@ class Test_admin_login(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
-        # error = self.driver.find_element_by_id("err").text
-        self.assertEqual("User not found","cQube Admin",msg="dashboard report viewer is also logined to admin page! ")
+        error = self.driver.find_element_by_id("err").text
+        self.assertEqual("Unauthorised User",error,msg="dashboard report viewer is also logined to admin page! ")
 
 
 
