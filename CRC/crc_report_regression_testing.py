@@ -13,7 +13,7 @@ from CRC.check_crc_block_per_district_csv_download import blockwise
 from CRC.check_crc_tabledata_by_districtwise import schoolwise_tabledata
 from CRC.check_crc_tabledata_by_selecting_districts import districtwise_tabledata
 from CRC.check_districtlevel_visited import districtwise_visits
-from CRC.check_districtwise_graph import districtwise_graph
+from CRC.check_districtwise_graph import scattor_graph
 from CRC.check_districtwise_records import test_crc_report_districtwise
 
 from CRC.check_homebtn import Homebutton
@@ -290,18 +290,18 @@ class cQube_CRC_Report(unittest.TestCase):
         print("Dashboard icon is working....")
         self.logger.info("test_dash_menu is completed...")
 
-    def test_districtwise_graph(self):
+    def test_scattor_graph(self):
         self.tests.pop()
-        self.logger.info("test_districtwise_graph" + " " + "Total :" + " " + str(
+        self.logger.info("test_scattor_graph" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        b = districtwise_graph(self.driver)
-        res = b.test_districtwise_graph()
+        b = scattor_graph(self.driver)
+        res = b.test_scattor_graph()
         if "myChart" in self.driver.page_source:
             print("CRC Scattor plot is working fine")
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
-        self.logger.info("test_districtwise_graph is completed...")
+        self.logger.info("test_scattor_graph is completed...")
 
     def test_blockwise_graph(self):
         self.tests.pop()

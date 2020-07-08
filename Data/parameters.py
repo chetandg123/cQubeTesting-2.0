@@ -18,7 +18,7 @@ class Data():
     cpass ="//a[2]"
     dashboard_options = "//a/div/td[2]"
     reportuser ="reportviewer@cqube.com"
-    reportpass = "report123"
+    reportpass = "viewer123"
     back_btn ="//div[@class='col-sm-6']/a"
 
     dots = "leaflet-interactive"
