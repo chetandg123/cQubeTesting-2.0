@@ -14,6 +14,7 @@ class donwload_blockwise_csv():
 
     def test_block(self):
         self.p = GetData()
+        self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.p.page_loading(self.driver)
         p =pwd()

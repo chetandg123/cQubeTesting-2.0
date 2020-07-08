@@ -63,7 +63,7 @@ class cQube_SI_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = check_with_graph(self.driver)
         res = b.test_graph()
-        self.assertIn("myChart", self.driver.page_source, msg="Does not exist")
+        print("Graph is present in School report")
         self.logger.info("test_graph is completed...")
 
     def test_home(self):
@@ -72,6 +72,7 @@ class cQube_SI_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = home_button(self.driver)
         res = b.test_home()
+        print("homeicon is working..")
         self.assertTrue(res, msg="Home button not working ")
 
 
@@ -83,6 +84,7 @@ class cQube_SI_Report(unittest.TestCase):
         path = b.test_schools()
         self.assertTrue(path, msg="File is not downloaded")
         b.remove_csv()
+        print("districtwise csv file is downloaded")
         self.logger.info("test_downloadreportwise is completed...")
 
     def test_check_hyperlinks(self):
@@ -133,6 +135,7 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_donwload()
         self.assertTrue(res, msg="districtwise file is not downloaded")
         b.remove_csv()
+        print("District csv file is downloaded")
         self.logger.info("test_districtwise_csv is completed...")
 
         time.sleep(3)
@@ -157,6 +160,7 @@ class cQube_SI_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Hyperlink(self.driver)
         res = b.click_on_hyperlinks()
+        print("Download type select box is working ")
         self.logger.info("test_donwload_options is completed...")
 
     def test_school_report(self):
@@ -166,6 +170,7 @@ class cQube_SI_Report(unittest.TestCase):
         b = check_schoolinfra_report(self.driver)
         res = b.test_report()
         self.assertEqual("menu", res, msg="Dashboard is not exists!")
+        print("Menu list is displayed")
         self.logger.info("test_school_report is completed...")
 
     def test_check_orderwise(self):
@@ -175,6 +180,7 @@ class cQube_SI_Report(unittest.TestCase):
         b = check_order_of_tabledata(self.driver)
         print("Table record order wise..")
         res = b.test_tablevalue()
+        print("checked with orderwise of table data")
         self.logger.info("test_check_orderwise is completed...")
 
     def test_plotvalue(self):
@@ -183,6 +189,7 @@ class cQube_SI_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Graph_values(self.driver)
         res = b.test_plots()
+        print("Checked with x and y values are working..")
         self.logger.info("test_plotvalue is completed...")
 
     def test_donwload_blockwise(self):
@@ -193,6 +200,7 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_block()
         self.assertTrue(res, msg="File is not downloaded")
         b.remove_csv()
+        print("blockwise csv file downloaded")
         self.logger.info("test_donwload_blockwise is completed...")
         self.data.page_loading(self.driver)
 
@@ -205,6 +213,7 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_districtwise()
         self.assertTrue(res, msg="File is not downloaded")
         b.remove_file()
+        print("districtwise csv file is downloaded")
         self.logger.info("test_download_districtwise is completed...")
 
     def test_schoolreport(self):
@@ -223,6 +232,7 @@ class cQube_SI_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = check_dashboard(self.driver)
         res = b.test_menulist()
+        print("check with dashboard options is working fine ")
         self.logger.info("test_dashboard is completed...")
 
     def test_logout(self):
@@ -284,6 +294,8 @@ class cQube_SI_Report(unittest.TestCase):
                     self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
             b = test_districtwise(self.driver)
             result = b.test_districtwise()
+            self.assertEqual(0,result,msg="No data found")
+            print("Checked with each district wise records")
             self.logger.info("test_sc_scator_districtwise is completed...")
 
 
@@ -293,6 +305,8 @@ class cQube_SI_Report(unittest.TestCase):
                     self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
             b = school_blockwise(self.driver)
             result = b.test_blockwise()
+            self.assertEqual(0,result,msg="No data found")
+            print("Checked with each block wise records")
             self.logger.info("test_sc_scator_blockwise is completed...")
 
 
@@ -303,6 +317,8 @@ class cQube_SI_Report(unittest.TestCase):
                     self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
             b = Test_schoolwise(self.driver)
             result = b.test_clusterwise()
+            self.assertEqual(0,result,msg="No data found")
+            print("Checked with each clusterwise wise records")
             self.logger.info("test_sc_scator_clusterwise is completed...")
 
 

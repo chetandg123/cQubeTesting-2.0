@@ -11,6 +11,7 @@ from reuse_func import GetData
 class download_districtwise_csv():
     def __init__(self,driver):
         self.driver =driver
+        self.filename =''
 
     def test_districtwise_csv(self):
         self.cal = GetData()
@@ -21,7 +22,7 @@ class download_districtwise_csv():
         District_wise.select_by_visible_text(" Dist_Wise Report ")
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(5)
+        time.sleep(3)
         self.filename = p.get_download_dir() + "/District_level_CRC_Report.csv"
         self.cal.page_loading(self.driver)
         return os.path.isfile(self.filename)

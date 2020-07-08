@@ -18,6 +18,7 @@ class sc_map_districtwise():
     def test_schools(self):
         p = pwd()
         self.cal = GetData()
+        self.driver.implicitly_wait(30)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
