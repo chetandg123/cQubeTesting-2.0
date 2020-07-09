@@ -18,7 +18,7 @@ class school_wise_download():
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.scm_school).click()
         self.p.page_loading(self.driver)
-        time.sleep(25)
+        time.sleep(30)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         self.p.page_loading(self.driver)
         count =len(dots)-1

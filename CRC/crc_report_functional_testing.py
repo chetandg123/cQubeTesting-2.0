@@ -5,30 +5,35 @@ import unittest
 from selenium.common import exceptions
 
 from CRC.check_blockwise_graph import Blockwise_graph
+from CRC.check_blockwise_records import crc_blockwise_records
 from CRC.check_clusterwise_graph import cluster_graph
 from CRC.check_crc_block_per_district_csv_download import blockwise
 from CRC.check_crc_tabledata_by_districtwise import schoolwise_tabledata
+
 from CRC.check_crc_tabledata_by_selecting_districts import districtwise_tabledata
 from CRC.check_districtlevel_visited import districtwise_visits
-from CRC.check_districtwise_graph import districtwise_graph
 from CRC.check_homebtn import Homebutton
 from CRC.check_performance_for_blockwise_report import download_blockwise_csv
 from CRC.check_performance_for_clusterwise_report import download_clusterwise_csv
+
 from CRC.check_performance_for_districtwise_report import download_districtwise_csv
 from CRC.check_performance_of_crc_report import CRC_report
 from CRC.check_table_data_order import Check_order_of_tabledata
 from CRC.check_total_no_of_visited_in_districtwise import visited
 from CRC.check_total_no_of_visits_in_districtwise import school_visits
+
 from CRC.check_totalschools_count_in_districtwise import school_count
 from CRC.check_xaxis_and_yaxis_from_selectbox import plot_values
 from CRC.click_on_district_block_cluster_home import click_on_home
 from CRC.click_on_hyperlink import click_on_hyperlinks
 from CRC.download_blockwise_csv import donwload_blockwise_csv
+
 from CRC.download_clusterwise_csv import load_clusterwise_csv
 from CRC.download_districtwise_csv import Districtwise_donwload
 from CRC.navigate_to_crc_and_click_on_logout import Logout_function
 from CRC.navigate_to_crc_report import loading_crc
 from CRC.navigate_to_dashboard import Dashboard_menu
+
 from reuse_func import GetData
 
 
@@ -350,18 +355,18 @@ class cQube_CRC_Report(unittest.TestCase):
         self.assertEqual(res,"menu",msg="Dashboard button is not working")
         self.logger.info("test_dash_menu is completed...")
 
-    def test_districtwise_graph(self):
-        self.tests.pop()
-        self.logger.info("test_districtwise_graph" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        b = districtwise_graph(self.driver)
-        res = b.test_districtwise_graph()
-        if "myChart" in self.driver.page_source:
-            print("CRC Scattor plot is working fine")
-        else:
-            print("CRC plot is not exist..")
-        self.data.page_loading(self.driver)
-        self.logger.info("test_districtwise_graph is completed...")
+    # def test_districtwise_graph(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_districtwise_graph" + " " + "Total :" + " " + str(
+    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+    #     b = districtwise_graph(self.driver)
+    #     res = b.test_districtwise_graph()
+    #     if "myChart" in self.driver.page_source:
+    #         print("CRC Scattor plot is working fine")
+    #     else:
+    #         print("CRC plot is not exist..")
+    #     self.data.page_loading(self.driver)
+    #     self.logger.info("test_districtwise_graph is completed...")
 
     def test_blockwise_graph(self):
         self.tests.pop()
@@ -398,6 +403,15 @@ class cQube_CRC_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.logger.info("test_districtwise_schoolsvisited is completed...")
 
+    def test_crc_blockwise(self):
+        self.tests.pop()
+        self.logger.info("test_crc_blockwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = crc_blockwise_records(self.driver)
+        result = b.test_blockwise()
+        print("checked with blockwise records")
+        self.assertNotEqual(0, result, msg="Table data is not loaded ")
+        self.logger.info("test_crc_blockwise is completed...")
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
