@@ -15,7 +15,7 @@ class blockwise():
 
     def __init__(self, driver):
         self.driver = driver
-        self.filename = ''
+        self.filename =''
 
     def test_blocklevel(self):
         self.cal = GetData()
@@ -36,5 +36,5 @@ class blockwise():
                 count = count + 1
             if os.path.isfile(self.filename) == True:
                 os.remove(self.filename)
-
+        self.cal.page_loading(self.driver)
         return count

@@ -18,6 +18,7 @@ class test_crc_report_districtwise():
     def test_districtwise(self):
         p = pwd()
         self.cal = GetData()
+        self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))

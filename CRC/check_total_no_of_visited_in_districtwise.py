@@ -16,6 +16,7 @@ class visited():
 
     def test_schools(self):
         p = pwd()
+        self.driver.implicitly_wait(20)
         self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)

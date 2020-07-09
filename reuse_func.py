@@ -78,7 +78,7 @@ class GetData():
 
     def page_loading(self,driver):
         try:
-            driver.implicitly_wait(2)
+            driver.implicitly_wait(5)
             self.driver = driver
             for x in range(1, 10):
                 elem = self.driver.find_element_by_id('loader').text

@@ -10,5 +10,6 @@ class CRC_report():
 
     def test_crc_report(self):
         self.p = GetData()
+        self.driver.implicitly_wait(10)
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.p.page_loading(self.driver)

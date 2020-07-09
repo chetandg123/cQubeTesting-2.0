@@ -13,6 +13,7 @@ class download_clusterwise_csv():
         self.driver = driver
         self.filename =''
     def test_clusterwise(self):
+        self.driver.implicitly_wait(20)
         self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.p.page_loading(self.driver)

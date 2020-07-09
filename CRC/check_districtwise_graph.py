@@ -10,7 +10,7 @@ class scattor_graph():
 
     def test_scattor_graph(self):
         self.p = GetData()
-        self.p.page_loading(self.driver)
+        self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.p.page_loading(self.driver)
         dist = Select(self.driver.find_element_by_id("dist"))
