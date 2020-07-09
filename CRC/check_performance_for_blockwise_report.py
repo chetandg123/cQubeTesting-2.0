@@ -22,7 +22,7 @@ class download_blockwise_csv():
         District_wise.select_by_visible_text(" Block_Wise Report ")
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
+        time.sleep(5)
         self.filename = p.get_download_dir() + "/Block_level_CRC_Report.csv"
         self.p.page_loading(self.driver)
         return os.path.isfile(self.filename)

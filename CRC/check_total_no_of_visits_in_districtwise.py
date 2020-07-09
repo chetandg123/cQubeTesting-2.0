@@ -31,7 +31,7 @@ class school_visits():
             header = next(csv_reader)
             total = 0
             for row in csv.reader(fin):
-                total += int(row[9])
+                total += int(row[2])
             visit = self.driver.find_element_by_id("visits").text
             time.sleep(3)
             res = re.sub('\D',"",visit)
