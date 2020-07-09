@@ -26,7 +26,7 @@ class pwd():
 
     def get_regression_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/RegressionReports/regression_testing_report.html')
+        report_path = os.path.join(cwd, 'Reports/RegressionReports/Regression_report.html')
         return report_path
 
     def get_smoke_report_path(self):
