@@ -51,7 +51,7 @@ Steps to execute the test scripts
 		python3 -m unittest TestSuites/SmokeTestSuite/Smoke_Testing.py
 		
 	Note :
-		Each Single scripts takes more than 4 to 5 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite 
+		Each Single scripts takes more than 4 to 5 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
 
 
 
