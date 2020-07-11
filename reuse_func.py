@@ -33,6 +33,7 @@ class GetData():
         logger = logging.getLogger()
         return logger
 
+    #regression testing logs
     def get_regression_log(self,log):
         # logging.basicConfig(filename=self.p.get_regression_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
         #                     datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
