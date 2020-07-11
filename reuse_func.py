@@ -33,11 +33,47 @@ class GetData():
         logger = logging.getLogger()
         return logger
 
-    def get_regression_log(self):
-        logging.basicConfig(filename=self.p.get_regression_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
-                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
-        logger = logging.getLogger()
-        return logger
+    def get_regression_log(self,log):
+        # logging.basicConfig(filename=self.p.get_regression_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
+        #                     datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+        # logger = logging.getLogger()
+        # return logger
+        if log == "login":
+            logging.basicConfig(filename=self.p.get_regression_testing_login_log_dir(), filemode='w',
+                                format='%(asctime)s  %(levelname)s  %(message)s',
+                                datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+            logger = logging.getLogger()
+            return logger
+        elif log == "sar":
+            logging.basicConfig(filename=self.p.get_regression_testing_student_attendance_log_dir(), filemode='w',
+                                format='%(asctime)s  %(levelname)s  %(message)s',
+                                datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+            logger = logging.getLogger()
+            return logger
+        elif log == "crc":
+            logging.basicConfig(filename=self.p.get_regression_testing_crc_log_dir(), filemode='w',
+                                format='%(asctime)s  %(levelname)s  %(message)s',
+                                datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+            logger = logging.getLogger()
+            return logger
+        elif log == "sr":
+            logging.basicConfig(filename=self.p.get_regression_testing_semester_log_dir(), filemode='w',
+                                format='%(asctime)s  %(levelname)s  %(message)s',
+                                datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+            logger = logging.getLogger()
+            return logger
+        elif log == "schoolinframap":
+            logging.basicConfig(filename=self.p.get_regression_testing_schoolinfra_map_log_dir(), filemode='w',
+                                format='%(asctime)s  %(levelname)s  %(message)s',
+                                datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+            logger = logging.getLogger()
+            return logger
+        elif log == "schoolinfrareport":
+            logging.basicConfig(filename=self.p.get_regression_testing_schoolinfra_report_log_dir(), filemode='w',
+                                format='%(asctime)s  %(levelname)s  %(message)s',
+                                datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+            logger = logging.getLogger()
+            return logger
 
     def get_domain_name(self):
         config = configparser.ConfigParser()

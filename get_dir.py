@@ -33,10 +33,12 @@ class pwd():
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/SmokeReports/smoke_testing_report.html')
         return report_path
+
     def get_functional_report_path(self):
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/functional_report.html')
         return report_path
+
     def get_system_report_path(self):
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/system_testing_report.html')
@@ -82,7 +84,40 @@ class pwd():
         log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/test_regression_testing.log')
         return log_dir_path
 
-    def get_clear_fields(self,driver):
+
+
+    def get_regression_testing_login_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/login.log')
+        return log_dir_path
+
+    def get_regression_testing_student_attendance_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/student_attendance.log')
+        return log_dir_path
+
+
+    def get_regression_testing_crc_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/crc.log')
+        return log_dir_path
+
+    def get_regression_testing_semester_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/semester.log')
+        return log_dir_path
+
+    def get_regression_testing_schoolinfra_map_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/schoolinfra_map.log')
+        return log_dir_path
+
+    def get_regression_testing_schoolinfra_report_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/schoolinfra_report.log')
+        return log_dir_path
+
+    def get_clear_fields(self, driver):
         self.driver = driver
         self.driver.find_element_by_id("fname").clear()
         self.driver.find_element_by_id("mname").clear()
