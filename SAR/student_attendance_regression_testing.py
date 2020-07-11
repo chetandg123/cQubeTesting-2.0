@@ -31,7 +31,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.total_tests = 20
         self.tests = [0] * 21
         self.data = GetData()
-        self.logger = self.data.get_regression_log()
+        self.logger = self.data.get_regression_log("sar")
 
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)

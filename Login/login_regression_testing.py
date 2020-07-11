@@ -24,7 +24,7 @@ class cQube_Login_Test(unittest.TestCase):
         self.total_tests = 14
         self.tests = [0] * 15
         self.data = GetData()
-        self.logger = self.data.get_regression_log()
+        self.logger = self.data.get_regression_log("login")
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)

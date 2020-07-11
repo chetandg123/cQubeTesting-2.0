@@ -59,7 +59,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.total_tests = 39
         self.tests = [0] * 40
         self.data = GetData()
-        self.logger = self.data.get_regression_log()
+        self.logger = self.data.get_regression_log("schoolinframap")
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)

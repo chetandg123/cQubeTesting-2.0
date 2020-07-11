@@ -40,7 +40,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.total_tests = 24
         self.tests = [0] * 25
         self.data = GetData()
-        self.logger = self.data.get_regression_log()
+        self.logger = self.data.get_regression_log("schoolinfrareport")
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)

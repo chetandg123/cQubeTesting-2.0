@@ -11,7 +11,7 @@ class cQube_Home(unittest.TestCase):
         # self.total_tests = 35
         # self.tests = [0] * 36
         self.data = GetData()
-        self.logger = self.data.get_functional_log()
+        self.logger = self.data.get_functional_log("login")
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
