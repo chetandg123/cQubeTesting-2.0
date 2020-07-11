@@ -95,7 +95,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -115,7 +115,7 @@ class GetData():
 
     def page_loading(self,driver):
         try:
-            driver.implicitly_wait(2)
+            driver.implicitly_wait(5)
             self.driver = driver
             for x in range(1, 10):
                 elem = self.driver.find_element_by_id('loader').text

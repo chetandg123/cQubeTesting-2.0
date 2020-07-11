@@ -16,6 +16,7 @@ class visited():
 
     def test_schools(self):
         p = pwd()
+        self.driver.implicitly_wait(20)
         self.cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
@@ -31,7 +32,7 @@ class visited():
             header = next(csv_reader)
             total = 0
             for row in csv.reader(fin):
-                total += int(row[0])
+                total += int(row[1])
             visit = self.driver.find_element_by_id("visited").text
             res = re.sub('\D',"",visit)
             time.sleep(2)

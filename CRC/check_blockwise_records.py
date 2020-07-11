@@ -34,7 +34,7 @@ class crc_blockwise_records():
                 nodata = self.driver.find_element_by_id("errMsg").text
                 if nodata == "No data found":
                     print(select_block.options[y].text, "no data found!")
-                    count = count +1
+                    # count = count +1
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
@@ -45,31 +45,28 @@ class crc_blockwise_records():
                         with open(self.filename) as fin:
                             csv_reader = csv.reader(fin, delimiter=',')
                             header = next(csv_reader)
-                            schools = 0
+                            tschools = 0
                             vsts = 0
-                            totscs = 0
+                            vstd = 0
                             for row in csv.reader(fin):
-                                schools += int(row[0])
-                                vsts += int(row[13])
-                                totscs += int(row[1])
+                                tschools += int(row[0])
+                                vsts += int(row[2])
+                                vstd += int(row[1])
                             totalschools = self.driver.find_element_by_id("schools").text
-                            schoolvisited = self.driver.find_element_by_id("visited").text
+                            visited = self.driver.find_element_by_id("visited").text
                             visits = self.driver.find_element_by_id("visits").text
-                            sc = re.sub('\D', "", schoolvisited)
-                            vs = re.sub('\D', "", visits)
                             tsc = re.sub('\D', "", totalschools)
-                            self.cal.page_loading(self.driver)
-                            if int(sc) != schools:
-                                print("mismatch found at", select_block.options[y].text, ":",
-                                      "total no of schools visited :", schools, int(sc))
-                            if int(tsc) != totscs:
-                                print("mismatch found at", select_block.options[y].text, ":",
-                                      "total no of schools visited :", totscs, int(tsc))
-
+                            vs = re.sub('\D', "", visits)
+                            vd = re.sub('\D', "", visited)
+                            if int(tsc) != tschools:
+                                print(select_district.options[x].text, ":", "total no of schools  :", tschools,
+                                      int(tsc), "records are mismatch found")
                             if int(vs) != vsts:
-                                print("mismatch found at", select_block.options[y].text, ":",
-                                      "total no of schools visited :", vsts, int(vs))
-
+                                print(select_district.options[x].text, ":", "total no of visits  :", int(vs), vsts,
+                                      "records are mismatch found")
+                            if int(vd) != vstd:
+                                print(select_district.options[x].text, ":", "total no of visits  :", int(vd), vstd,
+                                      "records are mismatch found")
 
                         os.remove(self.filename)
-        return count
+        # return count

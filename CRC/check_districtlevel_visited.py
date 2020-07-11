@@ -16,6 +16,7 @@ class districtwise_visits():
     def test_districtwise_schoolvisited(self):
         p = pwd()
         self.cal = GetData()
+        self.driver.implicitly_wait(20)
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)

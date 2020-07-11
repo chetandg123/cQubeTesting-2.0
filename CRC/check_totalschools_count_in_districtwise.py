@@ -16,6 +16,7 @@ class school_count():
     def test_schools(self):
         p = pwd()
         self.cal = GetData()
+        self.driver.implicitly_wait(30)  #
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
         District_wise = Select(self.driver.find_element_by_id("downloader"))
@@ -30,7 +31,7 @@ class school_count():
             header = next(csv_reader)
             total = 0
             for row in csv.reader(fin):
-                total += int(row[1])
+                total += int(row[0])
             visit = self.driver.find_element_by_id("schools").text
             time.sleep(3)
             res = re.sub('\D',"",visit)

@@ -309,8 +309,8 @@ class cQube_SI_Report(unittest.TestCase):
             print("Checked with each block wise records")
             self.logger.info("test_sc_scator_blockwise is completed...")
 
-
-
+    #
+    #
     def test_sc_scator_clusterwise(self):
             self.tests.pop()
             self.logger.info("test_sc_scator_clusterwise" + " " + "Total :" + " " + str(

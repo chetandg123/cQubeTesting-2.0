@@ -15,6 +15,8 @@ class Districtwise_donwload():
     def test_districtwise(self):
         p =pwd()
         self.cal = GetData()
+        self.driver.implicitly_wait(20)
+
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
         District_wise=Select(self.driver.find_element_by_id("downloader"))
