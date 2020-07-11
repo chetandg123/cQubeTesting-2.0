@@ -1,5 +1,1 @@
-pip3 install HTMLTestRunner-Python3
-pip3 install pandas
-pip3 install selenium
-pip3 install configparser
-pip3 install pathlib
+
