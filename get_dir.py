@@ -64,10 +64,10 @@ class pwd():
         download_path = os.path.join(cwd, 'Downloads')
         return download_path
 
-    def get_functional_testing_log_dir(self):
-        cwd = os.path.dirname(__file__)
-        log_dir_path = os.path.join(cwd, 'Logs/test_functional_testing.log')
-        return log_dir_path
+    # def get_functional_testing_log_dir(self):
+    #     cwd = os.path.dirname(__file__)
+    #     log_dir_path = os.path.join(cwd, 'Logs/test_functional_testing.log')
+    #     return log_dir_path
 
     def get_sanity_testing_log_dir(self):
         cwd = os.path.dirname(__file__)
@@ -79,10 +79,10 @@ class pwd():
         log_dir_path = os.path.join(cwd, 'Logs/test_smoke_testing.log')
         return log_dir_path
 
-    def get_regression_testing_log_dir(self):
-        cwd = os.path.dirname(__file__)
-        log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/test_regression_testing.log')
-        return log_dir_path
+    # def get_regression_testing_log_dir(self):
+    #     cwd = os.path.dirname(__file__)
+    #     log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/test_regression_testing.log')
+    #     return log_dir_path
 
 
 
@@ -115,6 +115,37 @@ class pwd():
     def get_regression_testing_schoolinfra_report_log_dir(self):
         cwd = os.path.dirname(__file__)
         log_dir_path = os.path.join(cwd, 'Logs/RegressionLogs/schoolinfra_report.log')
+        return log_dir_path
+
+    def get_functional_testing_login_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/FunctionalLogs/login.log')
+        return log_dir_path
+
+    def get_functional_testing_student_attendance_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/FunctionalLogs/student_attendance.log')
+        return log_dir_path
+
+
+    def get_functional_testing_crc_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/FunctionalLogs/crc.log')
+        return log_dir_path
+
+    def get_functional_testing_semester_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/FunctionalLogs/semester.log')
+        return log_dir_path
+
+    def get_functional_testing_schoolinfra_map_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/FunctionalLogs/schoolinfra_map.log')
+        return log_dir_path
+
+    def get_functional_testing_schoolinfra_report_log_dir(self):
+        cwd = os.path.dirname(__file__)
+        log_dir_path = os.path.join(cwd, 'Logs/FunctionalLogs/schoolinfra_report.log')
         return log_dir_path
 
     def get_clear_fields(self, driver):
