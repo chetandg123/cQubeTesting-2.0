@@ -16,7 +16,7 @@ Steps to execute the test scripts
 	2.sudo apt update
 	3.sudo apt install python3-pip
 	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting Folder)
-	    pip3 install Requirement.txt
+	    pip3 install -r Requirement.txt
 	5.Fill the config.ini file (config.ini file present in the cQubeTesting Folder)
 
 	  [config]
