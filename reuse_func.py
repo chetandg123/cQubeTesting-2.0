@@ -93,7 +93,7 @@ class GetData():
     def click_on_state(self, driver):
         self.driver = driver
         self.driver.find_element_by_css_selector(Data.sar_hyper_link).click()
-        time.sleep(2)
+        time.sleep(5)
 
     def get_data_status(self):
         errMsg = self.driver.find_element_by_css_selector('p#errMsg')

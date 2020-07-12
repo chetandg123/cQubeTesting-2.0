@@ -34,7 +34,6 @@ class test_districtwise():
                     print(select_district.options[x].text , " csv file is not downloaded")
                 else:
                     with open(self.filename) as fin:
-                        # csv_reader = csv.reader(fin, delimiter=',')
                         csv_dict = [row for row in csv.DictReader(self.filename)]
                         if len(csv_dict) == 0:
                             print(select_district.options[x].text,'csv file is empty')

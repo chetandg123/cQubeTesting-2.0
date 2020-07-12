@@ -1,6 +1,5 @@
 import csv
 import os
-import re
 import time
 
 from selenium.webdriver.support.select import Select

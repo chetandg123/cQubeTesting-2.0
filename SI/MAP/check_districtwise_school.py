@@ -24,7 +24,6 @@ class districtlevel_school():
             markers = self.driver.find_elements_by_class_name(Data.dots)
             count = len(markers)
             self.cal.page_loading(self.driver)
-            # self.assertNotEqual(0, len(markers) - 1, msg="markers are not present on map ")
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = p.get_download_dir() + "/Block_Per_dist_report.csv"

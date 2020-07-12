@@ -29,9 +29,6 @@ class Test_login_to_cqube(unittest.TestCase):
         self.driver.find_element_by_id(Data.passwd).send_keys(Data.reportpass)
         self.driver.find_element_by_id("login").click()
         self.data.page_loading(self.driver)
-        # user = self.driver.find_element_by_id("err").text
-        # self.assertEqual("Unauthorised User",user,msg="user  does not exists!..")
-        # self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath("/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon").click()

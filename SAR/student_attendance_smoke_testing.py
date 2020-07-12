@@ -20,6 +20,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
+
         self.total_tests = 15
         self.tests = [0] * 16
         self.data = GetData()
@@ -27,6 +28,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_student_report()
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
         self.year = year.first_selected_option.text
@@ -91,22 +94,38 @@ class cQube_Student_Attendance(unittest.TestCase):
         except WebDriverException:
             raise self.failureException("Schools Button is not working")
         self.logger.info("test_click_on_student_attendence_report is completed...")
+
+    # def test_logout(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_logout is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
+    #     state = GetData()
+    #     state.click_on_state(self.driver)
+    #     element = WebDriverWait(self.driver, 10).until(
+    #         EC.element_to_be_clickable((By.ID, Data.Logout))
+    #     )
+    #     try:
+    #         element.click()
+    #         print("Logout Button is working")
+    #         self.data.login_cqube(self.driver)
+    #         self.data.page_loading(self.driver)
+    #     except WebDriverException:
+    #         raise self.failureException("Logout Button is not working")
+    #     self.data.login_cqube(self.driver)
+    #     self.data.page_loading(self.driver)
+    #     self.logger.info("test_logout is completed...")
+
     def test_logout(self):
-        self.tests.pop()
-        self.logger.info("test_logout is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
-        state = GetData()
-        state.click_on_state(self.driver)
-        element = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.ID, Data.Logout))
-        )
-        try:
-            element.click()
-            print("Logout Button is working")
-            self.data.login_cqube(self.driver)
-            self.data.page_loading(self.driver)
-        except WebDriverException:
-            raise self.failureException("Logout Button is not working")
-        self.logger.info("test_logout is completed...")
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.logout).click()
+        self.assertEqual("cQube", self.driver.title,msg="Logout is not worked")
+        time.sleep(2)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_student_report()
+        print("Logout functionality is working fine...")
+        self.data.page_loading(self.driver)
+
 
     def test_check_hyperlinks(self):
         self.tests.pop()

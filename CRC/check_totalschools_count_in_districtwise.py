@@ -25,7 +25,6 @@ class school_count():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = p.get_download_dir() + "/District_level_CRC_Report.csv"
-        # self.assertTrue(os.path.isfile(self.filename), msg="File is not downloaded")
         with open(self.filename) as fin:
             csv_reader = csv.reader(fin, delimiter=',')
             header = next(csv_reader)

@@ -34,7 +34,7 @@ class crc_blockwise_records():
                 nodata = self.driver.find_element_by_id("errMsg").text
                 if nodata == "No data found":
                     print(select_block.options[y].text, "no data found!")
-                    # count = count +1
+                    count = count +1
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
@@ -69,4 +69,4 @@ class crc_blockwise_records():
                                       "records are mismatch found")
 
                         os.remove(self.filename)
-        # return count
+        return count

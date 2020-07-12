@@ -2,12 +2,9 @@ import csv
 import os
 import re
 import time
-import unittest
 
 from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 from Data.parameters import Data
 from get_dir import pwd
@@ -30,17 +27,16 @@ class DistrictsBlock():
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count = 0
-        for x in range(len(select_district.options)-1, len(select_district.options)):
+        for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
-            for y in range(len(select_block.options) - 1, len(select_block.options)):
+            for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
                 markers = self.driver.find_elements_by_class_name(Data.dots)
                 if len(markers) - 1 != 0:
                     print("District" + select_district.first_selected_option.text +"Block"+ select_block.first_selected_option.text +"No Data")
                     count = count + 1
-                # assert (len(markers) - 1 != 0), "markers are not present on map"
                 time.sleep(2)
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
@@ -69,8 +65,6 @@ class DistrictsBlock():
                         if int(sc) != schools:
                             print("District" + select_district.first_selected_option.text +"Block"+ select_block.first_selected_option.text +"school count mismatched")
                             count = count + 1
-                        # assert (int(res) == total), "total students are not matching"
-                        # assert (int(sc) == schools), "total schools are not matching"
                     self.remove_csv()
 
         return count

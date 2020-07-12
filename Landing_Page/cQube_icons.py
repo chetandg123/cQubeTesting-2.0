@@ -19,7 +19,6 @@ class cQube_landing_page():
         self.cal.page_loading(self.driver)
 
     def test_CRC(self):
-
         self.cal = GetData()
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_xpath("//*[@id='crcr']/img").click()

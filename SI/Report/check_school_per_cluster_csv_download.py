@@ -1,5 +1,4 @@
 import os
-import time
 
 from selenium.webdriver.support.select import Select
 

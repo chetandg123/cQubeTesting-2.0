@@ -40,6 +40,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Semester Report is Working")
         else:
             raise self.failureException("Semester Report Is Not Working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_click_on_semester_report is completed...")
 
     def test_click_on_blocks(self):
@@ -57,6 +58,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Blocks Button is working")
         except WebDriverException:
             raise self.failureException("Blocks Button is not clickable")
+        self.data.page_loading(self.driver)
         self.logger.info("test_click_on_student_attendence_report is completed...")
 
     def test_click_on_clusters(self):
@@ -74,6 +76,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Cluster Button is working")
         except WebDriverException:
             raise self.failureException("Cluster Button is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_click_on_student_attendence_report is completed...")
 
     def test_click_on_schools(self):
@@ -91,6 +94,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Schools Button is working")
         except WebDriverException:
             raise self.failureException("Schools Button is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_click_on_student_attendence_report is completed...")
 
     def test_logout(self):
@@ -107,9 +111,11 @@ class cQube_Semester_Report(unittest.TestCase):
             element.click()
             print("Logout Button is working")
             self.data.login_cqube(self.driver)
+            self.data.navigate_to_semester_report()
             self.data.page_loading(self.driver)
         except WebDriverException:
             raise self.failureException("Logout Button is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_logout is completed...")
 
     def test_check_hyperlinks(self):
@@ -122,6 +128,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("hyperlinks are working")
         else:
             raise self.failureException("hyperlinks are not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_check_hyperlinks is completed...")
 
     def test_choose_district(self):
@@ -138,6 +145,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Choose District is working")
         except WebDriverException:
             raise self.failureException("Choose District is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_choose_district is completed...")
 
     def test_choose_block(self):
@@ -159,6 +167,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Choose District and Block is working")
         except WebDriverException:
             raise self.failureException("Choose District and Block is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_choose_block is completed...")
 
     def test_choose_cluster(self):
@@ -184,6 +193,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Choose District,Block and Cluster is working")
         except WebDriverException:
             raise self.failureException("Choose District,Block and Cluster is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_choose_cluster is completed...")
 
     def test_home_icon(self):
@@ -197,6 +207,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Home Icon is Working")
         else:
             raise self.failureException('Home Icon is not working')
+        self.data.page_loading(self.driver)
         self.logger.info("test_home_icon is completed...")
 
     def test_download(self):
@@ -213,6 +224,7 @@ class cQube_Semester_Report(unittest.TestCase):
             time.sleep(5)
         except WebDriverException:
             raise self.failureException("Download Button is not working")
+        self.data.page_loading(self.driver)
         self.logger.info("test_download is completed...")
 
     def test_markers_on_map(self):
@@ -226,6 +238,7 @@ class cQube_Semester_Report(unittest.TestCase):
             print('Markers are present on the map')
         else:
             raise self.failureException("Markers are not present on the map")
+        self.data.page_loading(self.driver)
         self.logger.info("test_markers_on_map is completed...")
 
     def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
@@ -240,6 +253,7 @@ class cQube_Semester_Report(unittest.TestCase):
         self.assertEqual(int(schools), int(Cschools), msg="Cluster level no of schools are not equal to no of schools ")
         schools, Sschools = tc.schools_no_of_schools()
         self.assertEqual(int(schools), int(Sschools), msg="Cluster level no of schools are not equal to no of schools ")
+        self.data.page_loading(self.driver)
         self.logger.info("test_no_of_schools_is_equals_at_districts_blocks_clusters_schools is completed...")
 
     def test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools(self):
@@ -254,6 +268,7 @@ class cQube_Semester_Report(unittest.TestCase):
         self.assertEqual(int(student_count), int(Cstudents), msg="Cluster level no of students are not equal")
         student_count, Sstudents = tc.schools_total_no_of_students()
         self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
+        self.data.page_loading(self.driver)
         self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
 
     @classmethod

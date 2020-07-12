@@ -19,15 +19,14 @@ class MyTestSuite(unittest.TestCase):
                 unittest.defaultTestLoader.loadTestsFromTestCase(check_admin_landing_page.Test_admin_landing_page),
                 unittest.defaultTestLoader.loadTestsFromTestCase(All_user_scripts.Test_allusers),
                 unittest.defaultTestLoader.loadTestsFromTestCase(check_admin_login.Test_admin_login),
-                # unittest.defaultTestLoader.loadTestsFromTestCase(check_login_to_cqube.Test_login_to_cqube),
-                # unittest.defaultTestLoader.loadTestsFromTestCase(create_user.Test_admin_login),
+                unittest.defaultTestLoader.loadTestsFromTestCase(check_login_to_cqube.Test_login_to_cqube),
+                unittest.defaultTestLoader.loadTestsFromTestCase(create_user.Test_admin_login),
                 unittest.defaultTestLoader.loadTestsFromTestCase(Logs_scripts.Test_logs),
                 unittest.defaultTestLoader.loadTestsFromTestCase(S3_files_script.Test_s3files),
 
         ])
         p= pwd()
-        # outfile = open(p.get_admin_login_path(), "w")
-        outfile = open("/home/chetan/Desktop/cQube/cQubeTesting/Reports/admin_screens_report.html","w")
+        outfile = open(p.get_admin_login_path(), "a")
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
             title='Functional Test Report',
