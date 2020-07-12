@@ -1,7 +1,7 @@
 README.md
 cQube
 Prerequisites:
-  Google Chrome 83.0.4103.106 need to installed in the server or local machine.
+  Google Chrome 83.0.4103.106 need to be installed in the server or local machine.
   cQubeTesting project need to be cloned from the github.
   
 Steps to install the google chrome
@@ -16,7 +16,7 @@ Steps to execute the test scripts
 	2.sudo apt update
 	3.sudo apt install python3-pip
 	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting Folder)
-	    pip3 install Requirement.txt
+	    pip3 install -r Requirement.txt
 	5.Fill the config.ini file (config.ini file present in the cQubeTesting Folder)
 
 	  [config]
@@ -49,6 +49,9 @@ Steps to execute the test scripts
 	9.To Execute Smoke Testing suite
 
 		python3 -m unittest TestSuites/SmokeTestSuite/Smoke_Testing.py
+		
+	Note :
+		Each Single scripts takes more than 4 to 5 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
 
 
 

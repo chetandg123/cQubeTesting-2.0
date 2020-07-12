@@ -10,7 +10,7 @@ class MyTestSuite(unittest.TestCase):
 
     def test_Issue(self):
         self.data = GetData()
-        self.logger = self.data.get_regression_log()
+        self.logger = self.data.get_regression_log("login")
         self.logger.info("Login Landing page and Sar execution started")
         regression_test = unittest.TestSuite()
         regression_test.addTests([

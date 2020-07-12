@@ -15,7 +15,7 @@ class MyTestSuite(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.data = GetData()
-        self.logger = self.data.get_functional_log()
+        self.logger = self.data.get_functional_log("schoolinframap")
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)

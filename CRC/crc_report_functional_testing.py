@@ -44,7 +44,7 @@ class cQube_CRC_Report(unittest.TestCase):
             self.total_tests =27
             self.tests = [0] * 28
             self.data = GetData()
-            self.logger = self.data.get_functional_log()
+            self.logger = self.data.get_functional_log("crc")
             self.driver = self.data.get_driver()
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
