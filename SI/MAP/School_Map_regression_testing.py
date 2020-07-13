@@ -145,6 +145,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         res1, res2 = b.test_options()
         self.assertEqual(res1, "Report", msg="option is not available")
         self.assertEqual(res2, "Map based Report", msg="option is not available")
+        print("School infrastructure report contains two reports ")
         self.data.page_loading(self.driver)
         self.logger.info("test_school_infra_options is completed...")
 
@@ -409,6 +410,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = cluster_level_csv(self.driver)
         res = b.test_clusterwise()
+        print("Clustwise csv file is downloaded...")
         self.logger.info("test_clusterwise_csv is completed...")
 
     def test_districtwise_csv(self):
@@ -417,6 +419,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = districtwise_csv(self.driver)
         res = b.test_districtwise()
+        print("Districtwise csv file is downloaded...")
         self.logger.info("test_districtwise_csv is completed...")
 
     def test_mouseover_on_dots(self):

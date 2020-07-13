@@ -21,6 +21,13 @@ class GetData():
         logger = logging.getLogger()
         return logger
 
+    def get_integration_log(self):
+        logging.basicConfig(filename=self.p.get_smoke_testing_log_dir(), filemode='w',
+                            format='%(asctime)s  %(levelname)s  %(message)s',
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+        logger = logging.getLogger()
+        return logger
+
     # def get_functional_log(self):
     #     logging.basicConfig(filename=self.p.get_functional_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
     #                         datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
@@ -137,7 +144,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
         return self.driver
 

@@ -36,6 +36,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_graph" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking with graph functionality")
         b = check_with_graph(self.driver)
         res = b.test_graph()
         self.assertIn("myChart", self.driver.page_source, msg="Does not exist")
@@ -45,6 +46,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_graph" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking home icon functionality")
         b = home_button(self.driver)
         res = b.test_home()
         self.assertTrue(res, msg="Home button not working ")
@@ -53,6 +55,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_downloadreportwise" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("download districtwise csv file")
         b = download_report(self.driver)
         path = b.test_schools()
         self.assertTrue(path, msg="File is not downloaded")
@@ -76,6 +79,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_schoolreport" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("school infrastructure report")
         b = si_report(self.driver)
         res =b.test_url()
         self.assertNotIn(" School infrastructure for: ",self.driver.page_source,msg="School infrastructure report not exist ")
@@ -86,6 +90,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_tabledata" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking with table records")
         b = check_with_table(self.driver)
         res = b.test_graph_and_table_present_on_school_infra()
         try:
@@ -116,6 +121,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_check_orderwise" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking table records order")
         b = check_order_of_tabledata(self.driver)
         print("Table record order wise..")
         res = b.test_tablevalue()
@@ -125,6 +131,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_blockwise_from_selectbox" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("choosing blocks from select box ")
         b = blocklevel_csv(self.driver)
         res = b.test_each_district()
         self.assertEqual(0, res, msg="some files are not downloaded")
@@ -134,6 +141,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_logout" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking logout functionality")
         b = schoolinfra_logout(self.driver)
         res = b.test_logout()
         self.assertNotIn(" School Infrastructure report for: ", self.driver.page_source,

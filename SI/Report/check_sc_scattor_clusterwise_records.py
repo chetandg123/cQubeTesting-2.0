@@ -38,7 +38,7 @@ class Test_schoolwise():
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = p.get_download_dir() + "/schoolPerDistrict_report.csv"
+                        self.filename = p.get_download_dir() + "/schoolPerCluster_report.csv"
                         if not os.path.isfile(self.filename):
                             print(select_cluster.options[z].text,"csv is not downloaded..")
                         else:

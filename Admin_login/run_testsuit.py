@@ -1,6 +1,4 @@
-import configparser
-import sys
-import os
+
 
 from Admin_login import check_admin_landing_page, All_user_scripts, check_admin_login, check_login_to_cqube, \
     create_user, Logs_scripts, S3_files_script
@@ -26,7 +24,7 @@ class MyTestSuite(unittest.TestCase):
 
         ])
         p= pwd()
-        outfile = open(p.get_admin_login_path(), "a")
+        outfile = open(p.get_admin_login_path(), "w")
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
             title='Functional Test Report',

@@ -18,6 +18,7 @@ class Test_login_to_cqube(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.data.page_loading(self.driver)
+        print("Dashboard options of cQube application...")
         options = self.driver.find_elements_by_xpath(Data.dashboard_options)
         for i in range(len(options)):
             print(options[i].text)
@@ -33,6 +34,7 @@ class Test_login_to_cqube(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath("/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon").click()
         self.driver.find_element_by_id("chPass").click()
+        print("checking change password options is exist or not")
         self.data.page_loading(self.driver)
         changepwd = self.driver.find_element_by_xpath("/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-change-password/div[1]/div/div[2]/h2").text
         self.assertEqual("Change Password",changepwd,msg="Change password is not present")

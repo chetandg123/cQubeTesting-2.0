@@ -4,7 +4,7 @@ from get_dir import pwd
 from reuse_func import GetData
 
 
-class Test_admin_landing_page(unittest.TestCase):
+class Test_admin_screens(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -80,12 +80,6 @@ class Test_admin_landing_page(unittest.TestCase):
         else:
             print("Summary statistics page does not exist ")
 
-
-    # def test_click_on_monitor(self):
-    #     self.driver.find_element_by_xpath("//*[@id='moniter']/a/img").click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id("homeBtn").click()
-    #     self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):
