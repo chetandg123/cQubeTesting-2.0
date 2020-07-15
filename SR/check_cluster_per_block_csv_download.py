@@ -23,11 +23,12 @@ class ClusterPerBlockCsvDownload():
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
-            for y in range(len(select_block.options) - 1, len(select_block.options)):
+            for y in range( 1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
+                time.sleep(1)
                 self.driver.find_element_by_id('download').click()
-                time.sleep(2)
+                time.sleep(3)
                 p= pwd()
                 self.filename = p.get_download_dir() + "/Cluster_per_block_report.csv"
                 if os.path.isfile(self.filename) != True:

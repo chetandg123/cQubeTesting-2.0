@@ -1,8 +1,11 @@
+import re
+import time
 import unittest
 from selenium.webdriver.support.select import Select
 from Data.parameters import Data
 from SAR.Click_on_hyper_link_in_SAR import Hyperlink
 from SAR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
+from SAR.check_data_range import DateRange
 from SAR.check_districts_csv_download import DistrictCsvDownload
 from SAR.check_dots_on_each_district_block import DotsOnDistrictsBlock
 from SAR.check_dots_on_each_districts import DotsOnDistricts
@@ -221,17 +224,17 @@ class cQube_Student_Attendance(unittest.TestCase):
         print("Total number of students equals on clicking of blocks,clusters,schools")
         self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
 
-    def test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level(self):
-        self.tests.pop()
-        self.logger.info("test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is running" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-
-        cluster = ClusterDotsWithNoOfSchools(self.driver)
-        result = cluster.comapre_cluster()
-        if result != 0:
-            raise self.failureException('data not matched')
-        print("No of schools and No of Dots are equal at cluster level")
-        self.logger.info("test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is completed...")
+    # def test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is running" + " " + "Total :" + " " + str(
+    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+    #
+    #     cluster = ClusterDotsWithNoOfSchools(self.driver)
+    #     result = cluster.comapre_cluster()
+    #     if result != 0:
+    #         raise self.failureException('data not matched')
+    #     print("No of schools and No of Dots are equal at cluster level")
+    #     self.logger.info("test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is completed...")
 
     def test_home_icon(self):
         self.tests.pop()
@@ -324,6 +327,20 @@ class cQube_Student_Attendance(unittest.TestCase):
         else:
             print("Markers are present on selection of each district and block")
         self.logger.info("test_dots_on_each_districts_and_each_block is completed...")
+
+    def test_date_range(self):
+        self.tests.pop()
+        self.logger.info("test_date_range is running" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        daterange = DateRange(self.driver)
+        result = daterange.check_date_range()
+        self.driver.find_element_by_id('homeBtn').click()
+        time.sleep(2)
+        self.data.navigate_to_student_report()
+        if result != 0:
+         raise self.failureException('Data Range in correct')
+        self.logger.info("test_date_range is completed...")
+
 
     @classmethod
     def tearDownClass(cls):
