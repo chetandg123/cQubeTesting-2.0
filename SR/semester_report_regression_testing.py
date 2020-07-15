@@ -16,7 +16,6 @@ from SR.click_on_dashboard import Dashboard
 from SR.click_on_schools import Schools
 from SR.click_on_semester_report import SemesterReport
 from SR.click_on_semester_report_and_logout import Logout
-from SR.cluster_level_comaparing_dots_with_no_of_schools import ClusterDotsWithNoOfSchools
 from SR.download_blockwise_csv import BlockwiseCsv
 from SR.download_clusterwise_csv import ClusterwiseCsv
 from SR.download_districtwise_csv import DistrictwiseCsv
@@ -210,18 +209,20 @@ class cQube_Semester_Report(unittest.TestCase):
         print("Total number of students equals on clicking of blocks,clusters,schools")
         self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
 
-    def test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level(self):
+    def test_home_button(self):
         self.tests.pop()
-        self.logger.info(
-            "test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is running" + " " + "Total :" + " " + str(
-                self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        self.logger.info("test_home_button is running" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
 
-        cluster = ClusterDotsWithNoOfSchools(self.driver)
-        result = cluster.comapre_cluster()
-        if result != 0:
-            raise self.failureException('data not matched')
-        print("No of schools and No of Dots are equal at cluster level")
-        self.logger.info("test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level is completed...")
+        self.driver.find_element_by_id('homeBtn').click()
+        time.sleep(2)
+        self.data.navigate_to_semester_report()
+        if "Semester Report" in self.driver.page_source:
+            print("test_home_button is working")
+        else:
+            raise self.failureException('test_home_button is not working')
+
+        self.logger.info("test_home_button is completed...")
 
     def test_home_icon(self):
         self.tests.pop()

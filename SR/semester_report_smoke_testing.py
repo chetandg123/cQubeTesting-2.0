@@ -20,8 +20,8 @@ class cQube_Semester_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 14
-        self.tests = [0] * 15
+        self.total_tests = 15
+        self.tests = [0] * 16
         self.data = GetData()
         self.logger = self.data.get_smoke_log()
         self.data = GetData()
@@ -270,6 +270,21 @@ class cQube_Semester_Report(unittest.TestCase):
         self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
         self.data.page_loading(self.driver)
         self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
+
+    def test_home_button(self):
+        self.tests.pop()
+        self.logger.info("test_home_button is running" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+
+        self.driver.find_element_by_id('homeBtn').click()
+        time.sleep(2)
+        self.data.navigate_to_semester_report()
+        if "Semester Report" in self.driver.page_source:
+            print("test_home_button is working")
+        else:
+            raise self.failureException('test_home_button is not working')
+
+        self.logger.info("test_home_button is completed...")
 
     @classmethod
     def tearDownClass(cls):

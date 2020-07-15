@@ -42,9 +42,8 @@ class SchoolsPerClusterCsvDownload():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
                     # assert (len(markers) - 1 != 0), "markers are not present on map"
-                    time.sleep(2)
                     self.driver.find_element_by_id('download').click()
-                    time.sleep(2)
+                    time.sleep(3)
                     p = pwd()
                     self.filename =  p.get_download_dir() +"/School_per_cluster_report.csv"
                     if not os.path.isfile(self.filename):
@@ -78,27 +77,7 @@ class SchoolsPerClusterCsvDownload():
                         self.remove_csv()
 
         return count
-        # for x in range(32, len(select_district.options)):
-        #     select_district.select_by_index(x)
-        #     cal.page_loading(self.driver)
-        #     for y in range(len(select_block.options) - 1, len(select_block.options)):
-        #         select_block.select_by_index(y)
-        #         cal.page_loading(self.driver)
-        #         for z in range(1, len(select_cluster.options)):
-        #             select_cluster.select_by_index(z)
-        #             cal.page_loading(self.driver)
-        #             self.driver.find_element_by_id('download').click()
-        #             time.sleep(2)
-        #             p = pwd()
-        #             self.filename =  p.get_download_dir() +"/School_per_cluster_report.csv"
-        #             if os.path.isfile(self.filename) != True:
-        #                 print(
-        #                     "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")
-        #                 count = count + 1
-        #             if os.path.isfile(self.filename) == True:
-        #                 os.remove(self.filename)
-        #
-        # return count
+
 
 
 

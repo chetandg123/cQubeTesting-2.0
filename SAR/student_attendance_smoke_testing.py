@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from Data.parameters import Data
 from SAR.Click_on_hyper_link_in_SAR import Hyperlink
+from SAR.check_data_range import DateRange
 from SAR.check_with_total_schools_in_SAR import TotalSchools
 from SAR.check_with_total_student_in_SAR import TotalStudents
 from SAR.click_on_Home_icon import Home
@@ -21,8 +22,8 @@ class cQube_Student_Attendance(unittest.TestCase):
     @classmethod
     def setUpClass(self):
 
-        self.total_tests = 15
-        self.tests = [0] * 16
+        self.total_tests = 16
+        self.tests = [0] * 17
         self.data = GetData()
         self.logger = self.data.get_smoke_log()
         self.driver = self.data.get_driver()
@@ -95,26 +96,9 @@ class cQube_Student_Attendance(unittest.TestCase):
             raise self.failureException("Schools Button is not working")
         self.logger.info("test_click_on_student_attendence_report is completed...")
 
-    # def test_logout(self):
-    #     self.tests.pop()
-    #     self.logger.info("test_logout is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
-    #     state = GetData()
-    #     state.click_on_state(self.driver)
-    #     element = WebDriverWait(self.driver, 10).until(
-    #         EC.element_to_be_clickable((By.ID, Data.Logout))
-    #     )
-    #     try:
-    #         element.click()
-    #         print("Logout Button is working")
-    #         self.data.login_cqube(self.driver)
-    #         self.data.page_loading(self.driver)
-    #     except WebDriverException:
-    #         raise self.failureException("Logout Button is not working")
-    #     self.data.login_cqube(self.driver)
-    #     self.data.page_loading(self.driver)
-    #     self.logger.info("test_logout is completed...")
-
     def test_logout(self):
+        self.tests.pop()
+        self.logger.info("test_logout is running"+" "+"Total :"+" "+ str(self.total_tests) +" "+"Remaining :"+" " + str(len(self.tests)-1))
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
@@ -125,6 +109,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.data.navigate_to_student_report()
         print("Logout functionality is working fine...")
         self.data.page_loading(self.driver)
+        self.logger.info("test_logout is completed...")
 
 
     def test_check_hyperlinks(self):
@@ -286,6 +271,19 @@ class cQube_Student_Attendance(unittest.TestCase):
         student_count, Sstudents = tc.schools_total_no_of_students()
         self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
         self.logger.info("test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools is completed...")
+
+    def test_date_range(self):
+        self.tests.pop()
+        self.logger.info("test_date_range is running" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        daterange = DateRange(self.driver)
+        result = daterange.check_date_range()
+        self.driver.find_element_by_id('homeBtn').click()
+        time.sleep(2)
+        self.data.navigate_to_student_report()
+        if result != 0:
+         raise self.failureException('Data Range in correct')
+        self.logger.info("test_date_range is completed...")
 
     @classmethod
     def tearDownClass(cls):
