@@ -23,7 +23,7 @@ class school_map_blockwise():
         self.cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
-
+        count = 0
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
@@ -34,6 +34,7 @@ class school_map_blockwise():
                 nodata = self.driver.find_element_by_id("errMsg").text
                 if nodata == "No data found":
                     print(select_district.options[x].text, "no data found!")
+                    count = count + 1
                 else:
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     if len(markers)-1 != 0:
@@ -56,4 +57,4 @@ class school_map_blockwise():
                                     print(select_block.options[y].text,"schools:",schools ,int(sc) ,"mismatch found" )
                                 time.sleep(2)
                             os.remove(self.filename)
-
+            return count

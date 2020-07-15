@@ -10,6 +10,8 @@ from SI.Report.check_clusterwise_graph import clusterwise_graph
 from SI.Report.check_districtwise_graph import districtwise_graph
 from SI.Report.check_graph_present_on_school_infra import check_with_graph
 from SI.Report.check_homebtn import home_button
+from SI.Report.check_sc_scattor_blockwise_records import school_blockwise
+from SI.Report.check_sc_scattor_districtwise_records import test_districtwise
 
 from SI.Report.check_table_data_metrics import download_report
 from SI.Report.check_table_present_on_schoolinfra import check_with_table
@@ -35,8 +37,8 @@ class cQube_SI_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 23
-        self.tests = [0] * 24
+        self.total_tests = 25
+        self.tests = [0] * 26
         self.data = GetData()
         self.logger = self.data.get_sanity_log()
         self.driver = self.data.get_driver()
@@ -300,6 +302,27 @@ class cQube_SI_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.logger.info("test_clusterwise_graph is completed...")
 
+    def test_sc_scator_districtwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_scator_districtwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = test_districtwise(self.driver)
+        result = b.test_districtwise()
+        self.assertEqual(0, result, msg="No data found")
+        print("Checked with each district wise records")
+        self.data.page_loading(self.driver)
+        self.logger.info("test_sc_scator_districtwise is completed...")
+
+    def test_sc_scator_blockwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_scator_blockwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = school_blockwise(self.driver)
+        result = b.test_blockwise()
+        self.assertEqual(0, result, msg="No data found")
+        print("Checked with each block wise records")
+        self.data.page_loading(self.driver)
+        self.logger.info("test_sc_scator_blockwise is completed...")
 
     @classmethod
     def tearDownClass(cls):

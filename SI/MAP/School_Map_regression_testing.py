@@ -498,6 +498,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = school_map_blockwise(self.driver)
         result = b.test_schools()
+        self.assertEqual(0,result,msg="No data found")
         print("blockwise wise map records checked")
         self.logger.info("test_sc_map_blockwise is completed...")
 

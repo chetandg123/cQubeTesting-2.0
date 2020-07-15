@@ -6,6 +6,7 @@ from selenium.common import exceptions
 from SI.MAP.Click_on_School_infra import click_schoolinfra
 from SI.MAP.check_districtwise_school import districtlevel_school
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
+from SI.MAP.check_sc_map_blockwise_records import school_map_blockwise
 from SI.MAP.check_with_districts_from_select_box import District_names
 from SI.MAP.check_with_map_on_schoolinfra import check_markers_on_map
 from SI.MAP.check_with_schoolinfra_options import School_infra_options
@@ -54,8 +55,8 @@ class cQube_SI_Map_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 35
-        self.tests = [0] * 36
+        self.total_tests = 37
+        self.tests = [0] * 38
         self.data = GetData()
         self.logger = self.data.get_sanity_log()
         self.driver = self.data.get_driver()
@@ -498,6 +499,16 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         print("district wise records working fine")
         self.logger.info("test_districtwise_school is completed...")
+
+    def test_sc_map_blockwise(self):
+        self.tests.pop()
+        self.logger.info("test_sc_map_blockwise" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        b = school_map_blockwise(self.driver)
+        result = b.test_schools()
+        self.assertEqual(0, result, msg="No data found")
+        print("blockwise wise map records checked")
+        self.logger.info("test_sc_map_blockwise is completed...")
 
     @classmethod
     def tearDownClass(cls):
