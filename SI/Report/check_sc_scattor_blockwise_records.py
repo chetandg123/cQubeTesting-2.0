@@ -1,6 +1,5 @@
 import csv
 import os
-import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -42,7 +41,6 @@ class school_blockwise():
                         print(select_block.options[y].text,"csv file is not downloaded")
                     else:
                         with open(self.filename) as fin:
-                            # csv_reader = csv.reader(fin, delimiter=',')
                             csv_dict = [row for row in csv.DictReader(self.filename)]
                             if len(csv_dict) == 0:
                                 print(select_district.options[y].text,"Does not Table records")

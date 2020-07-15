@@ -54,6 +54,7 @@ class cQube_SI_Report(unittest.TestCase):
         b = blocklevel_csv(self.driver)
         res = b.test_each_district()
         self.assertEqual(0, res, msg="some files are not downloaded")
+        print("Districtwise csv file is downloaded...")
         self.logger.info("test_blockwise_from_selectbox is completed...")
 
 
@@ -113,6 +114,7 @@ class cQube_SI_Report(unittest.TestCase):
         except exceptions.NoSuchElementException:
             print("Table is present ")
         self.assertTrue(res, msg="Table is not exist")
+        print("Table contains records ")
         self.data.page_loading(self.driver)
         self.logger.info("test_tabledata is completed...")
 
@@ -125,6 +127,7 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_table_data()
         if res != 0:
             raise self.failureException('Data not found on table')
+        print("Districtwise table data is present...")
         self.logger.info("test_tabledata_districtwise is completed...")
 
     def test_districtwise_csv(self):
@@ -244,6 +247,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertNotIn(" School Infrastructure report for: ", self.driver.page_source,
                          msg="School infrastructure report not exist ")
         self.assertEqual("cQube", self.driver.title, msg="logout is not working ")
+        print("logout functionality is working...")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
         self.logger.info("test_logout is completed...")
@@ -309,8 +313,8 @@ class cQube_SI_Report(unittest.TestCase):
             print("Checked with each block wise records")
             self.logger.info("test_sc_scator_blockwise is completed...")
 
-    #
-    #
+
+
     def test_sc_scator_clusterwise(self):
             self.tests.pop()
             self.logger.info("test_sc_scator_clusterwise" + " " + "Total :" + " " + str(

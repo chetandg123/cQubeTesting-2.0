@@ -1,8 +1,5 @@
 import re
-import time
 
-from selenium.common import exceptions
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data

@@ -1,4 +1,3 @@
-import time
 
 from Data.parameters import Data
 from reuse_func import GetData
@@ -18,4 +17,5 @@ class cluster_level_csv():
         self.driver.find_element_by_xpath(Data.scm_clust).click()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
+
         self.p.page_loading(self.driver)

@@ -1,7 +1,4 @@
-import time
-import unittest
 
-from selenium import webdriver
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data

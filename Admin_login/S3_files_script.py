@@ -31,11 +31,12 @@ class Test_s3files(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id("homeBtn").click()
 
-    def test__bucket(self):
+    def test_bucket(self):
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id("downloads").click()
         self.data.page_loading(self.driver)
+        print("choosing radio button and downloading s3 files")
         bucket_name = Select(self.driver.find_element_by_name("bucketName"))
         for i in range(1,len(bucket_name.options)):
             bucket_name.select_by_index(i)
@@ -53,7 +54,6 @@ class Test_s3files(unittest.TestCase):
         self.driver.find_element_by_id("homeBtn").click()
 
     def test_cqubegj_raw(self):
-        count = 0
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id("downloads").click()
@@ -63,9 +63,9 @@ class Test_s3files(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id("btn")
         if "s3FileDownload" in self.driver.current_url:
-            print("file is not selected ")
-            count = count + 1
-        self.assertEqual(0,count,msg="if click on download btn it navigate to another page")
+            print("s3FileDownload page is displayed")
+        else:
+             print("s3FileDownload is not exists ")
         self.data.page_loading(self.driver)
 
     @classmethod

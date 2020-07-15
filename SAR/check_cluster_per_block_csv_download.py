@@ -38,7 +38,6 @@ class ClusterPerBlockCsvDownload():
                     print(
                         "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "No Data")
                     count = count + 1
-                # assert (len(markers) - 1 != 0), "markers are not present on map"
                 time.sleep(2)
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
@@ -70,8 +69,6 @@ class ClusterPerBlockCsvDownload():
                             print(
                                 "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "school count mismatched")
                             count = count + 1
-                        # assert (int(res) == total), "total students are not matching"
-                        # assert (int(sc) == schools), "total schools are not matching"
                     self.remove_csv()
 
         return count

@@ -21,6 +21,13 @@ class GetData():
         logger = logging.getLogger()
         return logger
 
+    def get_integration_log(self):
+        logging.basicConfig(filename=self.p.get_smoke_testing_log_dir(), filemode='w',
+                            format='%(asctime)s  %(levelname)s  %(message)s',
+                            datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
+        logger = logging.getLogger()
+        return logger
+
     # def get_functional_log(self):
     #     logging.basicConfig(filename=self.p.get_functional_testing_log_dir(), filemode='w', format='%(asctime)s  %(levelname)s  %(message)s',
     #                         datefmt='%d-%m-%Y %I:%M:%S %p', level=logging.INFO)
@@ -172,7 +179,7 @@ class GetData():
     def click_on_state(self, driver):
         self.driver = driver
         self.driver.find_element_by_css_selector(Data.sar_hyper_link).click()
-        time.sleep(2)
+        time.sleep(5)
 
     def get_data_status(self):
         errMsg = self.driver.find_element_by_css_selector('p#errMsg')

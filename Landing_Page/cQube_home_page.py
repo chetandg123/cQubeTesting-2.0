@@ -8,8 +8,6 @@ class cQube_Home(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        # self.total_tests = 35
-        # self.tests = [0] * 36
         self.data = GetData()
         self.logger = self.data.get_functional_log("login")
         self.driver = self.data.get_driver()

@@ -36,7 +36,6 @@ class districtwise_visits():
                 schoolvisited = self.driver.find_element_by_id("visited").text
                 sc= re.sub('\D', "", schoolvisited)
                 self.cal.page_loading(self.driver)
-                # print(select_district.options[x].text,":","total no of schools visited :",schools ,int(sc) )
                 os.remove(self.filename)
                 if int(sc) == schools:
                     print(select_district.options[x].text ,":" ,"total no of schools visited :" ,schools ,int(sc))

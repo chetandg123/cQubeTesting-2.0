@@ -66,6 +66,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_dash_menu" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("check with dashboard menu")
         b = Dashboard_menu(self.driver)
         res = b.test_dashboard()
         self.assertEqual(res, "menu", msg="Dashboard button is not working")
@@ -75,6 +76,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_download_blockwise_csv" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("download blockwise csv file")
         b = donwload_blockwise_csv(self.driver)
         result = b.test_blockwise()
         self.assertTrue(result, msg="File is not downloaded")
@@ -85,6 +87,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_donwoad_clusterwise_csv" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("download clusterwise csv file")
         b = load_clusterwise_csv(self.driver)
         result = b.test_clusterwise()
         self.assertTrue(result, msg="File is not downloaded")
@@ -95,6 +98,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_visited" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("comapre visited footer value with downloaded csv file values")
         b = visited(self.driver)
         result1, result2 = b.test_schools()
         self.assertEqual(int(result1), result2, msg="total no of visited are mismatching in district level")
@@ -106,6 +110,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_visits" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("comapre visits footer value with downloaded csv file values")
         b =school_visits(self.driver)
         res1 ,res2  =b.test_visits()
         self.assertEqual(int(res1),res2, msg="total no of visits are mismatching in district level")
@@ -116,6 +121,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_schoolcount" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("comapre school count footer value with downloaded csv file values")
         b = school_count(self.driver)
         res1, res2 = b.test_schools()
         self.assertEqual(int(res1), res2, msg="total no of school are mismatching in district level")
@@ -126,6 +132,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_orderwise_tabledata" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking order of table records")
         b = Check_order_of_tabledata(self.driver)
         result = b.test_order()
         self.assertEqual(result, "menu", msg="Menu is not exist")
@@ -135,6 +142,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_download_districtwise" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("downloads districtwise csv file")
         b = Districtwise_donwload(self.driver)
         result = b.test_districtwise()
         self.assertTrue(result, msg="File is not downloaded")
@@ -145,6 +153,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_table_data" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("check districtwise table records present or not ")
         b = schoolwise_tabledata(self.driver)
         result = b.test_table_data()
         self.assertNotEqual(0, result, "Data not found on table")
@@ -154,6 +163,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_blockwise_data" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("check with blockwise records")
         b = blockwise(self.driver)
         result = b.test_blocklevel()
         self.assertEqual(0, result, msg="some district files are not downloaded")
@@ -163,6 +173,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_homeicon" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("check home button is working or not")
         b=Homebutton(self.driver)
         result = b.test_homeicon()
         self.assertTrue(result,msg="Home button not working ")
@@ -172,6 +183,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.tests.pop()
         self.logger.info("test_peformance_blockwise" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("checking performance of blockwise csv file download")
         b = download_blockwise_csv(self.driver)
         result = b.test_blockwise()
         self.assertTrue(result, msg="Blockwise csv is not downloaded")

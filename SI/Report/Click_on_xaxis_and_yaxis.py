@@ -1,4 +1,3 @@
-import time
 
 from selenium.common import exceptions
 from selenium.webdriver.support.select import Select

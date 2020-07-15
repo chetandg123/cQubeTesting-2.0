@@ -4,9 +4,7 @@ import time
 from selenium.common.exceptions import NoSuchElementException
 
 from Data.parameters import Data
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 
 from reuse_func import GetData
 
@@ -35,6 +33,7 @@ class TotalSchools():
         self.driver.find_element_by_id(Data.SAR_Clusters_btn).click()
         cal = GetData()
         cal.page_loading(self.driver)
+        time.sleep(15)
         Cschools = self.driver.find_element_by_id(Data.schoolcount).text
         Cschools = re.sub("\D", "", Cschools)
         return self.school_count, Cschools
@@ -44,6 +43,7 @@ class TotalSchools():
             self.driver.find_element_by_id(Data.SAR_Schools_btn).click()
             cal = GetData()
             cal.page_loading(self.driver)
+            time.sleep(15)
             Sschools = self.driver.find_element_by_id(Data.schoolcount).text
             Sschools = re.sub("\D", "", Sschools)
             return self.school_count, Sschools

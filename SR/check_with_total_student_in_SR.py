@@ -37,6 +37,7 @@ class TotalStudents():
         self.driver.find_element_by_id(Data.sr_schools_btn).click()
         cal = GetData()
         cal.page_loading(self.driver)
+        time.sleep(20)
         Sstudents = self.driver.find_element_by_id(Data.students).text
         Sstudent = re.sub("\D", "", Sstudents)
         return self.student_count, Sstudent

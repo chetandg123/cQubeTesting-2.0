@@ -1,8 +1,6 @@
 import csv
 import os
-import re
 import time
-import unittest
 
 from selenium.webdriver.support.select import Select
 
@@ -27,7 +25,7 @@ class Test_schoolwise():
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
-            for y in range(len(select_block.options)-1, len(select_block.options)):
+            for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 self.cal.page_loading(self.driver)
                 for z in range(1, len(select_cluster.options)):
@@ -40,7 +38,7 @@ class Test_schoolwise():
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = p.get_download_dir() + "/schoolPerDistrict_report.csv"
+                        self.filename = p.get_download_dir() + "/schoolPerCluster_report.csv"
                         if not os.path.isfile(self.filename):
                             print(select_cluster.options[z].text,"csv is not downloaded..")
                         else:

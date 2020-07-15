@@ -11,7 +11,7 @@ class pwd():
 
     def get_admin_login_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/admin_login.html')
+        report_path = os.path.join(cwd, 'Reports/admin_screens_report.html')
         return report_path
 
     def get_report_path(self):
