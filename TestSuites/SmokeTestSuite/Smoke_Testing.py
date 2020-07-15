@@ -2,6 +2,7 @@ import os
 import time
 
 from CRC import crc_report_smoke_testing
+from Landing_Page import cQube_home_page
 from Login import login_smoke_testing
 from SAR import student_attendance_smoke_testing
 from SI.MAP import School_Map_smoke_testing
@@ -46,6 +47,25 @@ class MyTestSuite(unittest.TestCase):
         runner1.run(smoke_test)
         outfile.close()
         self.logger.info("Login execution ended")
+
+    def test_issue07(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_home_page.cQube_Home),
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='cQube landing page Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
+
+
 
     def test_issue02(self):
         self.data.navigate_to_student_report()

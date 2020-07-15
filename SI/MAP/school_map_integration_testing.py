@@ -8,10 +8,7 @@ class cQube_School_map_integration_Test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 1
-        self.tests = [0] * 2
         self.data = GetData()
-        self.logger = self.data.get_integration_log()
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
@@ -64,7 +61,8 @@ class cQube_School_map_integration_Test(unittest.TestCase):
             print("home page is not present ")
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.School_infra).click()
+        self.driver.find_element_by_xpath(Data.School_infra).click()
+        time.sleep(2)
         self.driver.find_element_by_id(Data.Reportmap).click()
         self.data.page_loading(self.driver)
 

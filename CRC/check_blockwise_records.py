@@ -33,7 +33,7 @@ class crc_blockwise_records():
                 self.cal.page_loading(self.driver)
                 nodata = self.driver.find_element_by_id("errMsg").text
                 if nodata == "No data found":
-                    print(select_block.options[y].text, "no data found!")
+                    print(select_district.options[x].text,select_block.options[y].text, "no data found!")
                     count = count +1
                 else:
                     self.driver.find_element_by_id(Data.Download).click()

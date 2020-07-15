@@ -1,12 +1,9 @@
 import os
 import time
-
 from selenium.webdriver.support.select import Select
-
 from Data.parameters import Data
 from get_dir import pwd
 from reuse_func import GetData
-
 
 class download_districtwise():
     def __init__(self,driver):

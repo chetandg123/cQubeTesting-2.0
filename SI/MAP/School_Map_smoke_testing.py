@@ -44,6 +44,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = click_on_blocks(self.driver)
         res = b.test_blocks_button()
         self.assertNotEqual(0, res, msg="Records are not present on map ")
+        self.data.page_loading(self.driver)
         self.logger.info("test_click_on_block is completed...")
 
     def test_check_district_names(self):
@@ -54,6 +55,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = District_names(self.driver)
         result = b.test_districtlist()
         self.assertNotEqual(0, result, msg="All Districts are not present in select box!..")
+        self.data.page_loading(self.driver)
         self.logger.info("test_check_district_names is completed...")
 
     def test_check_markes_on_map(self):
@@ -64,6 +66,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = check_markers_on_map(self.driver)
         result = b.test_map()
         self.assertNotEqual(0,result,msg="Data not present on map")
+        self.data.page_loading(self.driver)
         self.logger.info("test_check_markes_on_map is completed...")
 
     def test_school_infra_options(self):
@@ -75,6 +78,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         res1, res2 = b.test_options()
         self.assertEqual(res1, "Report", msg="option is not available")
         self.assertEqual(res2, "Map based Report", msg="option is not available")
+        self.data.page_loading(self.driver)
         self.logger.info("test_school_infra_options is completed...")
 
     def test_download(self):
@@ -90,29 +94,31 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.logger.info("test_download is completed...")
 
-    def test_click_on_home(self):
-        self.tests.pop()
-        self.logger.info("test_click_on_home" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        print("check with footer values")
-        b = click_on_home(self.driver)
-        c1, c2, c3 = b.test_home()
-        self.assertNotEqual(0, c1, msg="Records are not present on map ")
-        self.assertNotEqual(0, c2, msg="Records are not present on map ")
-        self.assertNotEqual(0, c3, msg="Records are not present on map ")
-        self.logger.info("test_click_on_home is completed...")
-
-    def test_no_of_schools(self):
-        self.tests.pop()
-        self.logger.info("test_no_of_schools" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        print("check with no of school values ")
-        b = Block_school_count(self.driver)
-        r, r1, r2, r3 = b.test_counter()
-        self.assertEqual(int(r), int(r1), msg="mis match found in no of school in block level")
-        self.assertEqual(int(r), int(r2), msg="mis match found in no of school in cluster level")
-        self.assertEqual(int(r), int(r3), msg="mis match found in no of school in school level")
-        self.logger.info("test_no_of_schools is completed...")
+    # def test_click_on_home(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_click_on_home" + " " + "Total :" + " " + str(
+    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+    #     print("check with footer values")
+    #     b = click_on_home(self.driver)
+    #     c1, c2, c3 = b.test_home()
+    #     self.assertNotEqual(0, c1, msg="Records are not present on map ")
+    #     self.assertNotEqual(0, c2, msg="Records are not present on map ")
+    #     self.assertNotEqual(0, c3, msg="Records are not present on map ")
+    #     self.data.page_loading(self.driver)
+    #     self.logger.info("test_click_on_home is completed...")
+    #
+    # def test_no_of_schools(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_no_of_schools" + " " + "Total :" + " " + str(
+    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+    #     print("check with no of school values ")
+    #     b = Block_school_count(self.driver)
+    #     r, r1, r2, r3 = b.test_counter()
+    #     self.assertEqual(int(r), int(r1), msg="mis match found in no of school in block level")
+    #     self.assertEqual(int(r), int(r2), msg="mis match found in no of school in cluster level")
+    #     self.assertEqual(int(r), int(r3), msg="mis match found in no of school in school level")
+    #     self.data.page_loading(self.driver)
+    #     self.logger.info("test_no_of_schools is completed...")
 
     def test_dashboard(self):
         self.tests.pop()
@@ -133,6 +139,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = District_options(self.driver)
         res = b.test_options()
         self.assertNotEqual(0, res, msg="district list are present")
+        self.data.page_loading(self.driver)
         self.logger.info("test_district_options is completed...")
 
     def test_clusterbtn(self):
@@ -142,6 +149,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         print("check with cluster button ")
         b = cluster_button(self.driver)
         self.assertNotEqual(0, b, msg="Records are not present on map ")
+        self.data.page_loading(self.driver)
         self.logger.info("test_clusterbtn is completed...")
 
     def test_hyperlink(self):
@@ -154,6 +162,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
             print("school infra map based report present")
         else:
             print("home icon is not working ")
+        self.data.page_loading(self.driver)
         self.logger.info("test_hyperlink is completed...")
 
     def test_infrascore_click(self):
@@ -164,6 +173,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = select_infrascore_options(self.driver)
         res = b.test_infrascores()
         self.assertNotEqual(0, res, msg="infra score options not contains in drop down")
+        self.data.page_loading(self.driver)
         self.logger.info("test_infrascore_click is completed...")
 
     def test_districtwise_csv(self):
@@ -173,6 +183,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         print("download districtwise csv file")
         b = districtwise_csv(self.driver)
         res = b.test_districtwise()
+        self.data.page_loading(self.driver)
         self.logger.info("test_districtwise_csv is completed...")
 
     def test_mouseover_on_dots(self):
@@ -184,6 +195,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         res  =b.test_mousehover()
         count = self.data.test_mouse_over()
         self.assertNotEqual(0,count,msg="markers not present in map ")
+        self.data.page_loading(self.driver)
         self.logger.info("test_mouseover_on_dots is completed...")
 
     def test_blockwise(self):
@@ -193,6 +205,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         print("check with blockwise records")
         b =select_blockwise(self.driver)
         res = b.test_dist_blocks()
+        self.data.page_loading(self.driver)
         self.logger.info("test_blockwise is completed...")
 
     @classmethod

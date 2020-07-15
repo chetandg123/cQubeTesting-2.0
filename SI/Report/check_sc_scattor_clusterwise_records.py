@@ -25,6 +25,7 @@ class Test_schoolwise():
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
+            print(select_district.options[x].text)
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 self.cal.page_loading(self.driver)
@@ -33,7 +34,7 @@ class Test_schoolwise():
                     self.cal.page_loading(self.driver)
                     nodata = self.driver.find_element_by_id("errMsg").text
                     if nodata == "No data found":
-                        print(select_cluster.options[z].text, "no data found!")
+                        print(select_district.options[x].text,select_block.options[y],select_cluster.options[z].text, "no data found!")
                         count = count + 1
                     else:
                         self.driver.find_element_by_id(Data.Download).click()

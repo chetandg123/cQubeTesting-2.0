@@ -370,7 +370,7 @@ class cQube_CRC_Report(unittest.TestCase):
         b = crc_blockwise_records(self.driver)
         result = b.test_blockwise()
         print("checked with blockwise records")
-        # self.assertEqual(0,result,msg="No data found ")
+        self.assertEqual(0,result,msg="No data found ")
         self.data.page_loading(self.driver)
         self.logger.info("test_crc_blockwise is completed...")
 
@@ -380,7 +380,7 @@ class cQube_CRC_Report(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = crc_schoolevel_records(self.driver)
         result = b.test_schoolwise()
-        # self.assertEqual(0,result,msg="no data found  ")
+        self.assertEqual(0,result,msg="no data found  ")
         print("checked with clusterwise records")
         self.data.page_loading(self.driver)
         self.logger.info("test_crc_clusterwise is completed...")
