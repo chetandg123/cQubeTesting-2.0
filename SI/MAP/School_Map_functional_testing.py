@@ -299,15 +299,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
             print("home icon is not working ")
         self.logger.info("test_click_home_in_districtwise is completed...")
 
-    # def test_dist_block_cluster(self):
-    #     self.tests.pop()
-    #     self.logger.info("test_dist_block_cluster" + " " + "Total :" + " " + str(
-    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-    #     b=select_Dist_block_cluster(self.driver)
-    #     res = b.test_select_district_block_cluster()
-    #     if res != 0:
-    #         raise self.failureException('data not matched')
-    #     self.logger.info("test_dist_block_cluster is completed...")
 
     def test_district_options(self):
         self.tests.pop()

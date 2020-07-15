@@ -1,8 +1,7 @@
 import time
+
+from SI.Report import School_report_sanity_testing
 from get_dir import pwd
-from CRC import crc_report_functional_testing
-from SI.MAP import School_Map_functional_testing
-from SI.Report import School_report_functional_testing
 
 import unittest
 from HTMLTestRunner import HTMLTestRunner
@@ -31,7 +30,7 @@ class MyTestSuite(unittest.TestCase):
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
-                unittest.defaultTestLoader.loadTestsFromTestCase(School_report_functional_testing.cQube_SI_Report)
+                unittest.defaultTestLoader.loadTestsFromTestCase(School_report_sanity_testing.cQube_SI_Report)
             ])
             p= pwd()
             outfile = open(p.get_sanity_report_path(), "a")
