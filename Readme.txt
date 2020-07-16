@@ -21,8 +21,8 @@ Steps to execute the test scripts
 
 	  [config]
 	  domain=   #Enter the url of the cqube application ex: https://<domainname>/ or http://<ip>:4200
-	  username= #Enter the username for cQube login 
-	  password= #Enter the password for cQube login
+	  username= #Enter the username of report viewer  
+	  password= #Enter the password of report viewer
 	 
 	  admin_domain=     #Enter the url of vpn based admin cQube url
 	  admin_username=   #Enter the username of admin  
