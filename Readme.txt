@@ -21,13 +21,23 @@ Steps to execute the test scripts
 
 	  [config]
 	  domain=   #Enter the url of the cqube application ex: https://<domainname>/ or http://<ip>:4200
-	  username= #Enter the username for cqube login 
-	  password= #Enter the password for cqube login
-
-	  admin_domain=     #Enter the url of vpn based admin login
-	  admin_username=   #Enter the username for cqube admin login 
-	  admin_password=   #Enter the password for cqube admin login	 
-
+	  username= #Enter the username for cQube login 
+	  password= #Enter the password for cQube login
+	 
+	  admin_domain=     #Enter the url of vpn based admin cQube url
+	  admin_username=   #Enter the username of admin  
+	  admin_password=   #Enter the password of admin	 
+	  
+	  please fallow the steps for run testscripts for admin console
+	  	1> open vpn based url in browser ,click on advanced --> open unsecured link --> login to openvpn access server  
+		2> click on user-profile and starts downloading client.ovpn 
+		2> open terminal with directory of client.ovpn is located
+		3> check version of openvpn ,if not exist use command to install : sudo apt-get install openvpn
+		4> sudo openvpn --config client.ovpn 
+		5> provide author userid and password 
+		6> note: dont close terminal , just open browser and navigate to cQube application 
+		7> login with admin user and password , admin can access both cQube reports and admin console
+	
 	6.To Run the Test scripts
 	    Navigate to cQubeTesting Directory in the terminal (ex cd /home/ubuntu/cQubeTesting)
 
