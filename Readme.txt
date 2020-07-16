@@ -29,7 +29,8 @@ Steps to execute the test scripts
 	  admin_password=   #Enter the password of admin	 
 	  
 	  please fallow the steps for run testscripts for admin console
-	  	1> open vpn based url in browser ,click on advanced --> open unsecured link --> login to openvpn access server  
+	  	1> open vpn based url in browser 
+		   click on advanced --> open unsecured link --> login to openvpn access server  
 		2> click on user-profile and starts downloading client.ovpn 
 		2> open terminal with directory of client.ovpn is located
 		3> check version of openvpn ,if not exist use command to install : sudo apt-get install openvpn
