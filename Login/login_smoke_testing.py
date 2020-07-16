@@ -15,6 +15,8 @@ class cQube_Login_smoke_Test(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.page_loading(self.driver)
 
     def test_login_to_cqube(self):
         self.tests.pop()
@@ -22,7 +24,8 @@ class cQube_Login_smoke_Test(unittest.TestCase):
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Login_to_cqube(self.driver)
         res = b.test_login()
-        self.assertEqual("cQube", self.driver.title, msg="login is not working")
+        print(self.driver.title)
+        self.assertEqual("Log in to cQube", self.driver.title, msg="login is not working")
         self.logger.info("test_login_to_cqube is completed...")
 
     @classmethod

@@ -94,31 +94,31 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.logger.info("test_download is completed...")
 
-    # def test_click_on_home(self):
-    #     self.tests.pop()
-    #     self.logger.info("test_click_on_home" + " " + "Total :" + " " + str(
-    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-    #     print("check with footer values")
-    #     b = click_on_home(self.driver)
-    #     c1, c2, c3 = b.test_home()
-    #     self.assertNotEqual(0, c1, msg="Records are not present on map ")
-    #     self.assertNotEqual(0, c2, msg="Records are not present on map ")
-    #     self.assertNotEqual(0, c3, msg="Records are not present on map ")
-    #     self.data.page_loading(self.driver)
-    #     self.logger.info("test_click_on_home is completed...")
-    #
-    # def test_no_of_schools(self):
-    #     self.tests.pop()
-    #     self.logger.info("test_no_of_schools" + " " + "Total :" + " " + str(
-    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-    #     print("check with no of school values ")
-    #     b = Block_school_count(self.driver)
-    #     r, r1, r2, r3 = b.test_counter()
-    #     self.assertEqual(int(r), int(r1), msg="mis match found in no of school in block level")
-    #     self.assertEqual(int(r), int(r2), msg="mis match found in no of school in cluster level")
-    #     self.assertEqual(int(r), int(r3), msg="mis match found in no of school in school level")
-    #     self.data.page_loading(self.driver)
-    #     self.logger.info("test_no_of_schools is completed...")
+    def test_click_on_home(self):
+        self.tests.pop()
+        self.logger.info("test_click_on_home" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("check with footer values")
+        b = click_on_home(self.driver)
+        c1, c2, c3 = b.test_home()
+        self.assertNotEqual(0, c1, msg="Records are not present on map ")
+        self.assertNotEqual(0, c2, msg="Records are not present on map ")
+        self.assertNotEqual(0, c3, msg="Records are not present on map ")
+        self.data.page_loading(self.driver)
+        self.logger.info("test_click_on_home is completed...")
+
+    def test_no_of_schools(self):
+        self.tests.pop()
+        self.logger.info("test_no_of_schools" + " " + "Total :" + " " + str(
+            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+        print("check with no of school values ")
+        b = Block_school_count(self.driver)
+        r, r1, r2, r3 = b.test_counter()
+        self.assertEqual(int(r), int(r1), msg="mis match found in no of school in block level")
+        self.assertEqual(int(r), int(r2), msg="mis match found in no of school in cluster level")
+        self.assertEqual(int(r), int(r3), msg="mis match found in no of school in school level")
+        self.data.page_loading(self.driver)
+        self.logger.info("test_no_of_schools is completed...")
 
     def test_dashboard(self):
         self.tests.pop()

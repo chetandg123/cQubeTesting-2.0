@@ -22,7 +22,7 @@ class click_on_home():
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.scm_cluster).click()
         self.p.page_loading(self.driver)
-        time.sleep(10)
+        time.sleep(20)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         self.p.page_loading(self.driver)
         count2 = len(dots) - 1

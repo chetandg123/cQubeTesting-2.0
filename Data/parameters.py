@@ -1,8 +1,8 @@
 
 class Data():
-    login = "login"
-    email = "exampleInputEmail"
-    passwd = "exampleInputPassword"
+    login = "kc-login"
+    email = "username"
+    passwd = "password"
     new_pass = "newPasswd"
     conf_pass = "cnfPasswd"
     change_pass_btn = "btn"

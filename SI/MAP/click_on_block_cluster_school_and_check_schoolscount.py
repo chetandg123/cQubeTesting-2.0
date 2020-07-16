@@ -27,6 +27,7 @@ class Block_school_count():
 
             self.driver.find_element_by_id(Data.scm_cluster).click()
             self.p.page_loading(self.driver)
+            time.sleep(15)
             cschool = self.driver.find_element_by_id(Data.sc_no_of_schools).text
             cres = re.sub('\D', "", cschool)
             self.p.page_loading(self.driver)
