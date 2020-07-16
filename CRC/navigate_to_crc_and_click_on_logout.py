@@ -16,7 +16,7 @@ class Logout_function():
        self.p.page_loading(self.driver)
        self.driver.find_element_by_id(Data.logout).click()
        self.p.page_loading(self.driver)
-       if "cQube" in self.driver.title:
+       if "Log in to cQube" in self.driver.title:
            print("login page is displayed")
        else:
            print("logout is not working")

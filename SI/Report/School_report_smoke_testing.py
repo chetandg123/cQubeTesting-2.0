@@ -146,7 +146,7 @@ class cQube_SI_Report(unittest.TestCase):
         res = b.test_logout()
         self.assertNotIn(" School Infrastructure report for: ", self.driver.page_source,
                          msg="School infrastructure report not exist ")
-        self.assertEqual("cQube", self.driver.title, msg="logout is not working ")
+        self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
         self.logger.info("test_logout is completed...")

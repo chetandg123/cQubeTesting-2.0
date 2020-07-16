@@ -35,6 +35,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure_map()
         self.data.page_loading(self.driver)
+        self.driver.implicitly_wait(50)
 
     def test_click_on_block(self):
         self.tests.pop()

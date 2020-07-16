@@ -113,7 +113,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
         logout = Logout(self.driver)
         result = logout.click_on_logout()
-        self.assertEqual("cQube", result, msg="login page is not exist!..")
+        self.assertEqual("Log in to cQube", result, msg="login page is not exist!..")
         print("Logout Functionality is working")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_student_report()

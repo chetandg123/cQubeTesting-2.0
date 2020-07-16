@@ -103,7 +103,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.logout).click()
-        self.assertEqual("cQube", self.driver.title,msg="Logout is not worked")
+        self.assertEqual("Log in to cQube", self.driver.title,msg="Logout is not worked")
         time.sleep(2)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_student_report()
