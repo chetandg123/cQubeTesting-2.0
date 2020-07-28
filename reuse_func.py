@@ -494,3 +494,44 @@ class GetData():
             },options=options)
         return self.driver
 
+    def get_driver_SR_Download1(self):
+        options = webdriver.ChromeOptions()
+        prefs = {'download.default_directory': self.p.get_download_dir_SR_Download1()}
+        options.add_experimental_option('prefs', prefs)
+        self.driver = webdriver.Remote(
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities={
+                "browserName": "chrome",
+            },options=options)
+        return self.driver
+    def get_driver_SR_Download2(self):
+        options = webdriver.ChromeOptions()
+        prefs = {'download.default_directory': self.p.get_download_dir_SR_Download2()}
+        options.add_experimental_option('prefs', prefs)
+        self.driver = webdriver.Remote(
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities={
+                "browserName": "chrome",
+            },options=options)
+        return self.driver
+    def get_driver_SR_Download3(self):
+        options = webdriver.ChromeOptions()
+        prefs = {'download.default_directory': self.p.get_download_dir_SR_Download3()}
+        options.add_experimental_option('prefs', prefs)
+        self.driver = webdriver.Remote(
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities={
+                "browserName": "chrome",
+            },options=options)
+        return self.driver
+    def get_driver_SR_Download4(self):
+        options = webdriver.ChromeOptions()
+        prefs = {'download.default_directory': self.p.get_download_dir_SR_Download4()}
+        options.add_experimental_option('prefs', prefs)
+        self.driver = webdriver.Remote(
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities={
+                "browserName": "chrome",
+            },options=options)
+        return self.driver
+

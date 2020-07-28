@@ -84,6 +84,22 @@ class pwd():
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SAR_Download4')
         return download_path
+    def get_download_dir_SR_Download1(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SR_Download1')
+        return download_path
+    def get_download_dir_SR_Download2(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SR_Download2')
+        return download_path
+    def get_download_dir_SR_Download3(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SR_Download3')
+        return download_path
+    def get_download_dir_SR_Download4(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SR_Download4')
+        return download_path
 
     # def get_functional_testing_log_dir(self):
     #     cwd = os.path.dirname(__file__)
