@@ -50,15 +50,15 @@ class cQube_CRC_Report(unittest.TestCase):
             self.data.navigate_to_crc_report()
             self.data.page_loading(self.driver)
 
-    def test_blockwise_data(self):
-        self.tests.pop()
-        self.logger.info("test_blockwise_data" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        b = blockwise(self.driver)
-        result = b.test_blocklevel()
-        self.assertEqual(0,result,msg="some district files are not downloaded")
-        print("blockwise csv files are downloaded")
-        self.logger.info("test_blockwise_data is completed...")
+    # def test_blockwise_data(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_blockwise_data" + " " + "Total :" + " " + str(
+    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+    #     b = blockwise(self.driver)
+    #     result = b.test_blocklevel()
+    #     self.assertEqual(0,result,msg="some district files are not downloaded")
+    #     print("blockwise csv files are downloaded")
+    #     self.logger.info("test_blockwise_data is completed...")
 
     def test_table_data(self):
         self.tests.pop()
@@ -329,16 +329,17 @@ class cQube_CRC_Report(unittest.TestCase):
         print("checking districtwise school visited footer with downloaded csv files")
         self.logger.info("test_districtwise_schoolsvisited is completed...")
 
-    def test_crc_blockwise(self):
-        self.tests.pop()
-        self.logger.info("test_crc_blockwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
-        b = crc_blockwise_records(self.driver)
-        result = b.test_blockwise()
-        print("checked with blockwise records")
-        self.assertNotEqual(0, result, msg="Table data is not loaded ")
-        print("checking blockwise school visited footer with downloaded csv files")
-        self.logger.info("test_crc_blockwise is completed...")
+    # def test_crc_blockwise(self):
+    #     self.tests.pop()
+    #     self.logger.info("test_crc_blockwise" + " " + "Total :" + " " + str(
+    #         self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+    #     b = crc_blockwise_records(self.driver)
+    #     result = b.test_blockwise()
+    #     print("checked with blockwise records")
+    #     self.assertNotEqual(0, result, msg="Table data is not loaded ")
+    #     print("checking blockwise school visited footer with downloaded csv files")
+    #     self.logger.info("test_crc_blockwise is completed...")
+    #
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
