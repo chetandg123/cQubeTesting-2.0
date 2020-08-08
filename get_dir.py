@@ -68,26 +68,32 @@ class pwd():
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads')
         return download_path
+
     def get_download_dir_SAR_Download1(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SAR_Download1')
         return download_path
+
     def get_download_dir_SAR_Download2(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SAR_Download2')
         return download_path
+
     def get_download_dir_SAR_Download3(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SAR_Download3')
         return download_path
+
     def get_download_dir_SAR_Download4(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SAR_Download4')
         return download_path
+
     def get_download_dir_SR_Download1(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SR_Download1')
         return download_path
+
     def get_download_dir_SR_Download2(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SR_Download2')
@@ -96,9 +102,69 @@ class pwd():
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SR_Download3')
         return download_path
+
     def get_download_dir_SR_Download4(self):
         cwd = os.path.dirname(__file__)
         download_path = os.path.join(cwd, 'Downloads/SR_Download4')
+        return download_path
+
+    def get_download_dir_CRC_Download1(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/CRC_Download1')
+        return download_path
+
+    def get_download_dir_CRC_Download2(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/CRC_Download2')
+        return download_path
+    def get_download_dir_CRC_Download3(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/CRC_Download3')
+        return download_path
+
+    def get_download_dir_CRC_Download4(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/CRC_Download4')
+        return download_path
+
+    def get_download_dir_SI_Download1(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_Download1')
+        return download_path
+
+    def get_download_dir_SI_Download2(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_Download2')
+        return download_path
+
+    def get_download_dir_SI_Download3(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_Download3')
+        return download_path
+
+    def get_download_dir_SI_Download4(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_Download4')
+        return download_path
+
+    def get_download_dir_SI_MAP_Download1(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_MAP_Download1')
+        return download_path
+
+    def get_download_dir_SI_MAP_Download2(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_MAP_Download2')
+        return download_path
+
+    def get_download_dir_SI_MAP_Download3(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_MAP_Download3')
+        return download_path
+
+    def get_download_dir_SI_MAP_Download4(self):
+        cwd = os.path.dirname(__file__)
+        download_path = os.path.join(cwd, 'Downloads/SI_MAP_Download4')
         return download_path
 
     # def get_functional_testing_log_dir(self):

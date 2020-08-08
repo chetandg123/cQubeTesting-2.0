@@ -1,7 +1,5 @@
 import time
 from get_dir import pwd
-from CRC import crc_report_functional_testing
-from SI.MAP import School_Map_functional_testing
 from SI.Report import School_report_functional_testing
 
 import unittest

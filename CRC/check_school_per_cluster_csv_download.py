@@ -13,8 +13,7 @@ from reuse_func import GetData
 class SchoolsPerClusterCsvDownload():
     def __init__(self, driver, year, month):
         self.driver = driver
-        self.year = year.strip()
-        self.month = month.strip()
+
     def remove_csv1(self):
         os.remove(self.filename)
     def check_csv_download1(self):
@@ -39,12 +38,11 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    # assert (len(markers) - 1 != 0), "markers are not present on map"
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(2)
                     p = pwd()
-                    self.filename = p.get_download_dir_SAR_Download1() + "/Schools_per_cluster_report_" + self.month + "_" + self.year + ".csv"
+                    self.filename = p.get_download_dir_SAR_Download1() + "/Schools_per_cluster_report_.csv"
                     if not os.path.isfile(self.filename):
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")

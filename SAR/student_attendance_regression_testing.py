@@ -383,6 +383,7 @@ class cQube_Student_Attendance(unittest.TestCase):
 
         self.logger.info("test_schools_per_cluster_csv_download is completed...")
 
+
     def test_dots_on_each_districts(self):
         self.tests.pop()
         self.logger.info("test_dots_on_each_districts is running" + " " + "Total :" + " " + str(
@@ -395,6 +396,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         else:
             print("Markers are present on selection of each district")
         self.logger.info("test_dots_on_each_districts is completed...")
+
 
     def test_dots_on_each_districts_and_each_block(self):
         self.tests.pop()

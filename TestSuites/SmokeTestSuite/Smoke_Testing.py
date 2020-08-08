@@ -12,7 +12,6 @@ from SR import semester_report_smoke_testing
 from get_dir import pwd
 
 import unittest
-from fileinput import close
 from HTMLTestRunner import HTMLTestRunner
 
 from reuse_func import GetData
