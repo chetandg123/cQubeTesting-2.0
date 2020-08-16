@@ -1,4 +1,5 @@
 from Data.parameters import Data
+from keycloak_funcs import keyData
 from reuse_func import GetData
 from selenium import webdriver
 
@@ -9,7 +10,7 @@ class CqubeFlaskSetting():
         self.file=file
 
     def check_cqube_flask_setting(self):
-        cal = GetData()
+        cal = keyData()
         cal.navigate_to_clients(self.driver)
         json_cqube_admin_client=cal.check_clients(self.file,'cqube_flask')
         cal.click_on_cqube_flask(self.driver)

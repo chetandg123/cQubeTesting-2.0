@@ -1,3 +1,4 @@
+import json
 import time
 import unittest
 
@@ -22,12 +23,16 @@ class Clients(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.data = keyData()
-        self.file =self.driver.open_json_file()
-        self.driver =self.driver.get_driver()
-        self.driver.open_keycloack(self.driver)
-        self.driver.login_keycloack(self.driver)
-        self.driver.navigate_to_clients(self.driver)
-        time.sleep(5)
+        self.file =self.data.open_json_file()
+        self.driver = self.data.get_driver()
+        self.data.open_keycloack(self.driver)
+        self.data.login_keycloack(self.driver)
+        time.sleep(2)
+        # self.driver.navigate_to_clients(self.driver)
+        self.driver.find_element_by_xpath("//*[@id='view']/div[2]/div[2]/ul/li[2]/a").click()
+        time.sleep(3)
+
+
 
     def test_base_url_with_private_ip_and_domain_name(self):
         cal = CheckBaseUrl(self.driver, self.file)

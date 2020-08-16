@@ -27,7 +27,10 @@ class Data():
     directory = "//p[contains(text(),' Semester report for:')]/span"
     Download = "download"
     value1 = "Ahmedabad"
-
+    districts = ['Ahmedabad','Amreli','Anand','Aravalli','Banaskantha','Bharuch','Bhavnagar','Botad',
+                 'Chhotaudepur','Devbhoomidwarka','Dohad','Gandhinagar','Girsomnath','Jamnagar',
+                 'Junagadh','Kachchh','Kheda','Mahesana','Mahisagar','Morbi','Narmada','Navsari','Patan',
+                 'Porbandar','Rajkot','Sabarkantha','Surat','Surendranagar','Tapi','Thedangs','Vadodara','Valsad',]
     # Dash board
     Dashboard = "menu"
     header = "//h4"
@@ -111,6 +114,15 @@ class Data():
     sc_choosecluster = "//select[@id='choose_cluster']/option"
     sc_infrascores = "//select[@id='choose_infra']/option"
     sc_no_of_schools = "schools"
+
+    diksha ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
+    diksha_graph ="chrtReport"
+    diksha_table = "dtblReport"
+    sem_exception = "ser"
+
+    dik_g =""
+    dik_t = ""
+    sem_exe ="SemExp"
 
     scm_dist = "//select[@id='choose_dist']/option[2]"
     scm_blk = "//select[@id='choose_block']/option[2]"

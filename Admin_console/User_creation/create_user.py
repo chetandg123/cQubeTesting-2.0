@@ -18,7 +18,7 @@ class Creating_users(unittest.TestCase):
         self.driver.implicitly_wait(30)
         self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)
-        self.data.login_cqube(self.driver)
+        self.data.login_to_adminconsole(self.driver)
         self.data.page_loading(self.driver)
 
     def test_createuser_icon(self):
@@ -46,8 +46,8 @@ class Creating_users(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for admin role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("fname").send_keys("ad_user")
-        self.driver.find_element_by_id("email").send_keys("adminrole@cqube.com")
+        # self.driver.find_element_by_id("fname").send_keys("ad_user")
+        # self.driver.find_element_by_id("email").send_keys("adminrole@cqube.com")
         self.driver.find_element_by_id("username").send_keys("qateam1")
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):
@@ -74,8 +74,8 @@ class Creating_users(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for reportviewer role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("fname").send_keys("report_user")
-        self.driver.find_element_by_id("email").send_keys("viewerrole@cqube.com")
+        # self.driver.find_element_by_id("fname").send_keys("report_user")
+        # self.driver.find_element_by_id("email").send_keys("viewerrole@cqube.com")
         self.driver.find_element_by_id("username").send_keys("qa2")
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):
@@ -102,8 +102,8 @@ class Creating_users(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for emission role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("fname").send_keys("emission_role")
-        self.driver.find_element_by_id("email").send_keys("emission@cqube.com")
+        # self.driver.find_element_by_id("fname").send_keys("emission_role")
+        # self.driver.find_element_by_id("email").send_keys("emission@cqube.com")
         self.driver.find_element_by_id("username").send_keys("qa3")
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):
@@ -130,8 +130,8 @@ class Creating_users(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for emission role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("fname").send_keys("emision")
-        self.driver.find_element_by_id("email").send_keys("emission@gmail.com")
+        # self.driver.find_element_by_id("fname").send_keys("emision")
+        # self.driver.find_element_by_id("email").send_keys("emission@gmail.com")
         self.driver.find_element_by_id("username").send_keys("emission_user")
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):

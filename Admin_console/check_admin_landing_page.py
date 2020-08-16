@@ -11,9 +11,9 @@ class Test_admin_landing_page(unittest.TestCase):
         self.data = GetData()
         self.p = pwd()
         self.driver = self.data.get_driver()
-        self.data.open_admin_appln(self.driver)
+        self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)
-        self.data.login_admin(self.driver)
+        self.data.login_to_adminconsole(self.driver)
         self.data.page_loading(self.driver)
 
     def test_click_on_createuser(self):
@@ -52,7 +52,7 @@ class Test_admin_landing_page(unittest.TestCase):
 
 
     def test_click_on_allusers(self):
-        self.driver.find_element_by_id("listUsrs").click()
+        self.driver.find_element_by_xpath("").click()
         self.data.page_loading(self.driver)
         if "users" in self.driver.current_url:
             print(" all user  screen is present ")

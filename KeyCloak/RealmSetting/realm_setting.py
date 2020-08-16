@@ -2,14 +2,13 @@ import json
 import time
 import unittest
 
-
-from reuse_func import GetData
+from keycloak_funcs import keyData
 
 
 class realm_settings(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        self.data = GetData()
+        self.data = keyData()
         self.driver = self.data.get_driver()
         self.data.open_keycloack(self.driver)
         self.data.login_keycloack(self.driver)

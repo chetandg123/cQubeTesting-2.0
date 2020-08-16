@@ -10,12 +10,12 @@ class Test_admin_login(unittest.TestCase):
     def setUpClass(self):
         self.data = GetData()
         self.driver = self.data.get_driver()
-        self.data.open_admin_appln(self.driver)
+        self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)
 
     def test_admin_page(self):
         self.assertEqual("cQube Admin",self.driver.title,msg="Admin login page is not exists")
-        self.data.login_admin(self.driver)
+        self.data.login_to_adminconsole(self.driver)
         self.data.page_loading(self.driver)
         print("admin login home page..")
         print(self.driver.title)

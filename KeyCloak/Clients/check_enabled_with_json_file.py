@@ -1,4 +1,5 @@
 from Data.parameters import Data
+from keycloak_funcs import keyData
 from reuse_func import GetData
 
 
@@ -13,7 +14,7 @@ class Enabled():
         for x in self.file['clients']:
             json_enabled.append(str(x['enabled']))
 
-        table = GetData()
+        table = keyData()
         table.navigate_to_clients(self.driver)
         result = table.get_row_count(self.driver)
 

@@ -2,12 +2,15 @@ import os
 import time
 
 from CRC import crc_report_smoke_testing
+from Diksha_Reports.Diksha_graph import diksha_chart_smoke_testing
+from Diksha_Reports.Diksha_report import diksha_table_smoke_testing
 from Landing_Page import cQube_home_page
 from Login import login_smoke_testing
 from SAR import student_attendance_smoke_testing
 from SI.MAP import School_Map_smoke_testing
 from SI.Report import School_report_smoke_testing
 from SR import semester_report_smoke_testing
+from Semester_Exception import exception_smoke_testing
 
 from get_dir import pwd
 
@@ -199,6 +202,78 @@ class MyTestSuite(unittest.TestCase):
             runner1.run(smoke_test)
             outfile.close()
             self.logger.info("school infra report execution started")
+
+    def test_issue08(self):
+        self.data.navigate_to_diksha_graph()
+        time.sleep(2)
+        self.errMsg = self.data.get_data_status()
+        if self.errMsg.text == 'No data found':
+            print("No data in the school infra report page")
+        else:
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(diksha_chart_smoke_testing.cQube_diskha_chart)
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Diksha chart Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue09(self):
+        self.data.navigate_to_diksha_table()
+        time.sleep(2)
+        self.errMsg = self.data.get_data_status()
+        if self.errMsg.text == 'No data found':
+            print("No data in the school infra report page")
+        else:
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(diksha_table_smoke_testing.cQube_diskha_report)
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Diksha Table Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue10(self):
+        self.data.navigate_to_semester_exception()
+        time.sleep(2)
+        self.errMsg = self.data.get_data_status()
+        if self.errMsg.text == 'No data found':
+            print("No data in the school infra report page")
+        else:
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(exception_smoke_testing.cQube_semester_exception_report)
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Semester Exception Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(smoke_test)
+            outfile.close()
 
     @classmethod
     def tearDownClass(self):

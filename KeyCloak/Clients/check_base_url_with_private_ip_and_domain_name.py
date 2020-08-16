@@ -1,4 +1,4 @@
-from reuse_func import GetData
+from keycloak_funcs import keyData
 
 class CheckBaseUrl():
     def __init__(self,driver,file):
@@ -6,7 +6,7 @@ class CheckBaseUrl():
         self.file=file
 
     def check_BaseUrl_with_domain_name_and_privateip(self):
-        cal = GetData()
+        cal = keyData()
         json_baseurl = []
         url = []
         for x in self.file['clients']:

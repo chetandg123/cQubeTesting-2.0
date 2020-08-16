@@ -1,4 +1,5 @@
 from Data.parameters import Data
+from keycloak_funcs import keyData
 from reuse_func import GetData
 
 
@@ -13,7 +14,7 @@ class ClientID():
         for x in self.file['clients']:
             json_clientid.append(x['clientId'])
 
-        table = GetData()
+        table = keyData()
         result = table.get_row_count(self.driver)
 
         for x in range(1,result):

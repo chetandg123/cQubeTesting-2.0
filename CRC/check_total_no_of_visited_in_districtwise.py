@@ -24,7 +24,7 @@ class visited():
         District_wise.select_by_visible_text(" Dist_Wise Report ")
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(2)
+        time.sleep(3)
         self.filename = p.get_download_dir() + "/District_level_CRC_Report.csv"
         with open(self.filename) as fin:
             csv_reader = csv.reader(fin, delimiter=',')

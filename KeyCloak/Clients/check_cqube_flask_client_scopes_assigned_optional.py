@@ -1,8 +1,6 @@
 import time
 
-from Data.parameters import Data
-from reuse_func import GetData
-from selenium import webdriver
+from keycloak_funcs import keyData
 
 
 class CqubeFlaskOptionalScopes():
@@ -11,7 +9,7 @@ class CqubeFlaskOptionalScopes():
         self.file=file
 
     def check_cqube_flask_optional_scopes(self):
-        cal = GetData()
+        cal = keyData()
         cal.navigate_to_clients(self.driver)
         cal.click_on_cqube_flask(self.driver)
         time.sleep(3)

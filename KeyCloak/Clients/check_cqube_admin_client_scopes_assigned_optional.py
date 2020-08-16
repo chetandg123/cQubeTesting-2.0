@@ -1,6 +1,7 @@
 import time
 
 from Data.parameters import Data
+from keycloak_funcs import keyData
 from reuse_func import GetData
 from selenium import webdriver
 
@@ -11,7 +12,7 @@ class CqubeAdminOptionalScopes():
         self.file=file
 
     def check_cqube_admin_optional_scopes(self):
-        cal = GetData()
+        cal = keyData()
         cal.navigate_to_clients(self.driver)
         cal.click_on_cqube_admin(self.driver)
         time.sleep(3)

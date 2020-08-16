@@ -4,27 +4,32 @@ import unittest
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+
 from SAR.Click_on_hyper_link_in_SAR import Hyperlink
 from SAR.arg import arg
 from SAR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from SAR.check_districts_csv_download import DistrictCsvDownload
 from SAR.check_dots_on_each_district_block import DotsOnDistrictsBlock
+
 from SAR.check_dots_on_each_districts import DotsOnDistricts
 from SAR.check_schools_per_cluster_csv_download import SchoolsPerClusterCsvDownload
 from SAR.check_with_total_schools_in_SAR import TotalSchools
 from SAR.check_with_total_student_in_SAR import TotalStudents
 from SAR.click_on_Home_icon import Home
+
 from SAR.click_on_SAR import DahboardSar
 from SAR.click_on_SAR_and_logout import Logout
 from SAR.click_on_blocks import Blocks
 from SAR.click_on_clusters import Clusters
 from SAR.click_on_dashboard import Dashboard
+
 from SAR.click_on_schools import Schools
 from SAR.cluster_level_comaparing_dots_with_no_of_schools import ClusterDotsWithNoOfSchools
 from SAR.download_blockwise_csv import BlockwiseCsv
 from SAR.download_clusterwise_csv import ClusterwiseCsv
 from SAR.download_districtwise_csv import DistrictwiseCsv
 from SAR.download_schoolwise_csv import SchoolwiseCsv
+
 from reuse_func import GetData
 
 

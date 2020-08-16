@@ -14,10 +14,10 @@ class keycloak(unittest.TestCase):
         self.p = pwd()
         self.driver = self.data.get_driver()
         self.driver.implicitly_wait(30)
-        self.driver.get(Data.admin)
+        self.driver.get('https://cqube.tibilprojects.com/auth/admin')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('username').send_keys(Data.uname)
-        self.driver.find_element_by_id('password').send_keys(Data.ps)
+        self.driver.find_element_by_id('username').send_keys('admin')
+        self.driver.find_element_by_id('password').send_keys('tibil123')
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
 
@@ -33,7 +33,7 @@ class keycloak(unittest.TestCase):
             print("Users page is not exist")
             count = count + 1
         self.assertEqual(count, 0, msg="User page is not exists")
-        if "qa1" not in self.driver.page_source:
+        if "qateam1" not in self.driver.page_source:
             print("Admin user is not  present ")
             count = count + 1
         if "qa2" not in self.driver.page_source:

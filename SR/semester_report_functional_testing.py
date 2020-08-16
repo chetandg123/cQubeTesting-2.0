@@ -6,16 +6,19 @@ from SR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from SR.check_districts_csv_download import DistrictCsvDownload
 from SR.check_dots_on_each_district_block import DotsOnDistrictsBlock
 from SR.check_dots_on_each_districts import DotsOnDistricts
+
 from SR.check_schools_per_cluster_csv_download import SchoolsPerClusterCsvDownload
 from SR.check_with_total_schools_in_SR import TotalSchools
 from SR.check_with_total_student_in_SR import TotalStudents
 from SR.click_on_Home_icon import Home
 from SR.click_on_blocks import Blocks
+
 from SR.click_on_clusters import Clusters
 from SR.click_on_dashboard import Dashboard
 from SR.click_on_schools import Schools
 from SR.click_on_semester_report import SemesterReport
 from SR.click_on_semester_report_and_logout import Logout
+
 from SR.cluster_level_comaparing_dots_with_no_of_schools import ClusterDotsWithNoOfSchools
 from SR.download_blockwise_csv import BlockwiseCsv
 from SR.download_clusterwise_csv import ClusterwiseCsv

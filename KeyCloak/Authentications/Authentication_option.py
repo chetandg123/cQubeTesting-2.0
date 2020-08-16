@@ -13,6 +13,7 @@ class Authentication_options(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_keycloack(self.driver)
         self.data.login_keycloack(self.driver)
+        time.sleep(2)
         self.driver.find_element_by_xpath("//*[@id='view']/div[2]/div[2]/ul/li[7]/a").click()
         self.f = open(self.data.get_json_file_path(), "r")
         self.file = json.loads(self.f.read())
@@ -70,15 +71,19 @@ class Authentication_options(unittest.TestCase):
         clientAuthenticationFlow = self.driver.find_element_by_id("clientAuthentication").get_attribute('value')
         self.assertEqual("string:"+self.file['clientAuthenticationFlow'], clientAuthenticationFlow, msg="Browser is not selected at directGrantFlow ")
         print("all configuration are correct in binding section")
+
     def test_RequiredActions(self):
         time.sleep(2)
         self.driver.find_element_by_xpath("//a[contains(text(),'Required Actions')]").click()
-
         configurotp = self.driver.find_element_by_id("CONFIGURE_TOTP.enabled")
-        enable = configurotp.is_selected()
-        self.assertEqual(enable , self.file['requiredActions'][0]['enabled'],msg="configure otp is not selected")
+        otp = configurotp.is_selected()
+        print("status of selction : ", otp)
+        print("Files contains",self.file['requiredActions'][0]['enabled'])
+        self.assertEqual(otp , self.file['requiredActions'][0]['enabled'],msg="configure otp is not selected")
+
         defaultval = self.driver.find_element_by_id("CONFIGURE_TOTP.defaultAction")
         d = defaultval.is_selected()
+        print("file contains",self.file['requiredActions'][0]['defaultAction'])
         self.assertEqual(d , self.file['requiredActions'][0]['defaultAction'],msg="Default configure otp is not selected")
 
         # default = self.driver.find_element_by_id("CONFIGURE_TOTP.defaultAction")

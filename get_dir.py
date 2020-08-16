@@ -14,6 +14,11 @@ class pwd():
         report_path = os.path.join(cwd, 'Reports/admin_screens_report.html')
         return report_path
 
+    def get_semester_exception_download_path(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/semester_exception.html')
+        return report_path
+
     def get_report_path(self):
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/report.html')
@@ -56,8 +61,8 @@ class pwd():
 
     def get_keycloak_ini_path(self):
         cwd = os.path.dirname(__file__)
-        ini = os.path.join(cwd, '../keycloak.ini')
-        return ini
+        key = os.path.join(cwd, 'keycloak.ini')
+        return key
 
     def get_driver_path(self):
         cwd = os.path.dirname(__file__)

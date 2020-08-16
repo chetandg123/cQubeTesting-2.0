@@ -17,7 +17,7 @@ class Test_s3files(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_admin_appln(self.driver)
         self.data.page_loading(self.driver)
-        self.data.login_admin(self.driver)
+        self.data.login_to_adminconsole(self.driver)
 
     def test_navigate_to_s3files(self):
         self.driver.find_element_by_id(Data.Dashboard).click()

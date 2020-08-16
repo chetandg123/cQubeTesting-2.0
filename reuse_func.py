@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import configparser
 import os
 import time
@@ -144,7 +146,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
         return self.driver
     # def get_driver(self):
@@ -171,9 +173,26 @@ class GetData():
         self.driver.find_element_by_id(Data.email).send_keys(self.get_username())
         self.driver.find_element_by_id(Data.passwd).send_keys(self.get_password())
         self.driver.find_element_by_id(Data.login).click()
-        # self.page_loading(self.driver)
-        # self.driver.find_element_by_tag_name('button').click()
-        # self.page_loading(self.driver)
+        self.page_loading(self.driver)
+        self.driver.find_element_by_tag_name('button').click()
+        self.page_loading(self.driver)
+
+    def login_to_adminconsole(self,driver):
+        self.driver = driver
+        self.driver.implicitly_wait(60)
+        self.driver.find_element_by_id(Data.email).send_keys(self.get_username())
+        self.driver.find_element_by_id(Data.passwd).send_keys(self.get_password())
+        self.driver.find_element_by_id(Data.login).click()
+        self.page_loading(self.driver)
+        self.driver.find_element_by_tag_name('a').click()
+        self.page_loading(self.driver)
+
+    def navigate_to_telemetry(self):
+        # self.driver.find_element_by_id(Data.Dashboard).click()
+        # time.sleep(2)
+        self.driver.find_element_by_xpath("//img[@alt='telemetry']").click()
+        self.page_loading(self.driver)
+
 
     def page_loading(self,driver):
         try:
@@ -252,6 +271,28 @@ class GetData():
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
         self.driver.find_element_by_id(Data.CRC).click()
+
+    def navigate_to_diksha_graph(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.diksha_graph).click()
+
+    def navigate_to_diksha_table(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.diksha_table).click()
+
+    def navigate_to_semester_exception(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.sem_exception).click()
 
     def Details_text(self):
         Details = self.driver.find_elements_by_xpath(Data.details)

@@ -14,56 +14,56 @@ class keyData():
 
     def get_cqube_url(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['domain']
 
-    def get_domain_name(self):
+    def get_keydomain_name(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['domain_keycloak']
 
     def get_nifi_url(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['nifi']
 
     def get_username(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['username_keycloak']
 
     def get_password(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['password_keycloak']
 
     def get_json_file_path(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['json']
 
     def get_domain_cqube_name(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['domainname']
 
     def get_privateip(self):
         config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
+        config.read(self.p.get_keycloak_ini_path())
         return config['config']['privateip']
 
     def get_driver(self):
         options = webdriver.ChromeOptions()
         # prefs = {'download.default_directory': self.p.get_download_dir()}
         # options.add_experimental_option('prefs', prefs)
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
     def open_keycloack(self, driver):
         self.driver = driver
         self.driver.maximize_window()
-        self.driver.get(self.get_domain_name())
+        self.driver.get(self.get_keydomain_name())
         self.driver.implicitly_wait(60)
 
     def open_nifi(self, driver):
@@ -82,7 +82,7 @@ class keyData():
 
     def navigate_to_clients(self, driver):
         self.driver = driver
-        self.driver.find_element_by_link_text(Data.clients_link_text).click()
+        self.driver.find_element_by_link_text('Clients').click()
 
     def open_json_file(self):
         with open(self.get_json_file_path(), "r") as f:
