@@ -5,12 +5,12 @@ from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 
-from Diksha_Reports.Diksha_graph.check_each_districts import district_list
-from Diksha_Reports.Diksha_graph.click_on_homeicon import Diksha_homeicon
-from Diksha_Reports.Diksha_graph.donwload_the_teacher_file import Diksha_teacher_download
-from Diksha_Reports.Diksha_graph.download_overall_file import Diksha_overall_download
-from Diksha_Reports.Diksha_graph.download_the_student_file import Diksha_students_download
-from Diksha_Reports.Diksha_graph.navigate_to_diskha_chart import Diksha_page
+from Diksha_Reports.Diksha_charts.check_each_districts import district_list
+from Diksha_Reports.Diksha_charts.click_on_homeicon import Diksha_homeicon
+from Diksha_Reports.Diksha_charts.donwload_the_teacher_file import Diksha_teacher_download
+from Diksha_Reports.Diksha_charts.download_overall_file import Diksha_overall_download
+from Diksha_Reports.Diksha_charts.download_the_student_file import Diksha_students_download
+from Diksha_Reports.Diksha_charts.navigate_to_diskha_chart import Diksha_page
 from reuse_func import GetData
 
 

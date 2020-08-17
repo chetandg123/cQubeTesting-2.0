@@ -1,24 +1,20 @@
 
-
 import time
-
 from selenium.webdriver.support.select import Select
-
 from Data.parameters import Data
 from reuse_func import GetData
 
 
-class Districtwise_lastmonth_chart():
+class Districtwise_lastweek_chart():
     def __init__(self,driver):
         self.driver = driver
 
     def test_each_districts(self):
         self.data = GetData()
-        # count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' last_30_days ')
+        times.select_by_visible_text(' Last 7 Days ')
         time.sleep(2)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         count = len(districts.options) - 1

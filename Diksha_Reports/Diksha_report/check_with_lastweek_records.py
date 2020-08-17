@@ -19,7 +19,7 @@ class Districtwise_lastweek_records():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' last_7_days ')
+        times.select_by_visible_text(' Last 7 Days ')
         time.sleep(2)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         for x in range(1,len(districts.options)):

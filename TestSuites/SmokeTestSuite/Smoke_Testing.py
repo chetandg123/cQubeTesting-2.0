@@ -2,7 +2,7 @@ import os
 import time
 
 from CRC import crc_report_smoke_testing
-from Diksha_Reports.Diksha_graph import diksha_chart_smoke_testing
+from Diksha_Reports.Diksha_charts import diksha_chart_smoke_testing
 from Diksha_Reports.Diksha_report import diksha_table_smoke_testing
 from Landing_Page import cQube_home_page
 from Login import login_smoke_testing

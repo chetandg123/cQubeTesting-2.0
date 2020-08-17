@@ -20,7 +20,7 @@ class Districtwise_monthwise_records():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' last_30_days ')
+        times.select_by_visible_text(' Last 30 Days ')
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         for x in range(1,len(districts.options)):
             time.sleep(1)
