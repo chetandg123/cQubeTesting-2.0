@@ -142,23 +142,23 @@ class GetData():
         config.read(self.p.get_config_ini_path())
         return config['config']['password']
 
-    def get_driver(self):
-        options = webdriver.ChromeOptions()
-        prefs = {'download.default_directory': self.p.get_download_dir()}
-        options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
-        self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
-        return self.driver
     # def get_driver(self):
     #     options = webdriver.ChromeOptions()
     #     prefs = {'download.default_directory': self.p.get_download_dir()}
     #     options.add_experimental_option('prefs', prefs)
-    #     self.driver = webdriver.Remote(
-    #         command_executor="http://localhost:4444/wd/hub",
-    #         desired_capabilities={
-    #             "browserName": "chrome",
-    #         },options=options)
+    #     options.add_argument('--headless')
+    #     self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
     #     return self.driver
+    def get_driver(self):
+        options = webdriver.ChromeOptions()
+        prefs = {'download.default_directory': self.p.get_download_dir()}
+        options.add_experimental_option('prefs', prefs)
+        self.driver = webdriver.Remote(
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities={
+                "browserName": "chrome",
+            },options=options)
+        return self.driver
 
 
     def open_cqube_appln(self,driver):
@@ -188,9 +188,9 @@ class GetData():
         self.page_loading(self.driver)
 
     def navigate_to_telemetry(self):
-        # self.driver.find_element_by_id(Data.Dashboard).click()
-        # time.sleep(2)
-        self.driver.find_element_by_xpath("//img[@alt='telemetry']").click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//*[@id='telemetry']/div/td[2]").click()
         self.page_loading(self.driver)
 
 
