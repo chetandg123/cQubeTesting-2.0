@@ -44,12 +44,21 @@ Steps to execute the test script
 	  admin_username=   #Enter the username of admin  
 	  admin_password=   #Enter the password of admin	 
 	  
-	  
-For Executing the Regression Test suites
+note: 
+Before running pytest ,please start the selenium grid by using command: java -jar selenium-server-standalone-3.14.jar  
+For Executing the Regression Test suites using pytest 
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/student_attendance_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/crc_report_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/semester_report_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/School_Map_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/School_report_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/diksha_table_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/diksha_chart_Regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/telemetry_regression_testing.py
+	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/exception_regression_testing.py
 
 For Executin the Smoke Test suites
-
-	
+	pytest -s -v --html=smoke_test.html --html-contained-html TestSuites/SmokeTestSuite/Smoke_Testing.py
 	  
 	  please fallow the steps for run testscripts for admin console
 	  	1> open vpn based url in browser 
@@ -70,7 +79,7 @@ For Executin the Smoke Test suites
 		python3 -m unittest TestSuites/FunctionalTestSuite/Run_crc.py
 		python3 -m unittest TestSuites/FunctionalTestSuite/Run_SchoolInfraMap.py
 		python3 -m unittest TestSuites/FunctionalTestSuite/Run_SchoolInfraReport.py
-
+		
 	8.To Run Regression Testing Suite
 
 		python3 -m unittest TestSuites/RegressionTestSuite/Run_Login_And_LandingPage.py
@@ -84,8 +93,8 @@ For Executin the Smoke Test suites
 
 		python3 -m unittest TestSuites/SmokeTestSuite/Smoke_Testing.py
 		
-	Note :
-		Each Single scripts takes more than 4 to 5 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
+Note :
+Each Single scripts takes more than 4 to 5 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
 
 
 
