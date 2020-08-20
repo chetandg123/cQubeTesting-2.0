@@ -1,4 +1,4 @@
-
+import time
 import unittest
 from reuse_func import GetData
 from Data.parameters import Data
@@ -36,7 +36,7 @@ class cQube_diskha_report(unittest.TestCase):
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
             self.data.navigate_to_diksha_table()
-            self.data.page_loading(self.driver)
+            time.sleep(5)
 
     def test_Diksha_homeicon(self):
         b = Diksha_homeicon(self.driver)

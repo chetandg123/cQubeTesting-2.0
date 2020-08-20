@@ -14,10 +14,10 @@ class keycloak(unittest.TestCase):
         self.p = pwd()
         self.driver = self.data.get_driver()
         self.driver.implicitly_wait(30)
-        self.driver.get('https://cqube.tibilprojects.com/auth/admin')
+        self.driver.get('https://democqube.tibilprojects.com/auth/admin')
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('username').send_keys('admin')
-        self.driver.find_element_by_id('password').send_keys('tibil123')
+        self.driver.find_element_by_id('password').send_keys('Tibil@123')
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
 

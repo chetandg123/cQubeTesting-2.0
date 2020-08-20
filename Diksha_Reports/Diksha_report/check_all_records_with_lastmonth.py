@@ -23,7 +23,7 @@ class All_Districtwise_lastmonth_chart():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         content = Select(self.driver.find_element_by_id('chosse_collection'))
-        content.select_by_visible_text(' All ')
+        content.select_by_visible_text(' Overall ')
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         times.select_by_visible_text(' Last 30 Days ')
@@ -33,7 +33,7 @@ class All_Districtwise_lastmonth_chart():
         for x in range(1, len(districts.options)):
             time.sleep(1)
             districts.select_by_index(x)
-            time.sleep(3)
+            self.data.page_loading(self.driver)
             # nodata = self.driver.find_element_by_id("errMsg").text
             if "No data found" in self.driver.page_source:
                 print(districts.options[x].text, " does not last 30 days records")

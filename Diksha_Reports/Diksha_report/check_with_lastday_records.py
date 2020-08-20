@@ -23,6 +23,6 @@ class Districtwise_lastday_records():
         for x in range(1,len(districts.options)):
             time.sleep(1)
             districts.select_by_index(x)
-            time.sleep(3)
+            self.data.page_loading(self.driver)
             if  "No data found" in self.driver.page_source:
                 print(districts.options[x].text ," does not last day records")

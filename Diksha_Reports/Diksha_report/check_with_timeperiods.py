@@ -23,6 +23,6 @@ class timeperiod_options():
         for i in range(len(times.options)):
             times.select_by_index(i)
             print(times.options[i].text)
-            time.sleep(3)
+            self.data.page_loading(self.driver)
         return count
 

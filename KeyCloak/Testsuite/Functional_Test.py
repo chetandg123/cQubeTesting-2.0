@@ -14,18 +14,18 @@ class MyTestSuite(unittest.TestCase):
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
-                unittest.defaultTestLoader.loadTestsFromTestCase(Authentication_option.Authentication_options),
                 unittest.defaultTestLoader.loadTestsFromTestCase(Clients_testing.Clients),
+                unittest.defaultTestLoader.loadTestsFromTestCase(Authentication_option.Authentication_options),
                 unittest.defaultTestLoader.loadTestsFromTestCase(realm_setting.realm_settings),
                 unittest.defaultTestLoader.loadTestsFromTestCase(roles_option.roles_options),
                 unittest.defaultTestLoader.loadTestsFromTestCase(user_list.user_options),
             ])
             p= pwd()
-            outfile = open("/home/chetan/Desktop/cQubeTesting/KeyCloak/Testsuite/keycloak.html", "w")
+            outfile = open("/home/chetan/Desktop/cQubeTesting/KeyCloak/Testsuite/demo1report.html", "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Keycloak  Test Report',
+                title='Keycloak Regression Test Report',
                 verbosity=1,
             )
 

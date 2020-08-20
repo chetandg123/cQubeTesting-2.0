@@ -104,7 +104,7 @@ class Data():
     y = "y_axis"
     s_dist = "//select[@name='myDistrict']/option[2]"
     # sc_Reportmap
-    School_infra = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list/mat-list-item/div/mat-icon"
+    School_infra = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
     Reportmap = "mapReport"
     Report = "tblReport"
     scm_block = "block"
@@ -116,10 +116,12 @@ class Data():
     sc_infrascores = "//select[@id='choose_infra']/option"
     sc_no_of_schools = "schools"
 
-    diksha ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
+    diksha ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
     diksha_graph ="chrtReport"
     diksha_table = "dtblReport"
-    sem_exception = "ser"
+
+    exception_click ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
+    sem_exception = "SemException"
 
     dik_g =""
     dik_t = ""
@@ -133,7 +135,7 @@ class Data():
     d_names = "//th[contains(text(),'district')]"
     t_head = "//th[contains(text(),'District Name')]"
     login_in = "//span[@class='span']"
-    SAR = "SAR"
+    SAR = "stdReport"
     Logout = "logout"
     Home_icon = "//i[@id='home']"
     select_district = 'myDistrict'
@@ -183,9 +185,9 @@ class Data():
     errormsg = "//p"
 
     # for SAR_2
-    SAR_Blocks_btn = "block"
-    SAR_Clusters_btn = "cluster"
-    SAR_Schools_btn = "school"
+    SAR_Blocks_btn = "allBlock"
+    SAR_Clusters_btn = "allCluster"
+    SAR_Schools_btn = "allSchool"
     # footer
     schoolcount = "schools"
     students = "students"
@@ -221,7 +223,7 @@ class Data():
     # Dash board
     TAR = "tar"
     SR = "sr"
-    CRC = "crcr"
+    CRC = "crcReport"
 
     # xpath of Dashboard
 
@@ -296,9 +298,9 @@ class Data():
    #semester Report
     sr_by_xpath = "//*[@id='sr']"
     sr_by_id = "sr"
-    sr_block_btn= "block"
-    sr_cluster_btn = "cluster"
-    sr_schools_btn = "school"
+    sr_block_btn= "allBlock"
+    sr_cluster_btn = "allCluster"
+    sr_schools_btn = "allSchool"
 
     sr_district = "choose_dist"
     sr_block = "choose_block"

@@ -230,7 +230,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         element = self.driver.find_element_by_id(Data.sar_download)
         try:
             element.click()
-            time.sleep(2)
+            time.sleep(3)
             print("Download Button is working")
         except WebDriverException:
             raise self.failureException("Download Button is not working")

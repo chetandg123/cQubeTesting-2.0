@@ -3,6 +3,7 @@ import unittest
 from HTMLTestRunner import HTMLTestRunner
 
 from Diksha_Reports.Diksha_charts import diksha_chart
+from Diksha_Reports.Diksha_column_chart import column_chart
 from Diksha_Reports.Diksha_report import diksha_table
 from get_dir import pwd
 
@@ -16,11 +17,11 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(diksha_chart.cQube_diskha_chart),
         ])
         p = pwd()
-        outfile = open("/home/chetan/Desktop/cQubeTesting/Diksha_Reports/Testsuit/Diksha_Report.html", "w")
+        outfile = open("/home/chetan/Desktop/cQubeTesting/Diksha_Reports/Testsuit/DikshaReports_regression.html", "w")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Diksha chart Test Report',
+            title='Diksha chart Regression Test Report',
             verbosity=1,
 
         )
@@ -32,11 +33,11 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(diksha_table.cQube_diskha_report),
         ])
         p = pwd()
-        outfile = open("/home/chetan/Desktop/cQubeTesting/Diksha_Reports/Testsuit/Diksha_Report.html", "a")
+        outfile = open("/home/chetan/Desktop/cQubeTesting/Diksha_Reports/Testsuit/DikshaReports_regression.html", "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Diksha Table Report',
+            title='Diksha Table Regression Report',
             verbosity=1,
 
         )

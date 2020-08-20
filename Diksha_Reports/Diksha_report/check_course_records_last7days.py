@@ -28,13 +28,13 @@ class course_districtwise_lastweek_record():
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         times.select_by_index('2')
-        time.sleep(2)
+        self.data.page_loading(self.driver)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         i = 0
         for x in range(1, len(districts.options)):
             time.sleep(1)
             districts.select_by_index(x)
-            time.sleep(3)
+            self.data.page_loading(self.driver)
             if "No data found" in self.driver.page_source:
                 print(districts.options[x].text, " does not last 7 days records")
             else:

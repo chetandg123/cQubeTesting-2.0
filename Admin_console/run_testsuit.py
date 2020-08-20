@@ -1,7 +1,5 @@
-
-
-from Admin_login import check_admin_landing_page, All_user_scripts, check_admin_login, check_login_to_cqube, \
-    create_user, Logs_scripts, S3_files_script
+from Admin_console import check_admin_landing_page, All_user_scripts, check_admin_login, check_login_to_cqube, \
+    Logs_scripts, S3_files_script, Summary_Report
 from get_dir import pwd
 
 
@@ -15,13 +13,9 @@ class MyTestSuite(unittest.TestCase):
         functional_test.addTests([
             # file name .class name
                 unittest.defaultTestLoader.loadTestsFromTestCase(check_admin_landing_page.Test_admin_landing_page),
-                unittest.defaultTestLoader.loadTestsFromTestCase(All_user_scripts.Test_allusers),
-                unittest.defaultTestLoader.loadTestsFromTestCase(check_admin_login.Test_admin_login),
-                unittest.defaultTestLoader.loadTestsFromTestCase(check_login_to_cqube.Test_login_to_cqube),
-                unittest.defaultTestLoader.loadTestsFromTestCase(create_user.Test_admin_login),
                 unittest.defaultTestLoader.loadTestsFromTestCase(Logs_scripts.Test_logs),
                 unittest.defaultTestLoader.loadTestsFromTestCase(S3_files_script.Test_s3files),
-
+                unittest.defaultTestLoader.loadTestsFromTestCase(Summary_Report.Test_summaryreport)
         ])
         p= pwd()
         outfile = open(p.get_admin_login_path(), "w")

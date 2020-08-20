@@ -142,23 +142,24 @@ class GetData():
         config.read(self.p.get_config_ini_path())
         return config['config']['password']
 
-    # def get_driver(self):
-    #     options = webdriver.ChromeOptions()
-    #     prefs = {'download.default_directory': self.p.get_download_dir()}
-    #     options.add_experimental_option('prefs', prefs)
-    #     options.add_argument('--headless')
-    #     self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
-    #     return self.driver
     def get_driver(self):
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        self.driver = webdriver.Remote(
-            command_executor="http://localhost:4444/wd/hub",
-            desired_capabilities={
-                "browserName": "chrome",
-            },options=options)
+        # options.add_argument('--headless')
+        self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
         return self.driver
+
+    # def get_driver(self):
+    #     options = webdriver.ChromeOptions()
+    #     prefs = {'download.default_directory': self.p.get_download_dir()}
+    #     options.add_experimental_option('prefs', prefs)
+    #     self.driver = webdriver.Remote(
+    #         command_executor="http://localhost:4444/wd/hub",
+    #         desired_capabilities={
+    #             "browserName": "chrome",
+    #         },options=options)
+    #     return self.driver
 
 
     def open_cqube_appln(self,driver):
@@ -229,9 +230,11 @@ class GetData():
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath('/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon').click()
+        time.sleep(2)
         self.driver.find_element_by_id(Data.SAR).click()
         time.sleep(6)
-        # self.driver.find_element_by_xpath("//*[@id='SAR']")
+
     def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -239,6 +242,7 @@ class GetData():
         self.driver.find_element_by_xpath(Data.School_infra).click()
         time.sleep(3)
         self.driver.find_element_by_id(Data.Report).click()
+        time.sleep(5)
 
     def navigate_to_school_infrastructure_map(self):
         self.driver.implicitly_wait(30)
@@ -247,6 +251,7 @@ class GetData():
         self.driver.find_element_by_xpath(Data.School_infra).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.Reportmap).click()
+        time.sleep(5)
 
     def select_month_year(self,y,m):
         year = Select(self.driver.find_element_by_id(Data.sar_year))
@@ -261,8 +266,9 @@ class GetData():
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
-        # self.driver.find_element_by_xpath("//a[@id='sr']/div/td[2]").click()
-        self.driver.find_element_by_xpath("//*[@id='sr']").click()
+        self.driver.find_element_by_xpath('/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon').click()
+        time.sleep(2)
+        self.driver.find_element_by_id("semReport").click()
         time.sleep(5)
 
 
@@ -270,6 +276,8 @@ class GetData():
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath('/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon').click()
+        time.sleep(2)
         self.driver.find_element_by_id(Data.CRC).click()
 
     def navigate_to_diksha_graph(self):
@@ -279,6 +287,7 @@ class GetData():
         self.driver.find_element_by_xpath(Data.diksha).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.diksha_graph).click()
+        time.sleep(6)
 
     def navigate_to_diksha_table(self):
         self.driver.implicitly_wait(30)
@@ -287,12 +296,27 @@ class GetData():
         self.driver.find_element_by_xpath(Data.diksha).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.diksha_table).click()
+        time.sleep(6)
 
-    def navigate_to_semester_exception(self):
+    def navigate_to_diksha_column_chart(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//img[@alt='dikshaColumn']").click()
+        time.sleep(6)
+
+
+
+    def navigate_to_semester_exception(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
         self.driver.find_element_by_id(Data.sem_exception).click()
+        time.sleep(5)
 
     def Details_text(self):
         Details = self.driver.find_elements_by_xpath(Data.details)

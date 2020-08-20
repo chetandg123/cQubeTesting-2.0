@@ -26,9 +26,9 @@ class Authentication_options(unittest.TestCase):
         len = reset.is_selected()
         self.assertTrue(len, msg="http   is not selected")
 
-        user = self.driver.find_element_by_xpath("//*[@id='view']/div[1]/table/tbody/tr[1]/td[3]/label/input")
-        radio = user.is_selected()
-        self.assertTrue(radio,msg="Choose user	is not in Required state ")
+        # user = self.driver.find_element_by_xpath("//*[@id='view']/div[1]/table/tbody/tr[1]/td[3]/label/input")
+        # radio = user.is_selected()
+        # self.assertTrue(radio,msg="Choose user	is not in Required state ")
 
         mail = self.driver.find_element_by_xpath("//*[@id='view']/div[1]/table/tbody/tr[2]/td[3]/label/input")
         radio = mail.is_selected()

@@ -19,6 +19,6 @@ class district_list():
         for x in range(1,len(districts.options)):
             districts.select_by_index(x)
             print(districts.options[x].text)
-            time.sleep(1)
+            self.data.page_loading(self.driver)
         self.data.page_loading(self.driver)
         return count

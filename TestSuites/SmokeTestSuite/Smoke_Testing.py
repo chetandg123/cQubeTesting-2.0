@@ -50,7 +50,7 @@ class MyTestSuite(unittest.TestCase):
         outfile.close()
         self.logger.info("Login execution ended")
 
-    def test_issue07(self):
+    def test_issue02(self):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(cQube_home_page.cQube_Home),
@@ -68,8 +68,7 @@ class MyTestSuite(unittest.TestCase):
         outfile.close()
 
 
-
-    def test_issue02(self):
+    def test_issue03(self):
         self.data.navigate_to_student_report()
         time.sleep(2)
         self.errMsg = self.data.get_data_status()
@@ -96,7 +95,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
             self.logger.info("student attendance report execution ended")
 
-    def test_issue03(self):
+    def test_issue04(self):
         self.data.navigate_to_crc_report()
         time.sleep(2)
         self.errMsg = self.data.get_data_status()
@@ -123,7 +122,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
             self.logger.info("crc report execution ended")
 
-    def test_issue04(self):
+    def test_issue05(self):
         self.data.navigate_to_semester_report()
         time.sleep(2)
         self.errMsg = self.data.get_data_status()
@@ -149,7 +148,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
             self.logger.info("semester report execution ended")
 
-    def test_issue05(self):
+    def test_issue06(self):
         self.data.navigate_to_school_infrastructure_map()
         time.sleep(2)
         self.errMsg = self.data.get_data_status()
@@ -177,7 +176,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
             self.logger.info("school infra map report execution ended")
 
-    def test_issue06(self):
+    def test_issue07(self):
         self.data.navigate_to_school_infrastructure()
         time.sleep(2)
         self.errMsg = self.data.get_data_status()

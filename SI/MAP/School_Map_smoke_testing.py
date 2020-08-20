@@ -59,7 +59,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.logger.info("test_check_district_names is completed...")
 
-    def test_check_markes_on_map(self):
+    def test_check_markers_on_map(self):
         self.tests.pop()
         self.logger.info("test_check_markes_on_map" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))

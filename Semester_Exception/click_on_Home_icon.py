@@ -8,7 +8,7 @@ class exception_Home():
         self.driver = driver
 
     def click_on_blocks_click_on_home_icon(self):
-        self.driver.find_element_by_id(Data.sr_block_btn).click()
+        self.driver.find_element_by_id('block').click()
         cal = GetData()
         count = 0
         cal.page_loading(self.driver)

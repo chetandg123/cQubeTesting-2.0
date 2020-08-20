@@ -15,7 +15,7 @@ class MyTestSuite(unittest.TestCase):
                 unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception.cQube_semester_exception_report),
             ])
             p= pwd()
-            outfile = open(p.get_semester_exception_download_path(), "a")
+            outfile = open(p.get_semester_exception_download_path(), "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,

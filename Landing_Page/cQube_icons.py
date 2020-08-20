@@ -21,7 +21,7 @@ class cQube_landing_page():
     def test_CRC(self):
         self.cal = GetData()
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//*[@id='crcr']/img").click()
+        self.driver.find_element_by_id("crcr").click()
         self.cal.page_loading(self.driver)
         if "crc-report" in self.driver.current_url:
             print("Navigated to  CRC report")
@@ -33,7 +33,7 @@ class cQube_landing_page():
     def test_Semester(self):
         self.cal = GetData()
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//*[@id='sr']/img").click()
+        self.driver.find_element_by_id("sr").click()
         self.cal.page_loading(self.driver)
         if "semester-report" in self.driver.current_url:
             print("Navigated to  Semester report")
@@ -45,7 +45,7 @@ class cQube_landing_page():
     def test_TAR(self):
         self.cal = GetData()
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//*[@id='tar']/img").click()
+        self.driver.find_element_by_id("tar").click()
         self.cal.page_loading(self.driver)
         if "teacher-attendance" in self.driver.current_url:
             print("Navigated to  Teacher coming soon page ")
@@ -77,4 +77,6 @@ class cQube_landing_page():
             print("School infra chart based report is not exist")
         self.driver.find_element_by_id("homeBtn").click()
         self.cal.page_loading(self.driver)
+
+
 
