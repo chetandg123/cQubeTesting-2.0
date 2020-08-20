@@ -1,7 +1,8 @@
 README.md
 cQube
 Prerequisites:
-  Google Chrome 83.0.4103.106 need to be installed in the server or local machine.
+  Google Chrome 84.0.4147.135 need to be installed in the server or local machine.
+  Chrome driver 84.0.4147.30 need to be downloaded 
   cQubeTesting project need to be cloned from the github.
   
 Steps to install the google chrome
@@ -9,8 +10,23 @@ Steps to install the google chrome
   Open the terminal (Ctrl+Alt+t) in the ubuntu
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo apt install ./google-chrome-stable_current_amd64.deb
-  
-Steps to execute the test scripts
+ 
+Steps to Download the chrome driver 
+
+   https://sites.google.com/a/chromium.org/chromedriver/downloads
+   Unzip the chrome driver and place it in /usr/bin or /usr/local/bin.
+   
+Steps to Download the selenium Grid 
+   
+   https://www.selenium.dev/downloads/
+   Download the latest stable selenium grid
+   Open the terminal and navigate to the selenium grid jar
+   Run the command in the terminal : java -jar selenium-server-standalone
+
+Note : Java jdk1.8 need to be already installed in the machine
+
+
+Steps to execute the test script
 
 	1.Open the Terminal (Ctrl+Alt+t) in the ubuntu
 	2.sudo apt update
@@ -27,6 +43,13 @@ Steps to execute the test scripts
 	  admin_domain=     #Enter the url of vpn based admin cQube url
 	  admin_username=   #Enter the username of admin  
 	  admin_password=   #Enter the password of admin	 
+	  
+	  
+For Executing the Regression Test suites
+
+For Executin the Smoke Test suites
+
+	
 	  
 	  please fallow the steps for run testscripts for admin console
 	  	1> open vpn based url in browser 
