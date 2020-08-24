@@ -56,10 +56,10 @@ class cQube_semester_exception_report(unittest.TestCase):
         res = b.check_markers_on_school_map()
         self.assertNotEqual(0, res, msg="markers are not present on cluster level map")
 
-    # def test_sem_dashboard(self):
-    #     b = sem_dashboard(self.driver)
-    #     res = b.test_click_on_dashboard()
-    #     self.assertEqual(0, res, msg='Dashboard button is not working ')
+    def test_sem_dashboard(self):
+        b = sem_dashboard(self.driver)
+        res = b.test_click_on_dashboard()
+        self.assertEqual(0, res, msg='Dashboard button is not working ')
 
     def test_exception_Home(self):
         b = exception_Home(self.driver)
@@ -87,10 +87,12 @@ class cQube_semester_exception_report(unittest.TestCase):
         self.data.navigate_to_semester_exception()
         self.data.page_loading(self.driver)
 
+
     def test_homepage(self):
-        time.sleep(2)
-        count = 0
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
         self.data.navigate_to_semester_exception()
+        count = 0
         self.data.page_loading(self.driver)
         if 'sem-exception' in self.driver.current_url:
             print("Home page of sem exception is present ")

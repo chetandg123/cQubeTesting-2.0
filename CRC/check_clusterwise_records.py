@@ -80,6 +80,7 @@ class crc_schoolevel_records():
 
     def remove_csv2(self):
         os.remove(self.filename)
+
     def check_csv_download2(self):
         p = pwd()
         self.cal = GetData()

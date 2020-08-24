@@ -24,7 +24,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the semester report page")
         else:
-            self.logger.info("semester report execution started")
+             ("semester report execution started")
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 # file name .class name
@@ -42,7 +42,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(regression_test)
             outfile.close()
-            self.logger.info("semester report execution ended")
+             ("semester report execution ended")
 
 
     @classmethod

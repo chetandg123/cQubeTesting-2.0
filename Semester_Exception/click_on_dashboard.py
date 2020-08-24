@@ -11,7 +11,7 @@ class sem_dashboard():
     def test_click_on_dashboard(self):
         count = 0
         cal = GetData()
-        self.driver.find.element_by_xpath(Data.hyper_link).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
         cal.navigate_to_semester_exception()
         cal.page_loading(self.driver)

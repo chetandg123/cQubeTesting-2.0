@@ -26,7 +26,8 @@ class course_districtwise_lastmonth_chart():
         content.select_by_visible_text(' Course ')
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' Last 30 Days ')
+        # times.select_by_visible_text(" Last 30 Days ")
+        times.select_by_index(3)
         self.data.page_loading(self.driver)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         i = 0

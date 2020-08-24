@@ -25,7 +25,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the school infrastructure report page")
         else:
-            self.logger.info("school infra report execution started")
+             ("school infra report execution started")
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
@@ -42,7 +42,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(functional_test)
             outfile.close()
-            self.logger.info("school infra report execution ended")
+             ("school infra report execution ended")
 
     @classmethod
     def tearDownClass(self):

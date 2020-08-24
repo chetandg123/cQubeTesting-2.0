@@ -26,7 +26,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the crc report page")
         else:
-            self.logger.info("crc report execution started")
+             ("crc report execution started")
 
             functional_test = unittest.TestSuite()
             functional_test.addTests([
@@ -44,7 +44,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(functional_test)
             outfile.close()
-            self.logger.info("crc report execution ended")
+             ("crc report execution ended")
 
 
     @classmethod

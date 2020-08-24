@@ -17,6 +17,7 @@ class SchoolsPerClusterCsvDownload():
         self.month = month.strip()
     def remove_csv1(self):
         os.remove(self.filename)
+
     def check_csv_download1(self):
         cal = GetData()
         cal.click_on_state(self.driver)

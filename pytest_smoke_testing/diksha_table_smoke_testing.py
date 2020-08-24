@@ -20,7 +20,6 @@ class cQube_diskha_report(unittest.TestCase):
     @classmethod
     def setUpClass(self):
             self.data = GetData()
-            self.logger = self.data.get_smoke_log()
             self.driver = self.data.get_driver()
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
@@ -45,44 +44,61 @@ class cQube_diskha_report(unittest.TestCase):
         b = Diksha_logout(self.driver)
         res = b.test_logout()
         self.assertEqual(res, 'Log in to cQube', msg="Logout is not working")
+        self.data.page_loading(self.driver)
 
     def test_navigate_dikshareport(self):
         b = Diksha_page(self.driver)
         result = b.test_navigation()
         self.data.page_loading(self.driver)
+        self.data.page_loading(self.driver)
+
 
     def test_hyperlink(self):
         b = Diksha_hyperlink(self.driver)
         result = b.test_hyperlink()
         self.data.page_loading(self.driver)
+        self.data.page_loading(self.driver)
+
 
     def test_choosedistricts(self):
         b = district_list(self.driver)
         res = b.test_each_districts()
         self.assertNotEqual(0, res, msg="Districts are missing ")
+        self.data.page_loading(self.driver)
+
 
 
     def test_districtiwise_lastdayrecords(self):
         b = Districtwise_lastday_records(self.driver)
         res = b.test_each_districts()
+        self.data.page_loading(self.driver)
+
 
     def test_districtwise_lastweekrecords(self):
         b =Districtwise_lastweek_records(self.driver)
         res = b.test_districts()
+        self.data.page_loading(self.driver)
+
 
 
     def test_districtwise_lastmonthrecords(self):
         b = Districtwise_monthwise_records(self.driver)
         res  = b.test_districts()
+        self.data.page_loading(self.driver)
+
 
     def test_timeperiods(self):
         b = timeperiod_options(self.driver)
         res = b.test_districts()
         self.assertNotEqual(0,res,msg="Time period options are not exists ")
+        self.data.page_loading(self.driver)
+
 
     def test_tableorder(self):
         b = Table_orderwise(self.driver)
         res = b.test_tablevalue()
+        self.data.page_loading(self.driver)
+
 
     @classmethod
     def tearDownClass(cls):

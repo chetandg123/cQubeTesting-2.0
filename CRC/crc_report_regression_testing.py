@@ -41,10 +41,7 @@ class cQube_CRC_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-            self.total_tests = 28
-            self.tests = [0] * 29
             self.data = GetData()
-            self.logger = self.data.get_regression_log("crc")
             self.driver = self.data.get_driver()
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
@@ -53,89 +50,59 @@ class cQube_CRC_Report(unittest.TestCase):
             self.driver.implicitly_wait(100)
 
     def test_blockwise_data(self):
-        self.tests.pop()
-        self.logger.info("test_blockwise_data" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = blockwise(self.driver)
         result = b.test_blocklevel()
         self.assertEqual(0, result, msg="some district files are not downloaded")
         print("checked with blockwise records and are working")
-        self.logger.info("test_blockwise_data is completed...")
 
     def test_table_data(self):
-        self.tests.pop()
-        self.logger.info("test_table_data" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = schoolwise_tabledata(self.driver)
         result = b.test_table_data()
         self.assertNotEqual(0, result, "Data not found on table")
         print("checked with table data ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_table_data is completed...")
 
     def test_districtwise_tabledata(self):
-        self.tests.pop()
-        self.logger.info("test_districtwise_tabledata" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = districtwise_tabledata(self.driver)
         result = b.test_table_data()
         if result != 0:
             raise self.failureException('Data not found on table')
         print("checked with districtwise table data")
         self.data.page_loading(self.driver)
-        self.logger.info("test_districtwise_tabledata is completed...")
 
     def test_homeicon(self):
-        self.tests.pop()
-        self.logger.info("test_homeicon" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Homebutton(self.driver)
         result = b.test_homeicon()
         self.assertTrue(result, msg="Home button not working ")
         print("checking with home icon and it is working ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_homeicon is completed...")
 
     def test_peformance_blockwise(self):
-        self.tests.pop()
-        self.logger.info("test_peformance_blockwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = download_blockwise_csv(self.driver)
         result = b.test_blockwise()
         self.assertTrue(result, msg="Blockwise csv is not downloaded")
         print("Block wise csv file is downloaded within 10 seconds")
         b.remove_file()
         self.data.page_loading(self.driver)
-        self.logger.info("test_peformance_blockwise is completed...")
 
     def test_peformance_clusterwise(self):
-        self.tests.pop()
-        self.logger.info("test_peformance_clusterwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
+
         b = download_clusterwise_csv(self.driver)
         result = b.test_clusterwise()
         self.assertTrue(result, msg="File is not downloaded")
         print("cluster wise csv file is downloaded within 10 seconds")
         b.remove_file()
         self.data.page_loading(self.driver)
-        self.logger.info("test_peformance_clusterwise is completed...")
 
     def test_peformance_districtwise(self):
-        self.tests.pop()
-        self.logger.info("test_peformance_districtwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = download_districtwise_csv(self.driver)
         result = b.test_districtwise_csv()
         self.assertTrue(result, msg="Districtwise csv is not downloaded")
         print("district wise csv file is downloaded within 10 seconds")
         b.remove_file()
         self.data.page_loading(self.driver)
-        self.logger.info("test_peformance_districtwise is completed...")
 
     def test_peformance_of_crc_report(self):
-        self.tests.pop()
-        self.logger.info("test_peformance_of_crc_report" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = CRC_report(self.driver)
         result = b.test_crc_report()
         if "crc-report" in self.driver.current_url:
@@ -143,34 +110,22 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC report page is not loaded ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_peformance_of_crc_report is completed...")
 
     def test_orderwise_tabledata(self):
-        self.tests.pop()
-        self.logger.info("test_orderwise_tabledata" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Check_order_of_tabledata(self.driver)
         result = b.test_order()
         self.assertEqual(result, "menu", msg="Menu is not exist")
         print("check order of table records is working ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_orderwise_tabledata is completed...")
 
     def test_crc_graph(self):
-        self.tests.pop()
-        self.logger.info("test_crc_graph" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = plot_values(self.driver)
         result = b.test_plots()
         self.assertNotEqual(0, result, msg="Axis options are not contains in select box")
         self.data.page_loading(self.driver)
         print("checked graph x and y axis options")
-        self.logger.info("test_crc_graph is completed...")
 
     def test_clusterlevel_homeicon(self):
-        self.tests.pop()
-        self.logger.info("test_clusterlevel_homeicon" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = click_on_home(self.driver)
         result = b.test_homeicon()
         if "crc-report" in self.driver.current_url:
@@ -178,94 +133,62 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("crc home page is not loaded")
         self.data.page_loading(self.driver)
-        self.logger.info("test_clusterlevel_homeicon is completed...")
 
     def test_on_clusterlevel_to_hyperlinks(self):
-        self.tests.pop()
-        self.logger.info("test_on_clusterlevel_to_hyperlinks" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = click_on_hyperlinks(self.driver)
         result = b.test_hyperlink()
         print("checking hyperlink from cluster levels ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_on_clusterlevel_to_hyperlinks is completed...")
 
     def test_download_blockwise_csv(self):
-        self.tests.pop()
-        self.logger.info("test_download_blockwise_csv" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = donwload_blockwise_csv(self.driver)
         result = b.test_blockwise()
         self.assertTrue(result, msg="File is not downloaded")
         b.remove_file()
         print("blockwise csv file is downloaded ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_download_blockwise_csv is completed...")
 
     def test_donwoad_clusterwise_csv(self):
-        self.tests.pop()
-        self.logger.info("test_donwoad_clusterwise_csv" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = load_clusterwise_csv(self.driver)
         result = b.test_clusterwise()
         self.assertTrue(result, msg="File is not downloaded")
         b.remove_file()
         print("cluster wise csv file is downloaded ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_donwoad_clusterwise_csv is completed...")
 
     def test_visited(self):
-        self.tests.pop()
-        self.logger.info("test_visited" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = visited(self.driver)
         result1, result2 = b.test_schools()
         self.assertEqual(int(result1), result2, msg="total no of visited are mismatching in district level")
         b.remove_file()
         print("total no of visited info is equivalent with footer values ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_visited is completed...")
 
     def test_visits(self):
-        self.tests.pop()
-        self.logger.info("test_visits" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = school_visits(self.driver)
         res1, res2 = b.test_visits()
         self.assertEqual(int(res1), res2, msg="total no of visits are mismatching in district level")
         b.remove_file()
         print("total no of visits info is equivalent with footer values ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_visits is completed...")
 
     def test_schoolcount(self):
-        self.tests.pop()
-        self.logger.info("test_schoolcount" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = school_count(self.driver)
         res1, res2 = b.test_schools()
         self.assertEqual(int(res1), res2, msg="total no of school are mismatching in district level")
         b.remove_csv()
         print("total no of schools info is equivalent with footer values ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_schoolcount is completed...")
 
     def test_download_districtwise(self):
-        self.tests.pop()
-        self.logger.info("test_download_districtwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Districtwise_donwload(self.driver)
         result = b.test_districtwise()
         self.assertTrue(result, msg="File is not downloaded")
         b.remove_csv()
         print("district wise csv file is downloaded ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_download_districtwise is completed...")
 
     def test_logout(self):
-        self.tests.pop()
-        self.logger.info("test_logout" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Logout_function(self.driver)
         res = b.test_logout()
         if "crc-report" in self.driver.current_url:
@@ -273,12 +196,8 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC report is not loaded ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_logout is completed...")
 
     def test_navigate_crc(self):
-        self.tests.pop()
-        self.logger.info("test_navigate_crc" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = loading_crc(self.driver)
         res = b.test_crc()
         if "crc-report" in self.driver.current_url:
@@ -286,23 +205,15 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC report is not loaded ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_navigate_crc is completed...")
 
     def test_dash_menu(self):
-        self.tests.pop()
-        self.logger.info("test_dash_menu" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Dashboard_menu(self.driver)
         res = b.test_dashboard()
         self.assertEqual(res, "menu", msg="Dashboard button is not working")
         print("Dashboard icon is working....")
         self.data.page_loading(self.driver)
-        self.logger.info("test_dash_menu is completed...")
 
     def test_scattor_graph(self):
-        self.tests.pop()
-        self.logger.info("test_scattor_graph" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = scattor_graph(self.driver)
         res = b.test_scattor_graph()
         if "myChart" in self.driver.page_source:
@@ -310,12 +221,8 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
-        self.logger.info("test_scattor_graph is completed...")
 
     def test_blockwise_graph(self):
-        self.tests.pop()
-        self.logger.info("test_blockwise_graph" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Blockwise_graph(self.driver)
         res = b.test_blockwise_graph()
         if "myChart" in self.driver.page_source:
@@ -323,12 +230,8 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
-        self.logger.info("test_blockwise_graph is completed...")
 
     def test_clusterwise_graph(self):
-        self.tests.pop()
-        self.logger.info("test_clusterwise_graph" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = cluster_graph(self.driver)
         res = b.test_clusterwise_graph()
         if "myChart" in self.driver.page_source:
@@ -336,39 +239,26 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             print("CRC plot is not exist..")
         self.data.page_loading(self.driver)
-        self.logger.info("test_clusterwise_graph is completed...")
 
     def test_districtwise_schoolsvisited(self):
-        self.tests.pop()
-        self.logger.info("test_districtwise_schoolsvisited" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = districtwise_visits(self.driver)
         result = b.test_districtwise_schoolvisited()
         self.data.page_loading(self.driver)
         print("checked with districtwise schools visited ")
-        self.logger.info("test_districtwise_schoolsvisited is completed...")
 
     def test_crc_districtwise(self):
-        self.tests.pop()
-        self.logger.info("test_crc_districtwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = test_crc_report_districtwise(self.driver)
         result = b.test_districtwise()
         self.assertEqual(0,result,msg="no data found")
         print('checked with districts records')
         self.data.page_loading(self.driver)
-        self.logger.info("test_crc_districtwise is completed...")
 
     def test_crc_blockwise(self):
-        self.tests.pop()
-        self.logger.info("test_crc_blockwise" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = crc_blockwise_records(self.driver)
         result = b.test_blockwise()
         print("checked with blockwise records")
         self.assertEqual(0,result,msg="No data found ")
         self.data.page_loading(self.driver)
-        self.logger.info("test_crc_blockwise is completed...")
 
 
     def test_schools_per_cluster_csv_download1(self):
@@ -376,9 +266,6 @@ class cQube_CRC_Report(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_crc_report()
-        self.tests.pop()
-        self.logger.info("test_schools_per_cluster_csv_download1 is running" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         school = crc_schoolevel_records(self.driver)
         result = school.check_csv_download1()
         if result == 0:
@@ -389,16 +276,11 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             raise self.failureException("Schools per cluster csv report download1 is working")
 
-        self.logger.info("test_schools_per_cluster_csv_download1 is completed...")
-
     def test_schools_per_cluster_csv_download2(self):
         self.driver = self.data.get_driver_CRC_Download2()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_crc_report()
-        self.tests.pop()
-        self.logger.info("test_schools_per_cluster_csv_download2 is running" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         school = crc_schoolevel_records(self.driver)
         result = school.check_csv_download2()
         if result == 0:
@@ -409,16 +291,12 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             raise self.failureException("Schools per cluster csv report download2 is working")
 
-        self.logger.info("test_schools_per_cluster_csv_download2 is completed...")
 
     def test_schools_per_cluster_csv_download3(self):
         self.driver = self.data.get_driver_CRC_Download3()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_crc_report()
-        self.tests.pop()
-        self.logger.info("test_schools_per_cluster_csv_download3 is running" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         school = crc_schoolevel_records(self.driver)
         result = school.check_csv_download3()
         if result == 0:
@@ -429,16 +307,12 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             raise self.failureException("Schools per cluster csv report download3 is working")
 
-        self.logger.info("test_schools_per_cluster_csv_download3 is completed...")
 
     def test_schools_per_cluster_csv_download4(self):
         self.driver = self.data.get_driver_CRC_Download4()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_crc_report()
-        self.tests.pop()
-        self.logger.info("test_schools_per_cluster_csv_download4 is running" + " " + "Total :" + " " + str(
-            self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         school = crc_schoolevel_records(self.driver)
         result = school.check_csv_download4()
         if result == 0:
@@ -449,7 +323,6 @@ class cQube_CRC_Report(unittest.TestCase):
         else:
             raise self.failureException("Schools per cluster csv report download4 is working")
 
-        self.logger.info("test_schools_per_cluster_csv_download4 is completed...")
 
     @classmethod
     def tearDownClass(cls):

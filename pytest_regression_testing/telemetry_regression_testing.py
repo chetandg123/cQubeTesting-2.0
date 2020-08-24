@@ -154,10 +154,10 @@ class Test_Telemetry(unittest.TestCase):
 
     def test_check_with_lastday(self):
         b = lastday_timeperiod(self.driver)
-        res1 = b.test_lastday_records()
-        # self.assertNotEqual(0,res1,msg='Block level markers are not present')
-        # self.assertNotEqual(0,res2,msg='Cluster level markers are not present')
-        # self.assertNotEqual(0,res3,msg='School level markers are not present')
+        res1,res2,res3 = b.test_lastday_records()
+        self.assertNotEqual(0,res1,msg='Block level markers are not present')
+        self.assertNotEqual(0,res2,msg='Cluster level markers are not present')
+        self.assertNotEqual(0,res3,msg='School level markers are not present')
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
@@ -165,11 +165,10 @@ class Test_Telemetry(unittest.TestCase):
 
     def test_last7day_timeperiod(self):
         b = last7day_timeperiod(self.driver)
-        res3 = b.test_last7day_records()
-        # self.assertNotEqual(0, res1, msg='Block level markers are not present')
-        # self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
-        # self.assertNotEqual(0, res3, msg='School level markers are not present')
-        # self.driver.find_element_by_id(Data.homeicon).click()
+        res1,res2,res3 = b.test_last7day_records()
+        self.assertNotEqual(0, res1, msg='Block level markers are not present')
+        self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
+        self.assertNotEqual(0, res3, msg='School level markers are not present')
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
@@ -177,10 +176,10 @@ class Test_Telemetry(unittest.TestCase):
 
     def test_lastmonth_timeperiod(self):
         b = lastmonth_timeperiod(self.driver)
-        res1= b.test_lastmonth_records()
-        # self.assertNotEqual(0, res1, msg='Block level markers are not present')
-        # self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
-        # self.assertNotEqual(0, res3, msg='School level markers are not present')
+        res1,res2,res3= b.test_lastmonth_records()
+        self.assertNotEqual(0, res1, msg='Block level markers are not present')
+        self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
+        self.assertNotEqual(0, res3, msg='School level markers are not present')
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
@@ -188,10 +187,10 @@ class Test_Telemetry(unittest.TestCase):
 
     def test_overall_period(self):
         b = overall_timeperiod(self.driver)
-        res1= b.test_overall_records()
-        # self.assertNotEqual(0, res1, msg='Block level markers are not present')
-        # self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
-        # self.assertNotEqual(0, res3, msg='School level markers are not present')
+        res1,res2,res3= b.test_overall_records()
+        self.assertNotEqual(0, res1, msg='Block level markers are not present')
+        self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
+        self.assertNotEqual(0, res3, msg='School level markers are not present')
         # self.driver.find_element_by_id(Data.homeicon).click()
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)

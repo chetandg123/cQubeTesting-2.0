@@ -33,37 +33,37 @@ class cQube_SI_Report(unittest.TestCase):
         time.sleep(5)
 
     def test_graph(self):
-        self.tests.pop()
-        self.logger.info("test_graph" + " " + "Total :" + " " + str(
+
+         ("test_graph" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking with graph functionality")
         b = check_with_graph(self.driver)
         res = b.test_graph()
         self.assertIn("myChart", self.driver.page_source, msg="Does not exist")
-        self.logger.info("test_graph is completed...")
+         ("test_graph is completed...")
 
     def test_home(self):
-        self.tests.pop()
-        self.logger.info("test_graph" + " " + "Total :" + " " + str(
+ 
+         ("test_graph" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking home icon functionality")
         b = home_button(self.driver)
         res = b.test_home()
 
     def test_download_district_wise(self):
-        self.tests.pop()
-        self.logger.info("test_downloadreportwise" + " " + "Total :" + " " + str(
+ 
+         ("test_downloadreportwise" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("download districtwise csv file")
         b = download_report(self.driver)
         path = b.test_schools()
         # self.assertTrue(path, msg="File is not downloaded")
         # b.remove_csv()
-        self.logger.info("test_downloadreportwise is completed...")
+         ("test_downloadreportwise is completed...")
 
     def test_check_hyperlinks(self):
-        self.tests.pop()
-        self.logger.info("test_check_hyperlinks" + " " + "Total :" + " " + str(
+ 
+         ("test_check_hyperlinks" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         hyperlinks = Hyperlink(self.driver)
         result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
@@ -72,22 +72,22 @@ class cQube_SI_Report(unittest.TestCase):
         else:
             raise self.failureException("hyperlinks are not working")
         self.data.page_loading(self.driver)
-        self.logger.info("test_check_hyperlinks is completed...")
+         ("test_check_hyperlinks is completed...")
 
     def test_schoolreport(self):
-        self.tests.pop()
-        self.logger.info("test_schoolreport" + " " + "Total :" + " " + str(
+ 
+         ("test_schoolreport" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("school infrastructure report")
         b = si_report(self.driver)
         res =b.test_url()
         self.assertNotIn(" School infrastructure for: ",self.driver.page_source,msg="School infrastructure report not exist ")
-        self.logger.info("test_schoolreport is completed...")
+         ("test_schoolreport is completed...")
 
 
     def test_tabledata(self):
-        self.tests.pop()
-        self.logger.info("test_tabledata" + " " + "Total :" + " " + str(
+ 
+         ("test_tabledata" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking with table records")
         b = check_with_table(self.driver)
@@ -100,11 +100,11 @@ class cQube_SI_Report(unittest.TestCase):
             print("Table is present ")
         self.assertTrue(res,msg="Table is not exist")
         self.data.page_loading(self.driver)
-        self.logger.info("test_tabledata is completed...")
+         ("test_tabledata is completed...")
 
     def test_cluster_home(self):
-        self.tests.pop()
-        self.logger.info("test_cluster_home" + " " + "Total :" + " " + str(
+ 
+         ("test_cluster_home" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = check_home(self.driver)
         self.data.page_loading(self.driver)
@@ -114,31 +114,31 @@ class cQube_SI_Report(unittest.TestCase):
         else:
             print("school infra page not loaded")
         self.data.page_loading(self.driver)
-        self.logger.info("test_cluster_home is completed...")
+         ("test_cluster_home is completed...")
 
     def test_check_orderwise(self):
-        self.tests.pop()
-        self.logger.info("test_check_orderwise" + " " + "Total :" + " " + str(
+ 
+         ("test_check_orderwise" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking table records order")
         b = check_order_of_tabledata(self.driver)
         print("Table record order wise..")
         res = b.test_tablevalue()
-        self.logger.info("test_check_orderwise is completed...")
+         ("test_check_orderwise is completed...")
 
     def test_blockwise_from_selectbox(self):
-        self.tests.pop()
-        self.logger.info("test_blockwise_from_selectbox" + " " + "Total :" + " " + str(
+ 
+         ("test_blockwise_from_selectbox" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("choosing blocks from select box ")
         b = blocklevel_csv(self.driver)
         res = b.test_each_district()
         self.assertEqual(0, res, msg="some files are not downloaded")
-        self.logger.info("test_blockwise_from_selectbox is completed...")
+         ("test_blockwise_from_selectbox is completed...")
 
     def test_logout(self):
-        self.tests.pop()
-        self.logger.info("test_logout" + " " + "Total :" + " " + str(
+ 
+         ("test_logout" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking logout functionality")
         b = schoolinfra_logout(self.driver)
@@ -148,7 +148,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
-        self.logger.info("test_logout is completed...")
+         ("test_logout is completed...")
         self.data.page_loading(self.driver)
 
     @classmethod

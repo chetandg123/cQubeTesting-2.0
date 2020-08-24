@@ -30,146 +30,146 @@ class cQube_Login_Test(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def  test_login_without_credentails(self):
-        self.tests.pop()
-        self.logger.info("test_login_without_credentails" + " " + "Total :" + " " + str(
+ 
+         ("test_login_without_credentails" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login to cqube without credentials")
         b =login_without_inputs(self.driver)
         res =b.test_loginbtn()
         self.assertEqual(res, "This field is required", msg="Failed")
-        self.logger.info("test_login_without_credentails is completed...")
+         ("test_login_without_credentails is completed...")
 
     def test_login_to_cqube(self):
-        self.tests.pop()
-        self.logger.info("test_login_to_cqube" + " " + "Total :" + " " + str(
+ 
+         ("test_login_to_cqube" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login to cQube application ")
         b = Login_to_cqube(self.driver)
         res = b.test_login()
         self.assertEqual("cQube",self.driver.title,msg="login is not working")
-        self.logger.info("test_login_to_cqube is completed...")
+         ("test_login_to_cqube is completed...")
 
 
     def test_invalid_inputs(self):
-        self.tests.pop()
-        self.logger.info("test_invalid_inputs" + " " + "Total :" + " " + str(
+ 
+         ("test_invalid_inputs" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login with invalid inputs ")
         b = login_test(self.driver)
         res = b.test_login()
         self.assertEqual(res,"Enter atleast 4 characters" , msg="Failed")
-        self.logger.info("test_invalid_inputs is completed...")
+         ("test_invalid_inputs is completed...")
 
 
     def test_login_and_logout(self):
-        self.tests.pop()
-        self.logger.info("test_login_and_logout" + " " + "Total :" + " " + str(
+ 
+         ("test_login_and_logout" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login to application and click on logout button ")
         b =test_logout(self.driver)
         res = b.test_logoutbtn()
-        self.logger.info("test_login_and_logout is completed...")
+         ("test_login_and_logout is completed...")
 
     def test_login_not_valids(self):
-        self.tests.pop()
-        self.logger.info("test_login_not_valids" + " " + "Total :" + " " + str(
+ 
+         ("test_login_not_valids" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login with invalid credentials")
         b = login_test(self.driver)
         res = b.test_login()
         self.assertEqual(res,"Enter atleast 4 characters" , msg="Failed")
-        self.logger.info("test_login_not_valids is completed...")
+         ("test_login_not_valids is completed...")
 
     def test_credentials(self):
-        self.tests.pop()
-        self.logger.info("test_credentials" + " " + "Total :" + " " + str(
+ 
+         ("test_credentials" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking credentials valid or not ")
         b =login_test_for_credentials(self.driver)
         res =b.test_credentials()
         self.assertEqual(res,"Invalid email address" , msg="Failed")
-        self.logger.info("test_credentials is completed...")
+         ("test_credentials is completed...")
 
 
     def test_cqube_home(self):
-        self.tests.pop()
-        self.logger.info("test_cqube_home" + " " + "Total :" + " " + str(
+ 
+         ("test_cqube_home" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking home page of cQube")
         b =Login_to_cQube(self.driver)
         res =b.test_home()
-        self.logger.info("test_cqube_home is completed...")
+         ("test_cqube_home is completed...")
 
     def test_invalids(self):
-        self.tests.pop()
-        self.logger.info("test_invalids" + " " + "Total :" + " " + str(
+ 
+         ("test_invalids" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("check with invalids")
         b =login_test_invalidvalues(self.driver)
         res =b.test_login()
         self.assertEqual(res,"User not found" , msg="Failed")
-        self.logger.info("test_invalids is completed...")
+         ("test_invalids is completed...")
 
     def test_invalidpassword(self):
-        self.tests.pop()
-        self.logger.info("test_invalidpassword" + " " + "Total :" + " " + str(
+ 
+         ("test_invalidpassword" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("checking with invalid password")
         b =login_test_with_invalid_password(self.driver)
         res =b.test_invalidpwd()
         self.assertEqual(res,"Enter atleast 4 characters" , msg="Failed")
-        self.logger.info("test_invalidpassword is completed...")
+         ("test_invalidpassword is completed...")
 
     def test_invalidpassuser(self):
-        self.tests.pop()
-        self.logger.info("test_invalidpassuser" + " " + "Total :" + " " + str(
+ 
+         ("test_invalidpassuser" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login with invalid user and password")
         b =login_test_with_invalid_user(self.driver)
         res =b.test_invaliduser()
         self.assertEqual(res,"User not found" , msg="Failed")
-        self.logger.info("test_invalidpassuser is completed...")
+         ("test_invalidpassuser is completed...")
 
     def test_nopasswd(self):
-        self.tests.pop()
-        self.logger.info("test_nopasswd" + " " + "Total :" + " " + str(
+ 
+         ("test_nopasswd" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login without password ")
         b = login_with_no_passwd(self.driver)
         res = b.test_nopwd()
         self.assertEqual(res,"This field is required" , msg="Failed")
-        self.logger.info("test_nopasswd is completed...")
+         ("test_nopasswd is completed...")
 
     def test_wrong_values(self):
-        self.tests.pop()
-        self.logger.info("test_wrong_values" + " " + "Total :" + " " + str(
+ 
+         ("test_wrong_values" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("login with wrong values")
         b = login_with_wrong_values(self.driver)
         res = b.test_wrongvalues()
         self.assertEqual(res,"Enter atleast 4 characters" , msg="Failed")
-        self.logger.info("test_wrong_values is completed...")
+         ("test_wrong_values is completed...")
 
     def test_ruserbtn(self):
-        self.tests.pop()
-        self.logger.info("test_ruserbtn" + " " + "Total :" + " " + str(
+ 
+         ("test_ruserbtn" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("regular user link")
         b = ruser(self.driver)
         res = b.test_ruser_page()
         self.data.page_loading(self.driver)
-        self.logger.info("test_ruserbtn is completed...")
+         ("test_ruserbtn is completed...")
 
     def test_back_btn(self):
-        self.tests.pop()
-        self.logger.info("test_back_btn" + " " + "Total :" + " " + str(
+ 
+         ("test_back_btn" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         print("regular user back button")
         b = test_backbtn(self.driver)
         res = b.test_ruser_back()
         self.assertEqual("cQube",self.driver.title,msg="login page does not exist")
         self.data.page_loading(self.driver)
-        self.logger.info("test_back_btn is completed...")
+         ("test_back_btn is completed...")
 
 
     @classmethod

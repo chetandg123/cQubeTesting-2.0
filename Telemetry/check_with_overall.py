@@ -29,4 +29,4 @@ class overall_timeperiod():
             markers = self.driver.find_elements_by_class_name(Data.dots)
             scount = len(markers)
             self.data.page_loading(self.driver)
-            # return bcount,ccount,scount
+            return bcount,ccount,scount

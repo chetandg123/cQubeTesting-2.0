@@ -23,7 +23,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the Sar report page")
         else:
-            self.logger.info("Login Landing page and Sar execution started")
+             ("Login Landing page and Sar execution started")
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 # file name .class name
@@ -42,7 +42,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(regression_test)
             outfile.close()
-            self.logger.info("Login Landing page and Sar execution ended")
+             ("Login Landing page and Sar execution ended")
 
 
 

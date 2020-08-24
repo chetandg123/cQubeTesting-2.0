@@ -42,7 +42,7 @@ class textbook_districtwise_lastmonth_chart():
                 print(districts.options[x].text, " does not last 30 days records")
             else:
                 self.driver.find_element_by_id(Data.Download).click()
-                time.sleep(3)
+                time.sleep(5)
                 self.filename = self.p.get_download_dir() + "/Diksha_" + Data.districts[i] + "_Dist_Data_last_30_days.csv"
                 file = os.path.isfile(self.filename)
                 self.data.page_loading(self.driver)

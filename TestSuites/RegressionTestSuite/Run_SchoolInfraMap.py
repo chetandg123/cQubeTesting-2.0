@@ -26,7 +26,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the school infrastructure map report page")
         else:
-            self.logger.info("school infra map report execution started")
+             ("school infra map report execution started")
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 # file name .class name
@@ -44,7 +44,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(regression_test)
             outfile.close()
-            self.logger.info("school infra map report execution ended")
+             ("school infra map report execution ended")
 
 
 

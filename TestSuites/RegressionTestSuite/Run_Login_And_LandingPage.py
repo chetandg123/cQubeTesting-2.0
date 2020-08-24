@@ -11,7 +11,7 @@ class MyTestSuite(unittest.TestCase):
     def test_Issue(self):
         self.data = GetData()
         self.logger = self.data.get_regression_log("login")
-        self.logger.info("Login Landing page and Sar execution started")
+         ("Login Landing page and Sar execution started")
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             # file name .class name
@@ -31,7 +31,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1.run(regression_test)
         outfile.close()
-        self.logger.info("Login Landing page and Sar execution ended")
+         ("Login Landing page and Sar execution ended")
 
 if __name__ == '__main__':
     unittest.main()

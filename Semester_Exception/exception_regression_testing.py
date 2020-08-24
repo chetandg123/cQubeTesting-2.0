@@ -113,10 +113,10 @@ class cQube_semester_exception_report(unittest.TestCase):
         # self.assertEqual(0,res,msg='some districts not downloaded csv files')
 
     def test_homepage(self):
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_semester_exception()
         count =0
-        self.driver.find_element_by_id(Data.sem_exception).click()
         self.data.page_loading(self.driver)
         if 'sem-exception' in self.driver.current_url:
             print("Home page of sem exception is present ")

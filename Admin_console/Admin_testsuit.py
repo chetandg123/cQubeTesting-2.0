@@ -21,9 +21,9 @@ class MyTestSuite(unittest.TestCase):
         outfile = open(p.get_admin_login_path(), "w")
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Functional Test Report',
+            title='Regression Test Report',
             verbosity=1,
-            description="Admin login Test Result "
+            description="Admin login  Test Result "
         )
 
         runner1.run(functional_test)

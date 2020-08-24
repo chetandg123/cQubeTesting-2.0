@@ -31,7 +31,7 @@ class MyTestSuite(unittest.TestCase):
         self.data.login_cqube(self.driver)
 
     def test_issue01(self):
-        self.logger.info("Login execution started")
+         ("Login execution started")
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             # file name .class name
@@ -48,7 +48,7 @@ class MyTestSuite(unittest.TestCase):
         )
         runner1.run(smoke_test)
         outfile.close()
-        self.logger.info("Login execution ended")
+         ("Login execution ended")
 
     def test_issue02(self):
         smoke_test = unittest.TestSuite()
@@ -75,7 +75,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the student attendance report page")
         else:
-            self.logger.info("student attendance report execution started")
+             ("student attendance report execution started")
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 # file name .class name
@@ -93,7 +93,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(smoke_test)
             outfile.close()
-            self.logger.info("student attendance report execution ended")
+             ("student attendance report execution ended")
 
     def test_issue04(self):
         self.data.navigate_to_crc_report()
@@ -102,7 +102,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the crc report page")
         else:
-            self.logger.info("crc report execution started")
+             ("crc report execution started")
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 # file name .class name
@@ -120,7 +120,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(smoke_test)
             outfile.close()
-            self.logger.info("crc report execution ended")
+             ("crc report execution ended")
 
     def test_issue05(self):
         self.data.navigate_to_semester_report()
@@ -129,7 +129,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the semester report page")
         else:
-            self.logger.info("semester report execution started")
+             ("semester report execution started")
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_smoke_testing.cQube_Semester_Report),
@@ -146,7 +146,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(smoke_test)
             outfile.close()
-            self.logger.info("semester report execution ended")
+             ("semester report execution ended")
 
     def test_issue06(self):
         self.data.navigate_to_school_infrastructure_map()
@@ -155,7 +155,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the school infra map report page")
         else:
-            self.logger.info("school infrastructure map report execution started")
+             ("school infrastructure map report execution started")
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 # file name .class name
@@ -174,7 +174,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(smoke_test)
             outfile.close()
-            self.logger.info("school infra map report execution ended")
+             ("school infra map report execution ended")
 
     def test_issue07(self):
         self.data.navigate_to_school_infrastructure()
@@ -183,7 +183,7 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the school infra report page")
         else:
-            self.logger.info("school infrastructure report execution started")
+             ("school infrastructure report execution started")
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(School_report_smoke_testing.cQube_SI_Report)
@@ -200,7 +200,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(smoke_test)
             outfile.close()
-            self.logger.info("school infra report execution started")
+             ("school infra report execution started")
 
     def test_issue08(self):
         self.data.navigate_to_diksha_graph()

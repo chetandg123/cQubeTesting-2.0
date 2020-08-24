@@ -19,14 +19,14 @@ class cQube_Login_smoke_Test(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_login_to_cqube(self):
-        self.tests.pop()
-        self.logger.info("test_login_to_cqube" + " " + "Total :" + " " + str(
+ 
+         ("test_login_to_cqube" + " " + "Total :" + " " + str(
             self.total_tests) + " " + "Remaining :" + " " + str(len(self.tests) - 1))
         b = Login_to_cqube(self.driver)
         res = b.test_login()
         print(self.driver.title)
         self.assertEqual("Log in to cQube", self.driver.title, msg="login is not working")
-        self.logger.info("test_login_to_cqube is completed...")
+         ("test_login_to_cqube is completed...")
 
     @classmethod
     def tearDownClass(cls):

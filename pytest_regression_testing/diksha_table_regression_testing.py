@@ -42,6 +42,7 @@ class cQube_diskha_regression(unittest.TestCase):
         b = Diksha_homeicon(self.driver)
         res = b.test_homeicon()
         #self.assertEqual(res, 0, msg="Homeicon is not working ")
+        self.data.page_loading(self.driver)
 
     def test_homebtn(self):
         count = 0
@@ -61,6 +62,8 @@ class cQube_diskha_regression(unittest.TestCase):
         b = Diksha_logout(self.driver)
         res = b.test_logout()
         self.assertEqual(res, 'Log in to cQube', msg="Logout is not working")
+        self.data.page_loading(self.driver)
+
 
     def test_navigate_dikshareport(self):
         b = Diksha_page(self.driver)
@@ -72,76 +75,79 @@ class cQube_diskha_regression(unittest.TestCase):
         result = b.test_hyperlink()
         self.data.page_loading(self.driver)
 
+
     def test_choosedistricts(self):
         b = district_list(self.driver)
         res = b.test_each_districts()
         self.assertNotEqual(0, res, msg="Districts are missing ")
+        self.data.page_loading(self.driver)
+
 
     def test_all_last7days(self):
         b = All_Districtwise_lastweek_record(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_all_lastday(self):
         b = All_Districtwise_lastday_records(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_all_lastmonth(self):
         b = All_Districtwise_lastmonth_chart(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
-
+        self.data.page_loading(self.driver)
 
     def test_course_last7days(self):
         b = course_districtwise_lastweek_record(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_course_lastday(self):
         b = course_districtwise_lastday_records(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_course_lastmonth(self):
         b = course_districtwise_lastmonth_chart(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_textbook_last7days(self):
         b = textbook_districtwise_lastweek_record(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_textbook_lastday(self):
         b = textbook_districtwise_lastday_records(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
+        self.data.page_loading(self.driver)
+
 
     def test_textbook_lastmonth(self):
         b = textbook_districtwise_lastmonth_chart(self.driver)
         res = b.test_each_districts()
         self.assertEqual(0, res, msg="Some mismatch found at file records and table records")
-
-
-    def test_districtiwise_lastdayrecords(self):
-        b = Districtwise_lastday_records(self.driver)
-        res = b.test_each_districts()
-
-    def test_districtwise_lastweekrecords(self):
-        b =Districtwise_lastweek_records(self.driver)
-        res = b.test_districts()
-
-
-    def test_districtwise_lastmonthrecords(self):
-        b = Districtwise_monthwise_records(self.driver)
-        res  = b.test_districts()
-
+        self.data.page_loading(self.driver)
 
     def test_searchbox(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_tag_name('input').send_keys('Hindi')
+        self.driver.find_element_by_tag_name('input').send_keys('G')
         self.data.page_loading(self.driver)
         subject = self.driver.find_element_by_xpath("//*[@id='table']/tbody/tr[1]/td[5]").text
         if 'Hindi' in subject:
@@ -154,10 +160,14 @@ class cQube_diskha_regression(unittest.TestCase):
         b = timeperiod_options(self.driver)
         res = b.test_districts()
         self.assertNotEqual(0,res,msg="Time period options are not exists ")
+        self.data.page_loading(self.driver)
+
 
     def test_tableorder(self):
         b = Table_orderwise(self.driver)
         res = b.test_tablevalue()
+        self.data.page_loading(self.driver)
+
 
     def test_click_on_diksha_reporticon(self):
         self.driver.find_element_by_id('homeBtn').click()
@@ -171,6 +181,28 @@ class cQube_diskha_regression(unittest.TestCase):
             print("Diksha Table report page is not exist")
             count = count + 1
         self.assertEqual(0,count,msg="Diksha chart icon is not working ")
+        self.data.page_loading(self.driver)
+
+
+
+    def test_districtiwise_lastdayrecords(self):
+        b = Districtwise_lastday_records(self.driver)
+        res = b.test_each_districts()
+        self.data.page_loading(self.driver)
+
+
+    def test_districtwise_lastweekrecords(self):
+        b =Districtwise_lastweek_records(self.driver)
+        res = b.test_districts()
+        self.data.page_loading(self.driver)
+
+
+
+    def test_districtwise_lastmonthrecords(self):
+        b = Districtwise_monthwise_records(self.driver)
+        res  = b.test_districts()
+        self.data.page_loading(self.driver)
+
 
     @classmethod
     def tearDownClass(cls):
