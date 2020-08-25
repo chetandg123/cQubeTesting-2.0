@@ -20,10 +20,7 @@ class cQube_Semester_Report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.total_tests = 15
-        self.tests = [0] * 16
         self.data = GetData()
-        self.logger = self.data.get_smoke_log()
         self.data = GetData()
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
@@ -32,7 +29,7 @@ class cQube_Semester_Report(unittest.TestCase):
 
     def test_click_on_semester_report(self):
         sr = SemesterReport(self.driver)
-        result = sr.click_on_semester()
+        result = sr.check_semester_landing_page()
         if "Semester Report" in result:
             print("Semester Report is Working")
         else:

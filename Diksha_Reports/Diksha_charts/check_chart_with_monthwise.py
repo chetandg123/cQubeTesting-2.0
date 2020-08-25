@@ -1,5 +1,4 @@
-
-
+import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -29,15 +28,11 @@ class Districtwise_lastmonth_chart():
             if " No Data Available " in self.driver.page_source:
                 print(districts.options[x].text ," is not contains over all data chart " )
                 # count = count + 1
-            if " No Data Available " in self.driver.page_source:
-                print(districts.options[x].text ," is not contains  Teacher data chart " )
-                # count = count + 1
-            if " No Data Available " in self.driver.page_source:
-                print(districts.options[x].text ," is not contains students  data chart " )
-                # count = count + 1
-            if " No Data Available " in self.driver.page_source:
-                print(districts.options[x].text ," is not contains other's  data chart " )
-                # count = count + 1
+            c_plays = self.driver.find_element_by_id('totalCount').text
+            pc = re.sub('\D', "", c_plays)
+            if c_plays == 0:
+                print(districts.options[x].text, " has no content plays records")
+                count = count + 1
 
         self.data.page_loading(self.driver)
         return count

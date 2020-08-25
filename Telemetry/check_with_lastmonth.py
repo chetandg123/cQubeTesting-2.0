@@ -12,7 +12,7 @@ class lastmonth_timeperiod():
     def test_lastmonth_records(self):
         self.data = GetData()
         self.data.page_loading(self.driver)
-        period = Select(self.driver.find_element_by_id('year'))
+        period = Select(self.driver.find_element_by_id('time_period'))
         period.select_by_visible_text(' Last 30 Days ')
         self.data.page_loading(self.driver)
         if 'No data found' in self.driver.page_source:

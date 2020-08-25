@@ -223,78 +223,78 @@ class cQube_SI_Report(unittest.TestCase):
             self.data.page_loading(self.driver)
 
 
-    # def test_sc_scator_blockwise(self):
-    #         b = school_blockwise(self.driver)
-    #         result = b.test_blockwise()
-    #         self.assertEqual(0,result,msg="No data found")
-    #         print("Checked with each block wise records")
-    #         self.data.page_loading(self.driver)
-    #
-    #
-    #
-    # def test_schools_per_cluster_csv_download1(self):
-    #     self.driver = self.data.get_driver_SI_Download1()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_school_infrastructure()
-    #     school = Test_schoolwise(self.driver)
-    #     result = school.check_csv_download1()
-    #     if result == 0:
-    #         print("Schools per cluster csv download report is working")
-    #         print("on selection of each district,block and cluster")
-    #         print("The footer value of no of schools and no of students are")
-    #         print("equals to downloaded file")
-    #     else:
-    #         raise self.failureException("Schools per cluster csv report download1 is working")
-    #
-    #
-    # def test_schools_per_cluster_csv_download2(self):
-    #     self.driver = self.data.get_driver_SI_Download2()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_school_infrastructure()
-    #     school = Test_schoolwise(self.driver)
-    #     result = school.check_csv_download2()
-    #     if result == 0:
-    #         print("Schools per cluster csv download report is working")
-    #         print("on selection of each district,block and cluster")
-    #         print("The footer value of no of schools and no of students are")
-    #         print("equals to downloaded file")
-    #     else:
-    #         raise self.failureException("Schools per cluster csv report download2 is working")
-    #
-    #
-    # def test_schools_per_cluster_csv_download3(self):
-    #     self.driver = self.data.get_driver_SI_Download3()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_school_infrastructure()
-    #     school = Test_schoolwise(self.driver)
-    #     result = school.check_csv_download3()
-    #     if result == 0:
-    #         print("Schools per cluster csv download report is working")
-    #         print("on selection of each district,block and cluster")
-    #         print("The footer value of no of schools and no of students are")
-    #         print("equals to downloaded file")
-    #     else:
-    #         raise self.failureException("Schools per cluster csv report download3 is working")
-    #
-    #
-    # def test_schools_per_cluster_csv_download4(self):
-    #     self.driver = self.data.get_driver_SI_Download4()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_school_infrastructure()
-    #     school = Test_schoolwise(self.driver)
-    #     result = school.check_csv_download4()
-    #     if result == 0:
-    #         print("Schools per cluster csv download report is working")
-    #         print("on selection of each district,block and cluster")
-    #         print("The footer value of no of schools and no of students are")
-    #         print("equals to downloaded file")
-    #     else:
-    #         raise self.failureException("Schools per cluster csv report download4 is working")
-    #
+    def test_sc_scator_blockwise(self):
+            b = school_blockwise(self.driver)
+            result = b.test_blockwise()
+            self.assertEqual(0,result,msg="No data found")
+            print("Checked with each block wise records")
+            self.data.page_loading(self.driver)
+
+
+
+    def test_schools_per_cluster_csv_download1(self):
+        self.driver = self.data.get_driver_SI_Download1()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_school_infrastructure()
+        school = Test_schoolwise(self.driver)
+        result = school.check_csv_download1()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download1 is working")
+
+
+    def test_schools_per_cluster_csv_download2(self):
+        self.driver = self.data.get_driver_SI_Download2()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_school_infrastructure()
+        school = Test_schoolwise(self.driver)
+        result = school.check_csv_download2()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download2 is working")
+
+
+    def test_schools_per_cluster_csv_download3(self):
+        self.driver = self.data.get_driver_SI_Download3()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_school_infrastructure()
+        school = Test_schoolwise(self.driver)
+        result = school.check_csv_download3()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download3 is working")
+
+
+    def test_schools_per_cluster_csv_download4(self):
+        self.driver = self.data.get_driver_SI_Download4()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_school_infrastructure()
+        school = Test_schoolwise(self.driver)
+        result = school.check_csv_download4()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download4 is working")
+
 
 
 

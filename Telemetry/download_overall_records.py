@@ -16,7 +16,7 @@ class overall_download():
         self.data = GetData()
         self.p = pwd()
         self.data.page_loading(self.driver)
-        period = Select(self.driver.find_element_by_id('year'))
+        period = Select(self.driver.find_element_by_id('time_period'))
         period.select_by_visible_text(' Over All ')
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()

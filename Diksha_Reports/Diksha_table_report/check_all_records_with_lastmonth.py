@@ -4,13 +4,15 @@
 import csv
 import os
 import time
+
 from selenium.webdriver.support.select import Select
+
 from Data.parameters import Data
 from get_dir import pwd
 from reuse_func import GetData
 
 
-class All_Districtwise_lastweek_record():
+class All_Districtwise_lastmonth_chart():
     def __init__(self,driver):
         self.driver = driver
 
@@ -24,20 +26,23 @@ class All_Districtwise_lastweek_record():
         content.select_by_visible_text(' Overall ')
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' Last 7 Days ')
+        times.select_by_visible_text(' Last 30 Days ')
         time.sleep(2)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         i = 0
         for x in range(1, len(districts.options)):
             time.sleep(1)
             districts.select_by_index(x)
+            name = districts.options[x].text
+            names = name.strip()
             self.data.page_loading(self.driver)
+            # nodata = self.driver.find_element_by_id("errMsg").text
             if "No data found" in self.driver.page_source:
-                print(districts.options[x].text, " does not last 7 days records")
+                print(districts.options[x].text, " does not last 30 days records")
             else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + "/Diksha_" + Data.districts[i] + "_Dist_Data_last_7_days.csv"
+                self.filename = self.p.get_download_dir() + "/Diksha_" +names+ "_Dist_Data_last_30_days.csv"
                 file = os.path.isfile(self.filename)
                 self.data.page_loading(self.driver)
                 with open(self.filename) as fin:

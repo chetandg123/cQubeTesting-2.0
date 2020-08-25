@@ -1,4 +1,6 @@
+import csv
 import os
+import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -23,9 +25,21 @@ class Diksha_others_download():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(5)
-        self.filename = self.p.get_download_dir() + '/Diksha_All_data_Other.csv'
+        self.filename = self.p.get_download_dir() + '/Diksha_last_30_days_data_Other.csv'
         file =  os.path.isfile(self.filename)
-        self.data.page_loading(self.driver)
+        count = 0
+        if not os.path.isfile(self.filename):
+            print("Diksha All type data csv file not downloaded")
+        else:
+            with open(self.filename) as fin:
+                csv_reader = csv.reader(fin, delimiter=',')
+                header = next(csv_reader)
+                contentplays = 0
+                for row in csv.reader(fin):
+                    contentplays += int(row[3])
+                play_count = self.driver.find_element_by_id('totalCount').text
+                pc = re.sub('\D', "", play_count)
+            self.data.page_loading(self.driver)
         os.remove(self.filename)
         return file
 

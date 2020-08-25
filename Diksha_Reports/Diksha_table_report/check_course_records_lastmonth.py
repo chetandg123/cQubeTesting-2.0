@@ -12,7 +12,7 @@ from get_dir import pwd
 from reuse_func import GetData
 
 
-class All_Districtwise_lastmonth_chart():
+class course_districtwise_lastmonth_chart():
     def __init__(self,driver):
         self.driver = driver
 
@@ -23,24 +23,26 @@ class All_Districtwise_lastmonth_chart():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         content = Select(self.driver.find_element_by_id('chosse_collection'))
-        content.select_by_visible_text(' Overall ')
+        content.select_by_visible_text(' Course ')
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' Last 30 Days ')
-        time.sleep(2)
+        # times.select_by_visible_text(" Last 30 Days ")
+        times.select_by_index(3)
+        self.data.page_loading(self.driver)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         i = 0
         for x in range(1, len(districts.options)):
             time.sleep(1)
             districts.select_by_index(x)
+            name = districts.options[x].text
+            names = name.strip()
             self.data.page_loading(self.driver)
-            # nodata = self.driver.find_element_by_id("errMsg").text
             if "No data found" in self.driver.page_source:
                 print(districts.options[x].text, " does not last 30 days records")
             else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + "/Diksha_" + Data.districts[i] + "_Dist_Data_last_30_days.csv"
+                self.filename = self.p.get_download_dir() + "/Diksha_" +names+ "_Dist_Data_last_30_days.csv"
                 file = os.path.isfile(self.filename)
                 self.data.page_loading(self.driver)
                 with open(self.filename) as fin:

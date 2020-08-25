@@ -18,8 +18,6 @@ class Data():
     cuser ="//a[1]"
     cpass ="//a[2]"
     dashboard_options = "//a/div/td[2]"
-    reportuser =""
-    reportpass = ""
     back_btn ="//div[@class='col-sm-6']/a"
 
     dots = "leaflet-interactive"
@@ -28,11 +26,7 @@ class Data():
     directory = "//p[contains(text(),' Semester report for:')]/span"
     Download = "download"
     Download_scator ='download1'
-    value1 = "Ahmedabad"
-    districts = ['Ahmedabad','Amreli','Anand','Aravalli','Banaskantha','Bharuch','Bhavnagar','Botad',
-                 'Chhotaudepur','Devbhoomidwarka','Dohad','Gandhinagar','Girsomnath','Jamnagar',
-                 'Junagadh','Kachchh','Kheda','Mahesana','Mahisagar','Morbi','Narmada','Navsari','Patan',
-                 'Porbandar','Rajkot','Sabarkantha','Surat','Surendranagar','Tapi','Thedangs','Vadodara','Valsad',]
+
     # Dash board
     Dashboard = "menu"
     header = "//h4"
@@ -83,8 +77,7 @@ class Data():
     exception_click ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
     sem_exception = "SemException"
 
-    dik_g =""
-    dik_t = ""
+
     sem_exe ="SemExp"
 
     scm_dist = "//select[@id='choose_dist']/option[2]"
@@ -261,7 +254,9 @@ class Data():
     sr_block_btn= "allBlock"
     sr_cluster_btn = "allCluster"
     sr_schools_btn = "allSchool"
-
+    block_btn ="block"
+    cluster_btn="cluster"
+    schoolbtn="school"
     sr_district = "choose_dist"
     sr_block = "choose_block"
     sr_cluster = "choose_cluster"

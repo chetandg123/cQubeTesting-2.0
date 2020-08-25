@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 import csv
 import os
 import time
@@ -7,7 +15,7 @@ from get_dir import pwd
 from reuse_func import GetData
 
 
-class Districtwise_lastweek_record():
+class textbook_districtwise_lastweek_record():
     def __init__(self,driver):
         self.driver = driver
 
@@ -17,21 +25,27 @@ class Districtwise_lastweek_record():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        time.sleep(5)
+        content = Select(self.driver.find_element_by_id('chosse_collection'))
+        content.select_by_visible_text(' Textbook ')
+        self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' Last_7_Days ')
+        times.select_by_index('2')
         time.sleep(2)
         districts  =Select(self.driver.find_element_by_id('choose_dist'))
         i = 0
         for x in range(1, len(districts.options)):
             time.sleep(1)
             districts.select_by_index(x)
+            name = districts.options[x].text
+            names = name.strip()
             self.data.page_loading(self.driver)
             if "No data found" in self.driver.page_source:
-                print(districts.options[x].text, " does not last day records")
+                print(districts.options[x].text, " does not last 7 day records")
             else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + "/Diksha_" + Data.districts[i] + "_Dist_Data_last_day.csv"
+                self.filename = self.p.get_download_dir() + "/Diksha_" +names+ "_Dist_Data_last_7_days.csv"
                 file = os.path.isfile(self.filename)
                 self.data.page_loading(self.driver)
                 with open(self.filename) as fin:

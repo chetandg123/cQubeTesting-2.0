@@ -22,7 +22,6 @@ class cQube_semester_exception_report(unittest.TestCase):
     @classmethod
     def setUpClass(self):
             self.data = GetData()
-            self.logger = self.data.get_smoke_log()
             self.driver = self.data.get_driver()
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)

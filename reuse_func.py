@@ -82,7 +82,9 @@ class GetData():
     def navigate_to_telemetry(self):
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath("//*[@id='telemetry']/div/td[2]").click()
+        self.driver.find_element_by_xpath("/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon").click()
+        time.sleep(2)
+        self.driver.find_element_by_id("telemReport").click()
         self.page_loading(self.driver)
 
 
@@ -195,7 +197,7 @@ class GetData():
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.diksha).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath("//img[@alt='dikshaColumn']").click()
+        self.driver.find_element_by_id("clmnReport").click()
         time.sleep(6)
 
 
