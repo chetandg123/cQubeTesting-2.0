@@ -31,8 +31,8 @@ Steps to execute the test script
 	1.Open the Terminal (Ctrl+Alt+t) in the ubuntu
 	2.sudo apt update
 	3.sudo apt install python3-pip
-	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting Folder)
-	    pip3 install -r Requirement.txt
+	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting Folder) [mandatory]
+	    pip3 install -r Requirement.txt 
 	5.Fill the config.ini file (config.ini file present in the cQubeTesting Folder)
 
 	  [config]
@@ -40,9 +40,6 @@ Steps to execute the test script
 	  username= #Enter the username of report viewer  
 	  password= #Enter the password of report viewer
 	 
-	  admin_domain=     #Enter the url of vpn based admin cQube url
-	  admin_username=   #Enter the username of admin  
-	  admin_password=   #Enter the password of admin	 
 	  
 note: 
 Before running pytest ,please start the selenium grid by using command: java -jar selenium-server-standalone-3.14.jar  
@@ -73,14 +70,8 @@ For Executin the Smoke Test suites
 	
 	6.To Run the Test scripts
 	    Navigate to cQubeTesting Directory in the terminal (ex cd /home/ubuntu/cQubeTesting)
-
-	7.To Run Functionality Testing Suite:
-
-		python3 -m unittest TestSuites/FunctionalTestSuite/Run_crc.py
-		python3 -m unittest TestSuites/FunctionalTestSuite/Run_SchoolInfraMap.py
-		python3 -m unittest TestSuites/FunctionalTestSuite/Run_SchoolInfraReport.py
 		
-	8.To Run Regression Testing Suite
+	7.To Run Regression Testing Suite using unittest 
 
 		python3 -m unittest TestSuites/RegressionTestSuite/Run_Login_And_LandingPage.py
 		python3 -m unittest TestSuites/RegressionTestSuite/Run_StudentAttendance.py
@@ -88,13 +79,9 @@ For Executin the Smoke Test suites
 		python3 -m unittest TestSuites/RegressionTestSuite/Run_Semester_Report.py
 		python3 -m unittest TestSuites/RegressionTestSuite/Run_SchoolInfraMap.py
 		python3 -m unittest TestSuites/RegressionTestSuite/Run_SchoolInfraReport.py
-
-	9.To Execute Smoke Testing suite
-
-		python3 -m unittest TestSuites/SmokeTestSuite/Smoke_Testing.py
 		
 Note :
-Each Single scripts takes more than 4 to 5 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
+Each Single scripts takes more than 2 hours, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
 
 
 
