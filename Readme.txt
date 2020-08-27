@@ -28,6 +28,7 @@ Steps to Download the selenium Grid
 
 Note : Java jdk1.8 need to be already installed in the machine
 
+Note:  execution of Admin console scripts , i.e  create_user.py script should provide the username and password in sendkeys
 
 Steps to execute the test script
 
