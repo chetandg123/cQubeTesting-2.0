@@ -373,7 +373,7 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
+            time.sleep(15)
             self.filename = p.get_download_dir() + "/syslog.txt"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")

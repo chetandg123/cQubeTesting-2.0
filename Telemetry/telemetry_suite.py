@@ -19,7 +19,7 @@ class MyTestSuite(unittest.TestCase):
                 unittest.defaultTestLoader.loadTestsFromTestCase(telemetry_scripts.Test_Telemetry),
             ])
             p= pwd()
-            outfile = open("/home/chetan/Desktop/cQubeTesting/Telemetry/telemetry.html", "w")
+            outfile = open(p.get_functional_report_path(), "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,

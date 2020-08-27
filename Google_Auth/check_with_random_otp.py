@@ -17,7 +17,7 @@ class Negative_testing(unittest.TestCase):
         count = 0
         self.data.login_cqube(self.driver)
         time.sleep(2)
-        self.driver.find_element_by_name("otp").send_keys("524862")
+        self.driver.find_element_by_name("otp").send_keys()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.login).click()
         time.sleep(2)

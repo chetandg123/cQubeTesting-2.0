@@ -6,7 +6,6 @@ from SAR.check_districts_csv_download import DistrictCsvDownload
 from SAR.check_dots_on_each_district_block import DotsOnDistrictsBlock
 
 from SAR.check_dots_on_each_districts import DotsOnDistricts
-from SAR.check_schools_per_cluster_csv_download import SchoolsPerClusterCsvDownload
 from SAR.check_with_total_schools_in_SAR import TotalSchools
 from SAR.check_with_total_student_in_SAR import TotalStudents
 from SAR.click_on_Home_icon import Home

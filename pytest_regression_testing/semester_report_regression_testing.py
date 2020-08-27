@@ -2,12 +2,11 @@ import time
 import unittest
 
 from SR.Click_on_hyper_link_in_semester_report import Hyperlink
-from SR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from SR.check_districts_csv_download import DistrictCsvDownload
 from SR.check_dots_on_each_district_block import DotsOnDistrictsBlock
 from SR.check_dots_on_each_districts import DotsOnDistricts
-
 from SR.check_schools_per_cluster_csv_download import SchoolsPerClusterCsvDownload
+
 from SR.check_with_total_schools_in_SR import TotalSchools
 from SR.check_with_total_student_in_SR import TotalStudents
 from SR.click_on_Home_icon import Home
@@ -170,67 +169,67 @@ class cQube_Semester_Report(unittest.TestCase):
         print("equals to downloaded file")
 
 
-    # def test_cluster_per_block_csv_download(self):
-    #     block = ClusterPerBlockCsvDownload(self.driver)
-    #     result = block.check_csv_download()
-    #     self.assertEqual(0, result, msg="Some files are not downloaded")
-    #     print("Cluster per block csv report download is working")
-    #     print("on selection of each district and block")
-    #     print("The footer value of no of schools and no of students are")
-    #     print("equals to downloaded file")
+    def test_cluster_per_block_csv_download(self):
+        block = ClusterPerBlockCsvDownload(self.driver)
+        result = block.check_csv_download()
+        self.assertEqual(0, result, msg="Some files are not downloaded")
+        print("Cluster per block csv report download is working")
+        print("on selection of each district and block")
+        print("The footer value of no of schools and no of students are")
+        print("equals to downloaded file")
 
 
-    # def test_schools_per_cluster_csv_download1(self):
-    #     self.driver = self.data.get_driver_SR_Download1()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_semester_report()
-    #     schools = SchoolsPerClusterCsvDownload(self.driver)
-    #     result = schools.check_csv_download1()
-    #     self.assertEqual(0, result, msg="Some files are not downloaded")
-    #     print("Schools per cluster csv download report is working")
-    #     print("on selection of each district,block and cluster")
-    #     print("The footer value of no of schools and no of students are")
-    #     print("equals to downloaded file")
+    def test_schools_per_cluster_csv_download1(self):
+        self.driver = self.data.get_driver_SR_Download1()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_semester_report()
+        schools = SchoolsPerClusterCsvDownload(self.driver)
+        result = schools.check_csv_download1()
+        self.assertEqual(0, result, msg="Some files are not downloaded")
+        print("Schools per cluster csv download report is working")
+        print("on selection of each district,block and cluster")
+        print("The footer value of no of schools and no of students are")
+        print("equals to downloaded file")
 
-    # def test_schools_per_cluster_csv_download2(self):
-    #     self.driver = self.data.get_driver_SR_Download2()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_semester_report()
-    #     schools = SchoolsPerClusterCsvDownload(self.driver)
-    #     result = schools.check_csv_download2()
-    #     self.assertEqual(0, result, msg="Some files are not downloaded")
-    #     print("Schools per cluster csv download report is working")
-    #     print("on selection of each district,block and cluster")
-    #     print("The footer value of no of schools and no of students are")
-    #     print("equals to downloaded file")
-    #
-    # def test_schools_per_cluster_csv_download3(self):
-    #     self.driver = self.data.get_driver_SR_Download3()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_semester_report()
-    #     schools = SchoolsPerClusterCsvDownload(self.driver)
-    #     result = schools.check_csv_download3()
-    #     self.assertEqual(0, result, msg="Some files are not downloaded")
-    #     print("Schools per cluster csv download report is working")
-    #     print("on selection of each district,block and cluster")
-    #     print("The footer value of no of schools and no of students are")
-    #     print("equals to downloaded file")
-    #
-    # def test_schools_per_cluster_csv_download4(self):
-    #     self.driver = self.data.get_driver_SR_Download4()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_semester_report()
-    #     schools = SchoolsPerClusterCsvDownload(self.driver)
-    #     result = schools.check_csv_download4()
-    #     self.assertEqual(0, result, msg="Some files are not downloaded")
-    #     print("Schools per cluster csv download report is working")
-    #     print("on selection of each district,block and cluster")
-    #     print("The footer value of no of schools and no of students are")
-    #     print("equals to downloaded file")
+    def test_schools_per_cluster_csv_download2(self):
+        self.driver = self.data.get_driver_SR_Download2()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_semester_report()
+        schools = SchoolsPerClusterCsvDownload(self.driver)
+        result = schools.check_csv_download2()
+        self.assertEqual(0, result, msg="Some files are not downloaded")
+        print("Schools per cluster csv download report is working")
+        print("on selection of each district,block and cluster")
+        print("The footer value of no of schools and no of students are")
+        print("equals to downloaded file")
+
+    def test_schools_per_cluster_csv_download3(self):
+        self.driver = self.data.get_driver_SR_Download3()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_semester_report()
+        schools = SchoolsPerClusterCsvDownload(self.driver)
+        result = schools.check_csv_download3()
+        self.assertEqual(0, result, msg="Some files are not downloaded")
+        print("Schools per cluster csv download report is working")
+        print("on selection of each district,block and cluster")
+        print("The footer value of no of schools and no of students are")
+        print("equals to downloaded file")
+
+    def test_schools_per_cluster_csv_download4(self):
+        self.driver = self.data.get_driver_SR_Download4()
+        self.data.open_cqube_appln(self.driver)
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_semester_report()
+        schools = SchoolsPerClusterCsvDownload(self.driver)
+        result = schools.check_csv_download4()
+        self.assertEqual(0, result, msg="Some files are not downloaded")
+        print("Schools per cluster csv download report is working")
+        print("on selection of each district,block and cluster")
+        print("The footer value of no of schools and no of students are")
+        print("equals to downloaded file")
 
     def test_dots_on_each_districts(self):
         dist = DotsOnDistricts(self.driver)

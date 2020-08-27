@@ -1,7 +1,5 @@
 import unittest
-import time
 
-from Data.parameters import Data
 from reuse_func import GetData
 
 

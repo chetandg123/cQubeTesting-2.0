@@ -1,4 +1,3 @@
-import time
 import unittest
 
 from SI.MAP.check_with_districts_from_select_box import District_names

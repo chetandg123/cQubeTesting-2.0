@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import unittest
-import time
 
 from Data.parameters import Data
 from Semester_Exception.Click_on_hyper_link_in_semester_report import sem_exception_hyperlink

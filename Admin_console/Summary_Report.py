@@ -48,16 +48,11 @@ class Test_summaryreport(unittest.TestCase):
     def test_check_summary(self):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
+        time.sleep(3)
         self.driver.find_element_by_xpath("//*[@id='summary']/div/td[2]").click()
         self.data.page_loading(self.driver)
         reports =self.driver.find_elements_by_tag_name('h2')
         count = len(reports)
-        for i in range(len(reports)):
-            print(reports[i].text)
-        self.assertNotEqual(0,count,msg='All summary reports are not present')
-        # if count > 6:
-        #     print("summary report of all files to be updated")
         if "Diksha data Summary:" in self.driver.page_source:
             print('Diksha data Summary: statistics present')
         else:
@@ -107,8 +102,6 @@ class Test_summaryreport(unittest.TestCase):
             print("Static school file Summary: is present ")
         else:
             print("Static school file Summary: is not present ")
-
-
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)

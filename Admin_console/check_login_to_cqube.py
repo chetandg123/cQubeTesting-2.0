@@ -26,9 +26,7 @@ class Test_login_to_cqube(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_login_with_reportviewer(self):
-        self.driver.find_element_by_id(Data.email).send_keys(Data.reportuser)
-        self.driver.find_element_by_id(Data.passwd).send_keys(Data.reportpass)
-        self.driver.find_element_by_id("login").click()
+        self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.data.page_loading(self.driver)

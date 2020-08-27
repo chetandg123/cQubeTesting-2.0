@@ -3,7 +3,7 @@ import unittest
 from HTMLTestRunner import HTMLTestRunner
 
 from Admin_console import Logs_scripts, S3_files_script, Summary_Report
-from Admin_console.User_creation import create_user, check_in_keycloak, login_cqube_with_new_users
+from Admin_console.User_creation import create_user, login_cqube_with_new_users
 from get_dir import pwd
 
 
@@ -15,7 +15,6 @@ class MyTestSuite(unittest.TestCase):
             functional_test.addTests([
                 # file name .class name
                 unittest.defaultTestLoader.loadTestsFromTestCase(create_user.Creating_users),
-                unittest.defaultTestLoader.loadTestsFromTestCase(check_in_keycloak.keycloak),
                 unittest.defaultTestLoader.loadTestsFromTestCase(login_cqube_with_new_users.Creating_users),
                 unittest.defaultTestLoader.loadTestsFromTestCase(Logs_scripts.Test_logs),
                 unittest.defaultTestLoader.loadTestsFromTestCase(S3_files_script.Test_s3files),

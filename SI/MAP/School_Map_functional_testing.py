@@ -1,7 +1,6 @@
 import time
 import unittest
 
-from selenium.common import exceptions
 
 from SI.MAP.Click_on_School_infra import click_schoolinfra
 from SI.MAP.check_districtwise_school import districtlevel_school
@@ -12,7 +11,6 @@ from SI.MAP.check_with_schoolinfra_options import School_infra_options
 
 
 from SI.MAP.click_on_Dashboard import click_dashboard
-from SI.MAP.click_on_District_block_and_clusters import select_Dist_block_cluster
 from SI.MAP.click_on_Report_from_scinfra import click_report
 from SI.MAP.click_on_Reportmap import click_on_reportmap
 from SI.MAP.click_on_anydistrict_and_download_csv import download_icon

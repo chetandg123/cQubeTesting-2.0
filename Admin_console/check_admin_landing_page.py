@@ -81,11 +81,11 @@ class Test_admin_landing_page(unittest.TestCase):
             print("Summary statistics page does not exist ")
 
 
-    # def test_click_on_monitor(self):
-    #     self.driver.find_element_by_xpath("//*[@id='moniter']/a/img").click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id("homeBtn").click()
-    #     self.data.page_loading(self.driver)
+    def test_click_on_monitor(self):
+        self.driver.find_element_by_xpath("//*[@id='moniter']/a/img").click()
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id("homeBtn").click()
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

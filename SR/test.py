@@ -22,10 +22,6 @@ class ClusterDotsWithNoOfSchools():
         select_district = Select(select_district)
         select_block = Select(select_block)
         select_cluster = Select(select_cluster)
-
-        # select_district = Select(self.driver.find_element_by_id('choose_dist'))
-        # select_block = Select(self.driver.find_element_by_id('choose_block'))
-        # select_cluster = Select(self.driver.find_element_by_id('choose_cluster'))
         count = 0
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)

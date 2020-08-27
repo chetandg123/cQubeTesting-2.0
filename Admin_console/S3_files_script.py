@@ -46,8 +46,6 @@ class Test_s3files(unittest.TestCase):
             self.driver.find_element_by_id("btn").click()
             time.sleep(3)
             self.data.page_loading(self.driver)
-            self.driver.find_element_by_xpath("//*[@id='table']/thead[2]/tr[4]/td[1]/input").click()
-            self.data.page_loading(self.driver)
             self.driver.find_element_by_id("btn").click()
             time.sleep(3)
             self.data.page_loading(self.driver)

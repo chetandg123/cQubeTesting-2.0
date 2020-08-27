@@ -11,8 +11,8 @@ class cQube_Authentication(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)
         # self.data.login_cqube(self.driver)
-        self.driver.find_element_by_id(Data.email).send_keys('username')
-        self.driver.find_element_by_id(Data.passwd).send_keys('password')
+        self.driver.find_element_by_id(Data.email).send_keys()
+        self.driver.find_element_by_id(Data.passwd).send_keys()
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_tag_name('button').click()
@@ -20,11 +20,11 @@ class cQube_Authentication(unittest.TestCase):
 
     def test_login_cqube(self):
         self.data.page_loading(self.driver)
-        # print("\n")
-        # i = input("enter the input")
-        # self.driver.find_element_by_id("otp").send_keys(i)
-        # self.data.page_loading(self.driver)
-        # self.driver.find_element_by_id(Data.login).click()
+        print("\n")
+        i = input("enter the input")
+        self.driver.find_element_by_id("otp").send_keys(i)
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.login).click()
         if "home" in self.driver.current_url:
             print("cQube home page")
         else:

@@ -1,8 +1,5 @@
 import time
 import unittest
-
-from selenium.common import exceptions
-
 from SI.MAP.Click_on_School_infra import click_schoolinfra
 from SI.MAP.check_districtwise_school import districtlevel_school
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores

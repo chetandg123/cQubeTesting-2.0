@@ -41,7 +41,7 @@ class cQube_diskha_regression(unittest.TestCase):
     def test_Diksha_homeicon(self):
         b = Diksha_homeicon(self.driver)
         res = b.test_homeicon()
-        #self.assertEqual(res, 0, msg="Homeicon is not working ")
+        self.assertEqual(res, 0, msg="Homeicon is not working ")
         self.data.page_loading(self.driver)
 
     def test_homebtn(self):

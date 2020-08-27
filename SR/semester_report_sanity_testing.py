@@ -7,7 +7,6 @@ from SR.check_districts_csv_download import DistrictCsvDownload
 from SR.check_dots_on_each_district_block import DotsOnDistrictsBlock
 from SR.check_dots_on_each_districts import DotsOnDistricts
 
-from SR.check_schools_per_cluster_csv_download import SchoolsPerClusterCsvDownload
 from SR.check_with_total_schools_in_SR import TotalSchools
 from SR.check_with_total_student_in_SR import TotalStudents
 from SR.click_on_Home_icon import Home

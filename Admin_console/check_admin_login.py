@@ -22,9 +22,8 @@ class Test_admin_login(unittest.TestCase):
         self.driver.find_element_by_id(Data.logout).click()
 
     def test_unadmin_login(self):
-        self.driver.find_element_by_id(Data.email).send_keys(Data.reportuser)
-        self.driver.find_element_by_id(Data.passwd).send_keys(Data.reportpass)
         self.data.page_loading(self.driver)
+        self.data.login_cqube(self.driver)
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
         print('login with report viewer in admin page')

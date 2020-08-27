@@ -12,9 +12,7 @@ class Data():
     fieldReq = "/html/body/app-root/app-login/div[1]/div[2]/div[2]/form/div[2]/div/label"
 
     loginbtn = "//button[@type='submit']"
-    # loginbtn ="login"
     # admin login
-
     cuser ="//a[1]"
     cpass ="//a[2]"
     dashboard_options = "//a/div/td[2]"
@@ -206,10 +204,6 @@ class Data():
     clusterwise = "//select[@name='downloadType']/option[4]"
     schoolwise = "//select[@name='downloadType']/option[5]"
 
-    # X axis and Y axis
-    xaxis = "//select[@name='xAxis']/option"
-    yaxis = "//select[@name='yAxis']/option"
-
     crcdistrict = "//select[@name='myDistrict']/option"
     selecttype = "//*[@id='select']/select/option"
 
@@ -231,9 +225,7 @@ class Data():
     # CRC
 
     CRD1 = "//*[@id='dist']/option[2]"
-
     CRB1 = "//*[@id='block']/option[2]"
-
     CRC1 = "//*[@id='cluster']/option[2]"
 
 
@@ -260,11 +252,8 @@ class Data():
     sr_district = "choose_dist"
     sr_block = "choose_block"
     sr_cluster = "choose_cluster"
-
-    #hyper = "//*[@id='dist_level']/span"
     sr_dist_hyper = "//*[@id='block']/span[1]"
     sr_school_hyper = "//*[@id='school']/span[5]"
-    # block_hyper = "//*[@id='block_level']/span[]"
     sr_cluster_hyper = "//*[@id='cluster']/span[3]"
 
 

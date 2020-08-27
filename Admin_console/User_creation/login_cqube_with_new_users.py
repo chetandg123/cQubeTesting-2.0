@@ -20,8 +20,8 @@ class Creating_users(unittest.TestCase):
     def test_login_with_admin(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('username').send_keys("qa1")
-        self.driver.find_element_by_id('password').send_keys("Qateam@123")
+        self.driver.find_element_by_id('username').send_keys()
+        self.driver.find_element_by_id('password').send_keys()
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_tag_name('button').click()
@@ -47,8 +47,8 @@ class Creating_users(unittest.TestCase):
     def test_login_with_reportviewer(self):
         self.data.page_loading(self.driver)
         count = 0
-        self.driver.find_element_by_id('username').send_keys("qa2")
-        self.driver.find_element_by_id('password').send_keys("Qateam@123")
+        self.driver.find_element_by_id('username').send_keys()
+        self.driver.find_element_by_id('password').send_keys()
         self.driver.find_element_by_id(Data.login).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_tag_name('button').click()
@@ -69,18 +69,18 @@ class Creating_users(unittest.TestCase):
 
     def test_login_with_emission(self):
         print("emission user does not have access to cqube application")
-        self.driver.find_element_by_id('username').send_keys("qa3")
-        self.driver.find_element_by_id('password').send_keys("Qateam@123")
-        # self.driver.find_element_by_id(Data.login).click()
-        # self.data.page_loading(self.driver)
-        # if "home" in self.driver.current_url:
-        #     print("Logined to cqube with admin user")
-        # else:
-        #     print("login failed with admin user")
-    #     # self.data.page_loading(self.driver)
-    #     alert_obj = self.driver.switch_to.alert
-    #     alert_obj.accept()
-    #     self.data.page_loading(self.driver)
+        self.driver.find_element_by_id('username').send_keys()
+        self.driver.find_element_by_id('password').send_keys()
+        self.driver.find_element_by_id(Data.login).click()
+        self.data.page_loading(self.driver)
+        if "home" in self.driver.current_url:
+            print("Logined to cqube with admin user")
+        else:
+            print("login failed with admin user")
+        self.data.page_loading(self.driver)
+        alert_obj = self.driver.switch_to.alert
+        alert_obj.accept()
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):
