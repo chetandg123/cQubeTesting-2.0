@@ -1,5 +1,5 @@
 
-#cQube Release_1.2.1
+cQube Release_1.2.1
 
 README.md
 cQube
