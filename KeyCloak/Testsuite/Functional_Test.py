@@ -21,7 +21,7 @@ class MyTestSuite(unittest.TestCase):
                 unittest.defaultTestLoader.loadTestsFromTestCase(user_list.user_options),
             ])
             p= pwd()
-            outfile = open("/home/chetan/Desktop/cQubeTesting/KeyCloak/Testsuite/demo1report.html", "w")
+            outfile = open("Testsuite/keycloakreport.html", "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,

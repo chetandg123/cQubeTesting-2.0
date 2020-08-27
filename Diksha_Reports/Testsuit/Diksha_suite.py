@@ -16,8 +16,7 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(column_chart.cQube_diskha_column_report),
         ])
         p = pwd()
-        outfile = open("/home/chetan/Desktop/cQubeTesting/Diksha_Reports/Testsuit/Diksha_Test_Report.html", "a")
-
+        outfile = open("path",'w')
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
             title='Diksha Column Test Report',

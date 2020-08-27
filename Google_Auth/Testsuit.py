@@ -20,7 +20,7 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(login_without_entering_opt.Googleauth_testing),
         ])
         # report = pwd()
-        outfile = open("/home/chetan/Desktop/cQubeTesting/Google_Auth/Google.html", "a")
+        outfile = open("Google_Auth/Google.html", "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,

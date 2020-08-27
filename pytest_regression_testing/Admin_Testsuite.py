@@ -14,9 +14,9 @@ class MyTestSuite(unittest.TestCase):
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
-                # unittest.defaultTestLoader.loadTestsFromTestCase(create_user.Creating_users),
-                # unittest.defaultTestLoader.loadTestsFromTestCase(check_in_keycloak.keycloak),
-                # unittest.defaultTestLoader.loadTestsFromTestCase(login_cqube_with_new_users.Creating_users),
+                unittest.defaultTestLoader.loadTestsFromTestCase(create_user.Creating_users),
+                unittest.defaultTestLoader.loadTestsFromTestCase(check_in_keycloak.keycloak),
+                unittest.defaultTestLoader.loadTestsFromTestCase(login_cqube_with_new_users.Creating_users),
                 unittest.defaultTestLoader.loadTestsFromTestCase(Logs_scripts.Test_logs),
                 unittest.defaultTestLoader.loadTestsFromTestCase(S3_files_script.Test_s3files),
                 unittest.defaultTestLoader.loadTestsFromTestCase(Summary_Report.Test_summaryreport),
@@ -26,7 +26,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='User creation  Test Report',
+                title='Admin console Regression Test Report',
                 verbosity=1,
             )
 
