@@ -1,3 +1,6 @@
+
+#cQube Release_1.2.1
+
 README.md
 cQube
 Prerequisites:
@@ -43,6 +46,10 @@ Steps to execute the test script
 	  
 note: 
 Before running pytest ,please start the selenium grid by using command: java -jar selenium-server-standalone-3.14.jar  
+
+For Execution of Diksha Reports fallow the commands 
+	pytest -s -v Diksha_reports/Testsuit/Diksha_suit.py
+
 For Executing the Regression Test suites using pytest 
 	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/student_attendance_regression_testing.py
 	pytest -n <no of testscripts count> --html = Regression.html --self-contained-html pytest_regression_testing/crc_report_regression_testing.py
