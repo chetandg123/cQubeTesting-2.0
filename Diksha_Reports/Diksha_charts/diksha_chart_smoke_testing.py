@@ -76,12 +76,13 @@ class cQube_diskha_chart(unittest.TestCase):
         b = Diksha_homeicon(self.driver)
         res = b.test_homeicon()
         self.assertEqual(res,0,msg="Homeicon is not working ")
+        self.data.page_loading(self.driver)
 
     def test_choosedistricts(self):
         b = district_list(self.driver)
         res = b.test_each_districts()
-        self.assertNotEqual(0,res,msg="Districts are missing ")
-
+        self.assertEqual(0,res,msg="Districts are missing ")
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

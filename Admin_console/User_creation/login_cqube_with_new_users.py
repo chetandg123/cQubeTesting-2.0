@@ -71,8 +71,8 @@ class Creating_users(unittest.TestCase):
         print("emission user does not have access to cqube application")
         self.driver.find_element_by_id('username').send_keys("qa3")
         self.driver.find_element_by_id('password').send_keys("Qateam@123")
-        self.driver.find_element_by_id(Data.login).click()
-        self.data.page_loading(self.driver)
+        # self.driver.find_element_by_id(Data.login).click()
+        # self.data.page_loading(self.driver)
         # if "home" in self.driver.current_url:
         #     print("Logined to cqube with admin user")
         # else:

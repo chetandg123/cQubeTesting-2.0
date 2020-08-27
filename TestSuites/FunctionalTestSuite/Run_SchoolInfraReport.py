@@ -13,7 +13,6 @@ class MyTestSuite(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.data = GetData()
-        self.logger = self.data.get_functional_log("schoolinfrareport")
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
@@ -25,7 +24,6 @@ class MyTestSuite(unittest.TestCase):
         if self.errMsg.text == 'No data found':
             print("No data in the school infrastructure report page")
         else:
-             ("school infra report execution started")
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
@@ -42,7 +40,6 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(functional_test)
             outfile.close()
-             ("school infra report execution ended")
 
     @classmethod
     def tearDownClass(self):

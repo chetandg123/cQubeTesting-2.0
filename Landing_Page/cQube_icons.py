@@ -78,5 +78,38 @@ class cQube_landing_page():
         self.driver.find_element_by_id("homeBtn").click()
         self.cal.page_loading(self.driver)
 
+    def test_diksha_chart(self):
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id("dsc").click()
+        self.cal.page_loading(self.driver)
+        if "diksha-chart" in self.driver.current_url:
+            print("Navigated to   diksha stacked chart based report")
+        else:
+            print(" diksha stacked chart  based report is not exist")
+        self.driver.find_element_by_id("homeBtn").click()
+        self.cal.page_loading(self.driver)
 
+    def test_telemetry_report(self):
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id("telemData").click()
+        self.cal.page_loading(self.driver)
+        if "telemetry" in self.driver.current_url:
+            print("Navigated to Telemetry report")
+        else:
+            print("Telemetry  based report is not exist")
+        self.driver.find_element_by_id("homeBtn").click()
+        self.cal.page_loading(self.driver)
 
+    def test_semester_exception(self):
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id("SemExp").click()
+        self.cal.page_loading(self.driver)
+        if "telemetry" in self.driver.current_url:
+            print("Navigated to Semester Exception report")
+        else:
+            print(" Semester Exception  report is not exist")
+        self.driver.find_element_by_id("homeBtn").click()
+        self.cal.page_loading(self.driver)

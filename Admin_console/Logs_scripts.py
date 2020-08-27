@@ -53,7 +53,7 @@ class Test_logs(unittest.TestCase):
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
             time.sleep(25)
-            self.filename = p.get_download_dir() + "/server-side-out.log"
+            self.filename = p.get_download_dir() + "/server_side-out.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -79,8 +79,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
-            self.filename = p.get_download_dir() + "/server-side-error.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/server_side-error.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -105,8 +105,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(10)
-            self.filename = p.get_download_dir() + "/client-side-out.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/client_side-out.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -131,8 +131,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(8)
-            self.filename = p.get_download_dir() + "/client-side-error.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/client_side-error.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -157,9 +157,9 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(10)
+            time.sleep(20)
             self.data.page_loading(self.driver)
-            self.filename = p.get_download_dir() + "/admin-server-side-out.log"
+            self.filename = p.get_download_dir() + "/admin_server_side-out.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -185,8 +185,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
-            self.filename = p.get_download_dir() + "/admin-server-side-error.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/admin_server_side-error.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -211,8 +211,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
-            self.filename = p.get_download_dir() + "/admin-client-side-out.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/admin_client_side-out.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -238,8 +238,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
-            self.filename = p.get_download_dir() + "/admin-client-side-error.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/admin_client_side-error.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -319,8 +319,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
-            self.filename = p.get_download_dir() + "/access.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/emission_app-access.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)
@@ -346,8 +346,8 @@ class Test_logs(unittest.TestCase):
             p = pwd()
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id("downld").click()
-            time.sleep(5)
-            self.filename = p.get_download_dir() + "/error.log"
+            time.sleep(15)
+            self.filename = p.get_download_dir() + "/emission_app-error.log"
             result = os.path.isfile(self.filename)
             self.assertTrue(result, msg="log is not dowloaded")
             os.remove(self.filename)

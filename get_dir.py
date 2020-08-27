@@ -14,6 +14,11 @@ class pwd():
         report_path = os.path.join(cwd, 'Reports/admin_screens_report.html')
         return report_path
 
+    def get_admin_console_path(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/admin_console_report.html')
+        return report_path
+
     def get_semester_exception_download_path(self):
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/semester_exception.html')
@@ -36,12 +41,12 @@ class pwd():
 
     def get_smoke_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/SmokeReports/smoke_Test_report.html')
+        report_path = os.path.join(cwd, 'Reports/SmokeReports/Smoke_Report.html')
         return report_path
 
     def get_functional_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/functional_scattor_report.html')
+        report_path = os.path.join(cwd, 'Reports/Landing_page.html')
         return report_path
 
     def get_integration_report_path(self):

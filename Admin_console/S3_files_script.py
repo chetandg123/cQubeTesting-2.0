@@ -15,7 +15,7 @@ class Test_s3files(unittest.TestCase):
         self.data = GetData()
         self.p = pwd()
         self.driver = self.data.get_driver()
-        self.data.open_admin_appln(self.driver)
+        self.data.open_cqube_appln(self.driver)
         self.data.page_loading(self.driver)
         self.data.login_to_adminconsole(self.driver)
 

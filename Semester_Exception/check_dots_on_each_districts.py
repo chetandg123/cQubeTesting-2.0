@@ -25,5 +25,4 @@ class DotsOnDistrictwise_map():
             if int(len(dots) - 1) == 0:
                 print("District" + select_district.first_selected_option.text + "Markers are not found")
                 count = count + 1
-
         return count
