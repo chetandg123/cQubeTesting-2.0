@@ -48,16 +48,16 @@ Note: Before running pytest ,please start the selenium grid by using command: ja
 	For Execution of Diksha Reports fallow the commands 
 		pytest -s -v Diksha_reports/Testsuit/Diksha_suit.py
 
-	For Executing the Regression Test suites using pytest 
-		pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/student_attendance_regression_testing.py
-		pytest -n 25 --html = Regression.html --self-contained-html pytest_regression_testing/crc_report_regression_testing.py
-		pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/semester_report_regression_testing.py
-		pytest -n 30 --html = Regression.html --self-contained-html pytest_regression_testing/School_Map_regression_testing.py
-		pytest -n 22 --html = Regression.html --self-contained-html pytest_regression_testing/School_report_regression_testing.py
-		pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/diksha_table_regression_testing.py
-		pytest -n 15 --html = Regression.html --self-contained-html pytest_regression_testing/diksha_chart_Regression_testing.py
-		pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/telemetry_regression_testing.py
-		pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/exception_regression_testing.py
+For Executing the Regression Test suites using pytest 
+	pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/student_attendance_regression_testing.py
+	pytest -n 25 --html = Regression.html --self-contained-html pytest_regression_testing/crc_report_regression_testing.py  
+	pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/semester_report_regression_testing.py
+	pytest -n 30 --html = Regression.html --self-contained-html pytest_regression_testing/School_Map_regression_testing.py
+	pytest -n 22 --html = Regression.html --self-contained-html pytest_regression_testing/School_report_regression_testing.py
+	pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/diksha_table_regression_testing.py
+	pytest -n 15 --html = Regression.html --self-contained-html pytest_regression_testing/diksha_chart_Regression_testing.py
+	pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/telemetry_regression_testing.py
+	pytest -n 20 --html = Regression.html --self-contained-html pytest_regression_testing/exception_regression_testing.py
 
 	For Execution of Admin console please fallow the commands 
 		python3 -m unittest Testsuites/Unittest_regression_suite/Admin_console.py
