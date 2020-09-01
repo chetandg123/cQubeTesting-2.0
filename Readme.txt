@@ -62,10 +62,10 @@ For Executing the Regression Test suites using pytest
 	For Execution of Admin console please fallow the commands 
 		python3 -m unittest Testsuites/Unittest_regression_suite/Admin_console.py
 
-	For Executin the Smoke Test suites
+	For Executing the Smoke Test suites
 		pytest -s -v --html=smoke_test.html --html-contained-html TestSuites/SmokeTestSuite/Smoke_Testing.py
 	  
-	Please fallow the steps for run testscripts for admin console
+	Please follow the steps for run testscripts for admin console
 	  	1> open vpn based url in browser 
 		   click on advanced --> open unsecured link --> login to openvpn access server  
 		2> click on user-profile and starts downloading client.ovpn 
