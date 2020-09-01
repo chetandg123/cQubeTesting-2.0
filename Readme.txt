@@ -81,7 +81,7 @@ For Executing the Regression Test suites using pytest
 		
 
 		
-	Note: Each Single scripts takes more than 1 hour, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting 		  folder and running the above testing suite.
+	Note: Each Single scripts takes more than 1 hour, you can execute the multiple test scripts by opening the terminal and navigating to the cQubeTesting folder and running the above testing suite.
 
 
 
