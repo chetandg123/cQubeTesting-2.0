@@ -73,8 +73,6 @@ class SchoolsPerClusterCsvDownload():
                                 print(
                                     "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
                                 count = count + 1
-                            # assert (int(res) == total), "total students are not matching"
-                            # assert (int(sc) == len(markers) - 1 ), "total schools are not matching"
                         self.remove_csv1()
 
         return count
@@ -135,8 +133,6 @@ class SchoolsPerClusterCsvDownload():
                                 print(
                                     "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
                                 count = count + 1
-                            # assert (int(res) == total), "total students are not matching"
-                            # assert (int(sc) == len(markers) - 1 ), "total schools are not matching"
                         self.remove_csv2()
 
         return count
@@ -197,8 +193,6 @@ class SchoolsPerClusterCsvDownload():
                                 print(
                                     "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
                                 count = count + 1
-                            # assert (int(res) == total), "total students are not matching"
-                            # assert (int(sc) == len(markers) - 1 ), "total schools are not matching"
                         self.remove_csv3()
 
         return count
@@ -259,8 +253,6 @@ class SchoolsPerClusterCsvDownload():
                                 print(
                                     "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
                                 count = count + 1
-                            # assert (int(res) == total), "total students are not matching"
-                            # assert (int(sc) == len(markers) - 1 ), "total schools are not matching"
                         self.remove_csv4()
 
         return count
