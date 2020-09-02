@@ -40,7 +40,6 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    # assert (len(markers) - 1 != 0), "markers are not present on map"
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(2)
@@ -100,7 +99,6 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    # assert (len(markers) - 1 != 0), "markers are not present on map"
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(2)
@@ -160,7 +158,6 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    # assert (len(markers) - 1 != 0), "markers are not present on map"
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(2)
@@ -220,7 +217,6 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    # assert (len(markers) - 1 != 0), "markers are not present on map"
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(2)
