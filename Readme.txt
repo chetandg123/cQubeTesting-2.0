@@ -25,7 +25,7 @@ Steps to Download the selenium Grid
    Run the command in the terminal : java -jar selenium-server-standalone
 
 Note : Java jdk1.8 need to be already installed in the machine
-Note:  execution of Admin console scripts , i.e  create_user.py script should provide the username and password in sendkeys
+Note:  execution of Admin console scripts , i.e  create_user.py script should provide the username and password in sendkeys.
 
 Steps to execute the test script
 
