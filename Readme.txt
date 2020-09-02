@@ -1,5 +1,5 @@
 
-cQube Release_1.2.1
+cQube Release_1.2
 
 Prerequisites:
   Google Chrome 84.0.4147.135 need to be installed in the server or local machine.
