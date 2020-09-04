@@ -1,5 +1,5 @@
 
-cQube Release_1.2.1
+cQube Release_1.2
 
 Prerequisites:
   Google Chrome 84.0.4147.135 need to be installed in the server or local machine.
@@ -34,7 +34,7 @@ Steps to execute the test script
 	3.sudo apt install python3-pip
 	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting Folder) [mandatory]
 	    pip3 install -r Requirement.txt 
-	5.Fill the config.ini file (config.ini file present in the cQubeTesting Folder)
+	5.Fill the config.ini file (config.ini file present in the cQubeTesting Folder).
 
 	  [config]
 	  domain= #Enter the url of the cqube application ex: https://<domainname>/ or http://<ip>:4200
