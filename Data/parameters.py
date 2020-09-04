@@ -265,3 +265,10 @@ class Data():
     crc_sel3 ="//*[@id='select']/select/option[3]"
     crc_sel4 ="//*[@id='select']/select/option[4]"
     crc_sel5 = "//*[@id='select']/select/option[5]"
+
+    #admin console
+    createuser_icon ="//*[@id='crtUsr']/img"
+    changepassword ="chPass"
+    logs_icon ="//*[@id='logs']/img"
+    summary ="//*[@id='summary']/img"
+    monitor= "//*[@id='moniter']/a/img"
