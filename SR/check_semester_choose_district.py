@@ -11,11 +11,8 @@ from reuse_func import GetData
 
 
 class District():
-    def __init__(self, driver, year, month):
+    def __init__(self, driver):
         self.driver = driver
-        self.year = year.strip()
-        self.month = month.strip()
-
     def remove_csv(self):
         os.remove(self.filename)
 
@@ -23,14 +20,14 @@ class District():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
-        select_district = Select(self.driver.find_element_by_name('myDistrict'))
-        select_block = Select(self.driver.find_element_by_name('myBlock'))
-        select_cluster = Select(self.driver.find_element_by_name('myCluster'))
+        cal.page_loading(self.driver)
+        select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
         for x in range(len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             markers = self.driver.find_elements_by_class_name(Data.dots)
+            time.sleep(3)
             if len(markers) - 1 != 0 :
                 print("District" + select_district.first_selected_option.text +"no data")
                 count = count + 1
@@ -39,7 +36,7 @@ class District():
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/Block_per_district_report_" + self.month + "_" + self.year + ".csv"
+                self.filename = p.get_download_dir() + "/Block_Per_dist_report_sem_2.csv"
                 if not os.path.isfile(self.filename):
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
@@ -50,8 +47,8 @@ class District():
                         total = 0
                         schools = 0
                         for row in csv.reader(fin):
-                            total += int(row[5])
-                            schools += int(row[4])
+                            total += int(row[11])
+                            schools += int(row[10])
                         students = self.driver.find_element_by_id("students").text
                         res = re.sub('\D', "", students)
 
