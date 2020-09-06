@@ -11,10 +11,8 @@ from reuse_func import GetData
 
 
 class DistrictBlockCluster():
-    def __init__(self, driver, year, month):
+    def __init__(self, driver):
         self.driver = driver
-        self.year = year.strip()
-        self.month = month.strip()
     def remove_csv(self):
         os.remove(self.filename)
 
@@ -22,9 +20,9 @@ class DistrictBlockCluster():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
-        select_district = Select(self.driver.find_element_by_name('myDistrict'))
-        select_block = Select(self.driver.find_element_by_name('myBlock'))
-        select_cluster = Select(self.driver.find_element_by_name('myCluster'))
+        select_district = Select(self.driver.find_element_by_id('choose_dist'))
+        select_block = Select(self.driver.find_element_by_id('choose_block'))
+        select_cluster = Select(self.driver.find_element_by_id('choose_cluster'))
         count = 0
         for x in range(len(select_district.options)-1, len(select_district.options)):
             select_district.select_by_index(x)
@@ -42,9 +40,9 @@ class DistrictBlockCluster():
                         count = count + 1
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
-                    time.sleep(2)
+                    time.sleep(3)
                     p = pwd()
-                    self.filename =  p.get_download_dir() + "/Schools_per_cluster_report_" + self.month + "_" + self.year + ".csv"
+                    self.filename = p.get_download_dir() +"/School_per_cluster_report_sem_2.csv"
                     if not os.path.isfile(self.filename):
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")
@@ -55,7 +53,7 @@ class DistrictBlockCluster():
                             header = next(csv_reader)
                             total = 0
                             for row in csv.reader(fin):
-                                row = row[6].strip('\"')
+                                row = row[15].strip('\"')
                                 row1 = row.replace(',', "")
                                 total += int(row1)
                             students = self.driver.find_element_by_id("students").text

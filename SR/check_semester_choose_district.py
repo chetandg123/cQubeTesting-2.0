@@ -28,7 +28,7 @@ class District():
             cal.page_loading(self.driver)
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
-            if len(markers) - 1 != 0 :
+            if (len(markers) - 1) == 0 :
                 print("District" + select_district.first_selected_option.text +"no data")
                 count = count + 1
             else :
@@ -47,8 +47,8 @@ class District():
                         total = 0
                         schools = 0
                         for row in csv.reader(fin):
-                            total += int(row[11])
-                            schools += int(row[10])
+                            total += int(row[12])
+                            schools += int(row[11])
                         students = self.driver.find_element_by_id("students").text
                         res = re.sub('\D', "", students)
 
