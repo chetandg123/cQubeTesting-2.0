@@ -9,7 +9,6 @@ from SAR.check_data_range import DateRange
 from SAR.check_district_block_cluster import DistrictBlockCluster
 from SAR.check_districts_csv_download import DistrictCsvDownload
 
-from SAR.check_schools_per_cluster_csv_download import SchoolsPerClusterCsvDownload
 from SAR.check_total_no_students_and_total_no_schools_sar import TotalStudentsSchools
 
 from SAR.click_on_Home_icon import Home

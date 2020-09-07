@@ -4,6 +4,7 @@ import unittest
 
 from selenium.webdriver.support.select import Select
 from Data.parameters import Data
+from Diksha_Reports.Diksha_charts.check_with_all_last_30_days_records import test_all_data
 from reuse_func import GetData
 
 from Diksha_Reports.Diksha_charts.check_chart_with_lastweek import Districtwise_lastweek_chart
@@ -39,21 +40,6 @@ class cQube_diskha_chart(unittest.TestCase):
         result = b.test_navigation()
         self.data.page_loading(self.driver)
 
-    def test_click_on_diksha_chart_icon(self):
-        self.driver.find_element_by_id('homeBtn').click()
-        self.data.page_loading(self.driver)
-        count = 0
-        self.driver.find_element_by_xpath("//img[@alt='dikshaChart']").click()
-        self.data.page_loading(self.driver)
-        if "diksha-chart" in self.driver.current_url:
-            print("Diksha chart report page is present ")
-        else:
-            print("Diksha chart page is not exist")
-            count = count + 1
-        self.assertEqual(0,count,msg="Diksha chart icon is not working ")
-        self.data.page_loading(self.driver)
-
-
     def test_hyperlink(self):
         b = Diksha_hyperlink(self.driver)
         result = b.test_hyperlink()
@@ -76,25 +62,6 @@ class cQube_diskha_chart(unittest.TestCase):
             time.sleep(2)
         self.assertNotEqual(0,count,msg="Time periods are not present")
         self.data.page_loading(self.driver)
-
-
-    def test_Diksha_homeicon(self):
-        b = Diksha_homeicon(self.driver)
-        res = b.test_homeicon()
-        self.assertEqual(res,0,msg="Homeicon is not working ")
-        self.data.page_loading(self.driver)
-
-
-    def test_Diksha_logout(self):
-        b = Diksha_logout(self.driver)
-        res = b.test_logout()
-        self.assertEqual(res,'Log in to cQube',msg="Logout is not working")
-        self.data.page_loading(self.driver)
-
-
-
-
-
 
     def test_all_data_file_donwload(self):
         b = Diksha_overall_download(self.driver)
@@ -142,7 +109,40 @@ class cQube_diskha_chart(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
+    def test_Diksha_homeicon(self):
+        b = Diksha_homeicon(self.driver)
+        res = b.test_homeicon()
+        self.assertEqual(res,0,msg="Homeicon is not working ")
+        self.data.page_loading(self.driver)
 
+
+    def test_Diksha_logout(self):
+        b = Diksha_logout(self.driver)
+        res = b.test_logout()
+        self.assertEqual(res,'Log in to cQube',msg="Logout is not working")
+        self.data.page_loading(self.driver)
+
+
+    def test_contentplay_for_lastmonth(self):
+        b = test_all_data(self.driver)
+        res = b.test_last30_days()
+        self.assertEqual(0,res,msg="some mismatch found at csv file content sum and ui side content plays ")
+        print("Checked with all type of last month content plays count ")
+        self.data.page_loading(self.driver)
+
+    def test_contentplay_for_lastday(self):
+        b = test_all_data(self.driver)
+        res = b.test_last_day()
+        self.assertEqual(0, res, msg="some mismatch found at csv file content sum and ui side content plays ")
+        print("Checked with all type of last day content plays count ")
+        self.data.page_loading(self.driver)
+
+    def test_contentplay_for_last7day(self):
+        b = test_all_data(self.driver)
+        res = b.test_last_7_day()
+        self.assertEqual(0, res, msg="some mismatch found at csv file content sum and ui side content plays ")
+        print("Checked with all type of last 7 days content plays count ")
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

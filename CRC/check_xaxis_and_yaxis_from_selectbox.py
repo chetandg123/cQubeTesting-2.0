@@ -20,8 +20,8 @@ class plot_values():
         dist = Select(self.driver.find_element_by_id("dist"))
         dist.select_by_index(5)
         self.p.page_loading(self.driver)
-        xaxis_lists = Select(self.driver.find_elements_by_id('yaxis'))
-        yaxis_lists = Select(self.driver.find_elements_by_id('xaxis'))
+        xaxis_lists = Select(self.driver.find_element_by_id('x_axis'))
+        yaxis_lists = Select(self.driver.find_element_by_id('y_axis'))
         count1 = len(xaxis_lists.options)-1
         count2 = len(yaxis_lists.options)-1
         for i in range(len(xaxis_lists.options)):
@@ -33,6 +33,4 @@ class plot_values():
             time.sleep(2)
             yaxis_lists.select_by_index(i)
             self.p.page_loading(self.driver)
-
-        self.p.page_loading(self.driver)
         return count1,count2

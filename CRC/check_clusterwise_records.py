@@ -28,7 +28,7 @@ class crc_schoolevel_records():
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         select_cluster = Select(self.driver.find_element_by_name('myCluster'))
         count = 0
-        for x in range(1, int(len(select_district.options)/4)):
+        for x in range(1, int(len(select_district.options)-31)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
             for y in range(1, len(select_block.options)):
@@ -67,12 +67,15 @@ class crc_schoolevel_records():
                                 if int(tsc) != tschools:
                                     print(select_district.options[x].text, ":", "total no of schools  :", tschools,
                                           int(tsc), "records are mismatch found")
+                                    count = count + 1
                                 if int(vs) != vsts:
                                     print(select_district.options[x].text, ":", "total no of visits  :", int(vs), vsts,
                                           "records are mismatch found")
+                                    count = count + 1
                                 if int(vd) != vstd:
                                     print(select_district.options[x].text, ":", "total no of visits  :", int(vd), vstd,
                                           "records are mismatch found")
+                                    count = count + 1
 
                             self.remove_csv1()
 

@@ -5,13 +5,11 @@ from CRC.check_crc_tabledata_by_selecting_districts import districtwise_tabledat
 from CRC.check_districtwise_records import test_crc_report_districtwise
 from CRC.check_homebtn import Homeicon
 from CRC.check_table_data_order import Check_order_of_tabledata
-
 from CRC.check_xaxis_and_yaxis_from_selectbox import plot_values
 from CRC.click_on_hyperlink import click_on_hyperlinks
 from CRC.download_blockwise_csv import donwload_blockwise_csv
 from CRC.download_clusterwise_csv import load_clusterwise_csv
 from CRC.download_districtwise_csv import Districtwise_donwload
-
 from CRC.download_schoolwise_csv import school_wise_download
 from CRC.navigate_to_crc_and_click_on_logout import Logout_function
 from CRC.navigate_to_crc_report import loading_crc
@@ -138,11 +136,9 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_homebutton(self):
         b = Homeicon(self.driver)
         result = b.test_homebutton()
-        self.assertNotEqual(0,result,msg="Home button is not working ")
+        self.assertEqual(0,result,msg="Home button is not working ")
         print("checking with home icon and it is working ")
         self.data.page_loading(self.driver)
-
-
 
     @classmethod
     def tearDownClass(cls):

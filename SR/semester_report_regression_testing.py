@@ -18,6 +18,7 @@ from SR.download_blockwise_csv import BlockwiseCsv
 from SR.download_clusterwise_csv import ClusterwiseCsv
 from SR.download_districtwise_csv import DistrictwiseCsv
 from SR.download_schoolwise_csv import SchoolwiseCsv
+from SR.semester_options import Semester_options
 
 from reuse_func import GetData
 
@@ -40,6 +41,12 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Navigating to semester Report is working")
         else:
             raise self.failureException("Semester Report Not Found")
+    def test_sem_options(self):
+        b =Semester_options(self.driver)
+        res = b.test_semester_option()
+        self.assertEqual(0,res,msg="Semester 1 is selected ")
+        print('Semester 2 is working ')
+        self.data.page_loading(self.driver)
 
     def test_click_on_blocks(self):
         block = Blocks(self.driver)

@@ -47,18 +47,34 @@ class cQube_Home(unittest.TestCase):
         result = b.test_diksha_chart()
         self.data.page_loading(self.driver)
 
+    def test_diksha_table(self):
+        b = cQube_landing_page(self.driver)
+        res = b.test_diksha_table()
+        self.data.page_loading(self.driver)
+
+    def test_diksha_column(self):
+        b = cQube_landing_page(self.driver)
+        res = b.test_diksha_column()
+        self.data.page_loading(self.driver)
+
+    def test_sem_exception(self):
+        b = cQube_landing_page(self.driver)
+        res = b.test_diksha_column()
+        self.data.page_loading(self.driver)
+
+
+
     def test_telemetry_icon(self):
         b = cQube_landing_page(self.driver)
         result = b.test_telemetry_report()
         self.data.page_loading(self.driver)
 
-    def test_sem_exception(self):
+    def test_completionerror(self):
         b = cQube_landing_page(self.driver)
-        res = b.test_semester_exception()
+        res = b.test_completionerror()
         self.data.page_loading(self.driver)
 
-    def test_completion_error(self):
-        b
+
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()

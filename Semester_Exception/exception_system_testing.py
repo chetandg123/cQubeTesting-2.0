@@ -4,6 +4,7 @@ from Data.parameters import Data
 from Semester_Exception.Click_on_hyper_link_in_semester_report import sem_exception_hyperlink
 from Semester_Exception.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from Semester_Exception.check_districts_csv_download import DistrictwiseDownload
+from Semester_Exception.check_dots_on_each_districts import DotsOnDistrictwise_map
 from Semester_Exception.check_with_notrecieved_records import Data_not_recieved
 from Semester_Exception.click_on_Home_icon import exception_Home
 
@@ -44,17 +45,23 @@ class cQube_semester_exception_report(unittest.TestCase):
     def test_Semester_Blocks(self):
         b = Semester_Blocks(self.driver)
         res = b.check_markers_on_block_map()
-        self.assertNotEqual(0,res,msg="markers are not present on block level map")
+        self.assertNotEqual(0, res, msg="markers are not present on block level map")
 
     def test_semester_clusters(self):
         b = semester_clusters(self.driver)
         res = b.check_markers_on_clusters_map()
-        self.assertNotEqual(0,res,msg="markers are not present on cluster level map")
+        self.assertNotEqual(0, res, msg="markers are not present on cluster level map")
 
     def test_semesterschool(self):
         b = semeste_schools(self.driver)
         res = b.check_markers_on_school_map()
-        self.assertNotEqual(0,res,msg="markers are not present on cluster level map")
+        self.assertNotEqual(0, res, msg="markers are not present on cluster level map")
+
+    def test_DistrictwiseDownload(self):
+        b = DistrictwiseDownload(self.driver)
+        res = b.check_districts_csv_download()
+        self.assertEqual(0, res, msg="Some district level csv file is not downloaded")
+
 
     def test_DistrictwiseDownload(self):
         b = DistrictwiseDownload(self.driver)
@@ -107,6 +114,10 @@ class cQube_semester_exception_report(unittest.TestCase):
         else:
             raise self.failureException("hyperlinks are not working")
 
+    def test_DotsOnDistrictwise_map(self):
+        b = DotsOnDistrictwise_map(self.driver)
+        res = b.check_dots_on_each_districts()
+        self.assertEqual(0,res,msg='Markers are not present on districtwise map ')
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
