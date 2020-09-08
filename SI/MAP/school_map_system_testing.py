@@ -2,25 +2,25 @@ import time
 import unittest
 
 from Data.parameters import Data
+
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
 from SI.MAP.check_sc_map_blockwise_records import school_map_blockwise
 from SI.MAP.check_sc_map_clusterwise_records import test_school_map_schoollevel_records
-
 from SI.MAP.check_sc_map_districtwise_records import sc_map_districtwise
 from SI.MAP.check_with_map_on_schoolinfra import check_markers_on_map
-from SI.MAP.click_on_Dashboard import click_dashboard
 
+from SI.MAP.click_on_Dashboard import click_dashboard
 from SI.MAP.click_on_anydistrict_and_download_csv import download_icon
 from SI.MAP.click_on_blk_clus_school_and_home import click_on_home
-
 from SI.MAP.click_on_block_cluster_school_and_check_schoolscount import Block_cluster_school_count
 from SI.MAP.click_on_blocks import click_on_blocks
+
 from SI.MAP.click_on_blocks_and_scores import block_btn_scores
 from SI.MAP.click_on_blocksbtn_and_check_download import Blockwise_csv_download
-
 from SI.MAP.click_on_cluster_check_download import clusterwise_download
 from SI.MAP.click_on_clusters import cluster_button
 from SI.MAP.click_on_clusters_and_scores import cluster_btn_scores
+
 from SI.MAP.click_on_hyperlink import click_on_hyperlink
 from SI.MAP.click_on_school_and_check_download import school_wise_download
 from SI.MAP.click_on_schools_and_scores import schools_btn_scores
@@ -68,26 +68,22 @@ class cQube_SI_Map_Report(unittest.TestCase):
         result = b.test_schools()
         print("district wise map records checked")
 
-    # def test_sc_map_blockwise(self):
-    #     b = school_map_blockwise(self.driver)
-    #     result = b.test_schools()
-    #     self.assertEqual(0, result, msg="No data found")
-    #     print("blockwise wise map records checked")
-    #
-    # def test_schools_per_cluster_csv_download1(self):
-    #     self.driver = self.data.get_driver_SIMAP_Download1()
-    #     self.data.open_cqube_appln(self.driver)
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_school_infrastructure_map()
-    #     school = test_school_map_schoollevel_records(self.driver)
-    #     result = school.check_download_csv1()
-    #     if result == 0:
-    #         print("Schools per cluster csv download report is working")
-    #         print("on selection of each district,block and cluster")
-    #         print("The footer value of no of schools and no of students are")
-    #         print("equals to downloaded file")
-    #     else:
-    #         raise self.failureException("Schools per cluster csv report download1 is working")
+    def test_sc_map_blockwise(self):
+        b = school_map_blockwise(self.driver)
+        result = b.test_schools()
+        self.assertEqual(0, result, msg="No data found")
+        print("blockwise wise map records checked")
+
+    def test_schools_per_cluster_csv_download1(self):
+        school = test_school_map_schoollevel_records(self.driver)
+        result = school.check_download_csv1()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download1 is working")
 
 
     def test_click_on_home(self):

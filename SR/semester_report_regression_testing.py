@@ -41,10 +41,12 @@ class cQube_Semester_Report(unittest.TestCase):
             print("Navigating to semester Report is working")
         else:
             raise self.failureException("Semester Report Not Found")
+
     def test_sem_options(self):
         b =Semester_options(self.driver)
-        res = b.test_semester_option()
-        self.assertEqual(0,res,msg="Semester 1 is selected ")
+        res1,res2 = b.test_semester_option()
+        self.assertEqual(0,res1,msg="Semester 1 is selected ")
+        self.assertNotEqual(0,res2,msg="Markers are missing on semeter2 map ")
         print('Semester 2 is working ')
         self.data.page_loading(self.driver)
 

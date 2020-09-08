@@ -69,6 +69,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.assertNotEqual(0, int(len(result) - 1), msg="Dots are not present on map")
         print("Schools button is working")
         print("Markers are present on the map")
+
     def test_districtwise_csv_download(self):
         csv = DistrictwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_district()

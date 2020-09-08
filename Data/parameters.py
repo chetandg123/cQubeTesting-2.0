@@ -13,11 +13,13 @@ class Data():
 
     loginbtn = "//button[@type='submit']"
     # admin login
+    home ="homeBtn"
+    userlist="user"
     cuser ="//a[1]"
     cpass ="//a[2]"
     dashboard_options = "//a/div/td[2]"
     back_btn ="//div[@class='col-sm-6']/a"
-
+    createusericon ="//img[@alt='addUser']"
     dots = "leaflet-interactive"
     SAR_Details = "//div[@class='row']/div[@class='col-sm-4']/span"
     hyper_link = "//p/span"

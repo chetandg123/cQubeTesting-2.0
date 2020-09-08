@@ -63,7 +63,6 @@ class cQube_Home(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-
     def test_telemetry_icon(self):
         b = cQube_landing_page(self.driver)
         result = b.test_telemetry_report()

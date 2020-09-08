@@ -6,7 +6,6 @@ from selenium.webdriver.support.select import Select
 from Data.parameters import Data
 
 from SAR.Click_on_hyper_link_in_SAR import Hyperlink
-from SAR.arg import arg
 from SAR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from SAR.check_districts_csv_download import DistrictCsvDownload
 from SAR.check_dots_on_each_district_block import DotsOnDistrictsBlock
@@ -40,7 +39,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-        self.x = arg()
+        self.data.navigate_to_student_report()
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
         self.year = year.first_selected_option.text
@@ -50,6 +49,23 @@ class cQube_Student_Attendance(unittest.TestCase):
         dashboard = Dashboard(self.driver)
         dashboard.click_on_dashboard()
 
+    def test_sar_icon_on_landingpage(self):
+        count = 0
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id('homeBtn').click()
+        self.data.page_loading(self.driver)
+        if 'home' not in self.driver.current_url:
+            print('home button is not working ')
+        self.driver.find_element_by_id('sar').click()
+        time.sleep(2)
+        if 'Attedance report' in self.driver.page_source:
+            print('Sar icon is working and student attedance report is displayed')
+        else:
+            print('sar icon is not working')
+            count = count + 1
+        self.assertEqual(0,count,msg='sar icon is not working ')
+        self.data.page_loading(self.driver)
 
     def test_click_on_student_attendence_report(self):
         sar = DahboardSar(self.driver)
@@ -59,12 +75,10 @@ class cQube_Student_Attendance(unittest.TestCase):
         else:
             print("SAR page does not exist!...")
 
-
     def test_click_on_blocks(self):
         block = Blocks(self.driver)
         result = block.check_markers_on_block_map()
         self.assertNotEqual(0, len(result) - 1, msg="Dots are not present on map")
-
 
     def test_click_on_clusters(self):
         cluster = Clusters(self.driver)
@@ -79,17 +93,20 @@ class cQube_Student_Attendance(unittest.TestCase):
     def test_logout(self):
         logout = Logout(self.driver)
         result = logout.click_on_logout()
-        self.assertEqual("cQube", result, msg="login page is not exist!..")
+        self.assertEqual("Log in to cQube", result, msg="login page is not exist!..")
         self.data.login_cqube(self.driver)
-        self.data.select_month_year(self.year, self.month)
-
+        self.data.navigate_to_student_report()
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = year.first_selected_option.text
+        self.month = month.first_selected_option.text
 
     def test_check_hyperlinks(self):
         hyperlinks = Hyperlink(self.driver)
-        result1,result2,choose_dist= hyperlinks.click_on_hyperlinks()
-        if result1 == False and result2 == False and choose_dist == "Choose a District " :
+        result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
+        if result1 == False and result2 == False and choose_dist == "Choose a District ":
             print("hyperlinks are working")
-        else :
+        else:
             raise self.failureException("hyperlinks are not working")
 
     def test_districtwise_csv_download(self):
@@ -102,6 +119,7 @@ class cQube_Student_Attendance(unittest.TestCase):
             raise self.failureException("District wise csv report download is not working")
 
     def test_blockwise_csv_download(self):
+        self.data.page_loading(self.driver)
         csv = BlockwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_blocks()
         if result:
@@ -109,7 +127,6 @@ class cQube_Student_Attendance(unittest.TestCase):
             csv.remove_csv()
         else:
             raise self.failureException("Block wise csv report download is not working")
-
 
     def test_clusterwise_csv_download(self):
         csv = ClusterwiseCsv(self.driver, self.year, self.month)
@@ -163,22 +180,20 @@ class cQube_Student_Attendance(unittest.TestCase):
             raise self.failureException('Home Icon is not working')
 
     def test_block_per_district_csv_download(self):
-        dist = DistrictCsvDownload(self.driver,self.year,self.month)
+        dist = DistrictCsvDownload(self.driver, self.year, self.month)
         result = dist.check_districts_csv_download()
         if result == 0:
             print("Block per district csv report download is working")
         else:
             raise self.failureException("Block per district csv report download is working")
 
-
-    def test_cluster_per_block_csv_download(self):
-        block = ClusterPerBlockCsvDownload(self.driver,self.year,self.month)
-        result = block.check_csv_download()
-        if result == 0:
-            print("Cluster per block csv report download is working")
-        else:
-            raise self.failureException("Cluster per block csv report download is working")
-
+    # def test_cluster_per_block_csv_download(self):
+    #     block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
+    #     result = block.check_csv_download()
+    #     if result == 0:
+    #         print("Cluster per block csv report download is working")
+    #     else:
+    #         raise self.failureException("Cluster per block csv report download is working")
 
     def test_dots_on_each_districts(self):
         dist = DotsOnDistricts(self.driver)
@@ -191,7 +206,6 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = dist_block.check_dots_on_each_districts_block()
         if result != 0:
             raise self.failureException('data not found')
-
 
     @classmethod
     def tearDownClass(cls):

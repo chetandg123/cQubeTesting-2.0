@@ -2,19 +2,19 @@
 
 
 import time
-from CRC import crc_report_smoke_testing, crc_report_regression_testing
-from Diksha_Reports.Diksha_charts import diksha_chart_smoke_testing, diksha_chart_Regression_testing
+from CRC import  crc_report_regression_testing
+from Diksha_Reports.Diksha_charts import  diksha_chart_Regression_testing
 from Diksha_Reports.Diksha_column_chart import column_regression_suite
-from Diksha_Reports.Diksha_table_report import diksha_table_smoke_testing, diksha_table_regression_testing
+from Diksha_Reports.Diksha_table_report import  diksha_table_regression_testing
 from Landing_Page import cQube_home_page
 from Login import login_page
 from Login.login_page import login
-from SAR import student_attendance_smoke_testing, student_attendance_regression_testing
-from SI.MAP import School_Map_smoke_testing, School_Map_regression_testing
-from SI.Report import School_report_smoke_testing, School_report_regression_testing
-from SR import semester_report_smoke_testing, semester_report_regression_testing
-from Semester_Exception import exception_smoke_testing, exception_regression_testing
-from Telemetry import telemetry_smoke_testing, telemetry_regression_testing
+from SAR import  student_attendance_regression_testing
+from SI.MAP import  School_Map_regression_testing
+from SI.Report import  School_report_regression_testing
+from SR import  semester_report_regression_testing
+from Semester_Exception import  exception_regression_testing
+from Telemetry import telemetry_regression_testing
 
 from get_dir import pwd
 
@@ -201,7 +201,7 @@ class MyTestSuite(unittest.TestCase):
         time.sleep(3)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the school infra report page")
+            print("No data in the diksha chart report page")
         else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
@@ -225,14 +225,14 @@ class MyTestSuite(unittest.TestCase):
         time.sleep(3)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the school infra report page")
+            print("No data in the diksha table report page")
         else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(diksha_table_regression_testing.cQube_diskha_regression)
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path(), "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -249,7 +249,7 @@ class MyTestSuite(unittest.TestCase):
         time.sleep(3)
         self.errMsg = self.data.get_data_status()
         if self.errMsg.text == 'No data found':
-            print("No data in the school infra report page")
+            print("No data in the diksha column report page")
         else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
