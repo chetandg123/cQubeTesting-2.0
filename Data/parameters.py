@@ -15,7 +15,7 @@ class Data():
     # admin login
     home ="homeBtn"
     userlist="user"
-    cuser ="//a[1]"
+    cuser ="crtUsr"
     cpass ="//a[2]"
     dashboard_options = "//a/div/td[2]"
     back_btn ="//div[@class='col-sm-6']/a"
@@ -44,7 +44,9 @@ class Data():
     sc_block = "//select[@name='myBlock']/option[2]"
     sc_cluster = "//select[@name='myCluster']/option[2]"
 
-
+    #udise
+    udise_drop ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[8]/mat-list-item/div/mat-icon"
+    udise_report ="udiseReport"
 
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"
@@ -114,6 +116,7 @@ class Data():
     SR_Schools_btn = "school"
     Download_icon = "//i[@id='download']"
     # user_creation
+
     user = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/mat-list/mat-list-item/div/button/span/mat-icon"
     create_user = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/mat-list/div/a[1]/div/span"
     create_headtext = "//h2"

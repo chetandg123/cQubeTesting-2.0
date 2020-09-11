@@ -6,7 +6,7 @@ from CRC import  crc_report_regression_testing
 from Diksha_Reports.Diksha_charts import  diksha_chart_Regression_testing
 from Diksha_Reports.Diksha_column_chart import column_regression_suite
 from Diksha_Reports.Diksha_table_report import  diksha_table_regression_testing
-from Landing_Page import cQube_home_page
+from Landing_Page import cQube_home_page, cQube_landing_page
 from Login import login_page
 from Login.login_page import login
 from SAR import  student_attendance_regression_testing
@@ -57,7 +57,7 @@ class MyTestSuite(unittest.TestCase):
     def test_issue02(self):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
-            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_home_page.cQube_Home),
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_landing_page.cQube_Home),
         ])
         p = pwd()
         outfile = open(p.get_regression_report_path(), "a")

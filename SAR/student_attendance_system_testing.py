@@ -1,3 +1,4 @@
+import os
 import time
 import unittest
 
@@ -7,6 +8,7 @@ from Data.parameters import Data
 
 from SAR.Click_on_hyper_link_in_SAR import Hyperlink
 from SAR.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
+from SAR.check_district_block_cluster import DistrictBlockCluster
 from SAR.check_districts_csv_download import DistrictCsvDownload
 from SAR.check_dots_on_each_district_block import DotsOnDistrictsBlock
 
@@ -28,6 +30,7 @@ from SAR.download_clusterwise_csv import ClusterwiseCsv
 from SAR.download_districtwise_csv import DistrictwiseCsv
 
 from SAR.download_schoolwise_csv import SchoolwiseCsv
+from get_dir import pwd
 from reuse_func import GetData
 
 
@@ -45,35 +48,44 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.year = year.first_selected_option.text
         self.month = month.first_selected_option.text
 
-    def test_click_on_dashboard(self):
-        dashboard = Dashboard(self.driver)
-        dashboard.click_on_dashboard()
+    # def test_click_on_dashboard(self):
+    #     dashboard = Dashboard(self.driver)
+    #     dashboard.click_on_dashboard()
 
-    def test_sar_icon_on_landingpage(self):
-        count = 0
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
-        self.data.page_loading(self.driver)
-        if 'home' not in self.driver.current_url:
-            print('home button is not working ')
-        self.driver.find_element_by_id('sar').click()
-        time.sleep(2)
-        if 'Attedance report' in self.driver.page_source:
-            print('Sar icon is working and student attedance report is displayed')
-        else:
-            print('sar icon is not working')
-            count = count + 1
-        self.assertEqual(0,count,msg='sar icon is not working ')
-        self.data.page_loading(self.driver)
+    # def test_sar_icon_on_landingpage(self):
+    #     count = 0
+    #     self.driver.find_element_by_xpath(Data.hyper_link).click()
+    #     self.data.page_loading(self.driver)
+    #     self.driver.find_element_by_id('homeBtn').click()
+    #     self.data.page_loading(self.driver)
+    #     if 'home' not in self.driver.current_url:
+    #         print('home button is not working ')
+    #     self.driver.find_element_by_id('sar').click()
+    #     time.sleep(2)
+    #     if 'Attendance report' in self.driver.page_source:
+    #         print('Sar icon is working and student attedance report is displayed')
+    #     else:
+    #         print('sar icon is not working')
+    #         count = count + 1
+    #     self.assertEqual(0,count,msg='sar icon is not working ')
+    #     self.data.page_loading(self.driver)
 
-    def test_click_on_student_attendence_report(self):
-        sar = DahboardSar(self.driver)
-        result = sar.click_on_sar()
-        if "Student Attendance Report" in result:
-            print("This is Student Attendance Report page")
-        else:
-            print("SAR page does not exist!...")
+    # def test_click_on_student_attendence_report(self):
+    #     sar = DahboardSar(self.driver)
+    #     result = sar.click_on_sar()
+    #     if "Student Attendance Report" in self.driver.page_source:
+    #         print("This is Student Attendance Report page")
+    #     else:
+    #         print("SAR page does not exist!...")
+    #     self.data.page_loading(self.driver)
+    #     self.driver.find_element_by_id(Data.Download).click()
+    #     time.sleep(5)
+    #     p = pwd()
+    #     self.filename = p.get_download_dir() + "/District_wise_report_" + self.month + "_" + self.year + ".csv"
+    #     time.sleep(2)
+    #     self.assertTrue(os.path.isfile(self.filename),msg="Districtwise csv file is not downloaded")
+    #     os.remove(self.filename)
+    #     self.data.page_loading(self.driver)
 
     def test_click_on_blocks(self):
         block = Blocks(self.driver)
@@ -90,25 +102,6 @@ class cQube_Student_Attendance(unittest.TestCase):
         result = school.check_markers_on_clusters_map()
         self.assertNotEqual(0, int(len(result) - 1), msg="Dots are not present on map")
 
-    def test_logout(self):
-        logout = Logout(self.driver)
-        result = logout.click_on_logout()
-        self.assertEqual("Log in to cQube", result, msg="login page is not exist!..")
-        self.data.login_cqube(self.driver)
-        self.data.navigate_to_student_report()
-        year = Select(self.driver.find_element_by_id(Data.sar_year))
-        month = Select(self.driver.find_element_by_id(Data.sar_month))
-        self.year = year.first_selected_option.text
-        self.month = month.first_selected_option.text
-
-    def test_check_hyperlinks(self):
-        hyperlinks = Hyperlink(self.driver)
-        result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
-        if result1 == False and result2 == False and choose_dist == "Choose a District ":
-            print("hyperlinks are working")
-        else:
-            raise self.failureException("hyperlinks are not working")
-
     def test_districtwise_csv_download(self):
         csv = DistrictwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_district()
@@ -118,74 +111,74 @@ class cQube_Student_Attendance(unittest.TestCase):
         else:
             raise self.failureException("District wise csv report download is not working")
 
-    def test_blockwise_csv_download(self):
-        self.data.page_loading(self.driver)
-        csv = BlockwiseCsv(self.driver, self.year, self.month)
-        result = csv.click_download_icon_of_blocks()
-        if result:
-            print("Block wise csv report download is working")
-            csv.remove_csv()
-        else:
-            raise self.failureException("Block wise csv report download is not working")
+    # def test_blockwise_csv_download(self):
+    #     self.data.page_loading(self.driver)
+    #     csv = BlockwiseCsv(self.driver, self.year, self.month)
+    #     result = csv.click_download_icon_of_blocks()
+    #     if result:
+    #         print("Block wise csv report download is working")
+    #         csv.remove_csv()
+    #     else:
+    #         raise self.failureException("Block wise csv report download is not working")
+    #
+    # def test_clusterwise_csv_download(self):
+    #     csv = ClusterwiseCsv(self.driver, self.year, self.month)
+    #     result = csv.click_download_icon_of_clusters()
+    #     if result:
+    #         print("Cluster wise csv report download is working")
+    #         csv.remove_csv()
+    #     else:
+    #         raise self.failureException("Cluster wise csv report download is not working")
 
-    def test_clusterwise_csv_download(self):
-        csv = ClusterwiseCsv(self.driver, self.year, self.month)
-        result = csv.click_download_icon_of_clusters()
-        if result:
-            print("Cluster wise csv report download is working")
-            csv.remove_csv()
-        else:
-            raise self.failureException("Cluster wise csv report download is not working")
+    # def test_schoolwise_cv_download(self):
+    #     csv = SchoolwiseCsv(self.driver, self.year, self.month)
+    #     result = csv.click_download_icon_of_schools()
+    #     if result:
+    #         print("School wise csv report download is working")
+    #         csv.remove_csv()
+    #     else:
+    #         raise self.failureException("School wise csv report download is not working")
 
-    def test_schoolwise_cv_download(self):
-        csv = SchoolwiseCsv(self.driver, self.year, self.month)
-        result = csv.click_download_icon_of_schools()
-        if result:
-            print("School wise csv report download is working")
-            csv.remove_csv()
-        else:
-            raise self.failureException("School wise csv report download is not working")
+    # def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
+    #     tc = TotalSchools(self.driver)
+    #     schools, Bschools = tc.block_no_of_schools()
+    #     self.assertEqual(int(schools), int(Bschools), msg="Block level no of schools are not equal to no of schools ")
+    #     schools, Cschools = tc.cluster_no_of_schools()
+    #     self.assertEqual(int(schools), int(Cschools), msg="Cluster level no of schools are not equal to no of schools ")
+    #     schools, Sschools = tc.schools_no_of_schools()
+    #     self.assertEqual(int(schools), int(Sschools), msg="Cluster level no of schools are not equal to no of schools ")
 
-    def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
-        tc = TotalSchools(self.driver)
-        schools, Bschools = tc.block_no_of_schools()
-        self.assertEqual(int(schools), int(Bschools), msg="Block level no of schools are not equal to no of schools ")
-        schools, Cschools = tc.cluster_no_of_schools()
-        self.assertEqual(int(schools), int(Cschools), msg="Cluster level no of schools are not equal to no of schools ")
-        schools, Sschools = tc.schools_no_of_schools()
-        self.assertEqual(int(schools), int(Sschools), msg="Cluster level no of schools are not equal to no of schools ")
+    # def test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools(self):
+    #     tc = TotalStudents(self.driver)
+    #     student_count, Bstudents = tc.block_total_no_of_students()
+    #     self.assertEqual(int(student_count), int(Bstudents), msg="Block level no of students are not equal")
+    #     student_count, Cstudents = tc.cluster_total_no_of_students()
+    #     self.assertEqual(int(student_count), int(Cstudents), msg="Cluster level no of students are not equal")
+    #     student_count, Sstudents = tc.schools_total_no_of_students()
+    #     self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
+    #
+    # def test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level(self):
+    #     cluster = ClusterDotsWithNoOfSchools(self.driver)
+    #     result = cluster.comapre_cluster()
+    #     if result != 0:
+    #         raise self.failureException('data not matched')
 
-    def test_total_no_of_students_is_equals_at_districts_blocks_clusters_schools(self):
-        tc = TotalStudents(self.driver)
-        student_count, Bstudents = tc.block_total_no_of_students()
-        self.assertEqual(int(student_count), int(Bstudents), msg="Block level no of students are not equal")
-        student_count, Cstudents = tc.cluster_total_no_of_students()
-        self.assertEqual(int(student_count), int(Cstudents), msg="Cluster level no of students are not equal")
-        student_count, Sstudents = tc.schools_total_no_of_students()
-        self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
+    # def test_home_icon(self):
+    #     home = Home(self.driver)
+    #     home.click_on_blocks_click_on_home_icon()
+    #     result = home.click_HomeButton()
+    #     if "Student Attendance Report" in result:
+    #         print("This is Student Attendance Report page")
+    #     else:
+    #         raise self.failureException('Home Icon is not working')
 
-    def test_no_of_schools_and_no_of_dots_are_equal_at_each_cluster_level(self):
-        cluster = ClusterDotsWithNoOfSchools(self.driver)
-        result = cluster.comapre_cluster()
-        if result != 0:
-            raise self.failureException('data not matched')
-
-    def test_home_icon(self):
-        home = Home(self.driver)
-        home.click_on_blocks_click_on_home_icon()
-        result = home.click_HomeButton()
-        if "Student Attendance Report" in result:
-            print("This is Student Attendance Report page")
-        else:
-            raise self.failureException('Home Icon is not working')
-
-    def test_block_per_district_csv_download(self):
-        dist = DistrictCsvDownload(self.driver, self.year, self.month)
-        result = dist.check_districts_csv_download()
-        if result == 0:
-            print("Block per district csv report download is working")
-        else:
-            raise self.failureException("Block per district csv report download is working")
+    # def test_block_per_district_csv_download(self):
+    #     dist = DistrictCsvDownload(self.driver, self.year, self.month)
+    #     result = dist.check_districts_csv_download()
+    #     if result == 0:
+    #         print("Block per district csv report download is working")
+    #     else:
+    #         raise self.failureException("Block per district csv report download is working")
 
     # def test_cluster_per_block_csv_download(self):
     #     block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
@@ -194,6 +187,34 @@ class cQube_Student_Attendance(unittest.TestCase):
     #         print("Cluster per block csv report download is working")
     #     else:
     #         raise self.failureException("Cluster per block csv report download is working")
+    def test_choose_district_block_cluster(self):
+        dist = DistrictCsvDownload(self.driver, self.year, self.month)
+        result = dist.check_districts_csv_download()
+        if result == 0:
+            print("Block per district csv report download is working")
+            print("on selection of each district")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Block per district csv report download is working")
+        block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
+        result = block.check_csv_download()
+        if result == 0:
+            print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Cluster per block csv report download is working")
+        schools = DistrictBlockCluster(self.driver, self.year, self.month)
+        result = schools.check_district_block_cluster()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download is working")
 
     def test_dots_on_each_districts(self):
         dist = DotsOnDistricts(self.driver)
@@ -201,11 +222,11 @@ class cQube_Student_Attendance(unittest.TestCase):
         if result != 0:
             raise self.failureException('data not found')
 
-    def test_dots_on_each_districts_and_each_block(self):
-        dist_block = DotsOnDistrictsBlock(self.driver)
-        result = dist_block.check_dots_on_each_districts_block()
-        if result != 0:
-            raise self.failureException('data not found')
+    # def test_dots_on_each_districts_and_each_block(self):
+    #     dist_block = DotsOnDistrictsBlock(self.driver)
+    #     result = dist_block.check_dots_on_each_districts_block()
+    #     if result != 0:
+    #         raise self.failureException('data not found')
 
     @classmethod
     def tearDownClass(cls):

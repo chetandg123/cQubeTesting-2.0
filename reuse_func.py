@@ -174,6 +174,16 @@ class GetData():
         time.sleep(5)
 
 
+    def navigate_to_udise_report(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.udise_drop).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.udise_report).click()
+        time.sleep(5)
+
+
     def navigate_to_crc_report(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()

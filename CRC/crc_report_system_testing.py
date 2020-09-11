@@ -72,33 +72,33 @@ class crc_System_Testing(unittest.TestCase):
         print("district wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
-    def test_homeicon(self):
-        b = Homeicon(self.driver)
-        result = b.test_homeicon()
-        self.assertTrue(result, msg="Home button not working ")
-        print("checking with home icon and it is working ")
-        self.data.page_loading(self.driver)
+    # def test_homeicon(self):
+    #     b = Homeicon(self.driver)
+    #     result = b.test_homeicon()
+    #     self.assertTrue(result, msg="Home button not working ")
+    #     print("checking with home icon and it is working ")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_homebtn(self):
+    #     b = Homeicon(self.driver)
+    #     result = b.test_homebutton()
+    #     self.assertEqual(0,result, msg="Home button not working ")
+    #     print("checking with home button and it is working ")
+    #     self.data.page_loading(self.driver)
 
-    def test_homebtn(self):
-        b = Homeicon(self.driver)
-        result = b.test_homebutton()
-        self.assertEqual(0,result, msg="Home button not working ")
-        print("checking with home button and it is working ")
-        self.data.page_loading(self.driver)
-
-    def test_crc_districtwise(self):
-        b = test_crc_report_districtwise(self.driver)
-        result = b.test_districtwise()
-        self.assertEqual(0,result,msg="no data found")
-        print('checked with districts records')
-        self.data.page_loading(self.driver)
-
-    def test_crc_blockwise(self):
-        b = crc_blockwise_records(self.driver)
-        result = b.test_blockwise()
-        print("checked with blockwise records")
-        self.assertEqual(0,result,msg="No data found ")
-        self.data.page_loading(self.driver)
+    # def test_crc_districtwise(self):
+    #     b = test_crc_report_districtwise(self.driver)
+    #     result = b.test_districtwise()
+    #     self.assertEqual(0,result,msg="no data found")
+    #     print('checked with districts records')
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_crc_blockwise(self):
+    #     b = crc_blockwise_records(self.driver)
+    #     result = b.test_blockwise()
+    #     print("checked with blockwise records")
+    #     self.assertEqual(0,result,msg="No data found ")
+    #     self.data.page_loading(self.driver)
 
     def test_crc_clusterwise(self):
         b = crc_schoolevel_records(self.driver)
@@ -115,14 +115,6 @@ class crc_System_Testing(unittest.TestCase):
         print("checked with districtwise table data")
         self.data.page_loading(self.driver)
 
-    def test_logout(self):
-        b = Logout_function(self.driver)
-        res = b.test_logout()
-        if "crc-report" in self.driver.current_url:
-            print("Navigated back to crc report")
-        else:
-            print("CRC report is not loaded ")
-        self.data.page_loading(self.driver)
 
     def test_crc_graph(self):
         b = plot_values(self.driver)
@@ -132,44 +124,37 @@ class crc_System_Testing(unittest.TestCase):
         self.data.page_loading(self.driver)
         print("checked graph x and y axis options")
 
-    def test_orderwise_tabledata(self):
-        b = Check_order_of_tabledata(self.driver)
-        result = b.test_order()
-        self.assertEqual(result, "menu", msg="Menu is not exist")
-        print("check order of table records is working ")
-        self.data.page_loading(self.driver)
+    # def test_orderwise_tabledata(self):
+    #     b = Check_order_of_tabledata(self.driver)
+    #     result = b.test_order()
+    #     self.assertEqual(result, "menu", msg="Menu is not exist")
+    #     print("check order of table records is working ")
+    #     self.data.page_loading(self.driver)
 
-    def test_on_clusterlevel_to_hyperlinks(self):
-        b = click_on_hyperlinks(self.driver)
-        result = b.test_hyperlink()
-        print("checking hyperlink from cluster levels ")
-        self.data.page_loading(self.driver)
-
-
-    def test_visited(self):
-        b = visited(self.driver)
-        result1, result2 = b.test_schools()
-        self.assertEqual(int(result1), result2, msg="total no of visited are mismatching in district level")
-        b.remove_file()
-        print("total no of visited info is equivalent with footer values ")
-        self.data.page_loading(self.driver)
-
-    def test_schoolcount(self):
-        b = school_count(self.driver)
-        res1, res2 = b.test_schools()
-        self.assertEqual(int(res1), res2, msg="total no of school are mismatching in district level")
-        b.remove_csv()
-        print("total no of schools info is equivalent with footer values ")
-        self.data.page_loading(self.driver)
-
-    def test_visits(self):
-        b = school_visits(self.driver)
-        res1, res2 = b.test_visits()
-        self.assertEqual(int(res1), res2, msg="total no of visits are mismatching in district level")
-        b.remove_file()
-        print("total no of visits info is equivalent with footer values ")
-        self.data.page_loading(self.driver)
-
+    # def test_visited(self):
+    #     b = visited(self.driver)
+    #     result1, result2 = b.test_schools()
+    #     self.assertEqual(int(result1), result2, msg="total no of visited are mismatching in district level")
+    #     b.remove_file()
+    #     print("total no of visited info is equivalent with footer values ")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_schoolcount(self):
+    #     b = school_count(self.driver)
+    #     res1, res2 = b.test_schools()
+    #     self.assertEqual(int(res1), res2, msg="total no of school are mismatching in district level")
+    #     b.remove_csv()
+    #     print("total no of schools info is equivalent with footer values ")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_visits(self):
+    #     b = school_visits(self.driver)
+    #     res1, res2 = b.test_visits()
+    #     self.assertEqual(int(res1), res2, msg="total no of visits are mismatching in district level")
+    #     b.remove_file()
+    #     print("total no of visits info is equivalent with footer values ")
+    #     self.data.page_loading(self.driver)
+    #
 
 
     @classmethod

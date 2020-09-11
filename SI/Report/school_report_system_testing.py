@@ -41,11 +41,11 @@ class cQube_SI_Report(unittest.TestCase):
         print("Menu list is displayed")
         self.data.page_loading(self.driver)
 
-    def test_graph(self):
-        b = check_with_graph(self.driver)
-        res = b.test_graph()
-        print("Graph is present in School report")
-        self.data.page_loading(self.driver)
+    # def test_graph(self):
+    #     b = check_with_graph(self.driver)
+    #     res = b.test_graph()
+    #     print("Graph is present in School report")
+    #     self.data.page_loading(self.driver)
 
     def test_download_district_wise(self):
         b = download_report(self.driver)
@@ -55,14 +55,6 @@ class cQube_SI_Report(unittest.TestCase):
         print("districtwise csv file is downloaded")
         self.data.page_loading(self.driver)
 
-    def test_check_hyperlinks(self):
-        hyperlinks = Hyperlink(self.driver)
-        result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
-        if result1 == False and result2 == False and choose_dist == "Choose a District ":
-            print("hyperlinks are working")
-        else:
-            raise self.failureException("hyperlinks are not working")
-        self.data.page_loading(self.driver)
 
     def test_download_blockwise(self):
         b = donwload_blockwise_csv(self.driver)
@@ -88,17 +80,17 @@ class cQube_SI_Report(unittest.TestCase):
         print("cluster wise csv file is downloaded")
         self.data.page_loading(self.driver)
 
-    def test_home_icon(self):
-        b = home(self.driver)
-        res = b.test_homeicon()
-        print("homeicon is working..")
-        self.data.page_loading(self.driver)
-
-    def test_home_btn(self):
-        b = home(self.driver)
-        res = b.test_homebtn()
-        print("home button is working..")
-        self.data.page_loading(self.driver)
+    # def test_home_icon(self):
+    #     b = home(self.driver)
+    #     res = b.test_homeicon()
+    #     print("homeicon is working..")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_home_btn(self):
+    #     b = home(self.driver)
+    #     res = b.test_homebtn()
+    #     print("home button is working..")
+    #     self.data.page_loading(self.driver)
 
     def test_check_orderwise(self):
         b = check_order_of_tabledata(self.driver)
@@ -107,19 +99,19 @@ class cQube_SI_Report(unittest.TestCase):
         print("checked with orderwise of table data")
         self.data.page_loading(self.driver)
 
-    def test_sc_scator_districtwise(self):
-        b = test_districtwise(self.driver)
-        result = b.test_districtwise()
-        self.assertEqual(0, result, msg="No data found")
-        print("Checked with each district wise records")
-        self.data.page_loading(self.driver)
-
-    def test_sc_scator_blockwise(self):
-        b = school_blockwise(self.driver)
-        result = b.test_blockwise()
-        self.assertEqual(0, result, msg="No data found")
-        print("Checked with each block wise records")
-        self.data.page_loading(self.driver)
+    # def test_sc_scator_districtwise(self):
+    #     b = test_districtwise(self.driver)
+    #     result = b.test_districtwise()
+    #     self.assertEqual(0, result, msg="No data found")
+    #     print("Checked with each district wise records")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_sc_scator_blockwise(self):
+    #     b = school_blockwise(self.driver)
+    #     result = b.test_blockwise()
+    #     self.assertEqual(0, result, msg="No data found")
+    #     print("Checked with each block wise records")
+    #     self.data.page_loading(self.driver)
 
     def test_schools_per_cluster_csv_download1(self):
         school = Test_schoolwise(self.driver)
@@ -132,36 +124,25 @@ class cQube_SI_Report(unittest.TestCase):
         else:
             raise self.failureException("Schools per cluster csv report download1 is working")
 
-    def test_tabledata_districtwise(self):
-        b = districtwise_tabledata(self.driver)
-        res = b.test_table_data()
-        if res != 0:
-            raise self.failureException('Data not found on table')
-        print("Districtwise table data is present...")
-        self.data.page_loading(self.driver)
-
-    def test_logout(self):
-        b = schoolinfra_logout(self.driver)
-        res = b.test_logout()
-        self.assertNotIn(" School Infrastructure report for: ", self.driver.page_source,
-                         msg="School infrastructure report not exist ")
-        self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
-        print("logout functionality is working...")
-        self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
-        self.data.page_loading(self.driver)
-
-    def test_xplotvalue(self):
-        b = Graph_values(self.driver)
-        res = b.test_xplots()
-        print("Checked with xvalues are working..")
-        self.data.page_loading(self.driver)
-
-    def test_yplotvalue(self):
-        b = Graph_values(self.driver)
-        res = b.test_yaxis()
-        print("Checked with y values are working..")
-        self.data.page_loading(self.driver)
+    # def test_tabledata_districtwise(self):
+    #     b = districtwise_tabledata(self.driver)
+    #     res = b.test_table_data()
+    #     if res != 0:
+    #         raise self.failureException('Data not found on table')
+    #     print("Districtwise table data is present...")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_xplotvalue(self):
+    #     b = Graph_values(self.driver)
+    #     res = b.test_xplots()
+    #     print("Checked with xvalues are working..")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_yplotvalue(self):
+    #     b = Graph_values(self.driver)
+    #     res = b.test_yaxis()
+    #     print("Checked with y values are working..")
+    #     self.data.page_loading(self.driver)
 
 
     @classmethod
