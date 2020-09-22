@@ -20,10 +20,10 @@ class school_wise_download():
         District_wise=Select(self.driver.find_element_by_id("downloader"))
         District_wise.select_by_visible_text(" School Wise Report ")
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Download).click()
+        self.driver.find_element_by_id(Data.Download_scator).click()
         time.sleep(15)
         self.cal.page_loading(self.driver)
-        self.filename = p.get_download_dir() + "/.csv"
+        self.filename = p.get_download_dir() + "/School_level_Infra_Report.csv"
         self.cal.page_loading(self.driver)
         return os.path.isfile(self.filename)
 

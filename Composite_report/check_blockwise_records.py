@@ -20,7 +20,7 @@ class composite_blockwise_records():
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count =0
-        for x in range(1, len(select_district.options)-31):
+        for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
             for y in range(1, len(select_block.options)):

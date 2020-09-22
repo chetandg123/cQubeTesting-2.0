@@ -30,7 +30,7 @@ class composite_schoolevel_records():
         for x in range(1, int(len(select_district.options))):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
-            for y in range(len(select_block.options), len(select_block.options)):
+            for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 self.cal.page_loading(self.driver)
                 for z in range(1, len(select_cluster.options)):
