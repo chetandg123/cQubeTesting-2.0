@@ -2,9 +2,7 @@ import time
 import unittest
 from Data.parameters import Data
 
-
 from Telemetry.download_last7day_records import last7day_download
-
 from Telemetry.download_lastday_records import lastday_download
 from Telemetry.download_overall_records import overall_download
 from Telemetry.download_the_lastmonth_recor import lastmonth_download
@@ -117,40 +115,6 @@ class Test_Telemetry(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
-
-    # def test_homeicon(self):
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id(Data.block_btn).click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id(Data.cluster_btn).click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id(Data.schoolbtn).click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id('homeBtn').click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id('telemData').click()
-    #     self.data.page_loading(self.driver)
-    #
-    #
-    # def test_clickon_homebtn(self):
-    #     count = 0
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id('homeBtn').click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id('telemData').click()
-    #     if 'telemetry' in self.driver.current_url:
-    #         print("Telemetry page is present ")
-    #     else:
-    #         print("Telemetry page is not present ")
-    #         count = count + 1
-    #     self.assertEqual(0, count, msg='Telemetry page is not displayed')
-    #     self.driver.find_element_by_id('homeBtn').click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id('telemData').click()
-    #     self.data.page_loading(self.driver)
-
-
-
 
     @classmethod
     def tearDownClass(cls):

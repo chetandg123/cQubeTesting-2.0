@@ -1,6 +1,4 @@
-from Admin_console import admin_console_regression_testing
-from Integration_Scripts import cQube_landing_page
-from UDISE.UDISE_map_report import  udise_regression_testing
+from UDISE import udise_regression_testing
 from get_dir import pwd
 import unittest
 from HTMLTestRunner import HTMLTestRunner
@@ -15,8 +13,8 @@ class MyTestSuite(unittest.TestCase):
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
-                # unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report),
-                unittest.defaultTestLoader.loadTestsFromTestCase(cQube_landing_page.cQube_Home),
+                unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report),
+                # unittest.defaultTestLoader.loadTestsFromTestCase(cQube_landing_page.cQube_Home),
 
             ])
             p= pwd()
@@ -24,7 +22,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Admin console Regression Test Report',
+                title='Admin console System Test Report',
                 verbosity=1,
             )
 

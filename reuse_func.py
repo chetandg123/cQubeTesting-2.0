@@ -49,18 +49,6 @@ class GetData():
         self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
-    # if you using selenium grid , please use below get_driver method
-    # def get_driver(self):
-    #     options = webdriver.ChromeOptions()
-    #     prefs = {'download.default_directory': self.p.get_download_dir()}
-    #     options.add_experimental_option('prefs', prefs)
-    #     self.driver = webdriver.Remote(
-    #         command_executor="http://localhost:4444/wd/hub",
-    #         desired_capabilities={
-    #             "browserName": "chrome",
-    #         },options=options)
-    #     return self.driver
-
 
     def open_cqube_appln(self,driver):
         self.driver = driver
@@ -96,6 +84,20 @@ class GetData():
         self.driver.find_element_by_id("telemReport").click()
         self.page_loading(self.driver)
 
+    def navigate_to_periodic_report(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        # self.driver.find_element_by_id('patReport').click()
+        self.driver.find_element_by_xpath("//*[@id='patReport']/div/td[2]").click()
+        time.sleep(4)
+
+    def navigate_to_composite_report(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('compositRep').click()
+        time.sleep(6)
 
     def page_loading(self,driver):
         try:
@@ -595,3 +597,33 @@ class GetData():
                 "browserName": "chrome",
             }, options=options)
         return self.driver
+
+    def get_demoadmin_name(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['createadmin']
+
+    def get_demoreport_name(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['createviewer']
+
+    def get_demoemission_name(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['createemission']
+
+    def get_demoadmin_password(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['adminpassword']
+
+    def get_demoreport_password(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['viewerpassword']
+
+    def get_demoemission_password(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['emissionpassword']

@@ -10,7 +10,6 @@ class MyTestSuite(unittest.TestCase):
     def test_Issue(self):
         functional_test = unittest.TestSuite()
         functional_test.addTests([
-            # file name .class name
         # unittest.defaultTestLoader.loadTestsFromTestCase(admin_console_smoke_testing.Admin_console_smoketest),
         unittest.defaultTestLoader.loadTestsFromTestCase(admin_console_system_testing.adminconsole_system_test),
         ])

@@ -15,6 +15,7 @@ class Data():
     # admin login
     home ="homeBtn"
     userlist="user"
+    userlisttable="//tr/td"
     cuser ="crtUsr"
     cpass ="//a[2]"
     dashboard_options = "//a/div/td[2]"
@@ -26,7 +27,9 @@ class Data():
     directory = "//p[contains(text(),' Semester report for:')]/span"
     Download = "download"
     Download_scator ='download1'
-
+    s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
+    summary_icon="//*[@id='summary']/img"
+    summ ="//*[@id='summary']/div/td[2]"
     # Dash board
     Dashboard = "menu"
     header = "//h4"

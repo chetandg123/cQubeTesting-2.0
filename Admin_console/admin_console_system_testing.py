@@ -23,7 +23,7 @@ class adminconsole_system_test(unittest.TestCase):
 
     def test_adminlanding_page(self):
         count = 0
-        if 'home' in self.driver.current.url:
+        if 'home' in self.driver.current_url:
             print('Admin console page is displayed ')
         else:
             print('Admin console landng page is not displayed')
@@ -56,19 +56,19 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for admin role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("username").send_keys('QAadmin')
+        self.driver.find_element_by_id("username").send_keys(self.data.get_demoadmin_name())
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):
             role.select_by_visible_text(" admin ")
             self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("passswd").send_keys('QAadmin@123')
+        self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoadmin_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_id(Data.userlist).click()
         self.data.page_loading(self.driver)
-        if "QAadmin" in self.driver.page_source:
+        if self.data.get_demoadmin_name() in self.driver.page_source:
             print("User is created and present in user list")
         else:
             print("User is not created and also not present in user list ")
@@ -82,19 +82,19 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for reportviewer role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("username").send_keys('QAviewer')
+        self.driver.find_element_by_id("username").send_keys(self.data.get_demoreport_name())
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):
             role.select_by_visible_text(" report_viewer ")
             self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("passswd").send_keys('QAviewer@123')
+        self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoreport_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_id(Data.userlist).click()
         self.data.page_loading(self.driver)
-        if "QAviewer" in self.driver.page_source:
+        if self.data.get_demoreport_name() in self.driver.page_source:
             print("User is created and present in user list")
         else:
             print("User is not created and also not present in user list ")
@@ -108,19 +108,19 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         print("creating new user for emission role")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("username").send_keys("QAemision")
+        self.driver.find_element_by_id("username").send_keys(self.data.get_demoemission_name())
         role = (Select(self.driver.find_element_by_id("role")))
         for i in range(len(role.options)):
             role.select_by_visible_text(" emission ")
             self.data.page_loading(self.driver)
-        self.driver.find_element_by_id("passswd").send_keys('QAemision@123')
+        self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoemission_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_id(Data.userlist).click()
         self.data.page_loading(self.driver)
-        if "emission_user" in self.driver.page_source:
+        if self.data.get_demoemission_name() in self.driver.page_source:
             print("User is created and present in user list")
         else:
             print("User is not created and also not present in user list ")
