@@ -35,5 +35,5 @@ class test_composite_report_districtwise():
                 time.sleep(3)
                 self.filename = p.get_download_dir() + "/blockPerDistrict_report.csv"
                 self.file = os.path.isfile(self.filename)
-        os.remove(self.filename)
+                os.remove(self.filename)
         return self.file
