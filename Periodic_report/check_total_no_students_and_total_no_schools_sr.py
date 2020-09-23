@@ -8,7 +8,6 @@ from reuse_func import GetData
 class TotalStudentsSchools():
     def __init__(self, driver):
         self.driver = driver
-        student_count = ''
 
     global student_count
 
@@ -18,10 +17,8 @@ class TotalStudentsSchools():
         cal.page_loading(self.driver)
         total_students = self.driver.find_element_by_id(Data.students).text
         students = re.sub("\D", "", total_students)
-        student_count = students
         no_schools = self.driver.find_element_by_id(Data.schoolcount).text
         schools = re.sub("\D", "", no_schools)
-        school_count = schools
 
 
         self.driver.find_element_by_id(Data.block_btn).click()
@@ -31,7 +28,8 @@ class TotalStudentsSchools():
 
         Bschools = self.driver.find_element_by_id(Data.schoolcount).text
         Bschool = re.sub("\D", "", Bschools)
-
+        print("Blocks",Bstudent,Bschool)
+        cal.page_loading(self.driver)
 
 
         self.driver.find_element_by_id(Data.cluster_btn).click()
@@ -42,6 +40,8 @@ class TotalStudentsSchools():
         Cstudent = re.sub("\D", "", Cstudents)
         Cschools = self.driver.find_element_by_id(Data.schoolcount).text
         Cschool = re.sub("\D", "", Cschools)
+        print("clusterwise", Cstudent,Cschool)
+        cal.page_loading(self.driver)
 
 
         self.driver.find_element_by_id(Data.schoolbtn).click()
@@ -53,5 +53,7 @@ class TotalStudentsSchools():
 
         Sschools = self.driver.find_element_by_id(Data.schoolcount).text
         Sschool = re.sub("\D", "", Sschools)
+        print("School wise ",Sstudents,Sschool)
+        cal.page_loading(self.driver)
 
-        return student_count,student_count ,Bstudent,Bschool , Cstudent,Cschool,Sstudent,Sschool
+        return students,schools ,Bstudent,Bschool , Cstudent,Cschool,Sstudent,Sschool

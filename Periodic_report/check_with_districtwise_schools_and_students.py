@@ -17,18 +17,17 @@ class District_wise_schools_students():
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
-            # students = self.driver.find_element_by_id("students").text
-            students = self.driver.find_element_by_xpath("//span[contains(text(),'Number of students:')]").text
+
+            students = self.driver.find_element_by_id("students").text
             res = re.sub('\D', "", students)
 
-            # school = self.driver.find_element_by_id("schools").text
-            school = self.driver.find_element_by_xpath("//span[contains(text(),'Number of schools:')]").text
+            school = self.driver.find_element_by_id("schools").text
             sc = re.sub('\D', "", school)
 
-            if int(res) != 0 :
+            if int(res) == 0 :
                 print("District" + select_district.first_selected_option.text + "student count mismatched")
                 count = count + 1
-            if int(sc) != 0:
+            if int(sc) == 0:
                 print("District" + select_district.first_selected_option.text + "school count mismatched")
                 count = count + 1
 

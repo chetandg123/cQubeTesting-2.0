@@ -11,6 +11,5 @@ class Dashboard():
         cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
-        cal.navigate_to_periodic_report()
-        cal.page_loading(self.driver)
+
 

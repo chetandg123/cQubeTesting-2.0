@@ -39,11 +39,10 @@ class Clusterwise_footers():
                 for row in csv.reader(fin):
                     tschools += int(row[7])
                     tstudents += int(row[6])
-                # totalschools = self.driver.find_element_by_id("schools").text
-                totalschools = self.driver.find_element_by_xpath("//span[contains(text(),'Number of schools:')]").text
+                totalschools = self.driver.find_element_by_id("schools").text
                 schools = re.sub('\D', "", totalschools)
 
-                totalstudents = self.driver.find_element_by_xpath("//span[contains(text(),'Number of students:')]").text
+                totalstudents = self.driver.find_element_by_id('students').text
                 students = re.sub('\D', "", totalstudents)
 
                 if int(schools) != int(tschools):

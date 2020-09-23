@@ -38,6 +38,7 @@ class periodic_functional_testing(unittest.TestCase):
     def setUpClass(self):
         self.data = GetData()
         self.driver = self.data.get_driver()
+        self.driver.implicitly_wait(100)
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_periodic_report()
@@ -52,12 +53,11 @@ class periodic_functional_testing(unittest.TestCase):
 
     def test_dashboard_patreport(self):
         count = 0
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
-        self.driver.find_element_by_id('patReport').click()
+        self.data.navigate_to_periodic_report()
         time.sleep(3)
         if 'pat-report' in self.driver.current_url:
             print('Navigated to Periodic Assessment report')
@@ -138,6 +138,7 @@ class periodic_functional_testing(unittest.TestCase):
         res = b.click_HomeButton()
         self.assertEqual(0,res,msg='home button is not worked ')
         print('Home button is working ')
+        self.data.navigate_to_periodic_report()
         self.data.page_loading(self.driver)
 
     def test_check_hyperlinks(self):
@@ -162,6 +163,8 @@ class periodic_functional_testing(unittest.TestCase):
     def test_dashboard(self):
         b=Dashboard(self.driver)
         res = b.click_on_dashboard()
+        self.data.navigate_to_periodic_report()
+        self.data.page_loading(self.driver)
         print('Dashboard to periodic report is working')
         self.data.page_loading(self.driver)
 
@@ -233,7 +236,7 @@ class periodic_functional_testing(unittest.TestCase):
         self.assertEqual(0,res,msg='Some of districts dont have footer values ')
         print("Checked with footer values for each districts ")
         self.data.page_loading(self.driver)
-
+    #
 
     @classmethod
     def tearDownClass(cls):

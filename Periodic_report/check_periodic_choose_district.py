@@ -48,13 +48,10 @@ class District():
                         for row in csv.reader(fin):
                             total += int(row[4])
                             schools += int(row[5])
-                        # students = self.driver.find_element_by_id("students").text
-                        students = self.driver.find_element_by_xpath(
-                            "//span[contains(text(),'Number of students')]").text
+                        students = self.driver.find_element_by_id("students").text
                         res = re.sub('\D', "", students)
 
-                        # school = self.driver.find_element_by_id("schools").text
-                        school = self.driver.find_element_by_xpath("//span[contains(text(),'Number of sc')]").text
+                        school = self.driver.find_element_by_id("schools").text
                         sc = re.sub('\D', "", school)
                         if int(res) != total:
                             print(

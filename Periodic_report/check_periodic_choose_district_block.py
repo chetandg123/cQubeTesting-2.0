@@ -25,10 +25,10 @@ class DistrictsBlock():
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         count = 0
-        for x in range(len(select_district.options)-1, len(select_district.options)):
+        for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
-            for y in range(len(select_block.options)-1, len(select_block.options)):
+            for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
                 markers = self.driver.find_elements_by_class_name(Data.dots)
@@ -53,12 +53,10 @@ class DistrictsBlock():
                             for row in csv.reader(fin):
                                 total += int(row[6])
                                 schools += int(row[7])
-                            # students = self.driver.find_element_by_id("students").text
-                            students = self.driver.find_element_by_xpath("//span[contains(text(),'Number of students')]").text
+                            students = self.driver.find_element_by_id("students").text
                             res = re.sub('\D', "", students)
 
-                            # school = self.driver.find_element_by_id("schools").text
-                            school = self.driver.find_element_by_xpath("//span[contains(text(),'Number of sc')]").text
+                            school = self.driver.find_element_by_id("schools").text
                             sc = re.sub('\D', "", school)
                             if int(res) != total:
                                 print("District" + select_district.first_selected_option.text +"Block"+ select_block.first_selected_option.text +"student count mismatched")

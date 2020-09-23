@@ -9,15 +9,15 @@ from reuse_func import GetData
 
 class MyTestSuite(unittest.TestCase):
 
-    @classmethod
-    def setUpClass(self):
-        self.data = GetData()
-        self.driver = self.data.get_driver()
-        self.driver.implicitly_wait(100)
-        self.data.open_cqube_appln(self.driver)
-        self.data.login_cqube(self.driver)
-        self.data.page_loading(self.driver)
-
+    # @classmethod
+    # def setUpClass(self):
+    #     self.data = GetData()
+    #     self.driver = self.data.get_driver()
+    #     self.driver.implicitly_wait(100)
+    #     self.data.open_cqube_appln(self.driver)
+    #     self.data.login_cqube(self.driver)
+    #     self.data.page_loading(self.driver)
+    #
 
     def test_issue01(self):
         regression_test = unittest.TestSuite()
