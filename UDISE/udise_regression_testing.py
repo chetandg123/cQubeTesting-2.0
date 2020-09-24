@@ -97,12 +97,12 @@ class cQube_udise_Report(unittest.TestCase):
         self.assertTrue(res,msg='School level csv file is not downloaded')
         self.assertNotEqual(res1,0,msg='Markers are missing on school level map ')
         print('Schoolwise csv file download is working')
-
-    def test_homeicon(self):
-        b = district_home(self.driver)
-        res = b.test_district()
-        print('checked with home icon is working or not ')
-        self.data.page_loading(self.driver)
+    #
+    # def test_homeicon(self):
+    #     b = district_home(self.driver)
+    #     res = b.test_district()
+    #     print('checked with home icon is working or not ')
+    #     self.data.page_loading(self.driver)
 
     def test_homebtn(self):
         count = 0
@@ -123,16 +123,16 @@ class cQube_udise_Report(unittest.TestCase):
         self.assertEqual(0, count, msg='Udise report icon not working ')
         self.data.page_loading(self.driver)
 
-    def test_logout(self):
-        b =click_on_logout(self.driver)
-        res = b.test_logout()
-        self.assertEqual('Log in to cQube',res,msg='Logout button is not workig')
-        self.data.page_loading(self.driver)
-        self.data.login_cqube(self.driver)
-        self.data.navigate_to_udise_report()
-        if 'udise-report' in self.driver.current_url:
-            print('Udise report home page is displayed ')
-        self.data.page_loading(self.driver)
+    # def test_logout(self):
+    #     b =click_on_logout(self.driver)
+    #     res = b.test_logout()
+    #     self.assertEqual('Log in to cQube',res,msg='Logout button is not workig')
+    #     self.data.page_loading(self.driver)
+    #     self.data.login_cqube(self.driver)
+    #     self.data.navigate_to_udise_report()
+    #     if 'udise-report' in self.driver.current_url:
+    #         print('Udise report home page is displayed ')
+    #     self.data.page_loading(self.driver)
 
     def test_block_btn_scores(self):
         b = block_btn_scores(self.driver)

@@ -45,7 +45,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         self.driver=webdriver.Chrome(options=options,executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -179,8 +179,8 @@ class GetData():
     def navigate_to_udise_report(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.udise_drop).click()
+        # time.sleep(3)
+        # self.driver.find_element_by_xpath(Data.udise_drop).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.udise_report).click()
         time.sleep(5)
@@ -189,10 +189,11 @@ class GetData():
     def navigate_to_crc_report(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.crc_report).click()
+        # time.sleep(3)
+        # self.driver.find_element_by_xpath(Data.crc_report).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.CRC).click()
+        time.sleep(4)
 
     def navigate_to_diksha_graph(self):
         self.driver.implicitly_wait(30)

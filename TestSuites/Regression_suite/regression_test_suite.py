@@ -3,18 +3,20 @@
 
 import time
 from CRC import  crc_report_regression_testing
+from Composite_report import composite_regression_testing
 from Diksha_Reports.Diksha_charts import  diksha_chart_Regression_testing
 from Diksha_Reports.Diksha_column_chart import column_regression_suite
 from Diksha_Reports.Diksha_table_report import  diksha_table_regression_testing
-from Landing_Page import cQube_home_page, cQube_landing_page
+from Landing_Page import cQube_landing_page
 from Login import login_page
-from Login.login_page import login
+from Periodic_report import periodic_regression_testing
 from SAR import  student_attendance_regression_testing
 from SI.MAP import  School_Map_regression_testing
 from SI.Report import  School_report_regression_testing
 from SR import  semester_report_regression_testing
 from Semester_Exception import  exception_regression_testing
 from Telemetry import telemetry_regression_testing
+from UDISE import udise_regression_testing
 
 from get_dir import pwd
 
@@ -310,6 +312,81 @@ class MyTestSuite(unittest.TestCase):
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
                 title='Telemetry Regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
+
+    def test_issue13(self):
+        self.data.navigate_to_udise_report()
+        time.sleep(3)
+        self.errMsg = self.data.get_data_status()
+        if self.errMsg.text == 'No data found':
+            print("No data in the udise  report page")
+        else:
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    udise_regression_testing.cQube_udise_Report)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Udise Regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
+
+    def test_issue14(self):
+        self.data.navigate_to_composite_report()
+        time.sleep(3)
+        self.errMsg = self.data.get_data_status()
+        if self.errMsg.text == 'No data found':
+            print("No data in composite the report page")
+        else:
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    composite_regression_testing.composite_regression_report)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Composite Report Regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
+
+    def test_issue15(self):
+        self.data.navigate_to_periodic_report()
+        time.sleep(3)
+        self.errMsg = self.data.get_data_status()
+        if self.errMsg.text == 'No data found':
+            print("No data in Periodic the report page")
+        else:
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    periodic_regression_testing.periodic_regression)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Periodic Report Regression Test Report',
                 verbosity=1,
 
             )

@@ -22,11 +22,12 @@ from Periodic_report.check_with_blocklevel_footer import Block_level_footers
 
 from Periodic_report.check_with_clusterlevel_footer import Clusterwise_footers
 from Periodic_report.check_with_districtwise_schools_and_students import District_wise_schools_students
+from Periodic_report.check_with_grade_dropdown import periodic_grades
 from Periodic_report.check_with_schoollevel_footer import Schoolwise_footers
 from Periodic_report.click_on_Home_icon import Home
+
 from Periodic_report.click_on_dashboard import Dashboard
 from Periodic_report.click_on_periodic_report import Pat_Report_icon
-
 from Periodic_report.click_on_periodic_report_and_logout import Logout
 
 from reuse_func import GetData
@@ -65,6 +66,33 @@ class periodic_functional_testing(unittest.TestCase):
             print('Pat report icon is not working')
             count = count + 1
         self.assertEqual(count,0,msg='Pat report button is not working')
+        self.data.page_loading(self.driver)
+
+    def test_gradesystem(self):
+        b =periodic_grades(self.driver)
+        res = b.check_grade_dropdown_options()
+        self.assertEqual(0,res,msg="grade options not present ")
+        print("Checked with grade options ")
+        self.data.page_loading(self.driver)
+
+    def test_grades_selection(self):
+        b = periodic_grades(self.driver)
+        res = b.click_each_grades()
+        print("selected each grade options ")
+        self.data.page_loading(self.driver)
+
+
+    def test_subject_dropdown(self):
+        b = periodic_grades(self.driver)
+        res = b.check_subject_dropdown()
+        self.assertNotEqual(0,res,msg="Subjects list are not present in dropdown")
+        print("checked with subjectwise dropdown options ")
+        self.data.page_loading(self.driver)
+
+    def test_select_each_subjects(self):
+        b = periodic_grades(self.driver)
+        res = b.select_subjects_dropdown()
+        print("selected each grade with all the subjects")
         self.data.page_loading(self.driver)
 
     def test_DistrictwiseCsv(self):
@@ -236,7 +264,7 @@ class periodic_functional_testing(unittest.TestCase):
         self.assertEqual(0,res,msg='Some of districts dont have footer values ')
         print("Checked with footer values for each districts ")
         self.data.page_loading(self.driver)
-    #
+
 
     @classmethod
     def tearDownClass(cls):
