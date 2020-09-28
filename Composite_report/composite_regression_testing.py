@@ -129,12 +129,6 @@ class composite_regression_report(unittest.TestCase):
         print("Cluster wise graph is displayed ")
         self.data.page_loading(self.driver)
 
-        b = Blocks_cluster_schools_Buttons(self.driver)
-        res = b.click_on_school_button()
-        self.assertEqual(0, res, msg="School graph is displayed ")
-        print("School wise graph is displayed ")
-        self.data.page_loading(self.driver)
-
 
     @classmethod
     def tearDownClass(cls):

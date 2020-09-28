@@ -36,7 +36,7 @@ class Schoolwise_footers():
                 tstudents = 0
                 for row in csv.reader(fin):
                      # tschools += int(row[5])
-                     tstudents += int(row[8])
+                     tstudents += int(row[9])
                 # totalschools = self.driver.find_element_by_id("schools").text
                 # schools = re.sub('\D', "", totalschools)
 

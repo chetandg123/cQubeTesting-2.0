@@ -1,10 +1,12 @@
 import time
 import unittest
+
 from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
 from SI.MAP.check_sc_map_clusterwise_records import test_school_map_schoollevel_records
 from SI.MAP.click_on_anydistrict_and_download_csv import download_icon
 from SI.MAP.click_on_blocksbtn_and_check_download import Blockwise_csv_download
 from SI.MAP.click_on_cluster_check_download import clusterwise_download
+
 from SI.MAP.click_on_school_and_check_download import school_wise_download
 from SI.MAP.mouseover_on_districtwise import mouseover
 

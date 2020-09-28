@@ -1,5 +1,3 @@
-
-
 import time
 import unittest
 from Data.parameters import Data
@@ -14,7 +12,6 @@ from UDISE.click_on_blocks_and_scores import block_btn_scores
 from UDISE.click_on_blocksbtn_and_check_download import Blockwise_csv_download
 from UDISE.click_on_cluster_check_download import clusterwise_download
 from UDISE.click_on_clusters_and_scores import cluster_btn_scores
-
 from UDISE.download_districtwise_csv import udise_districts_csv
 
 

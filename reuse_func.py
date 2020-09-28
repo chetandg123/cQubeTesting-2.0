@@ -79,8 +79,8 @@ class GetData():
     def navigate_to_telemetry(self):
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.telmetry_report).click()
-        time.sleep(2)
+        # self.driver.find_element_by_xpath(Data.telmetry_report).click()
+        # time.sleep(2)
         self.driver.find_element_by_id("telemReport").click()
         self.page_loading(self.driver)
 
@@ -88,14 +88,16 @@ class GetData():
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        # self.driver.find_element_by_id('patReport').click()
-        self.driver.find_element_by_xpath("//*[@id='patReport']/div/td[2]").click()
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        time.sleep(2)
+        self.driver.find_element_by_id("patReport").click()
         time.sleep(4)
 
     def navigate_to_composite_report(self):
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
+
         self.driver.find_element_by_id('compositRep').click()
         time.sleep(6)
 

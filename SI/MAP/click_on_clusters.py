@@ -27,4 +27,5 @@ class cluster_button():
         file = os.path.isfile(self.filename)
         self.p.page_loading(self.driver)
         os.remove(self.filename)
+        self.p.page_loading(self.driver)
         return count, file

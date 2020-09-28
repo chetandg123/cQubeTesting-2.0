@@ -10,8 +10,8 @@ class Data():
     homeicon = "home"
     logout = "logout"
     fieldReq = "/html/body/app-root/app-login/div[1]/div[2]/div[2]/form/div[2]/div/label"
-    Grade = ""
-    Subject = ""
+    Grade = "grades"
+    Subject = "subjects"
     loginbtn = "//button[@type='submit']"
     # admin login
     home ="homeBtn"

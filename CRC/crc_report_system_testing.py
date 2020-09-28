@@ -1,18 +1,19 @@
 import unittest
+from reuse_func import GetData
+
 from CRC.check_clusterwise_records import crc_schoolevel_records
 from CRC.check_crc_tabledata_by_selecting_districts import districtwise_tabledata
 from CRC.check_xaxis_and_yaxis_from_selectbox import plot_values
 from CRC.download_blockwise_csv import donwload_blockwise_csv
 from CRC.download_clusterwise_csv import load_clusterwise_csv
+
 from CRC.download_districtwise_csv import Districtwise_donwload
 from CRC.download_schoolwise_csv import school_wise_download
 from CRC.navigate_to_dashboard import Dashboard_menu
 
-from reuse_func import GetData
 
 
 class crc_System_Testing(unittest.TestCase):
-
     @classmethod
     def setUpClass(self):
             self.data = GetData()
@@ -65,7 +66,7 @@ class crc_System_Testing(unittest.TestCase):
 
     def test_crc_clusterwise(self):
         b = crc_schoolevel_records(self.driver)
-        res = b.check_csv_download1()
+        res = b.check_csv_download()
         print("Clusterwise records checking ")
         self.assertEqual(0,res,msg='Some of clusterwise records mismatch found! ')
         self.data.page_loading(self.driver)

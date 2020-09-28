@@ -43,7 +43,7 @@ class test_school_map_schoollevel_records():
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = p.get_download_dir() + "/School_per_block_report.csv"
+                        self.filename = p.get_download_dir() + "/School_per_cluster_report.csv"
                         if not os.path.isfile(self.filename):
                             print(select_cluster.options[z].text ,"csv file is not downloaded!")
                         else:

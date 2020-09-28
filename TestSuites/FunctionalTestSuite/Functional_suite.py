@@ -14,9 +14,9 @@ class MyTestSuite(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(composite_functional_testing.composite_report),
-        ])
+            ])
         p = pwd()
-        outfile = open(p.get_functional_report_path(), "w")
+        outfile = open(p.get_functional_report_path(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,

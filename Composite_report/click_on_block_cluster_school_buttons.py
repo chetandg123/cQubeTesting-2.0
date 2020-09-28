@@ -1,3 +1,7 @@
+import time
+
+from selenium.webdriver.support.select import Select
+
 from Data.parameters import Data
 from reuse_func import GetData
 
@@ -11,14 +15,23 @@ class Blocks_cluster_schools_Buttons():
         self.data  = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.block_btn).click()
-        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.sr_block_btn).click()
         self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')
         result = graph.is_displayed()
         if True != result:
             print("Block level graph is not displayed ")
             count = count + 1
+        xaxis_lists = Select(self.driver.find_element_by_id('x_axis'))
+        for i in range(len(xaxis_lists.options)):
+            time.sleep(2)
+            xaxis_lists.select_by_index(i)
+            self.data.page_loading(self.driver)
+        yaxis_lists = Select(self.driver.find_element_by_id('y_axis'))
+        for i in range(len(yaxis_lists.options)):
+            time.sleep(2)
+            yaxis_lists.select_by_index(i)
+            self.data.page_loading(self.driver)
         return count
 
     def click_on_clusters_button(self):
@@ -26,7 +39,7 @@ class Blocks_cluster_schools_Buttons():
         self.data  = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.block_btn).click()
+        self.driver.find_element_by_id(Data.sr_cluster_btn).click()
         self.data.page_loading(self.driver)
         self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')
@@ -34,21 +47,18 @@ class Blocks_cluster_schools_Buttons():
         if True != result:
             print("Cluster level graph is not displayed ")
             count = count + 1
+        xaxis_lists = Select(self.driver.find_element_by_id('x_axis'))
+        for i in range(len(xaxis_lists.options)):
+            time.sleep(2)
+            xaxis_lists.select_by_index(i)
+            self.data.page_loading(self.driver)
+        yaxis_lists = Select(self.driver.find_element_by_id('y_axis'))
+        for i in range(len(yaxis_lists.options)):
+            time.sleep(2)
+            yaxis_lists.select_by_index(i)
+            self.data.page_loading(self.driver)
         return count
 
-    def click_on_school_button(self):
-        count = 0
-        self.data  = GetData()
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.schoolbtn).click()
-        self.data.page_loading(self.driver)
-        self.data.page_loading(self.driver)
-        graph = self.driver.find_element_by_id('myChart')
-        result = graph.is_displayed()
-        if True != result:
-            print("School level graph is not displayed ")
-            count = count + 1
-        return count
+
 
 
