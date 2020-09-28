@@ -3,20 +3,22 @@ import unittest
 from HTMLTestRunner import HTMLTestRunner
 
 from CRC import crc_report_system_testing
-from Composite_report import composite_smoke_testing, composite_system_testing
+from Composite_report import composite_system_testing
 from Diksha_Reports.Diksha_charts import diksha_chart_system_testing
 from Diksha_Reports.Diksha_column_chart import column_system_testing
 from Diksha_Reports.Diksha_table_report import diksha_table_system_testing
+
 from Login import login_page
 from Periodic_report import periodic_system_suite
-from Periodic_report.periodic_system_suite import periodic_system_testing
 from SAR import student_attendance_system_testing
 from SI.MAP import school_map_system_testing
 from SI.Report import school_report_system_testing
+
 from SR import semester_report_system_testing
 from Semester_Exception import exception_system_testing
 from Telemetry import telemetry_system_testing
-from UDISE import udise_smoke_testing, udise_system_testing
+from UDISE import udise_system_testing
+
 from get_dir import pwd
 from reuse_func import GetData
 

@@ -1,17 +1,17 @@
-
-
-
 import time
+
 from CRC import  crc_report_regression_testing
 from Composite_report import composite_regression_testing
 from Diksha_Reports.Diksha_charts import  diksha_chart_Regression_testing
 from Diksha_Reports.Diksha_column_chart import column_regression_suite
 from Diksha_Reports.Diksha_table_report import  diksha_table_regression_testing
+
 from Landing_Page import cQube_landing_page
 from Login import login_page
 from Periodic_report import periodic_regression_testing
 from SAR import  student_attendance_regression_testing
 from SI.MAP import  School_Map_regression_testing
+
 from SI.Report import  School_report_regression_testing
 from SR import  semester_report_regression_testing
 from Semester_Exception import  exception_regression_testing
