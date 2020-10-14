@@ -1,4 +1,3 @@
-import time
 import unittest
 from HTMLTestRunner import HTMLTestRunner
 
@@ -36,8 +35,8 @@ class MyTestSuite(unittest.TestCase):
 
 
     def test_issue01(self):
-        regression_test = unittest.TestSuite()
-        regression_test.addTests([
+        system_test = unittest.TestSuite()
+        system_test.addTests([
             # file name .class name
             unittest.defaultTestLoader.loadTestsFromTestCase(login_page.login),
         ])
@@ -50,18 +49,13 @@ class MyTestSuite(unittest.TestCase):
             verbosity=1,
 
         )
-        runner1.run(regression_test)
+        runner1.run(system_test)
         outfile.close()
 
     def test_issue03(self):
-        self.data.navigate_to_student_report()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in the student attendance report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 # file name .class name
                 unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_system_testing.cQube_Student_Attendance),
             ])
@@ -75,18 +69,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue04(self):
-        self.data.navigate_to_crc_report()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in the crc report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 # file name .class name
                 unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_system_testing.crc_System_Testing),
             ])
@@ -100,18 +89,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue05(self):
-        self.data.navigate_to_semester_report()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in the semester report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_system_testing.cQube_Semester_Report),
             ])
             p = pwd()
@@ -124,18 +108,12 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue06(self):
-        self.data.navigate_to_school_infrastructure_map()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in the school infra map report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 # file name .class name
                 unittest.defaultTestLoader.loadTestsFromTestCase(school_map_system_testing.cQube_SI_Map_Report),
 
@@ -150,18 +128,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue07(self):
-        self.data.navigate_to_school_infrastructure()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in the school infra report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(school_report_system_testing.cQube_SI_Report)
             ])
             p = pwd()
@@ -174,18 +147,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue08(self):
-        # self.data.navigate_to_diksha_graph()
-        # time.sleep(3)
-        # self.errMsg = self.data.get_data_status()
-        # if self.errMsg.text == 'No data found':
-        #     print("No data in the diksha chart report page")
-        # else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(diksha_chart_system_testing.cQube_diskha_chart)
             ])
             p = pwd()
@@ -198,18 +166,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue09(self):
-        # self.data.navigate_to_diksha_table()
-        # time.sleep(3)
-        # self.errMsg = self.data.get_data_status()
-        # if self.errMsg.text == 'No data found':
-        #     print("No data in the diksha table report page")
-        # else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(diksha_table_system_testing.cQube_diskha_regression)
             ])
             p = pwd()
@@ -222,18 +185,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue10(self):
-        # self.data.navigate_to_diksha_column_chart()
-        # time.sleep(3)
-        # self.errMsg = self.data.get_data_status()
-        # if self.errMsg.text == 'No data found':
-        #     print("No data in the diksha column report page")
-        # else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(column_system_testing.cQube_diskha_column_report)
             ])
             p = pwd()
@@ -246,18 +204,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue11(self):
-        # self.data.navigate_to_semester_exception()
-        # time.sleep(3)
-        # self.errMsg = self.data.get_data_status()
-        # if self.errMsg.text == 'No data found':
-        #     print("No data in the semester exception report page")
-        # else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(exception_system_testing.cQube_semester_exception_report)
             ])
             p = pwd()
@@ -270,18 +223,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue12(self):
-        # self.data.navigate_to_telemetry()
-        # time.sleep(3)
-        # self.errMsg = self.data.get_data_status()
-        # if self.errMsg.text == 'No data found':
-        #     print("No data in the Telemetry  report page")
-        # else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
                     telemetry_system_testing.Test_Telemetry)
             ])
@@ -295,18 +243,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue13(self):
-        self.data.navigate_to_udise_report()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in the udise  report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
                     udise_system_testing.cQube_udise_Report)
             ])
@@ -320,18 +263,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue14(self):
-        self.data.navigate_to_composite_report()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in composite the report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
                     composite_system_testing.composite_system_report)
             ])
@@ -345,18 +283,13 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
     def test_issue15(self):
-        self.data.navigate_to_periodic_report()
-        time.sleep(3)
-        self.errMsg = self.data.get_data_status()
-        if self.errMsg.text == 'No data found':
-            print("No data in Periodic the report page")
-        else:
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
+
+            system_test = unittest.TestSuite()
+            system_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
                     periodic_system_suite.periodic_system_testing)
             ])
@@ -370,7 +303,7 @@ class MyTestSuite(unittest.TestCase):
 
             )
 
-            runner1.run(regression_test)
+            runner1.run(system_test)
             outfile.close()
 
 

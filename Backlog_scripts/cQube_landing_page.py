@@ -1,4 +1,6 @@
+import time
 import unittest
+
 from Landing_Page.cQube_icons import cQube_landing_page
 from reuse_func import GetData
 
@@ -11,6 +13,7 @@ class cQube_Home(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
+
 
     def test_sar_icon(self):
         b =cQube_landing_page(self.driver)
@@ -62,7 +65,6 @@ class cQube_Home(unittest.TestCase):
         res = b.test_diksha_column()
         self.data.page_loading(self.driver)
 
-
     def test_telemetry_icon(self):
         b = cQube_landing_page(self.driver)
         result = b.test_telemetry_report()
@@ -71,6 +73,21 @@ class cQube_Home(unittest.TestCase):
     def test_completionerror(self):
         b = cQube_landing_page(self.driver)
         res = b.test_completionerror()
+        self.data.page_loading(self.driver)
+
+    def test_compositeReport(self):
+        b = cQube_landing_page(self.driver)
+        res = b.test_composite_report()
+        self.data.page_loading(self.driver)
+
+    def test_patreport(self):
+        b = cQube_landing_page(self.driver)
+        res = b.test_periodic_report()
+        self.data.page_loading(self.driver)
+
+    def test_udisereport(self):
+        b = cQube_landing_page(self.driver)
+        res = b.test_udise_report()
         self.data.page_loading(self.driver)
 
 

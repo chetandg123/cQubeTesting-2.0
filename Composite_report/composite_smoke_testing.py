@@ -75,6 +75,7 @@ class composite_smoke_testing(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_composite_schoolwise_records(self):
+        self.data.page_loading(self.driver)
         b = composite_schoolevel_records(self.driver)
         res = b.check_csv_download()
         self.assertTrue(res, msg="Some of school csv file is not downloaded ")

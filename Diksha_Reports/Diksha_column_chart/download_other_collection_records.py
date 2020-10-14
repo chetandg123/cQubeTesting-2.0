@@ -27,15 +27,15 @@ class others_records_download():
         colltype = Select(self.driver.find_element_by_name('collection_type'))
         colltype.select_by_visible_text(' Others ')
         self.data.page_loading(self.driver)
-        if ' No Data Available ' in self.driver.page_source:
-            print("This is not having collection records")
-        else:
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(4)
-            self.filename = self.p.get_download_dir() + '/collectionType_textbook_data.csv'
-            time.sleep(2)
-            file = os.path.isfile(self.filename)
-            os.remove(self.filename)
-            return file
+        # if ' No Data Available ' in self.driver.page_source:
+        #     print("This is not having collection records")
+        # else:
+        self.driver.find_element_by_id(Data.Download).click()
+        time.sleep(4)
+        self.filename = self.p.get_download_dir() + '/collectionType_others_data.csv'
+        time.sleep(2)
+        file = os.path.isfile(self.filename)
+        os.remove(self.filename)
+        return file
 
 

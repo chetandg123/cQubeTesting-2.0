@@ -19,26 +19,26 @@ class composite_regression_report(unittest.TestCase):
     def setUpClass(self):
         self.data = GetData()
         self.driver = self.data.get_driver()
-        self.driver.implicitly_wait(50)
+        self.driver.implicitly_wait(100)
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_composite_report()
         self.data.page_loading(self.driver)
 
 
-    def test_composite_icon(self):
-        self.data.page_loading(self.driver)
-        count = 0
-        self.driver.find_element_by_id(Data.home).click()
-        self.data.page_loading(self.driver)
-        if 'home' in self.driver.current_url:
-            print("Landing page is displayed ")
-        else:
-            print('Home button is not working ')
-            count = count + 1
-        self.assertEqual(0,count,msg="Home btn is not working ")
-        self.driver.find_element_by_id('composit').click()
-        self.data.page_loading(self.driver)
+    # def test_composite_icon(self):
+    #     self.data.page_loading(self.driver)
+    #     count = 0
+    #     self.driver.find_element_by_id(Data.home).click()
+    #     self.data.page_loading(self.driver)
+    #     if 'home' in self.driver.current_url:
+    #         print("Landing page is displayed ")
+    #     else:
+    #         print('Home button is not working ')
+    #         count = count + 1
+    #     self.assertEqual(0,count,msg="Home btn is not working ")
+    #     self.driver.find_element_by_id('composit').click()
+    #     self.data.page_loading(self.driver)
 
     def test_districtwise_csv_download(self):
         b = Districtwise_download(self.driver)

@@ -14,7 +14,7 @@ class pwd():
 
     def get_admin_console_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/backlog.html')
+        report_path = os.path.join(cwd, 'Reports/functional_report.html')
         return report_path
 
     def get_semester_exception_download_path(self):
@@ -54,7 +54,7 @@ class pwd():
 
     def get_system_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/adminsystem_testing_report.html')
+        report_path = os.path.join(cwd, 'Reports/admin_testing_report.html')
         return report_path
 
     def get_config_ini_path(self):
@@ -70,6 +70,11 @@ class pwd():
     def get_driver_path(self):
         cwd = os.path.dirname(__file__)
         driver_path = os.path.join(cwd, 'Driver/chromedriver')
+        return driver_path
+
+    def get_firefox_driver_path(self):
+        cwd = os.path.dirname(__file__)
+        driver_path = os.path.join(cwd, 'Driver/geckodriver')
         return driver_path
 
     def get_screenshot_path(self):

@@ -10,8 +10,8 @@ class MyTestSuite(unittest.TestCase):
     def test_Issue(self):
         functional_test = unittest.TestSuite()
         functional_test.addTests([
-        # unittest.defaultTestLoader.loadTestsFromTestCase(admin_console_smoke_testing.Admin_console_smoketest),
-        unittest.defaultTestLoader.loadTestsFromTestCase(admin_console_system_testing.adminconsole_system_test),
+        unittest.defaultTestLoader.loadTestsFromTestCase(admin_console_smoke_testing.Admin_console_smoketest),
+        # unittest.defaultTestLoader.loadTestsFromTestCase(admin_console_system_testing.adminconsole_system_test),
         ])
         p= pwd()
         # outfile = open(p.get_smoke_report_path(), "a")
@@ -19,7 +19,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Regression Test Report',
+            title='Smoke Test Report',
             verbosity=1,
             description="Admin login  Test Result "
         )
