@@ -14,11 +14,13 @@ from Periodic_report.check_with_blocklevel_footer import Block_level_footers
 
 from Periodic_report.check_with_clusterlevel_footer import Clusterwise_footers
 from Periodic_report.check_with_districtwise_schools_and_students import District_wise_schools_students
+from Periodic_report.check_with_grade_dropdown import periodic_grades
 from Periodic_report.check_with_schoollevel_footer import Schoolwise_footers
 from Periodic_report.click_on_Home_icon import Home
 
 from Periodic_report.click_on_periodic_report import Pat_Report_icon
 from Periodic_report.click_on_periodic_report_and_logout import Logout
+from Periodic_report.timeseries import timeseries
 
 from reuse_func import GetData
 import unittest
@@ -87,11 +89,6 @@ class periodic_functional_testing(unittest.TestCase):
         self.assertEqual(0, res2, msg='Footer values mis match found')
         print('School level records are working fine')
         self.data.page_loading(self.driver)
-
-
-
-
-
 
     def test_TotalStudentsSchools(self):
         b = TotalStudentsSchools(self.driver)
@@ -167,6 +164,39 @@ class periodic_functional_testing(unittest.TestCase):
         self.assertEqual(0,res,msg='Some of districts dont have footer values ')
         print("Checked with footer values for each districts ")
         self.data.page_loading(self.driver)
+
+    def test_periodic_grades(self):
+        b = periodic_grades(self.driver)
+        res = b.check_grade_dropdown_options()
+        print("checking with each grades")
+        self.data.page_loading(self.driver)
+
+    def test_grades_subjects(self):
+        b = periodic_grades(self.driver)
+        res = b.select_subjects_dropdown()
+        print("checking with each grades with subjects")
+        self.data.page_loading(self.driver)
+
+    def test_grades_downloadfile(self):
+        b = periodic_grades(self.driver)
+        res = b.click_each_grades()
+        print("checking with each grades with download functionality")
+        self.data.page_loading(self.driver)
+
+    def test_timeseries(self):
+        b = timeseries(self.driver)
+        res =b.test_options_times()
+        self.assertNotEqual(0,res,msg="Time series options are not present ")
+        print("checking with time period options ")
+        self.data.page_loading(self.driver)
+
+    def test_timeseries_with_downloading(self):
+        b = timeseries(self.driver)
+        res =b.time_over_all()
+        self.assertEqual(0,res,msg="Some mismatch found in footer values")
+        print("checking with time period options ")
+        self.data.page_loading(self.driver)
+
 
 
     @classmethod

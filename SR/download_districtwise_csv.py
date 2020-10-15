@@ -1,3 +1,4 @@
+import csv
 import os
 import re
 import time
@@ -16,6 +17,7 @@ class DistrictwiseCsv():
 
     def click_download_icon_of_district(self):
         cal = GetData()
+        count = 0
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
@@ -26,6 +28,8 @@ class DistrictwiseCsv():
         if os.path.isfile(self.filename) != True:
            return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:
+            print('File is downloaded')
             os.remove(self.filename)
+
 
 

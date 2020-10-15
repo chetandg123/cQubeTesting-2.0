@@ -246,63 +246,63 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(regression_test)
             outfile.close()
-
-    def test_issue12(self):
-
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(telemetry_regression_testing.Test_Telemetry)
-            ])
-            p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Telemetry Regression Test Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(regression_test)
-            outfile.close()
-
-    def test_issue13(self):
-
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report)
-            ])
-            p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Udise Regression Test Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(regression_test)
-            outfile.close()
-
-    def test_issue14(self):
-
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(composite_regression_testing.composite_regression_report)
-            ])
-            p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Composite Report Regression Test Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(regression_test)
-            outfile.close()
+    #
+    # def test_issue12(self):
+    #
+    #         regression_test = unittest.TestSuite()
+    #         regression_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(telemetry_regression_testing.Test_Telemetry)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_regression_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Telemetry Regression Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(regression_test)
+    #         outfile.close()
+    #
+    # def test_issue13(self):
+    #
+    #         regression_test = unittest.TestSuite()
+    #         regression_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_regression_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Udise Regression Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(regression_test)
+    #         outfile.close()
+    #
+    # def test_issue14(self):
+    #
+    #         regression_test = unittest.TestSuite()
+    #         regression_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(composite_regression_testing.composite_regression_report)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_regression_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Composite Report Regression Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(regression_test)
+    #         outfile.close()
 
 
     @classmethod

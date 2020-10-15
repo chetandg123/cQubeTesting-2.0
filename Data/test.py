@@ -3,13 +3,12 @@
 #
 # path ="/home/chetan/Downloads/District_wise_report.csv"
 #
-# file = open(path)
-# read = file.read()
-# # print(read)
-# if  'districtId' and 'districtName' in read:
-#     print( "user visited and total views records is present")
-# else:
-#     print('Not present')
+file = open()
+read = file.read()
+if  'districtId' and 'districtName' in read:
+    print( "user visited and total views records is present")
+else:
+    print('Not present')
 
 
 

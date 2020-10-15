@@ -180,7 +180,7 @@ class cQube_landing_page():
     def test_composite_report(self):
         self.cal = GetData()
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id("composit").click()
+        self.driver.find_element_by_id("composite").click()
         self.cal.page_loading(self.driver)
         if "composit-report" in self.driver.current_url:
             print("Navigated to Composite report home page")
