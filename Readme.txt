@@ -4,7 +4,7 @@ cQube Release_1.5
 Prerequisites:
   To Run Selenium python scripts ,Install pycharm in your system
   Google Chrome need to be installed in the server or local machine.
-  Chrome driver need to be downloaded and place this driver file in cQubeTesting-1.5/Driver folder
+  Chrome driver need to be downloaded and placed in the cQubeTesting-1.5/Driver folder
   awscli must be installed and configured
    
 Steps to install the google chrome
@@ -19,7 +19,7 @@ Note: Based on chrome browser version need to download chrome driver
    https://sites.google.com/a/chromium.org/chromedriver/downloads
    
 Steps to install and configure the awscli
-   Enter the command below commands in the terminal 
+   Enter the below commands in the terminal 
    sudo pip3 install awscli
    aws configure
    provide the s3 access key
@@ -35,6 +35,7 @@ Steps to execute the test script
 	    sudo pip3 install -r Requirement.txt 
 	5.Fill the config.ini file (config.ini file present in the cQubeTesting-1.5 Folder).
 	        Mandatory fields for installation and upgradation of backend configuration and also to check the json files in the s3 output bucket
+		
                     [config]
                     domain=
                     username=
@@ -47,6 +48,7 @@ Steps to execute the test script
                     db_password= # db user which is provided in the config.yml file
                     aws_default_region=ap-south-1
                     s3_bucket= # s3 output bucket name which is provided in the config.yml file
+		    
     Execution of automation testscripts for both installation and upgradation of backend configuration
 
             python3 -m unittest TestSuites/cQubeBackendConfiguration/run_configuration.py
