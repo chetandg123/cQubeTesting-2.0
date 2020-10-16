@@ -5,6 +5,7 @@ Prerequisites:
   To Run Selenium python scripts ,Install pycharm in your system
   Google Chrome need to be installed in the server or local machine.
   Chrome driver need to be downloaded and place this driver file in cQubeTesting-1.5/Driver folder
+  awscli must be installed and configured
    
 Steps to install the google chrome
 
@@ -16,8 +17,14 @@ Steps to install the google chrome
 Steps to Download the chrome driver 
 Note: Based on chrome browser version need to download chrome driver 
    https://sites.google.com/a/chromium.org/chromedriver/downloads
-
-Note : Java jdk1.8 need to be already installed in the machine
+   
+Steps to install and configure the awscli
+   Enter the command below commands in the terminal 
+   sudo pip3 install awscli
+   aws configure
+   provide the s3 access key
+   provide the s3 secret key
+   provide the s3 default region
 
 Steps to execute the test script
 	1.Open the Terminal (Ctrl+Alt+t) in the ubuntu
