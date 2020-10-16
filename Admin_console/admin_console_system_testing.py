@@ -140,30 +140,6 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id(Data.home).click()
         self.data.page_loading(self.driver)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def test_navigate_to_s3files(self):
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.data.page_loading(self.driver)
@@ -175,22 +151,6 @@ class adminconsole_system_test(unittest.TestCase):
             print("s3FileDownload is not exists ")
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id("homeBtn").click()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     def test_check_summary(self):
         self.data.page_loading(self.driver)

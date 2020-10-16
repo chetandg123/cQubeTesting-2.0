@@ -277,3 +277,13 @@ class pwd():
         self.driver.find_element_by_id("email").clear()
         self.driver.find_element_by_id("designattion").clear()
         self.driver.find_element_by_id("passswd").clear()
+
+    def get_s3_report_path(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/s3FilesCheck.html')
+        return report_path
+
+    def get_nifi_processor_group_report_path(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/cQubeConfiguration.html')
+        return report_path
