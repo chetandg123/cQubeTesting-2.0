@@ -4,6 +4,7 @@ import json
 import os
 import time
 import boto
+import boto.s3
 import psycopg2
 import requests
 from selenium import webdriver
