@@ -234,6 +234,24 @@ class GetData():
         self.driver.find_element_by_id(Data.column_report).click()
         time.sleep(6)
 
+    def navigate_to_column_course(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id().click()
+        time.sleep(6)
+
+    def navigate_to_column_textbook(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id().click()
+        time.sleep(6)
+
     def navigate_to_completion_error(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()

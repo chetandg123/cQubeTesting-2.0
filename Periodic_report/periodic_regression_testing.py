@@ -31,12 +31,12 @@ class periodic_regression(unittest.TestCase):
         self.data.navigate_to_periodic_report()
         self.data.page_loading(self.driver)
 
-    # def test_Pat_Report_icon(self):
-    #     cls = Pat_Report_icon(self.driver)
-    #     fnc = cls.check_landing_page()
-    #     self.assertEqual(0,fnc,msg='Pat icon is not working ')
-    #     print('Checked with pat icon is working fine ')
-    #     self.data.page_loading(self.driver)
+    def test_Pat_Report_icon(self):
+        cls = Pat_Report_icon(self.driver)
+        fnc = cls.check_landing_page()
+        self.assertEqual(0,fnc,msg='Pat icon is not working ')
+        print('Checked with pat icon is working fine ')
+        self.data.page_loading(self.driver)
 
     def test_grades_selection(self):
         b = periodic_grades(self.driver)

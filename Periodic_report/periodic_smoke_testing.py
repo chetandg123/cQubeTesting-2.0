@@ -28,75 +28,75 @@ class periodic_smoke(unittest.TestCase):
         self.data.navigate_to_periodic_report()
         self.data.page_loading(self.driver)
 
-    def test_homebtn(self):
-        b = Home(self.driver)
-        time.sleep(3)
-        res = b.click_HomeButton()
-        self.assertEqual(0, res, msg='home button is not worked ')
-        print('Home button is working ')
-        self.data.navigate_to_periodic_report()
-        self.data.page_loading(self.driver)
-
-    def test_Pat_Report_icon(self):
-        cls = Pat_Report_icon(self.driver)
-        fnc = cls.check_landing_page()
-        self.assertEqual(0, fnc, msg='Pat icon is not working ')
-        print('Checked with pat icon is working fine ')
-        self.data.page_loading(self.driver)
-
-    def test_grades_selection(self):
-        b = periodic_grades(self.driver)
-        res = b.click_each_grades()
-        print("selected each grade options ")
-        time.sleep(5)
-        self.data.page_loading(self.driver)
-
-    def test_select_each_subjects(self):
-        b = periodic_grades(self.driver)
-        res = b.select_subjects_dropdown()
-        print("selected each grade with all the subjects")
-        self.data.page_loading(self.driver)
-
-    def test_DistrictwiseCsv(self):
-        cls = DistrictwiseCsv(self.driver)
-        func = cls.click_download_icon()
-        print('Downloading district level csv file is working')
-        self.data.page_loading(self.driver)
-
-    def test_blockbutton_records(self):
-        b = Block_level_records(self.driver)
-        res1 = b.click_download_icon_of_blocks()
-        self.assertNotEqual(0, res1, msg='markers are not present on block levels')
-        print('Block level records are working fine')
-        self.data.page_loading(self.driver)
-
-    def test_clusterbutton_records(self):
-        b = ClusterwiseCsv(self.driver)
-        res1 = b.click_download_icon_of_clusters()
-        self.assertNotEqual(0, res1, msg='markers are not present on block levels')
-        print('cluster level records are working fine')
-        self.data.page_loading(self.driver)
-
-    # def test_DotsOnDistricts(self):
-    #     b = DotsOnDistricts(self.driver)
-    #     res = b.check_dots_on_each_districts()
-    #     self.assertEqual(0, res, msg='Some districts dont have markers ')
-    #     print('Checked with markers on each district wise')
+    # def test_homebtn(self):
+    #     b = Home(self.driver)
+    #     time.sleep(3)
+    #     res = b.click_HomeButton()
+    #     self.assertEqual(0, res, msg='home button is not worked ')
+    #     print('Home button is working ')
+    #     self.data.navigate_to_periodic_report()
     #     self.data.page_loading(self.driver)
-
-    def test_schoolbutton_records(self):
-        b = SchoolwiseCsv(self.driver)
-        res1 = b.click_download_icon_of_schools()
-        self.assertNotEqual(0, res1, msg='markers are not present on block levels')
-        print('School level records are working fine')
-        self.data.page_loading(self.driver)
-
-    def test_district_block_clusterwise(self):
-        b = DistrictBlockCluster(self.driver)
-        res = b.check_district_block_cluster()
-        self.assertEqual(0, res, msg='Some mis match found at school level records')
-        print('School level records are working fine')
-        self.data.page_loading(self.driver)
+    #
+    # def test_Pat_Report_icon(self):
+    #     cls = Pat_Report_icon(self.driver)
+    #     fnc = cls.check_landing_page()
+    #     self.assertEqual(0, fnc, msg='Pat icon is not working ')
+    #     print('Checked with pat icon is working fine ')
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_grades_selection(self):
+    #     b = periodic_grades(self.driver)
+    #     res = b.click_each_grades()
+    #     print("selected each grade options ")
+    #     time.sleep(5)
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_select_each_subjects(self):
+    #     b = periodic_grades(self.driver)
+    #     res = b.select_subjects_dropdown()
+    #     print("selected each grade with all the subjects")
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_DistrictwiseCsv(self):
+    #     cls = DistrictwiseCsv(self.driver)
+    #     func = cls.click_download_icon()
+    #     print('Downloading district level csv file is working')
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_blockbutton_records(self):
+    #     b = Block_level_records(self.driver)
+    #     res1 = b.click_download_icon_of_blocks()
+    #     self.assertNotEqual(0, res1, msg='markers are not present on block levels')
+    #     print('Block level records are working fine')
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_clusterbutton_records(self):
+    #     b = ClusterwiseCsv(self.driver)
+    #     res1 = b.click_download_icon_of_clusters()
+    #     self.assertNotEqual(0, res1, msg='markers are not present on block levels')
+    #     print('cluster level records are working fine')
+    #     self.data.page_loading(self.driver)
+    #
+    # # def test_DotsOnDistricts(self):
+    # #     b = DotsOnDistricts(self.driver)
+    # #     res = b.check_dots_on_each_districts()
+    # #     self.assertEqual(0, res, msg='Some districts dont have markers ')
+    # #     print('Checked with markers on each district wise')
+    # #     self.data.page_loading(self.driver)
+    #
+    # def test_schoolbutton_records(self):
+    #     b = SchoolwiseCsv(self.driver)
+    #     res1 = b.click_download_icon_of_schools()
+    #     self.assertNotEqual(0, res1, msg='markers are not present on block levels')
+    #     print('School level records are working fine')
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_district_block_clusterwise(self):
+    #     b = DistrictBlockCluster(self.driver)
+    #     res = b.check_district_block_cluster()
+    #     self.assertEqual(0, res, msg='Some mis match found at school level records')
+    #     print('School level records are working fine')
+    #     self.data.page_loading(self.driver)
 
     # def test_TotalStudentsSchools(self):
     #     b = TotalStudentsSchools(self.driver)

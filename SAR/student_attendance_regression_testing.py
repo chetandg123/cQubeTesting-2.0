@@ -148,7 +148,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         home = Home(self.driver)
         home.click_on_blocks_click_on_home_icon()
         result = home.click_HomeButton()
-        if "Student Attendance Report" in result:
+        if "attendance-report" in result:
             print("Home Icon is working")
         else:
             raise self.failureException('Home Icon is not working')
