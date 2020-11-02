@@ -14,7 +14,7 @@ class Diksha_column_logout():
         self.driver.find_element_by_id(Data.logout).click()
         loginpage = self.driver.title
         self.data.login_cqube(self.driver)
-        # self.data.navigate_to_diksha_column_chart()
-        self.driver.find_element_by_id('ut').click()
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_column_course()
         self.data.page_loading(self.driver)
         return loginpage

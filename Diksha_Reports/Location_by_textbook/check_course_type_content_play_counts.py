@@ -26,7 +26,7 @@ class test_course_based_on_timeperiods():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + "/collectionType_course_data.csv"
+        self.filename = self.p.get_download_dir() + "/collectionType_textbook_data.csv"
         if not os.path.isfile(self.filename):
             print("Diksha course type of  last 30 days data csv file not downloaded")
         else:
@@ -57,7 +57,7 @@ class test_course_based_on_timeperiods():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + "/collectionType_course_data.csv"
+        self.filename = self.p.get_download_dir() + "/collectionType_textbook_data.csv"
         if not os.path.isfile(self.filename):
             print("Diksha course type of  last 30 days data csv file not downloaded")
         else:
@@ -89,7 +89,7 @@ class test_course_based_on_timeperiods():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + "/collectionType_course_data.csv"
+        self.filename = self.p.get_download_dir() + "/collectionType_textbook_data.csv"
         if not os.path.isfile(self.filename):
             print("Diksha course type of  last 30 days data csv file not downloaded")
         else:

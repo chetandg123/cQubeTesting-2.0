@@ -26,7 +26,7 @@ class Diksha_homeicon():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('dtr').click()
+        self.data.navigate_to_diksha_content_course()
         self.data.page_loading(self.driver)
 
     def test_searchbox(self):

@@ -79,9 +79,12 @@ class Data():
     diksha ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
     diksha_graph ="chrtReport"
     diksha_table = "dtblReport"
-
-    exception_click ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
+    col_course ="clmnReport"
+    col_text ="ut"
+    content_textbook ="utc"
+    exception_click ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
     sem_exception = "SemException"
+    ener_textbook="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
 
 
     sem_exe ="SemExp"
@@ -269,8 +272,8 @@ class Data():
 
     #Dashboards
     telmetry_report ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon"
-    attendance = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
-    semester_sel = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
+    attendance = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
+    semester_sel = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
     crc_report = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
     crc_sel2 ="//*[@id='select']/select/option[2]"
     crc_sel3 ="//*[@id='select']/select/option[3]"
@@ -284,7 +287,7 @@ class Data():
     summary ="//*[@id='summary']/img"
     monitor= "//*[@id='moniter']/a/img"
 
-    #viewes
+    #views
     infra_location ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-dashboard/div/div[1]/div[1]/div[1]/div[2]/div[1]/div/div/div[2]/div/p"
     view_composite ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-dashboard/div/div[1]/div[1]/div[1]/div[2]/div[2]/div/div/div[2]/div/p"
     view_udise ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-dashboard/div/div[1]/div[1]/div[1]/div[2]/div[3]/div/div/div[2]/div/p"
@@ -300,3 +303,14 @@ class Data():
     view_student ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-dashboard/div/div[1]/div[4]/div[1]/div[2]/div[1]/div/div/div[2]/div/p"
     view_teacher="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-dashboard/div/div[1]/div[4]/div[1]/div[2]/div[2]/div/div/div[2]/div/p"
     view_telemetry="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-dashboard/div/div[1]/div[4]/div[2]/div[2]/div/div/div/div[2]/div/p"
+
+    #Pat-heatchart
+    district_dropdown="district"
+    blocks_dropdown="block"
+    cluster_dropdown="cluster"
+    exam_dates ="examDate"
+    view_by="viewBy"
+    year_select ="year"
+    grade ="grade"
+    subjects ="subject"
+

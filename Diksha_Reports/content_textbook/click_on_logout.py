@@ -14,6 +14,7 @@ class content_course_logout():
         self.driver.find_element_by_id(Data.logout).click()
         loginpage = self.driver.title
         self.data.login_cqube(self.driver)
-        self.driver.find_element_by_id('utc').click()
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_diksha_content_textbook()
         self.data.page_loading(self.driver)
         return loginpage

@@ -1,10 +1,7 @@
-import time
 
 from CRC import  crc_report_regression_testing
 from Composite_report import composite_regression_testing
 from Diksha_Reports.Diksha_charts import  diksha_chart_Regression_testing
-from Diksha_Reports.Diksha_column_chart import column_regression_suite
-from Diksha_Reports.Diksha_table_report import  diksha_table_regression_testing
 from Landing_Page import cQube_landing_page
 from Login import login_page
 from SAR import  student_attendance_regression_testing
@@ -37,6 +34,7 @@ class MyTestSuite(unittest.TestCase):
 
 
     def test_issue01(self):
+
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             # file name .class name
@@ -73,24 +71,29 @@ class MyTestSuite(unittest.TestCase):
 
 
     def test_issue03(self):
+            self.data.page_loading(self.driver)
+            self.data.navigate_to_student_report()
+            self.data.page_loading(self.driver)
+            if 'No data found' in self.driver.page_source:
+                print("No data in Student attendance Report")
+            else:
+                regression_test = unittest.TestSuite()
+                regression_test.addTests([
+                    # file name .class name
+                    unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_regression_testing.cQube_Student_Attendance),
+                ])
+                p = pwd()
+                outfile = open(p.get_regression_report_path(), "a")
 
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                # file name .class name
-                unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_regression_testing.cQube_Student_Attendance),
-            ])
-            p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+                runner1 = HTMLTestRunner.HTMLTestRunner(
+                    stream=outfile,
+                    title='Student Attendance regression Test Report',
+                    verbosity=1,
 
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Student Attendance regression Test Report',
-                verbosity=1,
+                )
 
-            )
-
-            runner1.run(regression_test)
-            outfile.close()
+                runner1.run(regression_test)
+                outfile.close()
 
     def test_issue04(self):
 

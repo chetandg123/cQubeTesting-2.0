@@ -33,7 +33,7 @@ class course_records():
             for i in range(1, len(collnames.options)):
                 time.sleep(1)
                 collnames.select_by_index(i)
-                name = "collectionType_textbook_data_of" + collnames.options[i].text
+                name = "collectionType_course_data_of" + collnames.options[i].text
                 fname = name.replace(' ', '_')
                 time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
@@ -92,7 +92,7 @@ class course_records():
             for i in range(1,len(collnames.options)):
                 time.sleep(1)
                 collnames.select_by_index(i)
-                name = "collectionType_textbook_data_of"+collnames.options[i].text
+                name = "collectionType_course_data_of"+collnames.options[i].text
                 fname = name.replace(' ','_')
                 time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
@@ -151,7 +151,7 @@ class course_records():
             for i in range(1, len(collnames.options)):
                 time.sleep(1)
                 collnames.select_by_index(i)
-                name = "collectionType_textbook_data_of" + collnames.options[i].text
+                name = "collectionType_course_data_of" + collnames.options[i].text
                 fname = name.replace(' ', '_')
                 time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()

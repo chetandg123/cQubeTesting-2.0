@@ -13,7 +13,4 @@ class content_course_logout():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.logout).click()
         loginpage = self.driver.title
-        self.data.login_cqube(self.driver)
-        self.driver.find_element_by_id('utc')
-        self.data.page_loading(self.driver)
         return loginpage

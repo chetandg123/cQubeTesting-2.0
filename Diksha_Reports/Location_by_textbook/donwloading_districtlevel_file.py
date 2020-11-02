@@ -17,10 +17,12 @@ class overalldownload():
         self.data = GetData()
         count = 0
         p = pwd()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
         fname = file_extention()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = p.get_download_dir() + '/' + fname.location_course()
+        self.filename = p.get_download_dir() + '/' + fname.location_textbook()
         self.data.page_loading(self.driver)
         if os.path.isfile(self.filename) == False:
             print('Diksha usage by course chart csv file is not downloded ')

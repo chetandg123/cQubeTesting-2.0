@@ -373,3 +373,37 @@ class file_extention():
         location_textbook = name.location_textbook
         return location_textbook
 
+    def pchart_districts(self):
+        name = Files()
+        pchart_districtwise = name.pchart_districtwise
+        return pchart_districtwise
+
+    def pchart_blocks(self):
+        name = Files()
+        pchart_blocks = name.pchart_blocks
+        return pchart_blocks
+
+    def pchart_clusters(self):
+        name = Files()
+        pchart_clusters = name.pchart_clusters
+        return pchart_clusters
+
+    def pchart_schools(self):
+        name = Files()
+        pchart_schools = name.pchart_schools
+        return pchart_schools
+
+    def pchart_views(self):
+        name = Files()
+        pchart_view = name.pchart_view
+        return pchart_view
+
+    def pchart_subjects(self):
+        name = Files()
+        pchart_subjects = name.subject_wise
+        return pchart_subjects
+
+    def pchart_grades(self):
+        name = Files()
+        pchart_grades = name.pchart_grades
+        return pchart_grades

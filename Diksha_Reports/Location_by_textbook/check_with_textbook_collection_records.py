@@ -2,9 +2,7 @@ import csv
 import os
 import re
 import time
-
 from selenium.webdriver.support.select import Select
-
 from Data.parameters import Data
 from get_dir import pwd
 from reuse_func import GetData
@@ -33,13 +31,13 @@ class course_records():
             for i in range(1, len(collnames.options)):
                 time.sleep(1)
                 collnames.select_by_index(i)
-                name = "collectionType_course_data_of" + collnames.options[i].text
+                name = "collectionType_textbook_data_of" + collnames.options[i].text
                 fname = name.replace(' ', '_')
                 time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 cname = fname.rstrip('_')
-                print(cname, "cname")
+                print(fname, "fname" , cname ,"cname")
                 self.filename = self.p.get_download_dir() + '/' + cname + '.csv'
                 file = os.path.isfile(self.filename)
                 if file == True:
@@ -92,7 +90,7 @@ class course_records():
             for i in range(1,len(collnames.options)):
                 time.sleep(1)
                 collnames.select_by_index(i)
-                name = "collectionType_course_data_of"+collnames.options[i].text
+                name = "collectionType_textbook_data_of"+collnames.options[i].text
                 fname = name.replace(' ','_')
                 time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
@@ -151,7 +149,7 @@ class course_records():
             for i in range(1, len(collnames.options)):
                 time.sleep(1)
                 collnames.select_by_index(i)
-                name = "collectionType_course_data_of" + collnames.options[i].text
+                name = "collectionType_textbook_data_of" + collnames.options[i].text
                 fname = name.replace(' ', '_')
                 time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()

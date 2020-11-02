@@ -4,8 +4,6 @@ from HTMLTestRunner import HTMLTestRunner
 from CRC import crc_report_system_testing
 from Composite_report import composite_system_testing
 from Diksha_Reports.Diksha_charts import diksha_chart_system_testing
-from Diksha_Reports.Diksha_column_chart import column_system_testing
-from Diksha_Reports.Diksha_table_report import diksha_table_system_testing
 
 from Login import login_page
 from Periodic_report import periodic_system_suite
@@ -147,35 +145,7 @@ class MyTestSuite(unittest.TestCase):
             runner1.run(system_test)
             outfile.close()
 
-    def test_issue09(self):
-            system_test = unittest.TestSuite()
-            system_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(diksha_table_system_testing.cQube_diskha_regression)
-            ])
-            p = pwd()
-            outfile = open(p.get_system_report_path(), "a")
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Diksha Table system Test Report',
-                verbosity=1,
-            )
-            runner1.run(system_test)
-            outfile.close()
 
-    def test_issue10(self):
-            system_test = unittest.TestSuite()
-            system_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(column_system_testing.cQube_diskha_column_report)
-            ])
-            p = pwd()
-            outfile = open(p.get_system_report_path(), "a")
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Diksha column system Test Report',
-                verbosity=1,
-            )
-            runner1.run(system_test)
-            outfile.close()
 
     def test_issue11(self):
             system_test = unittest.TestSuite()

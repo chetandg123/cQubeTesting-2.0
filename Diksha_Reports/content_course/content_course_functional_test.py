@@ -25,9 +25,10 @@ class cQube_content_course(unittest.TestCase):
     def setUpClass(self):
             self.data = GetData()
             self.driver = self.data.get_driver()
+            self.driver.implicitly_wait(100)
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
-            self.data.navigate_to_diksha_table()
+            self.data.navigate_to_diksha_content_course()
             self.data.page_loading(self.driver)
 
     def test_diksha_page(self):
@@ -41,7 +42,7 @@ class cQube_content_course(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('dtr').click()
+        self.data.navigate_to_diksha_content_course()
         if "usage-by-course-content" in self.driver.current_url:
             print("Diksha usage-by-course-content page is Displayed")
         else:
@@ -130,6 +131,9 @@ class cQube_content_course(unittest.TestCase):
         b = content_course_logout(self.driver)
         res = b.test_logout()
         self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
+        self.data.login_cqube(self.driver)
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_diksha_content_course()
         self.data.page_loading(self.driver)
 
     @classmethod

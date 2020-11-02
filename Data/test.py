@@ -1,212 +1,41 @@
-
-
+# from files import Files
 #
-# path ="/home/chetan/Downloads/District_wise_report.csv"
+# name = Files()
+# sr_block = name.sr_block
+# print(sr_block)
 #
-file = open()
-read = file.read()
-if  'districtId' and 'districtName' in read:
-    print( "user visited and total views records is present")
-else:
-    print('Not present')
+# exception_districtwise = name.exception_districtwise
+# print(type(exception_districtwise))
+import csv
+import os
+
+# filename="home/chetan/Downloads/collectionType_course_data_of_All_content_course.csv"
+# filename ="collectionType_course_data_of_All_content_course.csv"
+# print("File is " , os.path.isfile(filename))
+# with open(filename) as fin:
+#     csv_reader = csv.reader(fin, delimiter=',')
+#     header = next(csv_reader)
+#     content = 0
+#     for row in csv.reader(fin):
+#         content += int(row[4])
+#     print(content)
+
+# txt = "banana_"
+#
+# # x = txt.rstrip("_")
+#
+# print(txt[:-1])
 
 
-
-import time
-import unittest
-
-from Data.parameters import Data
-from reuse_func import GetData
-
-class cQube_Home(unittest.TestCase):
-
-    @classmethod
-    def setUpClass(self):
-        self.data = GetData()
-        self.driver = self.data.get_driver()
-        self.data.open_cqube_appln(self.driver)
-        self.data.login_cqube(self.driver)
-        self.data.page_loading(self.driver)
-
-    # def test_dashboardviewes(self):
-    #     time.sleep(6)
-    #     self.data.page_loading(self.driver)
-    #     views = self.driver.find_elements_by_tag_name('p')
-    #     for i in range(len(views)):
-    #         print(views[i].text)
-    #     self.data.page_loading(self.driver)
-    #     self.data.page_loading(self.driver)
-    #     time.sleep(6)
-    #     views = self.driver.find_elements_by_tag_name('p')
-    #     for i in range(len(views)):
-    #         print(views[i].text)
-    #     self.data.page_loading(self.driver)
-    #     self.data.page_loading(self.driver)
-    #     time.sleep(6)
-    #     views = self.driver.find_elements_by_tag_name('p')
-    #     for i in range(len(views)):
-    #         print(views[i].text)
-    #     self.data.page_loading(self.driver)
-
-    # def test_2dashboardviewes(self):
-    #     self.data.page_loading(self.driver)
-    #     time.sleep(5)
-    #     views = self.driver.find_elements_by_tag_name('p')
-    #     for i in range(len(views)):
-    #         print(views[i].text)
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_3dashboardviewes(self):
-    #     self.data.page_loading(self.driver)
-    #     time.sleep(8)
-    #     views = self.driver.find_elements_by_tag_name('p')
-    #     for i in range(len(views)):
-    #         print(views[i].text)
-    #     self.data.page_loading(self.driver)
-
-
-    def test_view_checking(self):
-            text = self.driver.find_element_by_xpath(Data.infra_location).text
-            print('Infrastructure access by Location',text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.infra_location).text
-            print('Infrastructure access by Location',text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.infra_location).text
-            print('Infrastructure access by Location',text)
-
-            text = self.driver.find_element_by_xpath(Data.view_composite).text
-            print('Composite report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_composite).text
-            print('Composite report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_composite).text
-            print('Composite report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_udise).text
-            print('Udise report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_udise).text
-            print('Udise report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_udise).text
-            print('Udise report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_compo).text
-            print('Composite metrics report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_compo).text
-            print('Composite metrics report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_compo).text
-            print('Composite metrics report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_profile).text
-            print('Diksha user profile report', text)
-            time.sleep(8)
-            text = self.driver.find_element_by_xpath(Data.view_profile).text
-            print('Diksha user profile report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_profile).text
-            print('Diksha user profile report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_location).text
-            print('Diksha user location report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_location).text
-            print('Diksha user location report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_location).text
-            print('Diksha user location report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_content).text
-            print('Diksha user content report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_content).text
-            print('Diksha user content report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_content).text
-            print('Diksha user content report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_crc).text
-            print('crc report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_crc).text
-            print('crc report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_crc).text
-            print('crc report', text)
-
-
-            text = self.driver.find_element_by_xpath(Data.view_semester).text
-            print('semester report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_semester).text
-            print('semester report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_semester).text
-            print('semester report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_pat).text
-            print('Periodic report', text)
-            time.sleep(8)
-            text = self.driver.find_element_by_xpath(Data.view_pat).text
-            print('Periodic report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_pat).text
-            print('Periodic report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_exception).text
-            print('semester exception report', text)
-            time.sleep(8)
-            text = self.driver.find_element_by_xpath(Data.view_exception).text
-            print('semester exception report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_exception).text
-            print('semester exception report', text)
-
-            text = self.driver.find_element_by_xpath(Data.view_completion).text
-            print('Download exception list :', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_completion).text
-            print('Download exception list :', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_completion).text
-            print('Download exception list :', text)
-
-
-            text = self.driver.find_element_by_xpath(Data.view_student).text
-            print('Student attendance report: ', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_student).text
-            print('Student attendance report: ', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_student).text
-            print('Student attendance report: ', text)
-
-
-            text = self.driver.find_element_by_xpath(Data.view_teacher).text
-            print('Teacher report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_teacher).text
-            print('Teacher report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_teacher).text
-            print('Teacher report', text)
-
-
-            text = self.driver.find_element_by_xpath(Data.view_telemetry).text
-            print('Telemetry report', text)
-            time.sleep(10)
-            text = self.driver.find_element_by_xpath(Data.view_telemetry).text
-            print('Telemetry report', text)
-            time.sleep(12)
-            text = self.driver.find_element_by_xpath(Data.view_telemetry).text
-            print('Telemetry report', text)
-
-
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
+with open(self.filename) as fin:
+    csv_reader = csv.reader(fin, delimiter=',')
+    header = next(csv_reader)
+    data = list(csv_reader)
+    row_count = len(data)
+os.remove(self.filename)
+tablecount = self.driver.find_elements_by_tag_name('tr')
+records = int(len(tablecount)) - 2
+time.sleep(2)
+if row_count != records:
+    print(districts.options[x].text, "records count mismatch in downloaded file and table records")
+    count = count + 1

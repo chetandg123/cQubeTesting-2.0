@@ -1,14 +1,12 @@
-
 import unittest
 
 from Data.parameters import Data
-from Diksha_Reports.Location_by_course.check_course_type_content_play_counts import test_course_based_on_timeperiods
-from Diksha_Reports.Location_by_course.check_with_course_collection_records import course_records
-
-from Diksha_Reports.Location_by_course.click_on_homeicon import Diksha_column_homeicon
-from Diksha_Reports.Location_by_course.click_on_hyperlink import Diksha_column_hyperlink
-from Diksha_Reports.Location_by_course.click_on_logout import Diksha_column_logout
-from Diksha_Reports.Location_by_course.donwloading_districtlevel_file import overalldownload
+from Diksha_Reports.Location_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
+from Diksha_Reports.Location_by_textbook.check_with_textbook_collection_records import course_records
+from Diksha_Reports.Location_by_textbook.click_on_homeicon import Diksha_column_homeicon
+from Diksha_Reports.Location_by_textbook.click_on_hyperlink import Diksha_column_hyperlink
+from Diksha_Reports.Location_by_textbook.click_on_logout import Diksha_column_logout
+from Diksha_Reports.Location_by_textbook.donwloading_districtlevel_file import overalldownload
 
 from reuse_func import GetData
 
@@ -22,8 +20,8 @@ class cQube_diskha_column_report(unittest.TestCase):
             self.driver.implicitly_wait(100)
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
-            # self.data.navigate_to_diksha_column_chart()
-            self.driver.find_element_by_id('ut').click()
+            self.data.page_loading(self.driver)
+            self.data.navigate_to_column_textbook()
             self.data.page_loading(self.driver)
 
     def test_location_course_icon(self):
@@ -33,7 +31,7 @@ class cQube_diskha_column_report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('ut').click()
+        self.driver.find_element_by_xpath("//div[@id='ut']").click()
         self.data.page_loading(self.driver)
         if 'usage-by-textbook' in self.driver.current_url:
             print("diksha textbook report is displayed ")
@@ -48,8 +46,8 @@ class cQube_diskha_column_report(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)
-        # self.data.navigate_to_column_course()
-        self.driver.find_element_by_id('ut').click()
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_column_textbook()
         self.data.page_loading(self.driver)
         if 'usage-by-textbook' in self.driver.current_url:
             print('Home button is working')
@@ -62,7 +60,7 @@ class cQube_diskha_column_report(unittest.TestCase):
     def test_hyperlink(self):
         b = Diksha_column_hyperlink(self.driver)
         result = b.test_hyperlink()
-        self.data.page_loading(self.driver)
+        print('checked with hyper link is working')
         self.data.page_loading(self.driver)
 
     def test_overalldownload(self):
@@ -113,10 +111,6 @@ class cQube_diskha_column_report(unittest.TestCase):
         res = b.test_homeicon()
         print("Home icon is working")
         self.data.page_loading(self.driver)
-
-        # res = b.test_homebutton()
-        # self.assertEqual(0, res, msg='diksha course is failed while navigate to diksha course report')
-        # self.data.page_loading(self.driver)
 
     def test_Diksha_logout(self):
         b = Diksha_column_logout(self.driver)

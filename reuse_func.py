@@ -106,6 +106,24 @@ class GetData():
         self.driver.find_element_by_id("patReport").click()
         time.sleep(4)
 
+    def navigate_to_heatchart_report(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        time.sleep(2)
+        self.driver.find_element_by_id("heatChart").click()
+        time.sleep(4)
+
+    def navigate_to_lo_table_report(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        time.sleep(2)
+        self.driver.find_element_by_id("lotable").click()
+        time.sleep(4)
+
     def navigate_to_composite_report(self):
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -216,7 +234,7 @@ class GetData():
         self.driver.find_element_by_id(Data.diksha_graph).click()
         time.sleep(6)
 
-    def navigate_to_diksha_table(self):
+    def navigate_to_diksha_content_course(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
@@ -225,13 +243,13 @@ class GetData():
         self.driver.find_element_by_id(Data.diksha_table).click()
         time.sleep(6)
 
-    def navigate_to_diksha_column_chart(self):
+    def navigate_to_diksha_content_textbook(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.diksha).click()
+        self.driver.find_element_by_xpath(Data.ener_textbook).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.column_report).click()
+        self.driver.find_element_by_id(Data.content_textbook).click()
         time.sleep(6)
 
     def navigate_to_column_course(self):
@@ -240,16 +258,16 @@ class GetData():
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.diksha).click()
         time.sleep(2)
-        self.driver.find_element_by_id().click()
+        self.driver.find_element_by_id(Data.col_course).click()
         time.sleep(6)
 
     def navigate_to_column_textbook(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.diksha).click()
+        self.driver.find_element_by_xpath(Data.ener_textbook).click()
         time.sleep(2)
-        self.driver.find_element_by_id().click()
+        self.driver.find_element_by_id(Data.col_text).click()
         time.sleep(6)
 
     def navigate_to_completion_error(self):

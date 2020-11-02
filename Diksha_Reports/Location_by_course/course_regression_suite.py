@@ -20,7 +20,7 @@ class cQube_diskha_column_report(unittest.TestCase):
             self.driver.implicitly_wait(50)
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
-            self.data.navigate_to_diksha_column_chart()
+            self.data.navigate_to_column_course()
             self.data.page_loading(self.driver)
 
     def test_location_course_icon(self):

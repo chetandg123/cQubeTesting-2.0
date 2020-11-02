@@ -20,7 +20,7 @@ class overalldownload():
         fname = file_extention()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = p.get_download_dir() + '/' + fname.location_textbook()
+        self.filename = p.get_download_dir() + '/' + fname.location_course()
         self.data.page_loading(self.driver)
         if os.path.isfile(self.filename) == False:
             print('Diksha usage by textbook chart csv file is not downloded ')

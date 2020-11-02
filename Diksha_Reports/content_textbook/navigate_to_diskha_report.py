@@ -13,7 +13,7 @@ class Diksha_page():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.data.page_loading(self.driver)
-        self.data.navigate_to_diksha_table()
+        self.data.navigate_to_diksha_content_textbook()
         self.data.page_loading(self.driver)
         if "usage-by-textbook-content" in self.driver.current_url:
             print("Diksha usage-by-textbook-content page is Displayed")
