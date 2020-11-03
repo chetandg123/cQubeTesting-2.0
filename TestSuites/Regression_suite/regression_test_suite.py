@@ -4,6 +4,7 @@ from Composite_report import composite_regression_testing
 from Diksha_Reports.Diksha_charts import  diksha_chart_Regression_testing
 from Landing_Page import cQube_landing_page
 from Login import login_page
+from Periodic_report import periodic_regression_testing
 from SAR import  student_attendance_regression_testing
 from SI.MAP import  School_Map_regression_testing
 
@@ -96,27 +97,37 @@ class MyTestSuite(unittest.TestCase):
                 outfile.close()
 
     def test_issue04(self):
+            self.data.page_loading(self.driver)
+            self.data.navigate_to_crc_report()
+            self.data.page_loading(self.driver)
+            if 'No data found' in self.driver.page_source:
+                print("No data in crc Report")
+            else:
+                regression_test = unittest.TestSuite()
+                regression_test.addTests([
+                    # file name .class name
+                    unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_regression_testing.cQube_CRC_Report),
+                ])
+                p = pwd()
+                outfile = open(p.get_regression_report_path(), "a")
 
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                # file name .class name
-                unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_regression_testing.cQube_CRC_Report),
-            ])
-            p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+                runner1 = HTMLTestRunner.HTMLTestRunner(
+                    stream=outfile,
+                    title='Crc regression Test Report',
+                    verbosity=1,
 
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Crc regression Test Report',
-                verbosity=1,
+                )
 
-            )
-
-            runner1.run(regression_test)
-            outfile.close()
+                runner1.run(regression_test)
+                outfile.close()
 
     def test_issue05(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_semester_report()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in Semester  Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_regression_testing.cQube_Semester_Report),
@@ -135,7 +146,12 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue06(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_school_infrastructure_map()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in School infrastructure map Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 # file name .class name
@@ -156,7 +172,12 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue07(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_school_infrastructure()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in School infrastructure Plot Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(School_report_regression_testing.cQube_SI_Report)
@@ -175,7 +196,12 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue08(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_diksha_graph()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in diksha chart Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(diksha_chart_Regression_testing.cQube_diskha_chart)
@@ -195,7 +221,12 @@ class MyTestSuite(unittest.TestCase):
 
 
     def test_issue11(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_semester_exception()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in Semester exception Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(exception_regression_testing.cQube_semester_exception_report)
@@ -214,7 +245,12 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue12(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_telemetry()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in Telemetry Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(telemetry_regression_testing.Test_Telemetry)
@@ -233,7 +269,12 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue13(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_udise_report()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in udise Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report)
@@ -252,7 +293,12 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue14(self):
-
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_composite_report()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in Composite Report")
+        else:
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(composite_regression_testing.composite_regression_report)
@@ -270,6 +316,30 @@ class MyTestSuite(unittest.TestCase):
             runner1.run(regression_test)
             outfile.close()
 
+    def test_issue15(self):
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_periodic_report()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in Periodic Report")
+        else:
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    periodic_regression_testing.periodic_regression)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Periodic Report Regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
 
     @classmethod
     def tearDownClass(self):

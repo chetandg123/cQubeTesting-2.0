@@ -39,7 +39,6 @@ class course_records():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 cname = fname.rstrip('_')
-                print(cname, "cname")
                 self.filename = self.p.get_download_dir() + '/' + cname + '.csv'
                 file = os.path.isfile(self.filename)
                 if file == True:
@@ -58,7 +57,6 @@ class course_records():
                     os.remove(self.filename)
                 else:
                     alname = fname[:-1] + '.csv'
-                    print('current fname', alname)
                     self.filename = self.p.get_download_dir() + '/' + alname
                     with open(self.filename) as fin:
                         csv_reader = csv.reader(fin, delimiter=',')
@@ -98,7 +96,6 @@ class course_records():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 cname = fname.rstrip('_')
-                print(cname ,"cname")
                 self.filename = self.p.get_download_dir()+'/'+cname+'.csv'
                 file = os.path.isfile(self.filename)
                 if file == True:
@@ -117,7 +114,6 @@ class course_records():
                     os.remove(self.filename)
                 else:
                     alname = fname[:-1] +'.csv'
-                    print('current fname',alname)
                     self.filename = self.p.get_download_dir() + '/' +alname
                     with open(self.filename) as fin:
                         csv_reader = csv.reader(fin, delimiter=',')
@@ -157,7 +153,6 @@ class course_records():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 cname = fname.rstrip('_')
-                print(cname, "cname")
                 self.filename = self.p.get_download_dir() + '/' + cname + '.csv'
                 file = os.path.isfile(self.filename)
                 if file == True:
@@ -176,7 +171,6 @@ class course_records():
                     os.remove(self.filename)
                 else:
                     alname = fname[:-1] + '.csv'
-                    print('current fname', alname)
                     self.filename = self.p.get_download_dir() + '/' + alname
                     with open(self.filename) as fin:
                         csv_reader = csv.reader(fin, delimiter=',')

@@ -23,7 +23,7 @@ class Clusterswise():
         clust = Select(self.driver.find_element_by_id(Data.cluster_dropdown))
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         Blocks = Select(self.driver.find_element_by_id(Data.blocks_dropdown))
-        for i in range(1, len(dists.options)):
+        for i in range(len(dists.options)-1, len(dists.options)):
             dists.select_by_index(i)
             self.load.page_loading(self.driver)
             for j in range(1, len(Blocks.options)):
@@ -39,8 +39,8 @@ class Clusterswise():
                     if file != True:
                         print(clust.options[i].text, 'Cluster wise records csv file is not downloaded')
                         count = count + 1
-                self.load.page_loading(self.driver)
-                os.remove(self.filename)
+            self.load.page_loading(self.driver)
+            os.remove(self.filename)
 
 
         return count

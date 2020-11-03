@@ -1,4 +1,3 @@
-import csv
 import os
 import time
 
@@ -39,7 +38,7 @@ class Catagory_series():
                 count = count + 1
             else:
                 print(view_by.options[i].text,'csv file is downloaded')
-            os.remove(self.filename)
+        os.remove(self.filename)
         return count
 
     def test_questions_records(self):
@@ -77,7 +76,7 @@ class Catagory_series():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
         view_by = Select(self.driver.find_element_by_id(Data.view_by))
-        view_by.select_by_index(2)
+        view_by.select_by_visible_text(' Indicator ')
         self.load.page_loading(self.driver)
         if view_by.options[2].text in self.driver.page_source:
             print(view_by.options[2].text, 'is displayed records in heat chart')

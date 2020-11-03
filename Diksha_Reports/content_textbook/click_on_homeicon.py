@@ -13,6 +13,7 @@ class Diksha_homeicon():
     def test_homeicon(self):
         self.data = GetData()
         count = 0
+        self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         district  =Select(self.driver.find_element_by_id('choose_dist'))

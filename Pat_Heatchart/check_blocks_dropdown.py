@@ -25,7 +25,7 @@ class blocks():
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
             self.load.page_loading(self.driver)
-            for j in range(1, len(Blocks.options)):
+            for j in range(len(Blocks.options)-1, len(Blocks.options)):
                 Blocks.select_by_index(j)
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
@@ -35,7 +35,7 @@ class blocks():
                 if file != True:
                     print('Block wise records csv file is not downloaded ')
                     count = count + 1
-                os.remove(self.filename)
+            os.remove(self.filename)
 
             self.load.page_loading(self.driver)
         return count

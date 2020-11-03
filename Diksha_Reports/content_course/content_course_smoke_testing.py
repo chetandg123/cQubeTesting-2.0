@@ -1,8 +1,6 @@
 
 
 
-
-
 import unittest
 from Diksha_Reports.content_course.check_course_records_last7days import course_districtwise_lastweek_record
 from Diksha_Reports.content_course.check_course_records_lastday import course_districtwise_lastday_records

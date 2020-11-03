@@ -4,6 +4,7 @@ from HTMLTestRunner import HTMLTestRunner
 
 from Pat_Heatchart import heatchart_functional_suite
 from get_dir import pwd
+from pat_LO_Table import LO_Table_functional_suite
 
 
 class MyTestSuite(unittest.TestCase):
@@ -25,22 +26,22 @@ class MyTestSuite(unittest.TestCase):
         runner1.run(regression_test)
         outfile.close()
 
-    # def test_issue02(self):
-    #     regression_test = unittest.TestSuite()
-    #     regression_test.addTests([
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(periodic_functional_suite.periodic_functional_testing),
-    #     ])
-    #     p = pwd()
-    #     outfile = open(p.get_functional_report_path(), "a")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title='Periodic Report functional Test Report',
-    #         verbosity=1,
-    #
-    #     )
-    #     runner1.run(regression_test)
-    #     outfile.close()
+    def test_issue02(self):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(LO_Table_functional_suite.cQube_LOTable_fuuctionalTest),
+        ])
+        p = pwd()
+        outfile = open(p.get_functional_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='PAT LO Table functional Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(regression_test)
+        outfile.close()
 
     @classmethod
     def tearDownClass(cls):

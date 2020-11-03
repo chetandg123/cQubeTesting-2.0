@@ -4,9 +4,6 @@ from Diksha_Reports.content_course.check_with_lastweek_records import Districtwi
 
 from Diksha_Reports.content_course.check_with_monthwise_records import Districtwise_monthwise_records
 from Diksha_Reports.content_course.check_with_order_of_table import Table_orderwise
-from Diksha_Reports.content_course.click_on_homeicon import Diksha_homeicon
-from Diksha_Reports.content_course.click_on_hyperlink import Diksha_hyperlink
-from Diksha_Reports.content_course.click_on_logout import content_course_logout
 
 from Diksha_Reports.content_course.download_alldistricts_csvfile import course_districtwise_records
 from Diksha_Reports.content_course.navigate_to_diskha_report import Diksha_page
@@ -33,13 +30,6 @@ class cQube_content_course_system_suite(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_content_course_hyperlink(self):
-        self.data.page_loading(self.driver)
-        b = Diksha_hyperlink(self.driver)
-        res = b.test_hyperlink()
-        print("checked with hyper link functionality ")
-        self.data.page_loading(self.driver)
-
     def test_course_districtwise_records(self):
         b =course_districtwise_records(self.driver)
         res = b.test_alldata_districts()
@@ -65,26 +55,12 @@ class cQube_content_course_system_suite(unittest.TestCase):
         self.assertEqual(res, 0, msg='Some districts does not have table records')
         self.data.page_loading(self.driver)
 
-    def test_homeicon(self):
-        b =Diksha_homeicon(self.driver)
-        res = b.test_homeicon()
-        print('Home icon is working ')
-        self.data.page_loading(self.driver)
-
     def test_Table_orderwise(self):
         b = Table_orderwise(self.driver)
         res = b.test_tablevalue()
         print("checking order of the table and working as per requirement ")
         self.data.page_loading(self.driver)
 
-    def test_content_course_logout(self):
-        b = content_course_logout(self.driver)
-        res = b.test_logout()
-        self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
-        self.data.login_cqube(self.driver)
-        self.data.page_loading(self.driver)
-        self.data.navigate_to_diksha_content_course()
-        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

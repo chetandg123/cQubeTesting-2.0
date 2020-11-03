@@ -24,7 +24,7 @@ class blocks():
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         Blocks = Select(self.driver.find_element_by_id(Data.blocks_dropdown))
         self.load.page_loading(self.driver)
-        for i in range(1, len(dists.options) - 15):
+        for i in range(len(dists.options)-1, len(dists.options)):
             dists.select_by_index(i)
             self.load.page_loading(self.driver)
             for j in range(1, len(Blocks.options)):

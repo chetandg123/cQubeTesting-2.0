@@ -1,7 +1,5 @@
-
 import unittest
 
-from Data.parameters import Data
 from Diksha_Reports.content_textbook.check_textbook_records_last7days import course_districtwise_lastweek_record
 from Diksha_Reports.content_textbook.check_textbook_records_lastday import course_districtwise_lastday_records
 from Diksha_Reports.content_textbook.check_textbook_records_lastmonth import course_districtwise_lastmonth_chart
@@ -14,10 +12,11 @@ from Diksha_Reports.content_textbook.click_on_hyperlink import Diksha_hyperlink
 from Diksha_Reports.content_textbook.click_on_logout import content_course_logout
 from Diksha_Reports.content_textbook.download_alldistricts_csvfile import course_districtwise_records
 from Diksha_Reports.content_textbook.navigate_to_diskha_report import Diksha_page
+
 from reuse_func import GetData
 
 
-class cQube_content_course_regression(unittest.TestCase):
+class cQube_content_textbook_regression(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -37,34 +36,34 @@ class cQube_content_course_regression(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_content_course_hyperlink(self):
+    def test_content_textbook_hyperlink(self):
         self.data.page_loading(self.driver)
         b = Diksha_hyperlink(self.driver)
         res = b.test_hyperlink()
         print("checked with hyper link functionality ")
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_records(self):
+    def test_textbook_districtwise_records(self):
         b =course_districtwise_records(self.driver)
         res = b.test_alldata_districts()
         self.assertEqual(0,res,msg='Records are not present on table ')
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_lastweek_record(self):
+    def test_textbook_districtwise_lastweek_record(self):
         b = course_districtwise_lastweek_record(self.driver)
         res = b.test_each_districts()
         self.assertEqual(res,0,msg='records count mismatch in downloaded file and table records')
         print('checked with last 7days records ')
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_lastday_record(self):
+    def test_textbook_districtwise_lastday_record(self):
         b = course_districtwise_lastday_records(self.driver)
         res = b.test_each_districts()
         self.assertEqual(res, 0, msg='records count mismatch in downloaded file and table records')
         print('checked with last day records ')
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_lastmonth_chart(self):
+    def test_textbook_districtwise_lastmonth_chart(self):
         b = course_districtwise_lastmonth_chart(self.driver)
         res = b.test_each_districts()
         self.assertEqual(res, 0, msg='records count mismatch in downloaded file and table records')
@@ -89,11 +88,14 @@ class cQube_content_course_regression(unittest.TestCase):
         self.assertEqual(res, 0, msg='Some districts does not have table records')
         self.data.page_loading(self.driver)
 
-    def test_homeicon(self):
-        b =Diksha_homeicon(self.driver)
-        res = b.test_homeicon()
-        print('Home icon is working ')
+
+    def test_homebutton(self):
+        b = Diksha_homeicon(self.driver)
+        res = b.test_homebutton()
+        print('Home btn is working ')
         self.data.page_loading(self.driver)
+
+
 
     def test_Table_orderwise(self):
         b = Table_orderwise(self.driver)
@@ -101,7 +103,7 @@ class cQube_content_course_regression(unittest.TestCase):
         print("checking order of the table and working as per requirement ")
         self.data.page_loading(self.driver)
 
-    def test_content_course_logout(self):
+    def test_content_textbook_logout(self):
         b = content_course_logout(self.driver)
         res = b.test_logout()
         self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
