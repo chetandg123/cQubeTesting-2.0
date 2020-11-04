@@ -5,6 +5,8 @@ from Diksha_Reports.Location_by_course import usage_by_course_system_testing
 from Diksha_Reports.Location_by_textbook import usage_by_textbook_system_suite
 from Diksha_Reports.content_course import content_course_system_suite
 from Diksha_Reports.content_textbook import content_textbook_system_suite
+from Diksha_TPD.lpd_heat_chart import lpd_content_system_test
+from Diksha_TPD.percentage_heat_chart import lpd_percentage_system_test
 from Pat_Heatchart import patheatchart_system_test
 from get_dir import pwd
 from pat_LO_Table import PAT_LO_Table_system_suite
@@ -166,6 +168,56 @@ class MyTestSuite(unittest.TestCase):
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
                 title=' Usage By Textbook Report System Test Report',
+                verbosity=1,
+
+            )
+            runner1.run(system_test)
+            outfile.close()
+
+    def test_issue07(self):
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_tpd_content_progress()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in diksha lpd content Report")
+        else:
+            system_test = unittest.TestSuite()
+            system_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    lpd_content_system_test.cQube_lpdcontent_system_Test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title=' Usage By LPD Content Report System Test Report',
+                verbosity=1,
+
+            )
+            runner1.run(system_test)
+            outfile.close()
+
+    def test_issue08(self):
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_tpd_percentage_progress()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in diksha lpd percentage Report")
+        else:
+            system_test = unittest.TestSuite()
+            system_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    lpd_percentage_system_test.cQube_lpdpercentage_system_Test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title=' Usage By LPD Percentage Report System Test Report',
                 verbosity=1,
 
             )

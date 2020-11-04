@@ -4,6 +4,8 @@ from Diksha_Reports.Location_by_course import usage_by_course_regression_suite
 from Diksha_Reports.Location_by_textbook import usage_by_textbook_regression_suite
 from Diksha_Reports.content_course import content_course_regression_suite
 from Diksha_Reports.content_textbook import content_textbook_regression_suite
+from Diksha_TPD.lpd_heat_chart import lpd_content_regression_test
+from Diksha_TPD.percentage_heat_chart import lpd_percentage_regression_test
 from Pat_Heatchart import patheatchart_regression_test
 from get_dir import pwd
 from pat_LO_Table import PAT_LO_Table_regression_suite
@@ -165,6 +167,55 @@ class MyTestSuite(unittest.TestCase):
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
                 title=' Usage By Textbook Report Regression Test Report',
+                verbosity=1,
+
+            )
+            runner1.run(regression_test)
+            outfile.close()
+    def test_issue07(self):
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_tpd_content_progress()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in tdp content progress  Report")
+        else:
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    lpd_content_regression_test.cQube_lpdcontent_regression_Test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='LPD Content Progress Regression Test Report',
+                verbosity=1,
+
+            )
+            runner1.run(regression_test)
+            outfile.close()
+
+    def test_issue08(self):
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_tpd_percentage_progress()
+        self.data.page_loading(self.driver)
+        if 'No data found' in self.driver.page_source:
+            print("No data in tdp percentage progress  Report")
+        else:
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    lpd_percentage_regression_test.cQube_lpdpercentage_regression_Test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_report_path(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='LPD Percentage Progress Regression Test Report',
                 verbosity=1,
 
             )
