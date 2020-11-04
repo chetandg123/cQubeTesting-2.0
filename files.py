@@ -92,3 +92,10 @@ class Files():
     pchart_view ="ViewBy_report.csv"
     subject_wise ="Subject_wise_report.csv"
     pchart_grades ="Grade_wise_report.csv"
+
+
+    lpd_district="District_wise_report.csv"
+    lpd_block ="Block_wise_report.csv"
+    lpd_cluster="Cluster_wise_report.csv"
+    lpd_school ="School_wise_report.csv"
+    

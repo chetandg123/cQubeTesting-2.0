@@ -407,3 +407,26 @@ class file_extention():
         name = Files()
         pchart_grades = name.pchart_grades
         return pchart_grades
+
+    def lpd_districts(self):
+        name = Files()
+        lpd_districtwise = name.lpd_district
+        return lpd_districtwise
+
+    def lpd_block(self):
+        name = Files()
+        lpd_blockwise = name.lpd_block
+        return lpd_blockwise
+
+    def lpd_cluster(self):
+        name = Files()
+        lpd_clusterwise = name.lpd_cluster
+        return lpd_clusterwise
+
+    def lpd_school(self):
+        name = Files()
+        lpd_schoolwise = name.lpd_school
+        return lpd_schoolwise
+
+
+

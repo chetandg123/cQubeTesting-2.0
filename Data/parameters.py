@@ -79,6 +79,8 @@ class Data():
     diksha ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
     diksha_graph ="chrtReport"
     diksha_table = "dtblReport"
+    tpd_progress ="tpd-cp"
+    tpd_percentage ="tpd-tp"
     col_course ="clmnReport"
     col_text ="ut"
     content_textbook ="utc"
@@ -314,3 +316,8 @@ class Data():
     grade ="grade"
     subjects ="subject"
 
+    #LPD Reports
+    timeperiods ="timePeriod"
+    district_sel ="district"
+    block_sel ="block"
+    cluster_sel ="cluster"

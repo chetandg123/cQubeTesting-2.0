@@ -124,6 +124,9 @@ class GetData():
         self.driver.find_element_by_id("lotable").click()
         time.sleep(4)
 
+
+
+
     def navigate_to_composite_report(self):
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -241,6 +244,24 @@ class GetData():
         self.driver.find_element_by_xpath(Data.diksha).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.diksha_table).click()
+        time.sleep(6)
+
+    def navigate_to_tpd_content_progress(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.tpd_progress).click()
+        time.sleep(6)
+
+    def navigate_to_tpd_percentage_progress(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.tpd_percentage).click()
         time.sleep(6)
 
     def navigate_to_diksha_content_textbook(self):
