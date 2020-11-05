@@ -38,7 +38,7 @@ class School_wise_records():
                     self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_school()
                     file = os.path.isfile(self.filename)
                     if file != True:
-                        print(dists.options[i].text,Blocks.options[j].text,clust.options[i].text, 'School wise records csv file is not downloaded')
+                        print(dists.options[i].text,Blocks.options[j].text,clust.options[k].text, 'School wise records csv file is not downloaded')
                         count = count + 1
                     else:
                         with open(self.filename) as fin:

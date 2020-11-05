@@ -1,3 +1,4 @@
+import time
 import unittest
 
 from Data.parameters import Data
@@ -66,6 +67,7 @@ class cQube_lpdpercentage_regression_Test(unittest.TestCase):
         self.assertEqual(0, res, msg='Csv file is not downloaded')
         print('Last 30 Days content progress district wise csv file is downloaded')
         self.data.page_loading(self.driver)
+        time.sleep(5)
 
     def test_all_type_csv_download(self):
         b = Time_periods(self.driver)

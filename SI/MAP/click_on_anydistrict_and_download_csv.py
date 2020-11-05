@@ -37,7 +37,7 @@ class download_icon():
                     schools += int(row[0])
                 school = self.driver.find_element_by_id("schools").text
                 sc = re.sub('\D', "", school)
-                if int(sc) != schools:
+                if int(sc) != int(schools):
                     print("school count mismatched")
                     count = count + 1
             os.remove(self.filename)

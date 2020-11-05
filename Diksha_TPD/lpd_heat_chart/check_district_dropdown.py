@@ -19,6 +19,7 @@ class district_level_records():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
+        self.driver.implicitly_wait(100)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
@@ -27,10 +28,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/" + self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -51,6 +53,7 @@ class district_level_records():
         return count
 
     def test_last_day_districtwise(self):
+        self.driver.implicitly_wait(100)
         self.p = pwd()
         self.load = GetData()
         count = 0
@@ -63,10 +66,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/" + self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -87,6 +91,7 @@ class district_level_records():
     def test_last_7_days_districtwise(self):
         self.p = pwd()
         self.load = GetData()
+        self.driver.implicitly_wait(100)
         count = 0
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
@@ -97,10 +102,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -122,6 +128,7 @@ class district_level_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        self.driver.implicitly_wait(50)
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -131,16 +138,16 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/"+self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
                 count = count + 1
             else:
-                print('All districtwise csv file is downloaded')
                 with open(self.filename) as fin:
                     csv_reader = csv.reader(fin, delimiter=',')
                     header = next(csv_reader)

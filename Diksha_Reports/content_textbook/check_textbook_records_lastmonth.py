@@ -51,7 +51,7 @@ class course_districtwise_lastmonth_chart():
                 tablecount = self.driver.find_elements_by_tag_name('tr')
                 records = int(len(tablecount)) - 2
                 time.sleep(2)
-                if row_count != records:
+                if int(row_count) != records:
                     print(districts.options[x].text, "records count mismatch in downloaded file and table records")
                     count = count + 1
                 i = i + 1

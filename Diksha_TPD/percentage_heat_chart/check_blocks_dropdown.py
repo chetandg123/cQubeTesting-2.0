@@ -44,7 +44,7 @@ class Cluster_wise_records():
                         row_count = len(data)
                     os.remove(self.filename)
                     time.sleep(2)
-                    if row_count == 0:
+                    if int(row_count) == 0:
                         print("records are not found in csv file ")
                         count = count + 1
                     self.load.page_loading(self.driver)

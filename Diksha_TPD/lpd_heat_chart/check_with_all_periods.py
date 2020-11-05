@@ -118,7 +118,7 @@ class Time_periods():
             print('All Districtwise csv file is not downloaded ')
             count = count + 1
         else:
-            print('Last day districtwise csv file is downloaded')
+            print('All districtwise csv file is downloaded')
             with open(self.filename) as fin:
                 csv_reader = csv.reader(fin, delimiter=',')
                 header = next(csv_reader)

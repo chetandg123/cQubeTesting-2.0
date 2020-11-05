@@ -18,6 +18,7 @@ class district_level_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        self.driver.implicitly_wait(100)
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -27,10 +28,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -54,6 +56,7 @@ class district_level_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        self.driver.implicitly_wait(100)
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -63,10 +66,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -88,6 +92,7 @@ class district_level_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        self.driver.implicitly_wait(100)
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -97,10 +102,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -122,6 +128,7 @@ class district_level_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        self.driver.implicitly_wait(100)
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -131,10 +138,11 @@ class district_level_records():
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
+            time.sleep(2)
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
