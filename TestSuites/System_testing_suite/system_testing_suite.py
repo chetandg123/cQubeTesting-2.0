@@ -222,7 +222,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Periodic Report Regression Test Report',
+                title='Periodic Report System Test Report',
                 verbosity=1,
             )
             runner1.run(system_test)

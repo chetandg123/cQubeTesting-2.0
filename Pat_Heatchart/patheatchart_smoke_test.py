@@ -1,9 +1,4 @@
 
-
-
-
-
-
 import unittest
 
 from Pat_Heatchart.Check_random_selection_on_each_dropdown import Random_test

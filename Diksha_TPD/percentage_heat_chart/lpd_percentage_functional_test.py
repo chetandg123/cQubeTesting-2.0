@@ -12,7 +12,7 @@ from Diksha_TPD.percentage_heat_chart.check_with_logout_btn import logout_button
 from reuse_func import GetData
 
 
-class cQube_heatchart_functionalTest(unittest.TestCase):
+class cQube_chart_percentage_functionalTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):

@@ -38,7 +38,7 @@ class Catagory_series():
                 count = count + 1
             else:
                 print(view_by.options[i].text,'csv file is downloaded')
-        os.remove(self.filename)
+            os.remove(self.filename)
         return count
 
     def test_questions_records(self):
