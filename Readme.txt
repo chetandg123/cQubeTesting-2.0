@@ -80,17 +80,23 @@ Steps to execute the test script
                   emissionpassword= # Enter password for new emission user
 
     6.To Run the Test scripts
-        for functinal testing of periodic report and composite fallow commnad
+        for functinal testing of pat heatchart , lo table ,TPD Collection progress  and TPD Teacher Progress fallow commnad
             python3 -m unittest TestSuites/FunctionalTestSuite/Functional_suite.py
+	    
     Navigate to cQubeTesting-1.3 Directory in the terminal (ex cd /home/ubuntu/cQubeTesting-1.6)
             For Regression:
                 python3 -m unittest TestSuites/Regression_suite/regression_test_suite.py
+		python3 -m unittest TestSuites/Regression_suite/regression_suite_2.py
                 python3 -m unittest Admin_console/admin_console_regression_testing.py
-            For System Testing:
+            
+	    For System Testing:
                 python3 -m unittest TestSuites/System_testing_suite/system_testing_suite.py
+		python3 -m unittest TestSuites/System_testing_suite/smoke_test_suite_2.py
                 python3 -m unittest Admin_console/admin_console_system_testing.py
-            For Smoke Testing:
+           
+	   For Smoke Testing:
                 python3 -m unittest TestSuites/SmokeTestSuite/Smoke_Testing.py
+		python3 -m unittest TestSuites/SmokeTestSuite/system_suite_2.py
                 python3 -m unittest Admin_console/Admin_smoke_testsuit.py
 
     if any errors like : ImportError: bad magic number in : b'\x03\xf3\r\n' then use this command and again restart execution
