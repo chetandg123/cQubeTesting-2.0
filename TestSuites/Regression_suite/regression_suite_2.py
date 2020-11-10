@@ -33,7 +33,7 @@ class MyTestSuite(unittest.TestCase):
                     )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "w")
+            outfile = open(p.get_regression_report_path(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,

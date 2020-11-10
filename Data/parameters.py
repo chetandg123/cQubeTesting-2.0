@@ -29,7 +29,6 @@ class Data():
     Download = "download"
     Download_scator ='download1'
     s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
-    summary_icon="//*[@id='summary']/img"
     summ ="//*[@id='summary']/div/td[2]"
     # Dash board
     Dashboard = "menu"
@@ -334,3 +333,7 @@ class Data():
     adduser ="addUser"
     chpass_icon ="//div[@id='chPass']"
     userprofiles ="//div[@id='user']"
+    log_icon ="//div[@id='logs']"
+    summary_icon ="//div[@id='summary']"
+    s3files_icon ="s3dwn"
+    nifi_Sch ="//div[@id='nifi']"
