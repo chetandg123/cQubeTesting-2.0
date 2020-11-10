@@ -52,6 +52,8 @@ class Data():
     udise_drop ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[8]/mat-list-item/div/mat-icon"
     udise_report ="udiseReport"
 
+
+
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"
     dist_hyper = "//*[@id='block_level']/span[1]"
@@ -126,8 +128,6 @@ class Data():
     Download_icon = "//i[@id='download']"
     # user_creation
 
-    user = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/mat-list/mat-list-item/div/button/span/mat-icon"
-    create_user = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/mat-list/div/a[1]/div/span"
     create_headtext = "//h2"
     fname = "//input[@name='firstname']"
     mname = "//input[@name='middlename']"
@@ -321,3 +321,16 @@ class Data():
     district_sel ="district"
     block_sel ="block"
     cluster_sel ="cluster"
+
+    #Admin_Console
+    create_user ="crtUsr"
+    change_pass ="//a[@id='Chpass']"
+    userlst = "//a[@id='user']"
+    logfiles ="//a[@id='logs']"
+    s3downloads ="//a[@id='downloads']"
+    summarystat ="//a[@id='summary']"
+    nifischedular="//a[@id='nifi']"
+    #icons
+    adduser ="addUser"
+    chpass_icon ="//div[@id='chPass']"
+    userprofiles ="//div[@id='user']"
