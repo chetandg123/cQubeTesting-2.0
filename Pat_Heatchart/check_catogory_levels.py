@@ -86,7 +86,7 @@ class Catagory_series():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + "/" + self.fname.pchart_views()
+        self.filename = self.p.get_download_dir() + "/District_wise_report.csv"
         if os.path.isfile(self.filename) != True:
             print(view_by.options[2].text, 'csv file is not downloaded')
             count = count + 1

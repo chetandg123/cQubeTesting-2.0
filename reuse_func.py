@@ -129,6 +129,13 @@ class GetData():
         self.driver.find_element_by_id('compositRep').click()
         time.sleep(8)
 
+    def logs_page(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//a[@id='logs']").click()
+        time.sleep(3)
+
     def page_loading(self, driver):
         try:
             driver.implicitly_wait(5)

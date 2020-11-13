@@ -86,6 +86,7 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
     def test_Home_functions(self):
         b = Home_functions(self.driver)
         res = b.test_homeicons()
+        print("Checked with homeicon functionality ")
         self.data.page_loading(self.driver)
 
     def test_Homebtn_functions(self):
