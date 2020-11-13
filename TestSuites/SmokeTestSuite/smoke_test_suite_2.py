@@ -8,7 +8,7 @@ from Diksha_Reports.Location_by_textbook import usage_by_textbook_smoke_suite
 from Diksha_Reports.content_course import content_course_smoke_testing
 from Diksha_Reports.content_textbook import content_textbook_smoke_suite
 
-from Diksha_TPD.lpd_heat_chart import lpd_content_smoke_test
+from Diksha_TPD.TPD_heat_chart import lpd_content_smoke_test
 from Diksha_TPD.percentage_heat_chart import lpd_percentage_smoke_test
 from Pat_Heatchart import patheatchart_smoke_test
 from get_dir import pwd

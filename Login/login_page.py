@@ -20,11 +20,6 @@ class login(unittest.TestCase):
         self.assertEqual(0,result,msg='Login is failed!')
         self.data.page_loading(self.driver)
 
-    def test_infomsgs(self):
-        self.data.page_loading(self.driver)
-        info = self.driver.find_elements_by_id('tooltip-primary').get_attribute("data-original-title")
-        for i in range(len(info)):
-            print(info[i].text)
 
     @classmethod
     def tearDownClass(cls):

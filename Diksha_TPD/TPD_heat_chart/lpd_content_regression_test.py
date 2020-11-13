@@ -1,14 +1,17 @@
+
 import unittest
 
 from Data.parameters import Data
-from Diksha_TPD.lpd_heat_chart.check_blocks_dropdown import Cluster_wise_records
-from Diksha_TPD.lpd_heat_chart.check_clusters_dropdown import School_wise_records
-from Diksha_TPD.lpd_heat_chart.check_district_dropdown import district_level_records
-from Diksha_TPD.lpd_heat_chart.check_with_all_periods import Time_periods
+from Diksha_TPD.TPD_heat_chart.check_blocks_dropdown import Cluster_wise_records
+from Diksha_TPD.TPD_heat_chart.check_clusters_dropdown import School_wise_records
+from Diksha_TPD.TPD_heat_chart.check_district_dropdown import district_level_records
+from Diksha_TPD.TPD_heat_chart.check_with_all_periods import Time_periods
+from Diksha_TPD.TPD_heat_chart.check_with_homeicons_and_homebutton import Home_functions
+from Diksha_TPD.TPD_heat_chart.check_with_logout_btn import logout_button
 from reuse_func import GetData
 
 
-class cQube_lpdcontent_system_Test(unittest.TestCase):
+class cQube_lpdcontent_regression_Test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -33,8 +36,8 @@ class cQube_lpdcontent_system_Test(unittest.TestCase):
             count = count + 1
         self.data.navigate_to_tpd_content_progress()
         self.data.page_loading(self.driver)
-        if 'tpd-content-progress' in self.driver.current_url:
-            print('Diksha lpd content progress report is present')
+        if 'tpd-collection-progress' in self.driver.current_url:
+            print('Diksha lpd Collection progress report is present')
         else:
             print('LPD Content progress report is not displayed')
             count = count + 1
@@ -71,11 +74,45 @@ class cQube_lpdcontent_system_Test(unittest.TestCase):
         print('All time content progress district wise csv file is downloaded')
         self.data.page_loading(self.driver)
 
+    def test_Home_buttons_functions(self):
+        b = Home_functions(self.driver)
+        res = b.test_homeicons()
+        print("checked with home icons is working")
+        self.data.page_loading(self.driver)
+
+    def test_Home_button_functions(self):
+        b = Home_functions(self.driver)
+        res = b.test_homebutton()
+        self.assertEqual(0,res,msg='Navigation failed to content progress chart')
+        print("checked with homebutton is working")
+        self.data.page_loading(self.driver)
+
     def test_all_districts(self):
         b = district_level_records(self.driver)
         res = b.test_all_districtwise()
         self.assertEqual(0,res,msg='All type some district wise csv file not downloaded')
         print('checked with all period all districts')
+        self.data.page_loading(self.driver)
+
+    def test_last7_districts(self):
+        b = district_level_records(self.driver)
+        res = b.test_last_7_days_districtwise()
+        self.assertEqual(0, res, msg='last 7days some district wise csv file not downloaded')
+        print('checked last 7 days period records with all districts')
+        self.data.page_loading(self.driver)
+
+    def test_last_day_districts(self):
+        b = district_level_records(self.driver)
+        res = b.test_last_day_districtwise()
+        self.assertEqual(0, res, msg='last day some district wise csv file not downloaded')
+        print('checked last day period records with all districts')
+        self.data.page_loading(self.driver)
+
+    def test_last_30days_districts(self):
+        b = district_level_records(self.driver)
+        res = b.test_last_30_days_districtwise()
+        self.assertEqual(0, res, msg='last 30days some district wise csv file not downloaded')
+        print('checked last 30days period records with all districts')
         self.data.page_loading(self.driver)
 
     def test_Cluster_wise_records(self):
@@ -91,6 +128,12 @@ class cQube_lpdcontent_system_Test(unittest.TestCase):
         print("checked school wise records")
         self.data.page_loading(self.driver)
 
+    def test_logout_button(self):
+        b = logout_button(self.driver)
+        res = b.test_logoutbtn()
+        self.assertEqual(res,0,msg='Login page is not displayed ')
+        print("checked with logout button is working ")
+        self.data.page_loading(self.driver)
 
 
     @classmethod
