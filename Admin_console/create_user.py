@@ -162,8 +162,8 @@ class create_user(unittest.TestCase):
         self.data.page_loading(self.driver)
         role = (Select(self.driver.find_element_by_id("role")))
         role.select_by_index(2)
-        self.driver.find_element_by_id("username").send_keys('abcd')
-        self.driver.find_element_by_id("passswd").send_keys('abcd')
+        self.driver.find_element_by_id("username").send_keys('')
+        self.driver.find_element_by_id("passswd").send_keys('')
         self.driver.find_element_by_id('btn').click()
         if  'Enter atleast 8 characters' in self.driver.page_source:
             print('As per conditions password box is working ')
@@ -183,8 +183,8 @@ class create_user(unittest.TestCase):
         self.data.page_loading(self.driver)
         role = (Select(self.driver.find_element_by_id("role")))
         role.select_by_visible_text(' admin ')
-        self.driver.find_element_by_id("username").send_keys('abcd')
-        self.driver.find_element_by_id("passswd").send_keys('abcd@124')
+        self.driver.find_element_by_id("username").send_keys('')
+        self.driver.find_element_by_id("passswd").send_keys('')
         self.driver.find_element_by_id('btn').click()
         if 'Enter atleast 8 characters' not in self.driver.page_source:
             print('As per conditions password box is working ')
