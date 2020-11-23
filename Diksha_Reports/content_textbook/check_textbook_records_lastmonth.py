@@ -20,6 +20,7 @@ class course_districtwise_lastmonth_chart():
         self.data = GetData()
         self.p = pwd()
         count = 0
+        self.driver.implicitly_wait(100)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))

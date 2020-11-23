@@ -1,7 +1,7 @@
 
 import unittest
-from Diksha_Reports.Location_by_course import usage_by_course_system_testing
-from Diksha_Reports.Location_by_textbook import usage_by_textbook_system_suite
+from Diksha_Reports.usage_by_course import usage_by_course_system_testing
+from Diksha_Reports.usage_by_textbook import usage_by_textbook_system_suite
 from Diksha_Reports.content_course import content_course_system_suite
 from Diksha_Reports.content_textbook import content_textbook_system_suite
 from Diksha_TPD.TPD_heat_chart import lpd_content_system_test

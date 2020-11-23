@@ -2,16 +2,16 @@
 
 
 import unittest
-from Diksha_Reports.Location_by_course.check_course_type_content_play_counts import test_course_based_on_timeperiods
-from Diksha_Reports.Location_by_course.click_on_homeicon import Diksha_column_homeicon
-from Diksha_Reports.Location_by_course.click_on_hyperlink import Diksha_column_hyperlink
-from Diksha_Reports.Location_by_course.click_on_logout import Diksha_column_logout
-from Diksha_Reports.Location_by_course.donwloading_districtlevel_file import overalldownload
+from Diksha_Reports.usage_by_course.check_course_type_content_play_counts import test_course_based_on_timeperiods
+from Diksha_Reports.usage_by_course.click_on_homeicon import Diksha_column_homeicon
+from Diksha_Reports.usage_by_course.click_on_hyperlink import Diksha_column_hyperlink
+from Diksha_Reports.usage_by_course.click_on_logout import Diksha_column_logout
+from Diksha_Reports.usage_by_course.donwloading_districtlevel_file import overalldownload
 
 from reuse_func import GetData
 
 
-class cQube_diskha_course_system_report(unittest.TestCase):
+class cQube_diskha_course_smoke_test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -40,6 +40,11 @@ class cQube_diskha_course_system_report(unittest.TestCase):
         self.assertEqual(0,count , msg="Navigatation to diksha couse report is failed ")
         self.data.page_loading(self.driver)
 
+    def test_hyperlink(self):
+        b = Diksha_column_hyperlink(self.driver)
+        result = b.test_hyperlink()
+        print('Checked with hyper link functionality is working ')
+        self.data.page_loading(self.driver)
 
     def test_overalldownload(self):
         b = overalldownload(self.driver)
@@ -67,10 +72,18 @@ class cQube_diskha_course_system_report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
+    def test_Diksha_homeicon(self):
+        b = Diksha_column_homeicon(self.driver)
+        res = b.test_homeicon()
+        print("Home icon is working")
+        self.data.page_loading(self.driver)
 
 
-
-
+    def test_Diksha_logout(self):
+        b = Diksha_column_logout(self.driver)
+        res = b.test_logout()
+        self.assertEqual(res, 'Log in to cQube', msg="Logout is not working")
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

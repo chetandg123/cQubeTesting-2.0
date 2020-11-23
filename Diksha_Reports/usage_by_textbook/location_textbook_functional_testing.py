@@ -1,17 +1,17 @@
-
-
-
 import unittest
-from Diksha_Reports.Location_by_course.check_course_type_content_play_counts import test_course_based_on_timeperiods
-from Diksha_Reports.Location_by_course.click_on_homeicon import Diksha_column_homeicon
-from Diksha_Reports.Location_by_course.click_on_hyperlink import Diksha_column_hyperlink
-from Diksha_Reports.Location_by_course.click_on_logout import Diksha_column_logout
-from Diksha_Reports.Location_by_course.donwloading_districtlevel_file import overalldownload
+
+from Data.parameters import Data
+from Diksha_Reports.usage_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
+from Diksha_Reports.usage_by_textbook.check_with_textbook_collection_records import course_records
+from Diksha_Reports.usage_by_textbook.click_on_homeicon import Diksha_column_homeicon
+from Diksha_Reports.usage_by_textbook.click_on_hyperlink import Diksha_column_hyperlink
+from Diksha_Reports.usage_by_textbook.click_on_logout import Diksha_column_logout
+from Diksha_Reports.usage_by_textbook.donwloading_districtlevel_file import overalldownload
 
 from reuse_func import GetData
 
 
-class cQube_diskha_course_regression_report(unittest.TestCase):
+class cQube_diskha_column_report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -21,21 +21,38 @@ class cQube_diskha_course_regression_report(unittest.TestCase):
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
             self.data.page_loading(self.driver)
-            self.data.navigate_to_column_course()
+            self.data.navigate_to_column_textbook()
             self.data.page_loading(self.driver)
 
+    def test_location_course_icon(self):
+        count = 0
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id('homeBtn').click()
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_xpath("//div[@id='ut']").click()
+        self.data.page_loading(self.driver)
+        if 'usage-by-textbook' in self.driver.current_url:
+            print("diksha textbook report is displayed ")
+        else:
+            print('diksha textbook report icon is not working')
+            count = count + 1
+        self.assertEqual(0,count,msg='diksha column icon is failed for navigate to column report')
+        self.data.page_loading(self.driver)
 
     def test_navigation_from_hamburger(self):
         count = 0
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)
-        self.data.navigate_to_column_course()
         self.data.page_loading(self.driver)
-        if 'usage-by-course' in self.driver.current_url:
+        self.data.navigate_to_column_textbook()
+        self.data.page_loading(self.driver)
+        if 'usage-by-textbook' in self.driver.current_url:
             print('Home button is working')
         else:
-            print("usage-by-course should be display in url ")
+            print("Home button is not working ")
             count = count + 1
         self.assertEqual(0,count , msg="Navigatation to diksha couse report is failed ")
         self.data.page_loading(self.driver)
@@ -43,7 +60,7 @@ class cQube_diskha_course_regression_report(unittest.TestCase):
     def test_hyperlink(self):
         b = Diksha_column_hyperlink(self.driver)
         result = b.test_hyperlink()
-        print('Checked with hyper link functionality is working ')
+        print('checked with hyper link is working')
         self.data.page_loading(self.driver)
 
     def test_overalldownload(self):
@@ -71,13 +88,29 @@ class cQube_diskha_course_regression_report(unittest.TestCase):
         self.assertEqual(0,res,msg='mis match found at content usage ')
         self.data.page_loading(self.driver)
 
+    def test_course_records_last30days(self):
+        b =course_records(self.driver)
+        res = b.courserecords_of_last30days()
+        self.assertEqual(0,res,msg='Mis match found at content usage values')
+        self.data.page_loading(self.driver)
+
+    def test_course_records_last7days(self):
+         b =course_records(self.driver)
+         res = b.courserecords_of_last7days()
+         self.assertEqual(0,res,msg='Mis match found at content usage values')
+         self.data.page_loading(self.driver)
+
+    def test_course_records_lastday(self):
+        b =course_records(self.driver)
+        res = b.courserecords_of_lastday()
+        self.assertEqual(0,res,msg='Mis match found at content usage values')
+        self.data.page_loading(self.driver)
 
     def test_Diksha_homeicon(self):
         b = Diksha_column_homeicon(self.driver)
         res = b.test_homeicon()
         print("Home icon is working")
         self.data.page_loading(self.driver)
-
 
     def test_Diksha_logout(self):
         b = Diksha_column_logout(self.driver)

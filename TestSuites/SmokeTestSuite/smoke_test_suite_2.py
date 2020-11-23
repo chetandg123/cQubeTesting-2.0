@@ -1,10 +1,7 @@
 
-
-
 import unittest
-
-from Diksha_Reports.Location_by_course import usage_by_course_smoke_testing
-from Diksha_Reports.Location_by_textbook import usage_by_textbook_smoke_suite
+from Diksha_Reports.usage_by_course import usage_by_course_smoke_testing
+from Diksha_Reports.usage_by_textbook import usage_by_textbook_smoke_suite
 from Diksha_Reports.content_course import content_course_smoke_testing
 from Diksha_Reports.content_textbook import content_textbook_smoke_suite
 
@@ -37,7 +34,7 @@ class MyTestSuite(unittest.TestCase):
                     )
             ])
             p = pwd()
-            outfile = open(p.get_smoke_report_path(), "w")
+            outfile = open(p.get_smoke_report_path(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -160,7 +157,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' LPD Content Progress Report Smoke Test Report',
+                title=' TPD Content Progress Report Smoke Test Report',
                 verbosity=1,
 
             )
@@ -180,7 +177,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' LPD Percentage Progress Report Smoke Test Report',
+                title=' TPD Percentage Progress Report Smoke Test Report',
                 verbosity=1,
 
             )

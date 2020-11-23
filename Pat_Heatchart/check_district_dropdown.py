@@ -28,7 +28,7 @@ class districtwise():
         for j in range(len(view_by.options)):
             view_by.select_by_index(j)
             self.load.page_loading(self.driver)
-            for i in range(1, len(dists.options)):
+            for i in range(len(dists.options)-5, len(dists.options)):
                 dists.select_by_index(i)
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
@@ -38,7 +38,7 @@ class districtwise():
                 if file != True:
                     print(dists.options[i].text,'District wise records csv file is not downloaded')
                     count = count + 1
-            self.load.page_loading(self.driver)
-            os.remove(self.filename)
+                self.load.page_loading(self.driver)
+                os.remove(self.filename)
 
         return count

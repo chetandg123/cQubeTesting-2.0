@@ -4,8 +4,8 @@
 
 import unittest
 
-from Diksha_Reports.Location_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
-from Diksha_Reports.Location_by_textbook.donwloading_districtlevel_file import overalldownload
+from Diksha_Reports.usage_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
+from Diksha_Reports.usage_by_textbook.donwloading_districtlevel_file import overalldownload
 
 from reuse_func import GetData
 

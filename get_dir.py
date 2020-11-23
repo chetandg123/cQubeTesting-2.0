@@ -62,9 +62,9 @@ class pwd():
         ini = os.path.join(cwd, 'config.ini')
         return ini
 
-    def get_keycloak_ini_path(self):
+    def get_summary_statistics_path(self):
         cwd = os.path.dirname(__file__)
-        key = os.path.join(cwd, 'keycloak.ini')
+        key = os.path.join(cwd, 'summary_variables.ini')
         return key
 
     def get_driver_path(self):

@@ -39,8 +39,6 @@ class Clusterswise():
                     if file != True:
                         print(clust.options[i].text, 'Cluster wise records csv file is not downloaded')
                         count = count + 1
-            self.load.page_loading(self.driver)
-            os.remove(self.filename)
-
-
+                    self.load.page_loading(self.driver)
+                    os.remove(self.filename)
         return count

@@ -1,15 +1,15 @@
 
 import unittest
 
-from Diksha_Reports.Location_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
-from Diksha_Reports.Location_by_textbook.click_on_homeicon import Diksha_column_homeicon
-from Diksha_Reports.Location_by_textbook.click_on_hyperlink import Diksha_column_hyperlink
-from Diksha_Reports.Location_by_textbook.click_on_logout import Diksha_column_logout
-from Diksha_Reports.Location_by_textbook.donwloading_districtlevel_file import overalldownload
+from Diksha_Reports.usage_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
+from Diksha_Reports.usage_by_textbook.click_on_homeicon import Diksha_column_homeicon
+from Diksha_Reports.usage_by_textbook.click_on_hyperlink import Diksha_column_hyperlink
+from Diksha_Reports.usage_by_textbook.click_on_logout import Diksha_column_logout
+from Diksha_Reports.usage_by_textbook.donwloading_districtlevel_file import overalldownload
 from reuse_func import GetData
 
 
-class cQube_usage_textbook_smoke_report(unittest.TestCase):
+class cQube_usage_textbook_regression_report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
