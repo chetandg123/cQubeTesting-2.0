@@ -254,6 +254,24 @@ class GetData():
         self.driver.find_element_by_id(Data.tpd_progress).click()
         time.sleep(6)
 
+    def navigate_to_tpd_enrollment_report(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('tpd-enroll').click()
+        time.sleep(3)
+
+    def navigate_to_tpd_completion_percentage(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.diksha).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('tpd-comp').click()
+        time.sleep(3)
+
     def navigate_to_tpd_percentage_progress(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.Dashboard).click()

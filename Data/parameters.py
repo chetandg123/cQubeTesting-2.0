@@ -337,3 +337,7 @@ class Data():
     summary_icon ="//div[@id='summary']"
     s3files_icon ="s3dwn"
     nifi_Sch ="//div[@id='nifi']"
+
+    #TPD Enrollement and Completion
+    coursetype="choose_enroll"
+    coll_names ="coll_name"
