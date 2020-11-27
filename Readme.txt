@@ -28,7 +28,7 @@ Steps to install and configure the awscli
 
 Steps to execute the test script
 	1.Open the Terminal (Ctrl+Alt+t) in the ubuntu
-	2.Clone the cQubeTesting-1.6.1 project from github i.e git clone [repository url] 
+	2.Clone the cQubeTesting-1.7 project from github i.e git clone [repository url] 
 	2.sudo apt update
 	3.sudo apt install python3-pip
 	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting-1.7 Folder) [mandatory]
