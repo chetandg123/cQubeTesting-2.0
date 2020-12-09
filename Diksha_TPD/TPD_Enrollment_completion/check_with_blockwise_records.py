@@ -1,4 +1,6 @@
+import csv
 import os
+import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -40,5 +42,17 @@ class Check_Block_wise():
                         print(course_type.options[i].text,Districts.options[j].text,Blocks.options[k].text,'csv file not downloaded')
                         count = count + 1
                         self.data.page_loading(self.driver)
+                    else:
+                        with open(self.filename) as fin:
+                            csv_reader = csv.reader(fin, delimiter=',')
+                            header = next(csv_reader)
+                            enrolls = 0
+                            for row in csv.reader(fin):
+                                enrolls += int(row[10].replace(',',''))
+                            totalenrollment = self.driver.find_element_by_id("totalCount").text
+                            enrol = re.sub('\D', "", totalenrollment)
+                            if int(enrol) != int(enrolls):
+                                print(int(enrol) != int(enrolls), 'mis match found at enrollment count')
+                                count = count + 1
                     os.remove(self.filename)
-        return count
+                return count

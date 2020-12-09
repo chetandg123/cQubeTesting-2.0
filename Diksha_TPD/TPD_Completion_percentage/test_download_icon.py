@@ -23,4 +23,5 @@ class Click_download_icon():
             print('Districtwise csv file is not downloaded')
             count = count + 1
         self.data.page_loading(self.driver)
+        os.remove(self.filename)
         return count

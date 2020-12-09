@@ -1,4 +1,6 @@
+import csv
 import os
+import re
 import time
 
 from Data.parameters import Data
@@ -22,6 +24,18 @@ class Click_download_icon():
         if os.path.isfile(self.filename) != True:
             print('Districtwise csv file is not downloaded')
             count = count + 1
-        self.data.page_loading(self.driver)
+        else:
+            with open(self.filename) as fin:
+                csv_reader = csv.reader(fin, delimiter=',')
+                header = next(csv_reader)
+                enrolls = 0
+                for row in csv.reader(fin):
+                    enrolls += int(row[6].replace(',',''))
+                totalenrollment = self.driver.find_element_by_id("totalCount").text
+                enrol = re.sub('\D', "", totalenrollment)
+                if int(enrol) != int(enrolls):
+                    print(int(enrol) != int(enrolls), 'mis match found at enrollment count')
+                    count = count + 1
         os.remove(self.filename)
         return count
+

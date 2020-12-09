@@ -33,7 +33,7 @@ class MyTestSuite(unittest.TestCase):
                     )
             ])
             p = pwd()
-            outfile = open(p.get_system_report_path(), "a")
+            outfile = open(p.get_system_report_path(), "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -182,6 +182,8 @@ class MyTestSuite(unittest.TestCase):
             )
             runner1.run(system_test)
             outfile.close()
+
+
 
     @classmethod
     def tearDownClass(self):

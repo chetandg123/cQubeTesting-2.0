@@ -1,4 +1,6 @@
+import csv
 import os
+import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -29,6 +31,7 @@ class Check_Districtwise():
                 name =Districts.options[j].text
                 dname = name.strip()
                 self.data.page_loading(self.driver)
+                time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 self.filename = self.p.get_download_dir()+"/TPD_data_of_district_"+dname.replace(' ','_')+".csv"
@@ -36,6 +39,18 @@ class Check_Districtwise():
                     print(course_type.options[i].text, Districts.options[j].text, 'csv file not downloaded')
                     count = count + 1
                     self.data.page_loading(self.driver)
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        enrolls = 0
+                        for row in csv.reader(fin):
+                            enrolls += int(row[8].replace(',',''))
+                        totalenrollment = self.driver.find_element_by_id("totalCount").text
+                        enrol = re.sub('\D', "", totalenrollment)
+                        if int(enrol) != int(enrolls):
+                            print(int(enrol) != int(enrolls),'mis match found at enrollment count')
+                            count = count + 1
                 os.remove(self.filename)
         return count
 

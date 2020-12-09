@@ -24,21 +24,24 @@ class Enrollment_time_periods():
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
         timeseries.select_by_visible_text(' Overall ')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
-        self.data.page_loading(self.driver)
-        collnames = Select(self.driver.find_element_by_id(Data.coll_names))
-        counter = len(collnames.options)-1
-        for i in range(len(collnames.options)-5,len(collnames.options)-1):
-            collnames.select_by_index(i)
+        if ' No Data Available ' in self.driver.page_source:
+            print('No Data Available for overall')
+        else:
+            self.driver.find_element_by_id(Data.Download).click()
+            time.sleep(3)
+            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
             self.data.page_loading(self.driver)
-        if os.path.isfile(self.filename) != True:
-            print('Enrollment Over all csv file is not downloaded ')
-            count = count + 1
-        self.data.page_loading(self.driver)
-        os.remove(self.filename)
-        return counter,count
+            collnames = Select(self.driver.find_element_by_id(Data.coll_names))
+            counter = len(collnames.options)-1
+            for i in range(len(collnames.options)-5,len(collnames.options)-1):
+                collnames.select_by_index(i)
+                self.data.page_loading(self.driver)
+            if os.path.isfile(self.filename) != True:
+                print('Enrollment Over all csv file is not downloaded ')
+                count = count + 1
+            self.data.page_loading(self.driver)
+            os.remove(self.filename)
+            return counter,count
 
     def test_Enrollment_last_day(self):
         self.data = GetData()
@@ -52,21 +55,24 @@ class Enrollment_time_periods():
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
         timeseries.select_by_visible_text(' Last Day ')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
-        self.data.page_loading(self.driver)
-        collnames = Select(self.driver.find_element_by_id(Data.coll_names))
-        counter = len(collnames.options)-1
-        for i in range(len(collnames.options)-5,len(collnames.options)-1):
-            collnames.select_by_index(i)
+        if ' No Data Available ' in self.driver.page_source:
+            print('No Data Available for last day')
+        else:
+            self.driver.find_element_by_id(Data.Download).click()
+            time.sleep(3)
+            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
             self.data.page_loading(self.driver)
-        if os.path.isfile(self.filename) != True:
-            print('Enrollment last day csv file is not downloaded ')
-            count = count + 1
-        self.data.page_loading(self.driver)
-        os.remove(self.filename)
-        return counter,count
+            collnames = Select(self.driver.find_element_by_id(Data.coll_names))
+            counter = len(collnames.options)-1
+            for i in range(len(collnames.options)-5,len(collnames.options)-1):
+                collnames.select_by_index(i)
+                self.data.page_loading(self.driver)
+            if os.path.isfile(self.filename) != True:
+                print('Enrollment last day csv file is not downloaded ')
+                count = count + 1
+            self.data.page_loading(self.driver)
+            os.remove(self.filename)
+            # return counter,count
 
     def test_Enrollment_last7_days(self):
         self.data = GetData()
@@ -80,21 +86,24 @@ class Enrollment_time_periods():
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
         timeseries.select_by_visible_text(' Last 7 Days ')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
-        self.data.page_loading(self.driver)
-        collnames = Select(self.driver.find_element_by_id(Data.coll_names))
-        counter = len(collnames.options) - 1
-        for i in range(len(collnames.options) - 5, len(collnames.options) - 1):
-            collnames.select_by_index(i)
+        if ' No Data Available ' in self.driver.page_source:
+            print('No Data Available for last 7 days')
+        else:
+            self.driver.find_element_by_id(Data.Download).click()
+            time.sleep(3)
+            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
             self.data.page_loading(self.driver)
-        if os.path.isfile(self.filename) != True:
-            print('Enrollment last 7 days csv file is not downloaded ')
-            count = count + 1
-        self.data.page_loading(self.driver)
-        os.remove(self.filename)
-        return counter, count
+            collnames = Select(self.driver.find_element_by_id(Data.coll_names))
+            counter = len(collnames.options) - 1
+            for i in range(len(collnames.options) - 5, len(collnames.options) - 1):
+                collnames.select_by_index(i)
+                self.data.page_loading(self.driver)
+            if os.path.isfile(self.filename) != True:
+                print('Enrollment last 7 days csv file is not downloaded ')
+                count = count + 1
+            self.data.page_loading(self.driver)
+            os.remove(self.filename)
+            # return counter, count
 
     def test_Enrollment_last30_days(self):
         self.data = GetData()
@@ -108,18 +117,21 @@ class Enrollment_time_periods():
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
         timeseries.select_by_visible_text(' Last 30 Days ')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
-        self.data.page_loading(self.driver)
-        collnames = Select(self.driver.find_element_by_id(Data.coll_names))
-        counter = len(collnames.options) - 1
-        for i in range(len(collnames.options) - 5, len(collnames.options) - 1):
-            collnames.select_by_index(i)
+        if ' No Data Available ' in self.driver.page_source:
+            print('No Data Available for last 30 days')
+        else:
+            self.driver.find_element_by_id(Data.Download).click()
+            time.sleep(3)
+            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
             self.data.page_loading(self.driver)
-        if os.path.isfile(self.filename) != True:
-            print('Enrollment last 30 days csv file is not downloaded ')
-            count = count + 1
-        self.data.page_loading(self.driver)
-        os.remove(self.filename)
-        return counter, count
+            collnames = Select(self.driver.find_element_by_id(Data.coll_names))
+            counter = len(collnames.options) - 1
+            for i in range(len(collnames.options) - 5, len(collnames.options) - 1):
+                collnames.select_by_index(i)
+                self.data.page_loading(self.driver)
+            if os.path.isfile(self.filename) != True:
+                print('Enrollment last 30 days csv file is not downloaded ')
+                count = count + 1
+            self.data.page_loading(self.driver)
+            os.remove(self.filename)
+            # return counter, count

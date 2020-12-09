@@ -1,3 +1,6 @@
+
+
+
 import unittest
 
 from Diksha_TPD.TPD_Enrollment_completion.check_completion_time_periods import completion_time_periods
@@ -12,7 +15,7 @@ from Diksha_TPD.TPD_Enrollment_completion.test_download_icon import Click_downlo
 from reuse_func import GetData
 
 
-class cQube_chart_percentage_functionalTest(unittest.TestCase):
+class cQube_enrollment_regression(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -45,26 +48,7 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         self.assertEqual(res1,0,msg="Enrollment Overall csv file is not downloaded ")
         self.data.page_loading(self.driver)
 
-    def test_Enrollment_time_periods_lastday(self):
-        b = Enrollment_time_periods(self.driver)
-        res1 = b.test_Enrollment_last_day()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment lastday csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
-    def test_Enrollment_time_periods_last7day(self):
-        b = Enrollment_time_periods(self.driver)
-        res1 = b.test_Enrollment_last7_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last7 days csv file is not downloaded ")
-        self.data.page_loading(self.driver)
-
-    def test_Enrollment_time_periods_last30day(self):
-        b = Enrollment_time_periods(self.driver)
-        res1 = b.test_Enrollment_last30_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last30 days csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
     def test_completion_time_periods_overall(self):
         b = completion_time_periods(self.driver)
@@ -73,26 +57,7 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         self.assertEqual(res1, 0, msg="Enrollment Overall csv file is not downloaded ")
         self.data.page_loading(self.driver)
 
-    def test_Completion_time_periods_lastday(self):
-        b = completion_time_periods(self.driver)
-        res1 = b.test_completion_last_day()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment lastday csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
-    def test_Completion_time_periods_last7day(self):
-        b = completion_time_periods(self.driver)
-        res1 = b.test_completion_last7_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last7 days csv file is not downloaded ")
-        self.data.page_loading(self.driver)
-
-    def test_Completion_time_periods_last30day(self):
-        b = completion_time_periods(self.driver)
-        res1 = b.test_completion_last30_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last30 days csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
     def test_Home_functionalities(self):
         b = Home_functionalities(self.driver)

@@ -36,10 +36,10 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
             count = count + 1
         self.data.navigate_to_tpd_content_progress()
         self.data.page_loading(self.driver)
-        if 'tpd-collection-progress' in self.driver.current_url:
-            print('Diksha lpd content progress report is present')
+        if 'tpd-course-progress' in self.driver.current_url:
+            print('Diksha TPD course progress report is present')
         else:
-            print('LPD Content progress report is not displayed')
+            print('LPD course progress report is not displayed')
             count = count + 1
         self.assertEqual(0,count,msg='Navigation failed in landing page')
         self.data.page_loading(self.driver)
@@ -52,10 +52,10 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath("//*[@id='tdp-cp']").click()
         self.data.page_loading(self.driver)
-        if 'tpd-collection-progress' in self.driver.current_url:
-            print('Diksha lpd content progress report is present')
+        if 'tpd-course-progress' in self.driver.current_url:
+            print('Diksha tpd course progress report is present')
         else:
-            print('LPD Content progress report is not displayed')
+            print('LPD course progress report is not displayed')
             count = count + 1
         self.assertEqual(0, count, msg='Navigation failed in landing page')
         self.data.page_loading(self.driver)

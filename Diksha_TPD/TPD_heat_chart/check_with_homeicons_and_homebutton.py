@@ -28,10 +28,10 @@ class Home_functions():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_xpath("//*[@id='tdp-cp']").click()
         self.load.page_loading(self.driver)
-        if 'tpd-collection-progress' in self.driver.current_url:
-            print('LPD Content progress chart is present ')
+        if 'tpd-course-progress' in self.driver.current_url:
+            print('TPD course progress chart is present ')
         else:
-            print('LPD Content progress chart is not present in report')
+            print('TPD course progress chart is not present in report')
             count = count + 1
         self.load.page_loading(self.driver)
         return count

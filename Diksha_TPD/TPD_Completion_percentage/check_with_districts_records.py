@@ -13,7 +13,7 @@ class Check_with_all_districts():
         self.driver = driver
 
     def test_district_selectbox(self):
-        self.driver.implicitly_wait(100)
+        self.driver.implicitly_wait(200)
         self.data = GetData()
         self.p = pwd()
         count = 0

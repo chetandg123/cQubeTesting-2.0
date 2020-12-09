@@ -1,3 +1,5 @@
+import time
+
 from Data.parameters import Data
 from reuse_func import GetData
 
@@ -19,6 +21,7 @@ class logout_button():
             print('Logout is not working')
             count = count + 1
         self.data.login_cqube(self.driver)
+        time.sleep(2)
         self.data.navigate_to_tpd_enrollment_report()
         self.data.page_loading(self.driver)
         return count

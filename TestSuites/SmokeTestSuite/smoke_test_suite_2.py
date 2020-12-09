@@ -5,11 +5,16 @@ from Diksha_Reports.usage_by_textbook import usage_by_textbook_smoke_suite
 from Diksha_Reports.content_course import content_course_smoke_testing
 from Diksha_Reports.content_textbook import content_textbook_smoke_suite
 
+from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
+from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
+
 from Diksha_TPD.TPD_heat_chart import lpd_content_smoke_test
 from Diksha_TPD.percentage_heat_chart import lpd_percentage_smoke_test
+
 from Pat_Heatchart import patheatchart_smoke_test
-from get_dir import pwd
 from pat_LO_Table import PAT_LO_Table_smoke_suite
+
+from get_dir import pwd
 from reuse_func import GetData
 from HTMLTestRunner import HTMLTestRunner
 
@@ -46,7 +51,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue02(self):
-       
+
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
@@ -125,7 +130,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue06(self):
-      
+
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
@@ -145,7 +150,7 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue07(self):
-     
+
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
@@ -165,11 +170,11 @@ class MyTestSuite(unittest.TestCase):
             outfile.close()
 
     def test_issue08(self):
-      
+
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
-                    lpd_percentage_smoke_test.cQube_lpdpercentage_smoke_Test
+                    lpd_percentage_smoke_test.cQube_tpd_percentage_smoke_Test
                 )
             ])
             p = pwd()
@@ -184,6 +189,43 @@ class MyTestSuite(unittest.TestCase):
             runner1.run(smoke_test)
             outfile.close()
 
+    def test_issue09(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                enrollment_regression_test.cQube_enrollment_regression
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title=' TPD Enrollment/Completion Report Smoke Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
+
+    def test_issue10(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                completion_regression_test.cQube_completion_percentage_regression
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='TPD Completion Percentage Report Smoke Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
     @classmethod
     def tearDownClass(self):
         self.driver.close()

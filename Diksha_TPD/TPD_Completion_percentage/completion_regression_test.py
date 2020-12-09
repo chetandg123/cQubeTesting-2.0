@@ -1,3 +1,7 @@
+
+
+
+
 import time
 import unittest
 
@@ -12,7 +16,7 @@ from Diksha_TPD.TPD_Completion_percentage.test_download_icon import Click_downlo
 from reuse_func import GetData
 
 
-class cQube_chart_percentage_functionalTest(unittest.TestCase):
+class cQube_completion_percentage_regression(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -32,17 +36,6 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         self.assertEqual(0,res,msg="Completion icon is not working ")
         self.data.page_loading(self.driver)
 
-    def test_completion_report_from_hamburger(self):
-        b = completion_percentage_icon(self.driver)
-        res = b.test_dashboard_completion_report()
-        self.assertEqual(0,res,msg="Navigation from hamburger is failed")
-        self.data.page_loading(self.driver)
-
-    def test_Home_functionalities(self):
-        b = Home_functionalities(self.driver)
-        res = b.test_homeicon_functionality()
-        # self.assertFalse(res,msg="Time period is not selected")
-        self.data.page_loading(self.driver)
 
     def test_Homebtn_functionalities(self):
         b = Home_functionalities(self.driver)

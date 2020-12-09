@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
@@ -52,6 +54,7 @@ class Home_functionalities():
         timeseries.select_by_visible_text(' Last 7 Days ')
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         print("Checked with hyper link function")
+        time.sleep(3)
         self.data.page_loading(self.driver)
 
 

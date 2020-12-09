@@ -13,7 +13,7 @@ from Diksha_TPD.percentage_heat_chart.check_with_logout_btn import logout_button
 from reuse_func import GetData
 
 
-class cQube_lpdpercentage_smoke_Test(unittest.TestCase):
+class cQube_tpd_percentage_smoke_Test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):

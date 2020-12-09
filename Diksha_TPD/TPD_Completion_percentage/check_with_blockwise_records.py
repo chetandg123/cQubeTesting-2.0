@@ -24,7 +24,7 @@ class Check_with_all_blocks():
         blocks = Select(self.driver.find_element_by_id(Data.sar_block))
         collections =Select(self.driver.find_element_by_id(Data.coll_names))
         coll_count = len(collections.options) - 1
-        for i in range(len(districts.options)-1,len(districts.options)):
+        for i in range(len(districts.options)-2,len(districts.options)):
             districts.select_by_index(i)
             self.data.page_loading(self.driver)
             for j in range(1,len(blocks.options)):
@@ -32,9 +32,10 @@ class Check_with_all_blocks():
                 name= blocks.options[j].text
                 bname = name.strip()
                 self.data.page_loading(self.driver)
+                time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + "/TPD_data_of_block_"+bname+".csv"
+                self.filename = self.p.get_download_dir() + "/TPD_data_of_block_"+bname.replace(' ','_')+".csv"
                 if os.path.isfile(self.filename) != True:
                     print(districts.options[i].text, 'csv file is not downloaded')
                     count = count + 1
