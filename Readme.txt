@@ -80,7 +80,7 @@ Steps to execute the test script
                   emissionpassword= # Enter password for new emission user
 
     6.To Run the Test scripts
-        for functinal testing of pat heatchart , lo table ,TPD Collection progress  and TPD Teacher Progress fallow commnad
+        for functinal testing of pat heatchart fallow commnad
             python3 -m unittest TestSuites/FunctionalTestSuite/Functional_suite.py
 	    
     Navigate to cQubeTesting-1.3 Directory in the terminal (ex cd /home/ubuntu/cQubeTesting-1.7)
