@@ -36,7 +36,7 @@ class cQube_lpdcontent_regression_Test(unittest.TestCase):
             count = count + 1
         self.data.navigate_to_tpd_content_progress()
         self.data.page_loading(self.driver)
-        if 'tpd-collection-progress' in self.driver.current_url:
+        if 'tpd-course-progress' in self.driver.current_url:
             print('Diksha lpd Collection progress report is present')
         else:
             print('LPD Content progress report is not displayed')

@@ -30,164 +30,164 @@ class MyTestSuite(unittest.TestCase):
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
 
-    def test_issue01(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    patheatchart_smoke_test.cQube_heatchart_Smoke_test
-                    )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title=' PAT Heat chart Report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue02(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    PAT_LO_Table_smoke_suite.cQube_pat_lotable_smoke_test
-                  )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title=' PAT LO Table Report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue03(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                content_course_smoke_testing.cQube_content_course_smoke)
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Content BY Course Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue04(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    content_textbook_smoke_suite.cQube_content_textbook_smoke
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Content By Textbook report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue05(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    usage_by_course_smoke_testing.cQube_diskha_course_smoke_test
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title=' Usage By Course Report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue06(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    usage_by_textbook_smoke_suite.cQube_usage_textbook_smoke_report
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title=' Usage By Textbook Report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue07(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    lpd_content_smoke_test.cQube_lpdcontent_smoke_Test
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title=' TPD Content Progress Report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue08(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    lpd_percentage_smoke_test.cQube_tpd_percentage_smoke_Test
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_report_path(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title=' TPD Percentage Progress Report Smoke Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(smoke_test)
-            outfile.close()
+    # def test_issue01(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 patheatchart_smoke_test.cQube_heatchart_Smoke_test
+    #                 )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title=' PAT Heat chart Report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue02(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 PAT_LO_Table_smoke_suite.cQube_pat_lotable_smoke_test
+    #               )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title=' PAT LO Table Report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue03(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #             content_course_smoke_testing.cQube_content_course_smoke)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Content BY Course Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue04(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 content_textbook_smoke_suite.cQube_content_textbook_smoke
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Content By Textbook report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue05(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 usage_by_course_smoke_testing.cQube_diskha_course_smoke_test
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title=' Usage By Course Report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue06(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 usage_by_textbook_smoke_suite.cQube_usage_textbook_smoke_report
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title=' Usage By Textbook Report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue07(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 lpd_content_smoke_test.cQube_lpdcontent_smoke_Test
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title=' TPD Content Progress Report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
+    #
+    # def test_issue08(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 lpd_percentage_smoke_test.cQube_tpd_percentage_smoke_Test
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_report_path(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title=' TPD Percentage Progress Report Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(smoke_test)
+    #         outfile.close()
 
     def test_issue09(self):
         smoke_test = unittest.TestSuite()
