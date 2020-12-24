@@ -79,9 +79,6 @@ Steps to execute the test script
                   createemission= #for creating new admin user provide name of emission user
                   emissionpassword= # Enter password for new emission user
 
-    6.To Run the Test scripts
-        for functinal testing of Health Card index fallow commnad
-            python3 -m unittest TestSuites/FunctionalTestSuite/Functional_suite.py
 	    
     Navigate to cQubeTesting-1.3 Directory in the terminal (ex cd /home/ubuntu/cQubeTesting-1.8)
             For Regression:
