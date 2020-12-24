@@ -1,18 +1,17 @@
+
 import unittest
 
 from Data.parameters import Data
-from Diksha_TPD.percentage_heat_chart.check_blocks_dropdown import Cluster_wise_records
-from Diksha_TPD.percentage_heat_chart.check_clusters_dropdown import School_wise_records
-from Diksha_TPD.percentage_heat_chart.check_district_dropdown import district_level_records
-from Diksha_TPD.percentage_heat_chart.check_with_all_periods import Time_periods
-from Diksha_TPD.percentage_heat_chart.check_with_homeicons_and_homebutton import Home_functions
-from Diksha_TPD.percentage_heat_chart.check_with_hyperlink import lpdchart_hyperlink
-from Diksha_TPD.percentage_heat_chart.check_with_logout_btn import logout_button
-
+from Diksha_TPD.TPD_Course_Progress.check_blocks_dropdown import Cluster_wise_records
+from Diksha_TPD.TPD_Course_Progress.check_clusters_dropdown import School_wise_records
+from Diksha_TPD.TPD_Course_Progress.check_district_dropdown import district_level_records
+from Diksha_TPD.TPD_Course_Progress.check_with_all_periods import Time_periods
+from Diksha_TPD.TPD_Course_Progress.check_with_homeicons_and_homebutton import Home_functions
+from Diksha_TPD.TPD_Course_Progress.check_with_logout_btn import logout_button
 from reuse_func import GetData
 
 
-class cQube_chart_percentage_functionalTest(unittest.TestCase):
+class cQube_lpdcontent_regression_Test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -22,7 +21,7 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
-        self.data.navigate_to_tpd_percentage_progress()
+        self.data.navigate_to_tpd_content_progress()
 
     def test_navigation_from_hamburger(self):
         count = 0
@@ -35,31 +34,17 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         else:
             print('Home btn is not worked')
             count = count + 1
-        self.data.navigate_to_tpd_percentage_progress()
+        self.data.navigate_to_tpd_content_progress()
         self.data.page_loading(self.driver)
-        if 'tpd-teacher-percentage' in self.driver.current_url:
-            print('Diksha lpd percentage progress report is present')
+        if 'tpd-course-progress' in self.driver.current_url:
+            print('Diksha lpd Collection progress report is present')
         else:
-            print('tpd-teacher-percentage report is not displayed')
+            print('LPD Content progress report is not displayed')
             count = count + 1
         self.assertEqual(0,count,msg='Navigation failed in landing page')
         self.data.page_loading(self.driver)
 
-    def test_ltp_content_progress_icon(self):
-        count = 0
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='tpd-tp']").click()
-        self.data.page_loading(self.driver)
-        if 'tpd-teacher-percentage' in self.driver.current_url:
-            print('Diksha lpd percentage progress report is present')
-        else:
-            print('LPD Percentage progress report is not displayed')
-            count = count + 1
-        self.assertEqual(0, count, msg='Navigation failed in landing page')
-        self.data.page_loading(self.driver)
+
 
     def test_lastday_csv_download(self):
         b = Time_periods(self.driver)
@@ -100,18 +85,6 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         res = b.test_homebutton()
         self.assertEqual(0,res,msg='Navigation failed to content progress chart')
         print("checked with homebutton is working")
-        self.data.page_loading(self.driver)
-
-    def test_hyperlink(self):
-        b = lpdchart_hyperlink(self.driver)
-        res = b.test_hypers()
-        print('checked with hyper link ')
-        self.data.page_loading(self.driver)
-
-    def test_download_icon(self):
-        b = lpdchart_hyperlink(self.driver)
-        res = b.test_download_function()
-        print('checked with download icon is working ')
         self.data.page_loading(self.driver)
 
     def test_all_districts(self):

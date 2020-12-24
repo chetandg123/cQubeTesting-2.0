@@ -85,7 +85,7 @@ class Files():
     location_course ="collectionType_course_data.csv"
     location_textbook="collectionType_textbook_data.csv"
 
-    pchart_districtwise ="District_wise_report_2020.csv"
+    pchart_districtwise ="District_wise_report_.csv"
     pchart_blocks ="Block_wise_report.csv"
     pchart_clusters="Cluster_wise_report.csv"
     pchart_schools="School_wise_report.csv"
@@ -98,4 +98,27 @@ class Files():
     lpd_block ="Block_wise_report.csv"
     lpd_cluster="Cluster_wise_report.csv"
     lpd_school ="School_wise_report.csv"
-    
+
+    d1_name="Ahmedabad"
+    d2_name="Valsad"
+
+    b1_name="City"
+    b2_name="Amc"
+
+    c1_name="2422040004"
+    c2_name="Bhoj"
+
+    s1_name="School No-53 Mahadevnagar"
+    s2_name="Rameshara"
+
+    d1_id = "2407"
+    d2_id = "2425"
+
+    b1_id = "240705"
+    b2_id = "240712"
+
+    c1_id = "2407120001"
+    c2_id = "2404030005"
+
+    s1_id = "24070500301"
+    s2_id = "24250603602"
