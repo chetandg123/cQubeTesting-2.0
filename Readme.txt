@@ -17,14 +17,6 @@ Steps to install the google chrome
 Steps to Download the chrome driver 
 Note: Based on chrome browser version need to download chrome driver 
    https://sites.google.com/a/chromium.org/chromedriver/downloads
-   
-Steps to install and configure the awscli
-   Enter the below commands in the terminal 
-   sudo pip3 install awscli
-   aws configure
-   provide the s3 access key
-   provide the s3 secret key
-   provide the s3 default region
 
 Steps to execute the test script
 	1.Open the Terminal (Ctrl+Alt+t) in the ubuntu
@@ -46,24 +38,10 @@ Steps to execute the test script
                     database= # db name which is provided in the config.yml file
                     user= # db user which is provided in the config.yml file
                     db_password= # db user which is provided in the config.yml file
-                    aws_default_region=ap-south-1
-                    s3_bucket= # s3 output bucket name which is provided in the config.yml file
 		    
     Execution of automation testscripts for both installation and upgradation of backend configuration
 
             python3 -m unittest TestSuites/cQubeBackendConfiguration/run_configuration.py
-
-    Automation testscripts to check the json files in the s3 output bucket
-
-           python3 -m unittest TestSuites/cQubeS3Files/check_student_attendance_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_crc_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_semester_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_schoolinfra_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_diksha_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_udise_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_pat_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_composite_s3_files.py
-           python3 -m unittest TestSuites/cQubeS3Files/check_log_summary_s3_files.py
 
     Mandatory fields for cQube UI application
                   [config]
