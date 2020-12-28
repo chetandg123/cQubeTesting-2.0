@@ -5,8 +5,6 @@ Prerequisites:
   To Run Selenium python scripts ,Install pycharm in your system
   Google Chrome need to be installed in the server or local machine.
   Chrome driver need to be downloaded and placed in the cQubeTesting-1.8/Driver folder
-  awscli must be installed and configured
-   
 Steps to install the google chrome
 
   Open the terminal (Ctrl+Alt+t) in the ubuntu
