@@ -8,6 +8,7 @@ from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
 from Diksha_TPD.TPD_Course_Progress import lpd_content_regression_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_regression_test
+from Health_Card_Index import health_card_regression_test
 from Pat_Heatchart import patheatchart_regression_test
 from get_dir import pwd
 from pat_LO_Table import PAT_LO_Table_regression_suite
@@ -74,7 +75,7 @@ class MyTestSuite(unittest.TestCase):
                 content_course_regression_suite.cQube_content_course_regression)
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path(), "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -219,6 +220,25 @@ class MyTestSuite(unittest.TestCase):
         )
         runner1.run(regression_test)
         outfile.close()
+
+    def test_issue11(self):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                health_card_regression_test.Health_card_regression_test
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_regression_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Health card Regression Test Report',
+            verbosity=1,
+        )
+        runner1.run(regression_test)
+        outfile.close()
+
     @classmethod
     def tearDownClass(self):
         self.driver.close()

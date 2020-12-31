@@ -39,12 +39,12 @@ class pwd():
 
     def get_smoke_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/SmokeReport/SmokeTest.html')
+        report_path = os.path.join(cwd, 'Reports/SmokeReport/System_Test.html')
         return report_path
 
     def get_functional_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Admin_Console.html')
+        report_path = os.path.join(cwd, 'Reports/Functional_Test.html')
         return report_path
 
     def get_integration_report_path(self):

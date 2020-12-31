@@ -345,17 +345,24 @@ class Data():
 
     # Health card report
     levels="level"
-    submt ="//button[contains(text(),'Submit')]"
+    submt ="button"
+
     search="myInput"
     itags="//div[@id='div3']/div/span"
     access_report="//p/a"
-    access_infra ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-health-card/div[1]/div[3]/div/div[2]/div[1]/div/div/p/a"
-    access_student="//*[@id='stdAttendance']/div/div/p/a"
-    access_semester="//*[@id='semPer']/div/div/p/a"
-    access_pat="//*[@id='pat']/div/div/p/a"
-    access_crc="//*[@id='crc']/div/div/p/a"
-    access_udise="//*[@id='udise']/div/div/p/a"
+    access_infra ="infraLink"
+    access_student="attdLink"
+    access_semester="semLLink"
+    access_pat="patLink"
+    access_crc="crcLink"
+    access_udise="udiseLink"
 
+    report_stdcard ="stdHealthCard"
+    report_semcard="semHealthcard"
+    report_crccard="crcHealthcard"
+    report_infracard="infraHealthcard"
+    report_patcard="patHealthcard"
+    report_udisecard="udiseHealthcard"
 
     #districtwise health card
     District_name = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-health-card/div[1]/div[3]/div/div[1]/div/div/div[1]/span/span[2]"

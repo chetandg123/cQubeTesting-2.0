@@ -20,12 +20,15 @@ class Districtwise_lastday_records():
         times = Select(self.driver.find_element_by_name('timePeriod'))
         times.select_by_visible_text(' Last Day ')
         self.data.page_loading(self.driver)
-        districts  =Select(self.driver.find_element_by_id('choose_dist'))
-        for x in range(len(districts.options)-1,len(districts.options)):
-            time.sleep(1)
-            districts.select_by_index(x)
-            self.data.page_loading(self.driver)
-            if  "No data found" in self.driver.page_source:
-                print(districts.options[x].text ," does not last day records")
-                count = count + 1
+        if "No data found" in self.driver.page_source:
+            print("last day showing no records")
+        else:
+            districts  =Select(self.driver.find_element_by_id('choose_dist'))
+            for x in range(len(districts.options)-1,len(districts.options)):
+                time.sleep(1)
+                districts.select_by_index(x)
+                self.data.page_loading(self.driver)
+                if  "No data found" in self.driver.page_source:
+                    print(districts.options[x].text ," does not last day records")
+                    count = count + 1
         return count

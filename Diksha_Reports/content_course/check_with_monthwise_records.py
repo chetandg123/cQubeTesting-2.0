@@ -21,13 +21,17 @@ class Districtwise_monthwise_records():
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         times.select_by_index(3)
-        districts  =Select(self.driver.find_element_by_id('choose_dist'))
-        for x in range(len(districts.options)-3,len(districts.options)):
-            time.sleep(1)
-            districts.select_by_index(x)
-            self.data.page_loading(self.driver)
-            if  "No data found" in self.driver.page_source:
-                print(districts.options[x].text ," does not last month records")
-                count = count + 1
         self.data.page_loading(self.driver)
+        if "No data found" in self.driver.page_source:
+            print("last 30 days showing no records")
+        else:
+            districts  =Select(self.driver.find_element_by_id('choose_dist'))
+            for x in range(len(districts.options)-3,len(districts.options)):
+                time.sleep(1)
+                districts.select_by_index(x)
+                self.data.page_loading(self.driver)
+                if  "No data found" in self.driver.page_source:
+                    print(districts.options[x].text ," does not last month records")
+                    count = count + 1
+            self.data.page_loading(self.driver)
         return count

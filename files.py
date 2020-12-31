@@ -105,11 +105,11 @@ class Files():
     b1_name="City"
     b2_name="Amc"
 
-    c1_name="2422040004"
+    c1_name="Dungari"
     c2_name="Bhoj"
 
     s1_name="School No-53 Mahadevnagar"
-    s2_name="Rameshara"
+    s2_name="Ameshwarpura Pri. Sch."
 
     d1_id = "2407"
     d2_id = "2425"

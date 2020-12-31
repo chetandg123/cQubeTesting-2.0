@@ -2,7 +2,8 @@ import time
 
 from CRC import crc_report_smoke_testing
 from Composite_report import composite_smoke_testing
-from Diksha_Reports.Diksha_charts import diksha_chart_smoke_testing
+from Diksha_Reports.Diksha_user_profile import diksha_chart_smoke_testing
+from Health_Card_Index import health_card_smoke_test
 
 from Landing_Page import cQube_landing_page
 from Login import login_page
@@ -290,6 +291,30 @@ class MyTestSuite(unittest.TestCase):
 
             runner1.run(smoke_test)
             outfile.close()
+
+    def test_issue16(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                health_card_smoke_test.Health_card_smoke_test
+
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Health card Report Smoke Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
+
+
+
+
 
     @classmethod
     def tearDownClass(self):

@@ -10,6 +10,7 @@ from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
 
 from Diksha_TPD.TPD_Course_Progress import lpd_content_smoke_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_smoke_test
+from Health_Card_Index import health_card_smoke_test
 
 from Pat_Heatchart import patheatchart_smoke_test
 from pat_LO_Table import PAT_LO_Table_smoke_suite
@@ -226,6 +227,27 @@ class MyTestSuite(unittest.TestCase):
         )
         runner1.run(smoke_test)
         outfile.close()
+
+    def test_issue11(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                health_card_smoke_test.Health_card_smoke_test
+
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_report_path(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Health card Report Smoke Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
+
     @classmethod
     def tearDownClass(self):
         self.driver.close()

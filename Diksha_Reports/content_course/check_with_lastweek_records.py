@@ -22,12 +22,15 @@ class Districtwise_lastweek_records():
         # times.select_by_visible_text(' Last 7 Days ')
         times.select_by_index(1)
         time.sleep(2)
-        districts  =Select(self.driver.find_element_by_id('choose_dist'))
-        for x in range(len(districts.options)-1,len(districts.options)):
-            time.sleep(1)
-            districts.select_by_index(x)
-            self.data.page_loading(self.driver)
-            if  "No data found" in self.driver.page_source:
-                print(districts.options[x].text ," does not last week records")
-                count = count + 1
+        if "No data found" in self.driver.page_source:
+            print("Last 7 Day are not having records")
+        else:
+            districts  =Select(self.driver.find_element_by_id('choose_dist'))
+            for x in range(len(districts.options)-1,len(districts.options)):
+                time.sleep(1)
+                districts.select_by_index(x)
+                self.data.page_loading(self.driver)
+                if  "No data found" in self.driver.page_source:
+                    print(districts.options[x].text ," does not last week records")
+                    count = count + 1
         return count
