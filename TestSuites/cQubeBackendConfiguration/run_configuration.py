@@ -1,19 +1,19 @@
-
-from AfterInstallation.check_basedirectory import directory
-from DataBase import check_database_created, check_db_username_password
-from Nifi.NifiDashboard import nifi
-from Nifi.NifiTimeZone import timezone
-from Nifi.composite_transformer import composite
-from Nifi.crc_transformer import crc
-from Nifi.diksha_transformer import diksha
-from Nifi.infra_transformer import infra
-from Nifi.pat_transformer import pat
-from Nifi.semester_transformer import semester
-from Nifi.static_data_transformer import static
-from Nifi.student_attendance_transformer import student
-from Nifi.telemetry_transformer import telemetry
-from Nifi.udise_transformer import udise
-from Nifi.healthcard_transformer import healthcard
+from Backend_tests.AfterInstallation.check_basedirectory import directory
+from Backend_tests.DataBase import check_database_created
+from Backend_tests.DataBase import check_db_username_password
+from Backend_tests.Nifi.NifiDashboard import nifi
+from Backend_tests.Nifi.NifiTimeZone import timezone
+from Backend_tests.Nifi.composite_transformer import composite
+from Backend_tests.Nifi.crc_transformer import crc
+from Backend_tests.Nifi.diksha_transformer import diksha
+from Backend_tests.Nifi.infra_transformer import infra
+from Backend_tests.Nifi.pat_transformer import pat
+from Backend_tests.Nifi.semester_transformer import semester
+from Backend_tests.Nifi.static_data_transformer import static
+from Backend_tests.Nifi.student_attendance_transformer import student
+from Backend_tests.Nifi.telemetry_transformer import telemetry
+from Backend_tests.Nifi.udise_transformer import udise
+from Backend_tests.Nifi.healthcard_transformer import healthcard
 from cQubeLoginPage import cqube
 from get_dir import pwd
 import unittest

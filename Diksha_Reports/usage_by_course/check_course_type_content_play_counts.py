@@ -83,7 +83,7 @@ class test_course_based_on_timeperiods():
                         count = count + 1
                 self.data.page_loading(self.driver)
                 os.remove(self.filename)
-            return count
+        return count
 
     def test_last_day(self):
         self.data = GetData()
