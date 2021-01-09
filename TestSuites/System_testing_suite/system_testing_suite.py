@@ -130,20 +130,20 @@ class MyTestSuite(unittest.TestCase):
             runner1.run(system_test)
             outfile.close()
 
-    def test_issue08(self):
-            system_test = unittest.TestSuite()
-            system_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(diksha_chart_system_testing.cQube_diskha_chart)
-            ])
-            p = pwd()
-            outfile = open(p.get_system_report_path(), "a")
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Diksha chart system Test Report',
-                verbosity=1,
-            )
-            runner1.run(system_test)
-            outfile.close()
+    # def test_issue08(self):
+    #         system_test = unittest.TestSuite()
+    #         system_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(diksha_chart_system_testing.cQube_diskha_chart)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_system_report_path(), "a")
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Diksha chart system Test Report',
+    #             verbosity=1,
+    #         )
+    #         runner1.run(system_test)
+    #         outfile.close()
 
 
 

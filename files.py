@@ -106,7 +106,7 @@ class Files():
     b2_name="Amc"
 
     c1_name="Dungari"
-    c2_name="Bhoj"
+    c2_name="Amalsad"
 
     s1_name="School No-53 Mahadevnagar"
     s2_name="Ameshwarpura Pri. Sch."
