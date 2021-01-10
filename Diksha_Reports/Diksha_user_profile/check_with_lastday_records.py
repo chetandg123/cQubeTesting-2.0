@@ -4,6 +4,7 @@ import time
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from filenames import file_extention
 from reuse_func import GetData
 
 
@@ -13,6 +14,7 @@ class Districtwise_overall_chart():
 
     def test_each_districts(self):
         self.data = GetData()
+        self.msg = file_extention()
         self.driver.implicitly_wait(50)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
@@ -25,7 +27,7 @@ class Districtwise_overall_chart():
             time.sleep(1)
             districts.select_by_index(x)
             time.sleep(3)
-            if " No Data Available " in self.driver.page_source:
+            if self.msg.no_data_available() in self.driver.page_source:
                 print(districts.options[x].text ," is not contains  data chart " )
                 # count = count + 1
             c_plays = self.driver.find_element_by_id('totalCount').text

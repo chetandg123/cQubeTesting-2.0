@@ -1,4 +1,3 @@
-import time
 
 from CRC import crc_report_smoke_testing
 from Composite_report import composite_smoke_testing

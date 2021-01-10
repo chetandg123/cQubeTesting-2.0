@@ -8,6 +8,7 @@ import time
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -19,6 +20,7 @@ class course_districtwise_lastmonth_chart():
     def test_each_districts(self):
         self.data = GetData()
         self.p = pwd()
+        self.msg = file_extention()
         count = 0
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
@@ -27,7 +29,7 @@ class course_districtwise_lastmonth_chart():
         # times.select_by_visible_text(" Last 30 Days ")
         times.select_by_index(3)
         self.data.page_loading(self.driver)
-        if "No data found" in self.driver.page_source:
+        if self.msg.no_data_found() in self.driver.page_source:
             print("Last 30 day showing no records")
         else:
             districts  =Select(self.driver.find_element_by_id('choose_dist'))
@@ -38,7 +40,7 @@ class course_districtwise_lastmonth_chart():
                 name = districts.options[x].text
                 names = name.strip()
                 self.data.page_loading(self.driver)
-                if "No data found" in self.driver.page_source:
+                if self.msg.no_data_found() in self.driver.page_source:
                     print(districts.options[x].text, " does not last 30 days records")
                 else:
                     self.driver.find_element_by_id(Data.Download).click()

@@ -34,12 +34,22 @@ class pwd():
 
     def get_regression_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_new.html')
+        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_Test1.html')
+        return report_path
+
+    def get_regression_report_path_2(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_Test2.html')
         return report_path
 
     def get_smoke_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/SmokeReport/System_Test.html')
+        report_path = os.path.join(cwd, 'Reports/SmokeReport/System_Test_1.html')
+        return report_path
+
+    def get_smoke_report_path_2(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/SmokeReport/System_Test_2.html')
         return report_path
 
     def get_functional_report_path(self):

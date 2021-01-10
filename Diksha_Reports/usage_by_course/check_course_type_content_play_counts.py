@@ -26,7 +26,7 @@ class test_course_based_on_timeperiods():
         # timeperiod.select_by_visible_text(' Last 30 Days ')
         timeperiod.select_by_index(3)
         self.data.page_loading(self.driver)
-        if "No data found" in self.driver.page_source:
+        if  fname.no_data_found() in self.driver.page_source:
             print("Last 30 days no record records")
         else:
             self.driver.find_element_by_id('download').click()
@@ -61,7 +61,7 @@ class test_course_based_on_timeperiods():
         # timeperiod.select_by_visible_text(' Last 30 Days ')
         timeperiod.select_by_index(2)
         self.data.page_loading(self.driver)
-        if "No data found" in self.driver.page_source:
+        if fname.no_data_found() in self.driver.page_source:
             print("Last 7 days showing no records")
         else:
             self.driver.find_element_by_id('download').click()
@@ -96,7 +96,7 @@ class test_course_based_on_timeperiods():
         # timeperiod.select_by_visible_text(' Last 30 Days ')
         timeperiod.select_by_index(1)
         self.data.page_loading(self.driver)
-        if "No data found" in self.driver.page_source:
+        if fname.no_data_found() in self.driver.page_source:
             print("Last days showing no records")
         else:
             self.driver.find_element_by_id('download').click()

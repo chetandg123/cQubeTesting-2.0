@@ -86,7 +86,6 @@ class test_course_based_on_timeperiods():
         # timeperiod.select_by_visible_text(' Last 30 Days ')
         timeperiod.select_by_index(1)
         self.data.page_loading(self.driver)
-        self.data.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(3)
         self.filename = self.p.get_download_dir() + "/collectionType_textbook_data.csv"

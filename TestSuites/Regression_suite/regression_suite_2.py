@@ -36,7 +36,7 @@ class MyTestSuite(unittest.TestCase):
                     )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "w")
+            outfile = open(p.get_regression_report_path_2(), "w")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -56,7 +56,7 @@ class MyTestSuite(unittest.TestCase):
                 )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -75,7 +75,7 @@ class MyTestSuite(unittest.TestCase):
                 content_course_regression_suite.cQube_content_course_regression)
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "w")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -95,7 +95,7 @@ class MyTestSuite(unittest.TestCase):
                 )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -115,7 +115,7 @@ class MyTestSuite(unittest.TestCase):
                 )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -135,7 +135,7 @@ class MyTestSuite(unittest.TestCase):
                 )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -154,7 +154,7 @@ class MyTestSuite(unittest.TestCase):
                 )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -175,7 +175,7 @@ class MyTestSuite(unittest.TestCase):
                 )
             ])
             p = pwd()
-            outfile = open(p.get_regression_report_path(), "a")
+            outfile = open(p.get_regression_report_path_2(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
@@ -193,7 +193,7 @@ class MyTestSuite(unittest.TestCase):
             )
         ])
         p = pwd()
-        outfile = open(p.get_regression_report_path(), "w")
+        outfile = open(p.get_regression_report_path_2(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
@@ -211,7 +211,7 @@ class MyTestSuite(unittest.TestCase):
             )
         ])
         p = pwd()
-        outfile = open(p.get_regression_report_path(), "a")
+        outfile = open(p.get_regression_report_path_2(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
@@ -229,7 +229,7 @@ class MyTestSuite(unittest.TestCase):
             )
         ])
         p = pwd()
-        outfile = open(p.get_regression_report_path(), "a")
+        outfile = open(p.get_regression_report_path_2(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,

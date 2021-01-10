@@ -6,6 +6,7 @@ import time
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -17,6 +18,7 @@ class test_all_data():
     def test_last30_days(self):
         self.data = GetData()
         self.p = pwd()
+        self.msg = file_extention()
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
@@ -37,7 +39,6 @@ class test_all_data():
             self.driver.find_element_by_id('download').click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/Diksha_"+names+"_data_All.csv"
-            file = os.path.isfile(self.filename)
             if not os.path.isfile(self.filename):
                 print("Diksha All last 30 days data csv file not downloaded")
             else:

@@ -85,7 +85,7 @@ class Files():
     location_course ="collectionType_course_data.csv"
     location_textbook="collectionType_textbook_data.csv"
 
-    pchart_districtwise ="District_wise_report_.csv"
+    pchart_districtwise ="District_wise_report_2020.csv"
     pchart_blocks ="Block_wise_report.csv"
     pchart_clusters="Cluster_wise_report.csv"
     pchart_schools="School_wise_report.csv"
@@ -122,3 +122,6 @@ class Files():
 
     s1_id = "24070500301"
     s2_id = "24250603602"
+
+    nda =" No Data Available "
+    ndf =" No Data Found "

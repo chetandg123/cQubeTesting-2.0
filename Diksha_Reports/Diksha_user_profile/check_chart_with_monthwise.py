@@ -4,6 +4,7 @@ import time
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from filenames import file_extention
 from reuse_func import GetData
 
 
@@ -13,7 +14,7 @@ class Districtwise_lastmonth_chart():
 
     def test_each_districts(self):
         self.data = GetData()
-        # count = 0
+        self.msg = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
@@ -25,7 +26,7 @@ class Districtwise_lastmonth_chart():
             time.sleep(2)
             districts.select_by_index(x)
             time.sleep(4)
-            if " No Data Available " in self.driver.page_source:
+            if self.msg.no_data_available() in self.driver.page_source:
                 print(districts.options[x].text ," is not contains over all data chart " )
                 # count = count + 1
             c_plays = self.driver.find_element_by_id('totalCount').text

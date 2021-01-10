@@ -4,6 +4,7 @@ import os
 import time
 from selenium.webdriver.support.select import Select
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -14,13 +15,14 @@ class course_districtwise_lastweek_record():
     def test_each_districts(self):
         self.data = GetData()
         self.p = pwd()
+        self.msg = file_extention()
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         times.select_by_index('2')
         self.data.page_loading(self.driver)
-        if "No data found" in self.driver.page_source:
+        if self.msg.no_data_found() in self.driver.page_source:
             print("Last 7 days showing no records")
         else:
             districts  =Select(self.driver.find_element_by_id('choose_dist'))
@@ -32,7 +34,7 @@ class course_districtwise_lastweek_record():
                 time.sleep(2)
                 names = name.strip()
                 self.data.page_loading(self.driver)
-                if "No data found" in self.driver.page_source:
+                if self.msg.no_data_found() in self.driver.page_source:
                     print(districts.options[x].text, " does not last 7 days records")
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
