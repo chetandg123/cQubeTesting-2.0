@@ -11,6 +11,7 @@ from Backend_tests.Nifi.pat_transformer import pat
 from Backend_tests.Nifi.semester_transformer import semester
 from Backend_tests.Nifi.static_data_transformer import static
 from Backend_tests.Nifi.student_attendance_transformer import student
+from Backend_tests.Nifi.teacher_attendance_transformer import teacher_attendance
 from Backend_tests.Nifi.telemetry_transformer import telemetry
 from Backend_tests.Nifi.udise_transformer import udise
 from Backend_tests.Nifi.healthcard_transformer import healthcard
@@ -42,8 +43,8 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(telemetry.TelemetryTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(pat.PatTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(composite.CompositeTransformer),
-            unittest.defaultTestLoader.loadTestsFromTestCase(healthcard.HealthCardTransformer)
-
+            unittest.defaultTestLoader.loadTestsFromTestCase(healthcard.HealthCardTransformer),
+            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance.TeacherAttendanceTransformer)
         ])
         p = pwd()
         outfile = open(p.get_nifi_processor_group_report_path(), "a")
