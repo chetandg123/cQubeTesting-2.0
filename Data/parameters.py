@@ -102,6 +102,7 @@ class Data():
     t_head = "//th[contains(text(),'District Name')]"
     login_in = "//span[@class='span']"
     SAR = "stdReport"
+    teacher="thrReport"
     Logout = "logout"
     Home_icon = "//i[@id='home']"
     select_district = 'myDistrict'
@@ -230,7 +231,7 @@ class Data():
     sr_students = "students"
     sr_schools = "schools"
 
-    # SR
+    # Semester
 
     SRD1 = "//*[@id='choose_dist']/option[2]"
     SRB1 = "//*[@id='choose_block']/option[2]"
@@ -357,6 +358,13 @@ class Data():
     access_crc="crcLink"
     access_udise="udiseLink"
 
+    home_Std = "attdLink"
+    home_sem = "semLLink"
+    home_pat = "patLink"
+    home_infra = "infraLink"
+    home_udise = "udiseLink"
+    home_crc = "crcLink"
+
     report_stdcard ="stdHealthCard"
     report_semcard="semHealthcard"
     report_crccard="crcHealthcard"
@@ -374,3 +382,13 @@ class Data():
     Cluster_name="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-health-card/div[1]/div[3]/div/div[1]/div/div/div[3]/span/span[2]"
     #Schoolwise
     School_name="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-health-card/div[1]/div[3]/div/div[1]/div/div/div[4]/span/span[2]"
+
+    state_student="//*[@id='stdAttendance']/div[2]/div/table/tbody/tr/td"
+    state_semester="//*[@id='semPer']/div[2]/div/table/tbody/tr/td"
+    state_pat ="//*[@id='pat']/div[2]/div/table/tbody/tr/td"
+    state_infra=""
+    state_udise="//*[@id='udise']/div[2]/div/table/tbody/tr/td"
+    state_crc="//*[@id='crc']/div[2]/div/table/tbody/tr/td"
+
+
+

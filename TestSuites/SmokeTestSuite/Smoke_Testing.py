@@ -7,11 +7,11 @@ from Health_Card_Index import health_card_smoke_test
 from Landing_Page import cQube_landing_page
 from Login import login_page
 from Periodic_report import periodic_smoke_testing
-from SAR import student_attendance_smoke_testing
+from Student_Attendance import student_attendance_smoke_testing
 from SI.MAP import School_Map_smoke_testing
 
 from SI.Report import School_report_smoke_testing
-from SR import semester_report_smoke_testing
+from Semester import semester_report_smoke_testing
 from Semester_Exception import exception_smoke_testing
 from Telemetry import telemetry_smoke_testing
 from UDISE import udise_smoke_testing

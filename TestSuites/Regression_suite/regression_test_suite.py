@@ -13,11 +13,11 @@ from Landing_Page import cQube_landing_page
 from Login import login_page
 from Pat_Heatchart import patheatchart_regression_test
 from Periodic_report import periodic_regression_testing
-from SAR import  student_attendance_regression_testing
+from Student_Attendance import  student_attendance_regression_testing
 from SI.MAP import  School_Map_regression_testing
 
 from SI.Report import  School_report_regression_testing
-from SR import  semester_report_regression_testing
+from Semester import  semester_report_regression_testing
 from Semester_Exception import  exception_regression_testing
 from Telemetry import telemetry_regression_testing
 from UDISE import udise_regression_testing

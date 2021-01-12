@@ -46,7 +46,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -171,6 +171,15 @@ class GetData():
         self.driver.find_element_by_xpath(Data.attendance).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.SAR).click()
+        time.sleep(6)
+
+    def navigate_to_teacher_attendance_report(self):
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.attendance).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.teacher).click()
         time.sleep(6)
 
     def navigate_to_school_infrastructure(self):

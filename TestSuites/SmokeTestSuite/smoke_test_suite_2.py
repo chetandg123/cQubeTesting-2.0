@@ -13,6 +13,7 @@ from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_smoke_test
 from Health_Card_Index import health_card_smoke_test
 
 from Pat_Heatchart import patheatchart_smoke_test
+from Teacher_Attendance import teacher_attendance_smoke_testing
 from pat_LO_Table import PAT_LO_Table_smoke_suite
 
 from get_dir import pwd
@@ -242,6 +243,25 @@ class MyTestSuite(unittest.TestCase):
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
             title='Health card Report Smoke Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
+
+    def test_issue12(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                teacher_attendance_smoke_testing.cQube_Teacher_Attendance_SmokeTest
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_report_path_2(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Teacher Attendance Report Smoke Test Report',
             verbosity=1,
 
         )

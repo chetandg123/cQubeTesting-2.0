@@ -7,11 +7,11 @@ from Diksha_Reports.Diksha_user_profile import diksha_chart_system_testing
 
 from Login import login_page
 from Periodic_report import periodic_system_suite
-from SAR import student_attendance_system_testing
+from Student_Attendance import student_attendance_system_testing
 from SI.MAP import school_map_system_testing
 from SI.Report import school_report_system_testing
 
-from SR import semester_report_system_testing
+from Semester import semester_report_system_testing
 from Semester_Exception import exception_system_testing
 from Telemetry import telemetry_system_testing
 from UDISE import udise_system_testing

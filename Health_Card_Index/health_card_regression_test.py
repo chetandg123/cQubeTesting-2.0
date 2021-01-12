@@ -1,10 +1,8 @@
 import time
 import unittest
 
-from Health_Card_Index.check_homebtn_and_hyperlink import Home_functionalities
 from Health_Card_Index.check_levels_dropdown import levels_dropdown
 from Health_Card_Index.check_with_healthcard_button import Health_card_btn
-from Health_Card_Index.check_with_logout_btn import logout_button
 from Health_Card_Index.demo import Access_to_Reports
 from reuse_func import GetData
 
