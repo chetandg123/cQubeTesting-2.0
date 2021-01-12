@@ -124,5 +124,5 @@ class Files():
     s2_id = "24250603602"
 
     nda =" No Data Available "
-    ndf =" No Data Found "
+    ndf ="No data found"
 
