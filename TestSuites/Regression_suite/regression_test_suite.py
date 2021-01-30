@@ -2,23 +2,15 @@
 from CRC import  crc_report_regression_testing
 from Composite_report import composite_regression_testing
 from Diksha_Reports.Diksha_user_profile import  diksha_chart_Regression_testing
-from Diksha_Reports.usage_by_course import usage_by_course_regression_suite
-from Diksha_Reports.usage_by_textbook import usage_by_textbook_regression_suite
-from Diksha_Reports.content_course import content_course_regression_suite
-from Diksha_Reports.content_textbook import content_textbook_regression_suite
-from Diksha_TPD.TPD_Course_Progress import lpd_content_regression_test
-from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_regression_test
-from Health_Card_Index import health_card_regression_test
 from Landing_Page import cQube_landing_page
 from Login import login_page
-from Pat_Heatchart import patheatchart_regression_test
 from Periodic_report import periodic_regression_testing
 from Student_Attendance import  student_attendance_regression_testing
 from SI.MAP import  School_Map_regression_testing
 
 from SI.Report import  School_report_regression_testing
 from Semester import  semester_report_regression_testing
-from Semester_Exception import  exception_regression_testing
+from Exceptions_Reports.Semester_Exception import  exception_regression_testing
 from Telemetry import telemetry_regression_testing
 from UDISE import udise_regression_testing
 
@@ -27,7 +19,6 @@ from get_dir import pwd
 import unittest
 from HTMLTestRunner import HTMLTestRunner
 
-from pat_LO_Table import PAT_LO_Table_regression_suite
 from reuse_func import GetData
 
 
@@ -203,7 +194,8 @@ class MyTestSuite(unittest.TestCase):
 
             regression_test = unittest.TestSuite()
             regression_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(exception_regression_testing.cQube_semester_exception_report)
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    exception_regression_testing.cQube_semester_exception_report)
             ])
             p = pwd()
             outfile = open(p.get_regression_report_path(), "a")

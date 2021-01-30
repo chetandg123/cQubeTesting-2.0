@@ -31,11 +31,11 @@ class Enrollment_time_periods():
         else:
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
+            self.filename = self.p.get_download_dir() + '/' + 'all_enrollment_data.csv'
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))
             counter = len(collnames.options)-1
-            for i in range(len(collnames.options)-5,len(collnames.options)-1):
+            for i in range(len(collnames.options),len(collnames.options)-5):
                 collnames.select_by_index(i)
                 self.data.page_loading(self.driver)
             if os.path.isfile(self.filename) != True:
@@ -63,7 +63,7 @@ class Enrollment_time_periods():
         else:
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
+            self.filename = self.p.get_download_dir() + '/'+'all_enrollment_data.csv'
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))
             counter = len(collnames.options)-1
@@ -95,7 +95,7 @@ class Enrollment_time_periods():
         else:
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
+            self.filename = self.p.get_download_dir() + '/' +'all_enrollment_data.csv'
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))
             counter = len(collnames.options) - 1
@@ -127,11 +127,11 @@ class Enrollment_time_periods():
         else:
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/all_enrollment_data.csv'
+            self.filename = self.p.get_download_dir() + '/'+'all_enrollment_data.csv'
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))
             counter = len(collnames.options) - 1
-            for i in range(len(collnames.options) - 5, len(collnames.options) - 1):
+            for i in range(1, len(collnames.options) - 1):
                 collnames.select_by_index(i)
                 self.data.page_loading(self.driver)
             if os.path.isfile(self.filename) != True:

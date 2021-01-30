@@ -21,14 +21,13 @@ class Download_districtwise():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_districts()
+        self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_all_districts()
         if os.path.isfile(self.filename) != True:
-            print('Districtwise csv file is not downloaded ')
-            count = count + 1
+                print("Districtwise csv file is not downloaded")
         else:
-            print('District wise csv file is downloaded ')
-        self.load.page_loading(self.driver)
+             print('District wise csv file is downloaded ')
         os.remove(self.filename)
+        self.load.page_loading(self.driver)
         return count
 
 

@@ -132,7 +132,7 @@ class MyTestSuite(unittest.TestCase):
             regression_test = unittest.TestSuite()
             regression_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
-                    usage_by_textbook_regression_suite.cQube_usage_textbook_regression_report
+                   usage_by_textbook_regression_suite.cQube_usage_textbook_regression_report
                 )
             ])
             p = pwd()
@@ -146,6 +146,7 @@ class MyTestSuite(unittest.TestCase):
             )
             runner1.run(regression_test)
             outfile.close()
+
     def test_issue07(self):
 
             regression_test = unittest.TestSuite()

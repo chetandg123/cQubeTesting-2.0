@@ -26,28 +26,31 @@ class district_level_records():
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
         period.select_by_visible_text(' Overall ')
         self.load.page_loading(self.driver)
-        for i in range(len(dists.options)-5, len(dists.options)):
-            dists.select_by_index(i)
-            time.sleep(2)
-            self.load.page_loading(self.driver)
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
-            file = os.path.isfile(self.filename)
-            if file != True:
-                print(dists.options[i].text, 'District wise records csv file is not downloaded')
-                count = count + 1
-            else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    data = list(csv_reader)
-                    row_count = len(data)
-                os.remove(self.filename)
+        if self.fname.no_data_found() in self.driver.page_source:
+            print('over all does not having records')
+        else:
+            for i in range(1, len(dists.options)):
+                dists.select_by_index(i)
                 time.sleep(2)
-                if row_count == 0:
-                    print("records are not found in csv file ")
+                self.load.page_loading(self.driver)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
+                file = os.path.isfile(self.filename)
+                if file != True:
+                    print(dists.options[i].text, 'District wise records csv file is not downloaded')
                     count = count + 1
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        data = list(csv_reader)
+                        row_count = len(data)
+                    os.remove(self.filename)
+                    time.sleep(2)
+                    if row_count == 0:
+                        print("records are not found in csv file ")
+                        count = count + 1
             return count
 
         return count
@@ -64,28 +67,31 @@ class district_level_records():
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
         period.select_by_visible_text(' Last Day ')
         self.load.page_loading(self.driver)
-        for i in range( len(dists.options)-5, len(dists.options)):
-            dists.select_by_index(i)
-            time.sleep(2)
-            self.load.page_loading(self.driver)
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
-            file = os.path.isfile(self.filename)
-            if file != True:
-                print(dists.options[i].text, 'District wise records csv file is not downloaded')
-                count = count + 1
-            else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    data = list(csv_reader)
-                    row_count = len(data)
-                os.remove(self.filename)
+        if self.fname.no_data_found() in self.driver.page_source:
+            print('Last day does not having records')
+        else:
+            for i in range( 1, len(dists.options)):
+                dists.select_by_index(i)
                 time.sleep(2)
-                if row_count == 0:
-                    print("records are not found in csv file ")
+                self.load.page_loading(self.driver)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
+                file = os.path.isfile(self.filename)
+                if file != True:
+                    print(dists.options[i].text, 'District wise records csv file is not downloaded')
                     count = count + 1
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        data = list(csv_reader)
+                        row_count = len(data)
+                    os.remove(self.filename)
+                    time.sleep(2)
+                    if row_count == 0:
+                        print("records are not found in csv file ")
+                        count = count + 1
         return count
 
     def test_last_7_days_districtwise(self):
@@ -100,28 +106,31 @@ class district_level_records():
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
         period.select_by_visible_text(' Last 7 Days ')
         self.load.page_loading(self.driver)
-        for i in range(len(dists.options)-5, len(dists.options)):
-            dists.select_by_index(i)
-            time.sleep(2)
-            self.load.page_loading(self.driver)
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
-            file = os.path.isfile(self.filename)
-            if file != True:
-                print(dists.options[i].text, 'District wise records csv file is not downloaded')
-                count = count + 1
-            else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    data = list(csv_reader)
-                    row_count = len(data)
-                os.remove(self.filename)
+        if self.fname.no_data_found() in self.driver.page_source:
+            print('Last 7 day does not having records')
+        else:
+            for i in range(1, len(dists.options)):
+                dists.select_by_index(i)
                 time.sleep(2)
-                if row_count == 0:
-                    print("records are not found in csv file ")
+                self.load.page_loading(self.driver)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
+                file = os.path.isfile(self.filename)
+                if file != True:
+                    print(dists.options[i].text, 'District wise records csv file is not downloaded')
                     count = count + 1
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        data = list(csv_reader)
+                        row_count = len(data)
+                    os.remove(self.filename)
+                    time.sleep(2)
+                    if row_count == 0:
+                        print("records are not found in csv file ")
+                        count = count + 1
         return count
 
     def test_last_30_days_districtwise(self):
@@ -136,27 +145,30 @@ class district_level_records():
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
         period.select_by_visible_text(' Last 30 Days ')
         self.load.page_loading(self.driver)
-        for i in range(len(dists.options)-5, len(dists.options)):
-            dists.select_by_index(i)
-            time.sleep(2)
-            self.load.page_loading(self.driver)
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
-            file = os.path.isfile(self.filename)
-            if file != True:
-                print(dists.options[i].text, 'District wise records csv file is not downloaded')
-                count = count + 1
-            else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    data = list(csv_reader)
-                    row_count = len(data)
-                os.remove(self.filename)
+        if self.fname.no_data_found() in self.driver.page_source:
+            print('Last 30 days does not having records')
+        else:
+            for i in range(1, len(dists.options)):
+                dists.select_by_index(i)
                 time.sleep(2)
-                if row_count == 0:
-                    print("records are not found in csv file ")
-                    count = count + 1
                 self.load.page_loading(self.driver)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
+                file = os.path.isfile(self.filename)
+                if file != True:
+                    print(dists.options[i].text, 'District wise records csv file is not downloaded')
+                    count = count + 1
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        data = list(csv_reader)
+                        row_count = len(data)
+                    os.remove(self.filename)
+                    time.sleep(2)
+                    if row_count == 0:
+                        print("records are not found in csv file ")
+                        count = count + 1
+                    self.load.page_loading(self.driver)
         return count

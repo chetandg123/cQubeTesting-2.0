@@ -120,7 +120,7 @@ class Time_periods():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        if self.fname.no_data_available() in self.driver.page_source:
+        if self.fname.no_data_found() in self.driver.page_source:
             print('No Data found for district level')
         else:
             self.driver.find_element_by_id(Data.Download).click()

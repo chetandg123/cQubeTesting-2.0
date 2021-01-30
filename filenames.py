@@ -378,6 +378,13 @@ class file_extention():
         pchart_districtwise = name.pchart_districtwise
         return pchart_districtwise
 
+    def pchart_all_districts(self):
+        name = Files()
+        pchart_all_districts = name.pchart_all_districts
+        return pchart_all_districts
+
+
+
     def pchart_blocks(self):
         name = Files()
         pchart_blocks = name.pchart_blocks

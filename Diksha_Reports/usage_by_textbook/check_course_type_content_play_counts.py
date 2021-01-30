@@ -26,7 +26,7 @@ class test_course_based_on_timeperiods():
         # timeperiod.select_by_visible_text(' Last 30 Days ')
         timeperiod.select_by_index(3)
         self.data.page_loading(self.driver)
-        if self.msg.no_data_available() in self.driver.page_sourse:
+        if self.msg.no_data_available() in self.driver.page_source:
             print("Last 30 days does not having data")
         else:
             self.driver.find_element_by_id('download').click()

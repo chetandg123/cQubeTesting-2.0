@@ -27,7 +27,7 @@ class Access_to_Reports():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.submt).click()
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_infra).click()
+        self.driver.find_element_by_xpath(Data.access_infra).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'school-infra-map' in self.driver.page_source:
@@ -45,7 +45,7 @@ class Access_to_Reports():
             count = count + 1
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_student).click()
+        self.driver.find_element_by_xpath(Data.access_student).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'student-attendance' in self.driver.current_url:
@@ -62,7 +62,7 @@ class Access_to_Reports():
             count = count + 1
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_semester).click()
+        self.driver.find_element_by_xpath(Data.access_semester).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'semester-report' in self.driver.current_url:
@@ -79,7 +79,7 @@ class Access_to_Reports():
             count = count + 1
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_pat).click()
+        self.driver.find_element_by_xpath(Data.access_pat).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'pat-report' in self.driver.current_url:
@@ -97,7 +97,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_crc).click()
+        self.driver.find_element_by_xpath(Data.access_crc).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'crc-report' in self.driver.current_url:
@@ -115,7 +115,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_udise).click()
+        self.driver.find_element_by_xpath(Data.access_udise).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:
@@ -159,7 +159,7 @@ class Access_to_Reports():
         self.driver.find_element_by_id(Data.submt).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.access_infra).click()
+        self.driver.find_element_by_xpath(Data.access_infra).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'school-infra-map' in self.driver.current_url:
@@ -177,7 +177,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_student).click()
+        self.driver.find_element_by_xpath(Data.access_student).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'student-attendance' in self.driver.current_url:
@@ -196,7 +196,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_semester).click()
+        self.driver.find_element_by_xpath(Data.access_semester).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'semester-report' in self.driver.current_url:
@@ -214,7 +214,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_pat).click()
+        self.driver.find_element_by_xpath(Data.access_pat).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'pat-report' in self.driver.current_url:
@@ -233,7 +233,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_crc).click()
+        self.driver.find_element_by_xpath(Data.access_crc).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'crc-report' in self.driver.current_url:
@@ -251,7 +251,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_udise).click()
+        self.driver.find_element_by_xpath(Data.access_udise).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:
@@ -285,7 +285,7 @@ class Access_to_Reports():
         self.driver.find_element_by_id(Data.submt).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.access_infra).click()
+        self.driver.find_element_by_xpath(Data.access_infra).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'school-infra-map' in self.driver.current_url:
@@ -304,7 +304,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_student).click()
+        self.driver.find_element_by_xpath(Data.access_student).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'student-attendance' in self.driver.current_url:
@@ -323,7 +323,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_semester).click()
+        self.driver.find_element_by_xpath(Data.access_semester).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'semester-report' in self.driver.current_url:
@@ -342,7 +342,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_pat).click()
+        self.driver.find_element_by_xpath(Data.access_pat).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'pat-report' in self.driver.current_url:
@@ -360,7 +360,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_crc).click()
+        self.driver.find_element_by_xpath(Data.access_crc).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'crc-report' in self.driver.current_url:
@@ -378,7 +378,7 @@ class Access_to_Reports():
 
         self.data.page_loading(self.driver)
         time.sleep(5)
-        self.driver.find_element_by_id(Data.access_udise).click()
+        self.driver.find_element_by_xpath(Data.access_udise).click()
         time.sleep(5)
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:

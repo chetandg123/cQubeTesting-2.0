@@ -12,7 +12,7 @@ from SI.MAP import School_Map_smoke_testing
 
 from SI.Report import School_report_smoke_testing
 from Semester import semester_report_smoke_testing
-from Semester_Exception import exception_smoke_testing
+from Exceptions_Reports.Semester_Exception import exception_smoke_testing
 from Telemetry import telemetry_smoke_testing
 from UDISE import udise_smoke_testing
 
@@ -196,7 +196,8 @@ class MyTestSuite(unittest.TestCase):
 
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(exception_smoke_testing.cQube_semester_exception_report)
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    exception_smoke_testing.cQube_semester_exception_report)
             ])
             p = pwd()
             outfile = open(p.get_smoke_report_path(), "a")

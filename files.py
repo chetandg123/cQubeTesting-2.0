@@ -86,6 +86,7 @@ class Files():
     location_textbook="collectionType_textbook_data.csv"
 
     pchart_districtwise ="District_wise_report_2020.csv"
+    pchart_all_districts="District_wise_report_.csv"
     pchart_blocks ="Block_wise_report.csv"
     pchart_clusters="Cluster_wise_report.csv"
     pchart_schools="School_wise_report.csv"

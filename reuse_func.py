@@ -77,7 +77,7 @@ class GetData():
 
     def login_to_adminconsole(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(60)
+        self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.email).send_keys(self.get_admin_username())
         self.driver.find_element_by_id(Data.passwd).send_keys(self.get_admin_password())
         self.driver.find_element_by_id(Data.login).click()
@@ -276,7 +276,7 @@ class GetData():
         time.sleep(3)
         self.driver.find_element_by_xpath(Data.tpds).click()
         time.sleep(2)
-        self.driver.find_element_by_id('tpd-comp').click()
+        self.driver.find_element_by_xpath("//a[@id='tpd-comp']").click()
         time.sleep(6)
 
     def navigate_to_health_card_index(self):
