@@ -1,20 +1,19 @@
 import time
 import unittest
 from Data.parameters import Data
+from Exceptions_Reports.Semester_Exception.Click_on_hyper_link_in_semester_report import sem_exception_hyperlink
 
-from Exceptions_Reports.Semester_Exception import sem_exception_hyperlink
 from Exceptions_Reports.Semester_Exception.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from Exceptions_Reports.Semester_Exception.check_districts_csv_download import DistrictwiseDownload
 from Exceptions_Reports.Semester_Exception.check_with_notrecieved_records import Data_not_recieved
-from Exceptions_Reports.Semester_Exception import exception_Home
+from Exceptions_Reports.Semester_Exception.click_on_Home_icon import exception_Home
 
 from Exceptions_Reports.Semester_Exception.click_on_blocks import Semester_Blocks
 from Exceptions_Reports.Semester_Exception.click_on_clusters import semester_clusters
 from Exceptions_Reports.Semester_Exception.click_on_dashboard import sem_dashboard
 from Exceptions_Reports.Semester_Exception.click_on_schools import semeste_schools
 from Exceptions_Reports.Semester_Exception.click_on_semester_report_and_logout import sem_exception_Logout
-
-from Exceptions_Reports.Semester_Exception import check_DistrictwiseCsv
+from Exceptions_Reports.Semester_Exception.download_districtwise_csv import check_DistrictwiseCsv
 
 from reuse_func import GetData
 
@@ -25,6 +24,7 @@ class cQube_semester_exception_report(unittest.TestCase):
     def setUpClass(self):
             self.data = GetData()
             self.driver = self.data.get_driver()
+            self.driver.implicitly_wait(100)
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
             self.data.navigate_to_semester_exception()

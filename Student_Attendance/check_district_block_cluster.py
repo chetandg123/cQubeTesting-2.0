@@ -22,6 +22,7 @@ class DistrictBlockCluster():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year ,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         select_cluster = Select(self.driver.find_element_by_name('myCluster'))

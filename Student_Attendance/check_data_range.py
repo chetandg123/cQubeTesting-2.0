@@ -13,6 +13,9 @@ class DateRange():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        timeseries = Select(self.driver.find_element_by_id('period'))
+        timeseries.select_by_visible_text(' Year and Month ')
+        cal.page_loading(self.driver)
         year = []
         month = []
         select_year = Select(self.driver.find_element_by_id(Data.sar_year))

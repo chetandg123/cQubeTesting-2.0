@@ -20,6 +20,7 @@ class DistrictwiseCsv():
         count = 0
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year ,self.month = cal.get_student_month_and_year_values()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()

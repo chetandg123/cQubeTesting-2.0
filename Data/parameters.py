@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 class Data():
-    login = "kc-login"
+    login = "login"
     email = "username"
     passwd = "password"
     new_pass = "newPasswd"

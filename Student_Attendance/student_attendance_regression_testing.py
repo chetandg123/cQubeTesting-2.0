@@ -28,7 +28,7 @@ from Student_Attendance.download_schoolwise_csv import SchoolwiseCsv
 from reuse_func import GetData
 
 
-class cQube_Student_Attendance(unittest.TestCase):
+class cQube_Student_Attendance_regression(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -63,7 +63,7 @@ class cQube_Student_Attendance(unittest.TestCase):
         print("Markers are present on the map")
 
         school = Schools(self.driver)
-        result = school.check_markers_on_clusters_map()
+        result = school.check_markers_on_schools_map()
         self.assertNotEqual(0, int(len(result) - 1), msg="Dots are not present on map")
         print("Schools button is working")
         print("Markers are present on the map")

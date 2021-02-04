@@ -20,6 +20,7 @@ class DistrictCsvDownload():
     def check_districts_csv_download(self):
         cal = GetData()
         cal.click_on_state(self.driver)
+        self.year ,self.month = cal.get_student_month_and_year_values()
         cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0

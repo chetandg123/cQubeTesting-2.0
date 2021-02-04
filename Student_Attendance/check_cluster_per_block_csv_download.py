@@ -13,6 +13,7 @@ class ClusterPerBlockCsvDownload():
         self.driver = driver
         self.year = year.strip()
         self.month = month.strip()
+
     def remove_csv(self):
         os.remove(self.filename)
 
@@ -20,10 +21,11 @@ class ClusterPerBlockCsvDownload():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year ,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
         count = 0
-        for x in range(len(select_district.options)-1, len(select_district.options)):
+        for x in range(len(select_district.options)-5, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             for y in range(1, len(select_block.options)):

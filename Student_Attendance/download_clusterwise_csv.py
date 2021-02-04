@@ -17,6 +17,7 @@ class ClusterwiseCsv():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year,self.month = cal.get_student_month_and_year_values()
         self.driver.find_element_by_id(Data.SAR_Clusters_btn).click()
         cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
