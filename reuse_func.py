@@ -46,7 +46,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -360,29 +360,29 @@ class GetData():
 
     def navigate_to_pat_exception(self):
         self.driver.implicitly_wait(20)
-        # self.driver.find_element_by_id(Data.Dashboard).click()
-        # time.sleep(2)
-        # self.driver.find_element_by_xpath(Data.exception_click).click()
-        # time.sleep(2)
-        self.driver.find_element_by_id('patExcpt').click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('patexp').click()
         time.sleep(5)
 
     def navigate_to_teacher_exception(self):
         self.driver.implicitly_wait(20)
-        # self.driver.find_element_by_id(Data.Dashboard).click()
-        # time.sleep(2)
-        # self.driver.find_element_by_xpath(Data.exception_click).click()
-        # time.sleep(2)
-        self.driver.find_element_by_id('tarExp').click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('tarExcpt').click()
         time.sleep(5)
 
     def navigate_to_student_exception(self):
         self.driver.implicitly_wait(20)
-        # self.driver.find_element_by_id(Data.Dashboard).click()
-        # time.sleep(2)
-        # self.driver.find_element_by_xpath(Data.exception_click).click()
-        # time.sleep(2)
-        self.driver.find_element_by_id('sarExcpt').click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('sarExp').click()
         time.sleep(5)
 
     def Details_text(self):

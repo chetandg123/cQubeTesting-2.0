@@ -34,7 +34,7 @@ class pwd():
 
     def get_regression_map_reports(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_cQbue_map_reports.html')
+        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_cQbue.html')
         return report_path
 
     def get_regression_chart_table_reports(self):
@@ -44,7 +44,7 @@ class pwd():
 
     def get_diksha_tpds_regression_report(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Regression_Report/Diksha_Regression_Report.html')
+        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_Diksha_Report.html')
         return report_path
 
     def get_smoke_map_report(self):
@@ -54,7 +54,7 @@ class pwd():
 
     def get_smoke_chart_tables_report(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/SmokeReport/Smoke_chart_table_test_report.html')
+        report_path = os.path.join(cwd, 'Reports/SmokeReport/Smoke_chart.html')
         return report_path
 
     def get_functional_report_path(self):

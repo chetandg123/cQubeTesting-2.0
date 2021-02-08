@@ -65,7 +65,7 @@ class Data():
     y = "y_axis"
     s_dist = "//select[@name='myDistrict']/option[2]"
     # sc_Reportmap
-    School_infra = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
+    School_infra = "//*[@id='div3']/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
     Reportmap = "mapReport"
     Report = "tblReport"
     scm_block = "block"

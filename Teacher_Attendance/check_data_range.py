@@ -20,8 +20,6 @@ class DateRange():
             year.select_by_index(i)
             print(year.options[i].text)
             cal.page_loading(self.driver)
-            year.select_by_index(2)
-            print(year.options[2].text)
             cal.page_loading(self.driver)
         return count
 

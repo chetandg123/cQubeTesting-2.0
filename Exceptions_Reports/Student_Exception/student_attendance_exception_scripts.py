@@ -38,15 +38,12 @@ class Student_Exceptions():
     def dashboard_sar_exception(self):
         cal = GetData()
         count = 0
-        cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id('dashboard').click()
-        time.sleep(2)
-        self.driver.find_element_by_xpath(Data.exception_click).click()
-        time.sleep(2)
-        self.driver.find_element_by_id('tarexcpt').click()
+        self.driver.find_element_by_id(Data.home).click()
+        cal.page_loading(self.driver)
+        cal.navigate_to_student_exception()
         time.sleep(3)
-        if 'student-attendance-report' in self.driver.current_url:
+        if 'student-attendance-exception' in self.driver.current_url:
             print("Student exception report is displayed")
         else:
             print('Navigation from dashboard to sar exception is failed')
@@ -178,13 +175,15 @@ class Student_Exceptions():
     def click_download_icon_of_district(self):
         cal = GetData()
         count = 0
+        time.sleep(5)
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
         self.year,self.month = cal.get_student_month_and_year_values()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/District_wise_report_" + self.month + "_" + self.year + ".csv"
+        self.filename = p.get_download_dir() + "/" + "District_wise_report_overall.csv"
+        print(self.filename)
         if not os.path.isfile(self.filename):
             print("Districtwise csv is not downloaded")
             count = count + 1
