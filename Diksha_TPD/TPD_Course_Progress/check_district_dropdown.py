@@ -29,10 +29,12 @@ class district_level_records():
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
             time.sleep(2)
+            value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
+            value = value[4:]+'_'
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() +"/" + self.fname.lpd_block()
+            self.filename = self.p.get_download_dir() +"/" + self.fname.tpd_all_districtwise()+value.strip()+self.load.get_current_date()+'.csv'
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -70,10 +72,13 @@ class district_level_records():
             for i in range(1, len(dists.options)):
                 dists.select_by_index(i)
                 time.sleep(2)
+                value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
+                value = value[4:] + '_'
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() +"/" + self.fname.lpd_block()
+                self.filename = self.p.get_download_dir() +"/" + self.fname.tpd_lastday_districtwise()+value.strip()+self.load.get_current_date()+'.csv'
+                print(self.filename)
                 file = os.path.isfile(self.filename)
                 if file != True:
                     print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -110,10 +115,13 @@ class district_level_records():
             for i in range(1, len(dists.options)):
                 dists.select_by_index(i)
                 time.sleep(2)
+                value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
+                value = value[4:] + '_'
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() +"/"+ self.fname.lpd_block()
+                self.filename = self.p.get_download_dir() +"/"+ self.fname.tpd_lastweek_districtwise()+value.strip()+self.load.get_current_date()+'.csv'
+                print(self.filename)
                 file = os.path.isfile(self.filename)
                 if file != True:
                     print(dists.options[i].text, 'District wise records csv file is not downloaded')
@@ -149,10 +157,13 @@ class district_level_records():
             for i in range(1, len(dists.options)):
                 dists.select_by_index(i)
                 time.sleep(2)
+                value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
+                value = value[4:] + '_'
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() +"/"+self.fname.lpd_block()
+                self.filename = self.p.get_download_dir() +"/"+self.fname.tpd_lastmonth_districtwise()+value.strip()+self.load.get_current_date()+'.csv'
+                print(self.filename)
                 file = os.path.isfile(self.filename)
                 if file != True:
                     print(dists.options[i].text, 'District wise records csv file is not downloaded')

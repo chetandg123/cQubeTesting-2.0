@@ -106,11 +106,14 @@ class teacher_exception_report():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
+            value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
+            values = value[3:]+'_'
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
             if (len(markers) - 1) == 0:
@@ -121,7 +124,7 @@ class teacher_exception_report():
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + "Block_per_district_report_"+self.month+"_"+self.year+".csv"
+                self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_Blocks_of_district_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     return "File Not Downloaded"
@@ -149,6 +152,7 @@ class teacher_exception_report():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year ,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         count = 0
@@ -158,13 +162,15 @@ class teacher_exception_report():
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
+                value = self.driver.find_element_by_id('choose_block').get_attribute('value')
+                values = value[3:]+'_'
                 time.sleep(2)
                 dots = self.driver.find_elements_by_class_name(Data.dots)
                 markers= len(dots)-1
                 self.driver.find_element_by_id('download').click()
                 time.sleep(4)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + "Cluster_per_block_report_"+self.month+"_"+self.year+".csv"
+                self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_Clusters_of_block_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     return "File Not Downloaded"
@@ -190,6 +196,7 @@ class teacher_exception_report():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        self.year,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         select_cluster=Select(self.driver.find_element_by_id('choose_cluster'))
@@ -205,12 +212,14 @@ class teacher_exception_report():
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
                     time.sleep(2)
+                    value =self.driver.find_element_by_id('choose_cluster').get_attribute('value')
+                    values = value[3:]+'_'
                     dots = self.driver.find_elements_by_class_name(Data.dots)
                     markers=len(dots)-1
                     self.driver.find_element_by_id('download').click()
                     time.sleep(4)
                     p = pwd()
-                    self.filename = p.get_download_dir() + "/" + "Schools_per_cluster_report_" + self.month + "_" + self.year + ".csv"
+                    self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_schools_of_cluster_"+values.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"
                     print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         return "File Not Downloaded"
@@ -244,7 +253,8 @@ class teacher_exception_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + "Block_wise_report_" + self.month + "_" + self.year + ".csv"
+        self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_allBlocks_overall_"+cal.get_current_date()+".csv"
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         else:
@@ -276,7 +286,8 @@ class teacher_exception_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + "Cluster_wise_report_" + self.month + "_" + self.year + ".csv"
+        self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_allClusters_overall_"+cal.get_current_date()+".csv"
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         else:
@@ -308,7 +319,7 @@ class teacher_exception_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + "School_wise_report_" + self.month + "_" + self.year + ".csv"
+        self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_allSchools_overall_"+cal.get_current_date()+".csv"
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         else:

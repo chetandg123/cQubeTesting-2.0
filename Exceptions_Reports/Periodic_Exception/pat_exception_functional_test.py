@@ -68,12 +68,12 @@ class cQube_pat_exception_functional_report(unittest.TestCase):
         print('Checked cluster wise markers and csv file downloading ')
         self.data.page_loading(self.driver)
 
-    def test_pat_school(self):
-        b = pat_exception_report(self.driver)
-        res = b.check_markers_on_school_map()
-        self.assertNotEqual(0,res,msg="markers are not present on cluster level map")
-        print('Checked schoolwise markers and csv file downloading ')
-        self.data.page_loading(self.driver)
+    # def test_pat_school(self):
+    #     b = pat_exception_report(self.driver)
+    #     res = b.check_markers_on_school_map()
+    #     self.assertNotEqual(0,res,msg="markers are not present on cluster level map")
+    #     print('Checked schoolwise markers and csv file downloading ')
+    #     self.data.page_loading(self.driver)
 
     def test_pat_dashboard(self):
         b = pat_exception_report(self.driver)
@@ -93,6 +93,7 @@ class cQube_pat_exception_functional_report(unittest.TestCase):
         res = b.test_icon()
         self.assertEqual(0,res,msg='pat exception report is not displayed')
         print("Pat exception icon on landing is working ")
+        self.data.page_loading(self.driver)
 
     def test_pat_exception_Logout(self):
         b = pat_exception_report(self.driver)

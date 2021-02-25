@@ -24,6 +24,7 @@ class semester_clusters():
         p = pwd()
         self.filename = p.get_download_dir() + "/" + self.fname.exception_cluster()
         if os.path.isfile(self.filename) != True:
+            os.remove(self.filename)
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:
             os.remove(self.filename)

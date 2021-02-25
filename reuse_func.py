@@ -2,6 +2,8 @@ import configparser
 import json
 import os
 import time
+from datetime import date
+
 import psycopg2
 import requests
 from selenium import webdriver
@@ -49,6 +51,11 @@ class GetData():
         options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
+
+    def get_current_date(self):
+        today = date.today()
+        todaydate = today.strftime('%d-%m-%Y')
+        return todaydate
 
     def get_firefox_driver(self):
         p = pwd()
@@ -178,6 +185,20 @@ class GetData():
         times.select_by_visible_text(' Year and Month ')
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = (year.first_selected_option.text).strip()
+        self.month = (month.first_selected_option.text).strip()
+        return self.year,self.month
+
+    def get_pat_month_and_year_values(self):
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = (year.first_selected_option.text).strip()
+        self.month = (month.first_selected_option.text).strip()
+        return self.year, self.month
+
+    def pat_month_and_year_values(self):
+        year = Select(self.driver.find_element_by_id('year'))
+        month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
         self.month = (month.first_selected_option.text).strip()
         return self.year,self.month

@@ -101,6 +101,7 @@ class cQube_pat_lotable_regression_test(unittest.TestCase):
         self.assertEqual(0,res,msg='Random selection is failed ')
         self.data.page_loading(self.driver)
 
+
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()

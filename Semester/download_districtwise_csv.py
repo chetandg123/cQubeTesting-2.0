@@ -24,7 +24,8 @@ class DistrictwiseCsv():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.sr_district()
+        self.filename = p.get_download_dir() + "/" + self.fname.sr_district()+cal.get_current_date()+'.csv'
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
            return "File Not Downloaded"
         else:

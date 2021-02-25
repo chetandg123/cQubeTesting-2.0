@@ -70,16 +70,17 @@ class pat_exception_report():
 
         self.driver.find_element_by_id('cluster').click()
         cal.page_loading(self.driver)
+        time.sleep(6)
         clustcount = self.driver.find_element_by_id('schools').text
         clustercount = re.sub("\D", "", clustcount)
         cal.page_loading(self.driver)
 
         self.driver.find_element_by_id('school').click()
         cal.page_loading(self.driver)
+        time.sleep(8)
         sccount = self.driver.find_element_by_id('schools').text
         schoolcount = re.sub("\D", "", sccount)
         cal.page_loading(self.driver)
-
         return  notcount , bcount , clustercount,schoolcount
 
     def check_dots_on_each_districts(self):
@@ -108,6 +109,8 @@ class pat_exception_report():
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
+            value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
+            value = value[3:]+'_'
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
             if (len(markers) - 1) == 0:
@@ -118,7 +121,8 @@ class pat_exception_report():
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.exception_districtwise()
+                self.filename = p.get_download_dir() + "/" + "periodic_assessment_test_exception_overall_allGrades__blocks_of_district_"+value.strip()+cal.get_current_date()+'.csv'
+                print(self.filename)
                 if not os.path.isfile(self.filename):
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
@@ -152,11 +156,14 @@ class pat_exception_report():
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
+                value = self.driver.find_element_by_id('choose_block').get_attribute('value')
+                value = value[3:]+'_'
                 time.sleep(2)
                 self.driver.find_element_by_id('download').click()
                 time.sleep(4)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()
+                self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_overall_allGrades__clusters_of_block_"+value.strip()+cal.get_current_date()+'.csv'
+                print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(
                         "District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "csv is not downloaded")
@@ -195,11 +202,14 @@ class pat_exception_report():
                 for z in range(1,len(select_cluster.options)):
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
+                    value = self.driver.find_element_by_id('choose_cluster').get_attribute('value')
+                    value = value[3:]+'_'
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(4)
                     p = pwd()
-                    self.filename = p.get_download_dir() + "/" + self.fname.exception_clusterwise()
+                    self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_overall_allGrades__schools_of_cluster_"+value.strip()+cal.get_current_date()+'.csv'
+                    print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         print(
                             "District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text +  "csv is not downloaded")
@@ -230,7 +240,8 @@ class pat_exception_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_block()
+        self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_overall_allGrades__allBlocks_"+cal.get_current_date()+'.csv'
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:
@@ -248,7 +259,8 @@ class pat_exception_report():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_cluster()
+        self.filename = p.get_download_dir() + "/" + "periodic_assessment_test_exception_overall_allGrades__allClusters_" + cal.get_current_date() + '.csv'
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:
@@ -260,13 +272,15 @@ class pat_exception_report():
         cal = GetData()
         self.fname = file_extention()
         cal.page_loading(self.driver)
+        time.sleep(10)
         result = self.driver.find_elements_by_class_name(Data.dots)
         cal.page_loading(self.driver)
         markers = len(result) - 1
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_school()
+        self.filename = p.get_download_dir() + "/" + "periodic_assessment_test_exception_overall_allGrades__allSchools_" + cal.get_current_date() + '.csv'
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:
@@ -309,30 +323,34 @@ class pat_exception_report():
         timeperiods = Select(self.driver.find_element_by_id('period'))
         timeperiods.select_by_visible_text(' Overall ')
         cal.page_loading(self.driver)
-        markers = self.driver.find_elements_by_class_name(Data.dots)
-        dots = len(markers) - 1
-        if markers == 0:
-            print('Markers are not present on screen ')
-            count = count + 1
+        if 'No data found' in self.driver.page_source:
+            print('Over all is not having data')
         else:
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.file.exception_district()
-            if os.path.isfile(self.filename) != True:
-                print("Over all time series csv file is not downloaded")
+            markers = self.driver.find_elements_by_class_name(Data.dots)
+            dots = len(markers) - 1
+            if markers == 0:
+                print('Markers are not present on screen ')
+                count = count + 1
             else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    schools = 0
-                    for row in csv.reader(fin):
-                        schools += int(row[3])
-                    school = self.driver.find_element_by_id("schools").text
-                    sc = re.sub('\D', "", school)
-                    if int(sc) != int(schools):
-                        print("school count mismatched", int(sc), int(schools))
-                        count = count + 1
-                os.remove(self.filename)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() + '/' + "periodic_assessment_test_exception_overall_allGrades__allBlocks_"+cal.get_current_date()+'.csv'
+                print(self.filename)
+                if os.path.isfile(self.filename) != True:
+                    print("Over all time series csv file is not downloaded")
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        schools = 0
+                        for row in csv.reader(fin):
+                            schools += int(row[3])
+                        school = self.driver.find_element_by_id("schools").text
+                        sc = re.sub('\D', "", school)
+                        if int(sc) != int(schools):
+                            print("school count mismatched", int(sc), int(schools))
+                            count = count + 1
+                    os.remove(self.filename)
         return count
 
     def check_time_series_last_7_days(self):
@@ -344,30 +362,33 @@ class pat_exception_report():
         timeperiods = Select(self.driver.find_element_by_id('period'))
         timeperiods.select_by_visible_text(' Last 7 Days ')
         cal.page_loading(self.driver)
-        markers = self.driver.find_elements_by_class_name(Data.dots)
-        dots = len(markers)-1
-        if markers == 0:
-            print('Markers are not present on screen ')
-            count = count + 1
+        if 'No data found' in self.driver.page_source:
+            print('Last 7 Days is not having data')
         else:
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.file.exception_district()
-            if os.path.isfile(self.filename) != True:
-                print(" Last 7 Days time series csv file is not downloaded")
+            markers = self.driver.find_elements_by_class_name(Data.dots)
+            dots = len(markers)-1
+            if markers == 0:
+                print('Markers are not present on screen ')
+                count = count + 1
             else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    schools = 0
-                    for row in csv.reader(fin):
-                        schools += int(row[3])
-                    school = self.driver.find_element_by_id("schools").text
-                    sc = re.sub('\D', "", school)
-                    if int(sc) != int(schools):
-                        print("school count mismatched", int(sc), int(schools))
-                        count = count + 1
-                os.remove(self.filename)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() + '/' + self.file.exception_district()
+                if os.path.isfile(self.filename) != True:
+                    print(" Last 7 Days time series csv file is not downloaded")
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        schools = 0
+                        for row in csv.reader(fin):
+                            schools += int(row[3])
+                        school = self.driver.find_element_by_id("schools").text
+                        sc = re.sub('\D', "", school)
+                        if int(sc) != int(schools):
+                            print("school count mismatched", int(sc), int(schools))
+                            count = count + 1
+                    os.remove(self.filename)
         return count
 
     def check_time_series_last_30_days(self):
@@ -379,29 +400,32 @@ class pat_exception_report():
         timeperiods = Select(self.driver.find_element_by_id('period'))
         timeperiods.select_by_visible_text(' Last 30 Days ')
         cal.page_loading(self.driver)
-        markers = self.driver.find_elements_by_class_name(Data.dots)
-        dots = len(markers) - 1
-        if markers == 0:
-            print('Markers are not present on screen ')
-            count = count + 1
+        if 'No data found' in self.driver.page_source:
+            print('Last 30 Days is not having data')
         else:
-            cal.page_loading(self.driver)
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(5)
-            self.filename = self.p.get_download_dir() + '/' + self.file.exception_district()
-            if os.path.isfile(self.filename) != True:
-                print(" Last 30 Days time series csv file is not downloaded")
+            markers = self.driver.find_elements_by_class_name(Data.dots)
+            dots = len(markers) - 1
+            if markers == 0:
+                print('Markers are not present on screen ')
+                count = count + 1
             else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    schools = 0
-                    for row in csv.reader(fin):
-                        schools += int(row[3])
-                    school = self.driver.find_element_by_id("schools").text
-                    sc = re.sub('\D', "", school)
-                    if int(sc) != int(schools):
-                        print("school count mismatched", int(sc), int(schools))
-                        count = count + 1
-                os.remove(self.filename)
+                cal.page_loading(self.driver)
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(5)
+                self.filename = self.p.get_download_dir() + '/' + self.file.exception_district()
+                if os.path.isfile(self.filename) != True:
+                    print(" Last 30 Days time series csv file is not downloaded")
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        schools = 0
+                        for row in csv.reader(fin):
+                            schools += int(row[3])
+                        school = self.driver.find_element_by_id("schools").text
+                        sc = re.sub('\D', "", school)
+                        if int(sc) != int(schools):
+                            print("school count mismatched", int(sc), int(schools))
+                            count = count + 1
+                    os.remove(self.filename)
         return count

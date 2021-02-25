@@ -25,6 +25,7 @@ class Semester_Blocks():
         p = pwd()
         self.filename = p.get_download_dir() + "/" + self.fname.exception_block()
         if os.path.isfile(self.filename) != True:
+            os.remove(self.filename)
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:
             os.remove(self.filename)

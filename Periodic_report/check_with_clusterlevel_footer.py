@@ -6,6 +6,7 @@ import re
 import time
 
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -17,6 +18,7 @@ class Clusterwise_footers():
 
     def check_with_footervalues(self):
         cal = GetData()
+        files = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.cluster_btn).click()
@@ -27,33 +29,20 @@ class Clusterwise_footers():
         time.sleep(10)
         p = pwd()
         count = 0
-        self.filename = p.get_download_dir() + "/Cluster_wise_report.csv"
+        self.filename = p.get_download_dir() + "/"+ files.pat_cluster()+cal.get_current_date()+'.csv'
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         else:
             with open(self.filename) as fin:
                 csv_reader = csv.reader(fin, delimiter=',')
                 header = next(csv_reader)
-                tschools = 0
-                tstudents = 0
-                for row in csv.reader(fin):
-                    tschools += int(row[7])
-                    tstudents += int(row[6])
-                totalschools = self.driver.find_element_by_id("schools").text
-                schools = re.sub('\D', "", totalschools)
-
-                totalstudents = self.driver.find_element_by_id('students').text
-                students = re.sub('\D', "", totalstudents)
-
-                if int(schools) != int(tschools):
-                    print("Cluster level footer value mis match found !", int(schools), "!=", int(tschools))
+                data = list(csv_reader)
+                row_count = len(data)
+                if int(dots) != row_count:
+                    print("Markers and csv file records count mismatched", dots, row_count)
                     count = count + 1
-
-                if int(students) != int(tstudents):
-                    print("Cluster level footer value mis match found !", int(students), "!=", int(tstudents))
-                    count = count + 1
-
-        os.remove(self.filename)
+            os.remove(self.filename)
         return dots, count
 
 

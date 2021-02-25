@@ -51,7 +51,9 @@ class Data():
     udise_drop ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[8]/mat-list-item/div/mat-icon"
     udise_report ="udiseReport"
 
-
+    # patchart
+    question_id="question_id_allDistricts_"
+    indicator_id="indicator_allDistricts_"
 
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"

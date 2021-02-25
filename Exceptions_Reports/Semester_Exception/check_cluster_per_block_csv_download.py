@@ -1,4 +1,6 @@
+import csv
 import os
+import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -27,18 +29,32 @@ class ClusterPerBlockCsvDownload():
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
+                value = self.driver.find_element_by_id('choose_block').get_attribute('value')
+                value = value[3:]+'_'
                 time.sleep(2)
                 self.driver.find_element_by_id('download').click()
                 time.sleep(4)
                 p= pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()
+                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()+value.strip()+cal.get_current_date()+'.csv'
+                print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print("District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text   + "csv is not downloaded")
                     count = count + 1
-                if os.path.isfile(self.filename) == True:
-                    os.remove(self.filename)
-
+                else:
+                    with open(self.filename) as fin:
+                        csv_reader = csv.reader(fin, delimiter=',')
+                        header = next(csv_reader)
+                        schools = 0
+                        for row in csv.reader(fin):
+                            schools += int(row[7].replace(',', ''))
+                        os.remove(self.filename)
+                        missingdata = self.driver.find_element_by_id('schools').text
+                        md = re.sub('\D','',missingdata)
+                        if int(schools) != int(md):
+                            print('"District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text ',schools,md)
+                            count = count+1
         return count
+
 
 
 

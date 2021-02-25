@@ -19,9 +19,11 @@ class Download_districtwise():
         self.load.page_loading(self.driver)
         self.load.navigate_to_lo_table_report()
         self.load.page_loading(self.driver)
+        self.year,self.month = self.load.get_pat_month_and_year_values()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_districts()
+        self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_all_districts()+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
+        print(self.filename)
         if os.path.isfile(self.filename) != True:
             print('Districtwise csv file is not downloaded ')
             count = count + 1

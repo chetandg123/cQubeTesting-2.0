@@ -134,27 +134,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
             outfile.close()
  
 
-    #
-    # def test_issue06(self):
-    #
-    #         regression_test = unittest.TestSuite()
-    #         regression_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 exception_regression_testing.cQube_semester_exception_report)
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Semester Exception Regression Test Report',
-    #             verbosity=1,
-    #
-    #         )
-    #
-    #         runner1.run(regression_test)
-    #         outfile.close()
-    #
+
     def test_issue07(self):
 
             regression_test = unittest.TestSuite()
@@ -173,48 +153,48 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             runner1.run(regression_test)
             outfile.close()
-    #
-    # def test_issue08(self):
-    #
-    #         regression_test = unittest.TestSuite()
-    #         regression_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report)
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Udise Regression Test Report',
-    #             verbosity=1,
-    #
-    #         )
-    #
-    #         runner1.run(regression_test)
-    #         outfile.close()
-    #
-    #
-    #
-    # def test_issue09(self):
-    #
-    #         regression_test = unittest.TestSuite()
-    #         regression_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 periodic_regression_testing.periodic_regression)
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Periodic Report Regression Test Report',
-    #             verbosity=1,
-    #
-    #         )
-    #
-    #         runner1.run(regression_test)
-    #         outfile.close()
-    #
+
+    def test_issue08(self):
+
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(udise_regression_testing.cQube_udise_Report)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_map_reports(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Udise Regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
+
+
+
+    def test_issue09(self):
+
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    periodic_regression_testing.periodic_regression)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_map_reports(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Periodic Report Regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
+
     def test_issue10(self):
         regression_test = unittest.TestSuite()
         regression_test.addTests([

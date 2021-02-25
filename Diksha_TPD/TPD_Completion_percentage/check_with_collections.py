@@ -22,17 +22,18 @@ class collection_records():
         colcount = len(colls.options)-1
         for i in range(1,len(colls.options)):
             colls.select_by_index(i)
+            time.sleep(5)
             self.data.page_loading(self.driver)
             name = colls.options[i].text
-            colname=name.strip()
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() +"/TPD_data_of_"+colname.replace(' ','_')+".csv"
-            if os.path.isfile(self.filename) != True:
-                print(colls.options[i].text,"csv file is not downloaded ")
-                count = count + 1
-                self.data.page_loading(self.driver)
-            os.remove(self.filename)
+            # self.driver.find_element_by_id(Data.Download).click()
+            # time.sleep(3)
+            # self.filename = self.p.get_download_dir() +"/completion_percentage_overall_undefined_"+self.data.get_current_date()+".csv"
+            # print(self.filename)
+            # if os.path.isfile(self.filename) != True:
+            #     print(colls.options[i].text,"csv file is not downloaded ")
+            #     count = count + 1
+            #     self.data.page_loading(self.driver)
+            # os.remove(self.filename)
         return colcount,count
 
     def test_districtwise_collections(self):
@@ -47,14 +48,16 @@ class collection_records():
         self.data.page_loading(self.driver)
         for j in range(len(district.options)-3,len(district.options)):
             district.select_by_index(j)
+            self.data.page_loading(self.driver)
+            value = self.driver.find_element_by_id(Data.sar_district).get_attribute('value')
+            value = value[4:]
             for i in range(1, len(colls.options)):
                 colls.select_by_index(i)
                 self.data.page_loading(self.driver)
-                name = colls.options[i].text
-                colname = name.strip()
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + "/TPD_data_of_" + colname.replace(' ','_')+ ".csv"
+                self.filename = self.p.get_download_dir() + "/" + "completion_percentage_overall_" + value.strip() + '_' + self.data.get_current_date() + ".csv"
+                print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(colls.options[i].text, "csv file is not downloaded ")
                     count = count + 1
@@ -78,14 +81,16 @@ class collection_records():
             district.select_by_index(j)
             for k in range(1, len(block.options)-2):
                 block.select_by_index(k)
+                self.data.page_loading(self.driver)
+                value = self.driver.find_element_by_id(Data.sar_block).get_attribute('value')
+                value = value[5:]+'_'
                 for i in range(1, len(colls.options)):
                     colls.select_by_index(i)
                     self.data.page_loading(self.driver)
-                    name = colls.options[i].text
-                    colname = name.strip()
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
-                    self.filename = self.p.get_download_dir() + "/TPD_data_of_"+colname.replace(' ','_')+".csv"
+                    self.filename = self.p.get_download_dir() + "/" + "completion_percentage_overall_" + value.strip() + '_' + self.data.get_current_date() + ".csv"
+                    print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         print(colls.options[i].text, "csv file is not downloaded ")
                         count = count + 1
@@ -112,14 +117,16 @@ class collection_records():
                 block.select_by_index(k)
                 for m in range(1, len(cluster.options)):
                     cluster.select_by_index(m)
+                    self.data.page_loading(self.driver)
+                    value = self.driver.find_element_by_id(Data.sar_cluster).get_attribute('value')
+                    value = value[5:]+'_'
                     for i in range(1, len(colls.options)):
                         colls.select_by_index(i)
                         self.data.page_loading(self.driver)
-                        name = colls.options[i].text
-                        colname = name.strip()
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = self.p.get_download_dir() + "/TPD_data_of_"+colname.replace(' ','_')+".csv"
+                        self.filename = self.p.get_download_dir() + "/" + "completion_percentage_overall_" + value.strip() + '_' + self.data.get_current_date() + ".csv"
+                        print(self.filename)
                         if os.path.isfile(self.filename) != True:
                             print(colls.options[i].text, "csv file is not downloaded ")
                             count = count + 1

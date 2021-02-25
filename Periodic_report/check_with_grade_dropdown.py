@@ -1,9 +1,11 @@
 import os
+import re
 import time
 
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -29,17 +31,21 @@ class periodic_grades():
         self.data = GetData()
         count = 0
         p = pwd()
+        files = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         grade =Select(self.driver.find_element_by_id(Data.Grade))
         for i in range(len(grade.options)):
             grade.select_by_index(i)
+            gradename = (grade.options[i].text).strip()
+            gradenum = re.sub('\D','',gradename)
             dots = self.driver.find_elements_by_class_name(Data.dots)
             markers = len(dots)-1
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = p.get_download_dir() + '/Dist_wise_report.csv'
+            self.filename = p.get_download_dir() + '/'+ files.pat_gradewise()+gradenum.strip()+'__alldistrict_'+self.data.get_current_date()+'.csv'
+            print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print('District wise csv file is not downloaded')
             else:
@@ -60,19 +66,22 @@ class periodic_grades():
         grade = Select(self.driver.find_element_by_id(Data.Grade))
         subjects = Select(self.driver.find_element_by_id(Data.Subject))
         subcount = len(subjects.options)-1
+        files = file_extention()
         for i in range(len(grade.options)):
             grade.select_by_index(i)
             self.data.page_loading(self.driver)
-            print(grade.options[i].text)
+            gradename = (grade.options[i].text).strip()
+            gradenum = re.sub('\D','',gradename)
             for j in range(len(subjects.options)):
-                grade.select_by_index(j)
+                subjects.select_by_index(j)
                 self.data.page_loading(self.driver)
-                print(subjects.options[j].text)
+                sub = (subjects.options[j].text).strip()
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = p.get_download_dir() + '/Dist_wise_report.csv'
+                self.filename = p.get_download_dir() + '/' + files.pat_gradewise()+gradenum.strip()+'_'+sub+'_alldistrict_' + self.data.get_current_date()+'.csv'
+                print(self.filename)
                 if os.path.isfile(self.filename) != True:
-                    print('District wise csv file is not downloaded')
+                    print(files.pat_gradewise()+gradenum.strip() ,' wise csv file is not downloaded')
                 else:
                     file = open(self.filename)
                     read = file.read()

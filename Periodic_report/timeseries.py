@@ -34,37 +34,34 @@ class timeseries():
         for i in range(1,len(times.options)):
             times.select_by_index(i)
             time.sleep(3)
-            for j in range(1,len(dist.options)):
-                dist.select_by_index(j)
-                time.sleep(2)
-                markers = self.driver.find_elements_by_class_name(Data.dots)
-                dots = len(markers) -1
-                self.driver.find_element_by_id(Data.Download).click()
-                time.sleep(4)
-                self.filename = p.get_download_dir() + '/' + self.fname.pat_districtwise()
-                time.sleep(2)
-                if os.path.isfile(self.filename) !=True:
-                    print( dist.options[i],"district csv file not downloaded ")
-                    count = count + 1
-                else:
-                    with open(self.filename) as fin:
-                        csv_reader = csv.reader(fin, delimiter=',')
-                        header = next(csv_reader)
-                        total = 0
-                        schools = 0
-                        for row in csv.reader(fin):
-                            total += int(row[4].replace(',',''))
-                            schools += int(row[5].replace(',',''))
-                        students = self.driver.find_element_by_id("students").text
-                        res = re.sub('\D', "", students)
-
-                        school = self.driver.find_element_by_id("schools").text
-                        sc = re.sub('\D', "", school)
-                        if int(res) != total:
-                            print("student count mismatched")
-                            count = count + 1
-                        if int(sc) != schools:
-                            print("school count mismatched")
-                            count = count + 1
-                    os.remove(self.filename)
+            if '' in self.driver.page_source:
+                print(times.options[i].text,'has no data found')
+            else:
+                for j in range(1,len(dist.options)):
+                    dist.select_by_index(j)
+                    value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
+                    value = value[3:]+'_'
+                    time.sleep(2)
+                    markers = self.driver.find_elements_by_class_name(Data.dots)
+                    dots = len(markers) -1
+                    self.driver.find_element_by_id(Data.Download).click()
+                    time.sleep(4)
+                    self.filename = p.get_download_dir() + '/' + self.fname.pat_districtwise()+value.strip()+data.get_current_date()+'.csv'
+                    print(self.filename)
+                    time.sleep(2)
+                    if os.path.isfile(self.filename) !=True:
+                        print( dist.options[i],"district csv file not downloaded ")
+                        count = count + 1
+                    else:
+                        markers = self.driver.find_element_by_class_name(Data.dots)
+                        dots = len(markers) - 1
+                        with open(self.filename) as fin:
+                            csv_reader = csv.reader(fin, delimiter=',')
+                            header = next(csv_reader)
+                            data = list(csv_reader)
+                            row_count = len(data)
+                            if int(dots) != row_count:
+                                print("Markers and csv file records count mismatched", dots, row_count)
+                                count = count + 1
+                        os.remove(self.filename)
             return count

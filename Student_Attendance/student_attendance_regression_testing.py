@@ -180,6 +180,7 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
         print("Logout Functionality is working")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_student_report()
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

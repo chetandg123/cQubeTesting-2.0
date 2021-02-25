@@ -1,4 +1,5 @@
 import os
+import re
 import time
 
 from selenium.webdriver.support.select import Select
@@ -24,8 +25,11 @@ class subject_levels():
         self.load.page_loading(self.driver)
         self.load.navigate_to_heatchart_report()
         self.load.page_loading(self.driver)
+        self.year,self.month = self.load.get_student_month_and_year_values()
         grade = Select(self.driver.find_element_by_id(Data.grade))
         grade.select_by_index(4)
+        gradename =(grade.options[4].text).strip()
+        gradenum = re.sub('\D','',gradename)
         self.load.page_loading(self.driver)
         subject = Select(self.driver.find_element_by_id(Data.subjects))
         for i in range(2, len(subject.options)):
@@ -39,7 +43,9 @@ class subject_levels():
                 count = count + 1
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_subjects()
+            self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_subjects()+gradenum+'_'+(subject.options[i].text).strip()+\
+                            '_allDistricts_'+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
+            print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print(subject.options[i].text, 'csv file is not downloaded')
                 count = count + 1

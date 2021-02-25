@@ -33,21 +33,21 @@ class periodic_regression(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_dashboard_patreport(self):
-        count = 0
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
-        self.data.page_loading(self.driver)
-        self.data.navigate_to_periodic_report()
-        time.sleep(3)
-        if 'pat-report' in self.driver.current_url:
-            print('Navigated to Periodic Assessment report')
-        else:
-            print('Pat report icon is not working')
-            count = count + 1
-        self.assertEqual(count,0,msg='Pat report button is not working')
-        self.data.page_loading(self.driver)
+    # def test_dashboard_patreport(self):
+    #     count = 0
+    #     self.driver.find_element_by_xpath(Data.hyper_link).click()
+    #     self.data.page_loading(self.driver)
+    #     self.driver.find_element_by_id(Data.home).click()
+    #     self.data.page_loading(self.driver)
+    #     self.data.navigate_to_periodic_report()
+    #     time.sleep(3)
+    #     if 'pat-report' in self.driver.current_url:
+    #         print('Navigated to Periodic Assessment report')
+    #     else:
+    #         print('Pat report icon is not working')
+    #         count = count + 1
+    #     self.assertEqual(count,0,msg='Pat report button is not working')
+    #     self.data.page_loading(self.driver)
 
     def test_DistrictwiseCsv(self):
         cls = DistrictwiseCsv(self.driver)

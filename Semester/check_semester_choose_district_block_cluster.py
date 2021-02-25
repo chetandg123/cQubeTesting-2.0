@@ -36,6 +36,8 @@ class DistrictBlockCluster():
                     select_cluster.select_by_index(z)
                     time.sleep(2)
                     cal.page_loading(self.driver)
+                    value = self.driver.find_element_by_id('choose_cluster').get_attribute('value')
+                    value = value[3:]+'_'
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     if len(markers) - 1 == 0:
                         print(
@@ -45,7 +47,8 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id('download').click()
                     time.sleep(3)
                     p = pwd()
-                    self.filename = p.get_download_dir() +"/" + self.fname.sr_clusterwise()
+                    self.filename = p.get_download_dir() +"/" + self.fname.sr_clusterwise()+value.strip()+'_'+cal.get_current_date()+'.csv'
+                    print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")

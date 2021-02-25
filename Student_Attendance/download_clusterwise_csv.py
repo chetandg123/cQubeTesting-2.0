@@ -2,6 +2,7 @@ import os
 import time
 
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -15,6 +16,7 @@ class ClusterwiseCsv():
 
     def click_download_icon_of_clusters(self):
         cal = GetData()
+        file = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
         self.year,self.month = cal.get_student_month_and_year_values()
@@ -23,7 +25,7 @@ class ClusterwiseCsv():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
-        self.filename = p.get_download_dir() + "/Cluster_wise_report_" + self.month + "_" + self.year + ".csv"
+        self.filename = p.get_download_dir() +file.student_cluster_download()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
         return os.path.isfile(self.filename)
 
     def remove_csv(self):
