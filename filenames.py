@@ -383,6 +383,16 @@ class file_extention():
         location_textbook = name.location_textbook
         return location_textbook
 
+    def student_academic_files(self):
+        name = Files()
+        student_academic = name.student_academic
+        return student_academic
+
+    def teacher_academic_file(self):
+        name = Files()
+        teacher_academic = name.teacher_academic
+        return teacher_academic
+
     #pat heat chart report
     def pchart_districts(self):
         name = Files()

@@ -34,7 +34,7 @@ class ClusterPerBlockCsvDownload():
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
                 value = self.driver.find_element_by_name('myBlock').get_attribute('value')
-                blkvalue = value[3:]+'_'
+                blkvalue = value[4:]+'_'
                 time.sleep(2)
                 markers = self.driver.find_elements_by_class_name(Data.dots)
                 if len(markers) - 1 == 0:

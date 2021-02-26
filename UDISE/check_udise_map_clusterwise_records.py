@@ -32,7 +32,7 @@ class test_school_map_schoollevel_records():
         for x in range( int(len(select_district.options))-1, int(len(select_district.options))):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
-            for y in range(1,len(select_block.options)):
+            for y in range(len(select_block.options)-1,len(select_block.options)):
                 select_block.select_by_index(y)
                 self.cal.page_loading(self.driver)
                 time.sleep(2)
@@ -50,13 +50,14 @@ class test_school_map_schoollevel_records():
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
                         self.filename = p.get_download_dir() + "/" + self.fname.udise_clusterwise()+values.strip()+self.cal.get_current_date()+'.csv'
+                        print(self.filename)
                         if not os.path.isfile(self.filename):
                             print(select_district.options[x].text,select_block.options[y].text,select_cluster.options[z].text ,"csv file is not downloaded!")
                             count = count + 1
                         schools = self.driver.find_element_by_id('schools').text
                         sc = re.sub('\D','',schools)
-                        if len(markers)-1 == int(sc):
-                            print('Total no of school mis match found with no of markers ')
+                        if len(markers)-1 != int(sc):
+                            print('Total no of school mis match found with no of markers ',len(markers),sc)
                             count = count + 1
-                        self.remove_csv1()
+                        os.remove(self.filename)
         return count

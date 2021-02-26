@@ -111,6 +111,7 @@ class cQube_regression_Student_exception(unittest.TestCase):
         self.assertEqual(0,res1,msg='Homebutton is not worked')
         if 'student-attendance-exception' in res2:
             print("This is Student Attendance Exception Report page")
+            pass
         else:
             raise self.failureException('Home button is not working')
 

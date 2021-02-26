@@ -1,31 +1,26 @@
 import time
-
-from Data.parameters import Data
-
-from Periodic_report.Click_on_hyper_link_in_periodic_report import Hyperlink
-from Periodic_report.check_districtlevel_download_csv import DistrictwiseCsv
-
-from Periodic_report.check_periodic_choose_district import District
-from Periodic_report.check_periodic_choose_district_block import DistrictsBlock
-from Periodic_report.check_periodic_choose_district_block_cluster import DistrictBlockCluster
-
-from Periodic_report.check_total_no_students_and_total_no_schools_sr import TotalStudentsSchools
-from Periodic_report.check_with_blocklevel_footer import Block_level_footers
-
-from Periodic_report.check_with_clusterlevel_footer import Clusterwise_footers
-from Periodic_report.check_with_districtwise_schools_and_students import District_wise_schools_students
-from Periodic_report.check_with_grade_dropdown import periodic_grades
-from Periodic_report.check_with_schoollevel_footer import Schoolwise_footers
-from Periodic_report.click_on_Home_icon import Home
-
-from Periodic_report.click_on_periodic_report import Pat_Report_icon
-from Periodic_report.click_on_periodic_report_and_logout import Logout
-from Periodic_report.timeseries import timeseries
-
-from reuse_func import GetData
 import unittest
 
-class periodic_functional_testing(unittest.TestCase):
+from Data.parameters import Data
+from Periodic_Test_Reports.Periodic_report.Click_on_hyper_link_in_periodic_report import Hyperlink
+from Periodic_Test_Reports.Periodic_report.check_districtlevel_download_csv import DistrictwiseCsv
+from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district import District
+
+from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district_block_cluster import DistrictBlockCluster
+from Periodic_Test_Reports.Periodic_report.check_total_no_students_and_total_no_schools_sr import TotalStudentsSchools
+from Periodic_Test_Reports.Periodic_report.check_with_blocklevel_footer import Block_level_footers
+from Periodic_Test_Reports.Periodic_report.check_with_clusterlevel_footer import Clusterwise_footers
+from Periodic_Test_Reports.Periodic_report.check_with_grade_dropdown import periodic_grades
+from Periodic_Test_Reports.Periodic_report.check_with_schoollevel_footer import Schoolwise_footers
+from Periodic_Test_Reports.Periodic_report.click_on_Home_icon import Home
+
+from Periodic_Test_Reports.Periodic_report.click_on_periodic_report_and_logout import Logout
+from Periodic_Test_Reports.Periodic_report.timeseries import timeseries
+
+from reuse_func import GetData
+
+
+class periodic_regression(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -37,12 +32,6 @@ class periodic_functional_testing(unittest.TestCase):
         self.data.navigate_to_periodic_report()
         self.data.page_loading(self.driver)
 
-    def test_Pat_Report_icon(self):
-        cls = Pat_Report_icon(self.driver)
-        fnc = cls.check_landing_page()
-        self.assertEqual(0,fnc,msg='Pat icon is not working ')
-        print('Checked with pat icon is working fine ')
-        self.data.page_loading(self.driver)
 
     def test_dashboard_patreport(self):
         count = 0
@@ -63,6 +52,7 @@ class periodic_functional_testing(unittest.TestCase):
     def test_DistrictwiseCsv(self):
         cls = DistrictwiseCsv(self.driver)
         func = cls.click_download_icon()
+        self.assertEqual(0,func,msg='Mismatch found at Districtwise footer values')
         print('Downloading district level csv file is working')
         self.data.page_loading(self.driver)
 
@@ -92,21 +82,12 @@ class periodic_functional_testing(unittest.TestCase):
 
     def test_TotalStudentsSchools(self):
         b = TotalStudentsSchools(self.driver)
-        res1,res2,res3,res4,res5,res6,res7,res8 = b.block_cluster_schools_footer_info()
-        self.assertEqual(int(res1),int(res3),msg='Block level student info is mis matched')
-        self.assertEqual(int(res2),int(res4),msg='Block level school info is mis matched')
-        self.assertEqual(int(res1), int(res5), msg='Cluster level student info is mis matched')
-        self.assertEqual(int(res2), int(res6), msg='Cluster level school info is mis matched')
-        self.assertEqual(int(res1), int(res7), msg='School level student info is mis matched')
-        self.assertEqual(int(res2), int(res8), msg='School level school info is mis matched')
-        print('Checked with footer values accross block ,cluster , school levels ')
+        res1,res2,res3 = b.block_cluster_schools_footer_info()
+        self.assertNotEqual(0,res1,msg='Block level markers are not present')
+        self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
+        self.assertNotEqual(0, res3, msg='School level markers are not present')
         self.data.page_loading(self.driver)
 
-    def test_Homeicon(self):
-        b = Home(self.driver)
-        res = b.click_on_blocks_click_on_home_icon()
-        print('Home icon is working')
-        self.data.page_loading(self.driver)
 
     def test_homebtn(self):
         b = Home(self.driver)
@@ -143,12 +124,6 @@ class periodic_functional_testing(unittest.TestCase):
         print('Districtwise records are working fine')
         self.data.page_loading(self.driver)
 
-    def test_district_blockwise(self):
-        b = DistrictsBlock(self.driver)
-        res = b.check_districts_block()
-        self.assertEqual(0, res, msg='Some mis match found at blockwise records')
-        print('Blockwise records are working fine')
-        self.data.page_loading(self.driver)
 
     def test_district_block_clusterwise(self):
         b = DistrictBlockCluster(self.driver)
@@ -158,16 +133,10 @@ class periodic_functional_testing(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_District_wise_schools_students(self):
-        b = District_wise_schools_students(self.driver)
-        res = b.check_dots_on_each_districts()
-        self.assertEqual(0,res,msg='Some of districts dont have footer values ')
-        print("Checked with footer values for each districts ")
-        self.data.page_loading(self.driver)
-
     def test_periodic_grades(self):
         b = periodic_grades(self.driver)
         res = b.check_grade_dropdown_options()
+        self.assertNotEqual(0,res,msg="Grade options not present")
         print("checking with each grades")
         self.data.page_loading(self.driver)
 
@@ -177,11 +146,6 @@ class periodic_functional_testing(unittest.TestCase):
         print("checking with each grades with subjects")
         self.data.page_loading(self.driver)
 
-    def test_grades_downloadfile(self):
-        b = periodic_grades(self.driver)
-        res = b.click_each_grades()
-        print("checking with each grades with download functionality")
-        self.data.page_loading(self.driver)
 
     def test_timeseries(self):
         b = timeseries(self.driver)

@@ -33,7 +33,7 @@ class Enrollment_time_periods():
         else:
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/'+'tpd_enrollment_all_district_overall_'+self.data.get_current_date()+'.csv'
+            self.filename = self.p.get_download_dir() + '/'+'enrollment_completion_enrollment_all_district_overall_'+self.data.get_current_date()+'.csv'
             print(self.filename)
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))

@@ -23,7 +23,7 @@ class Semester_Blocks():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_block()
+        self.filename = p.get_download_dir() + "/" + self.fname.exception_block()+cal.get_current_date()+".csv"
         if os.path.isfile(self.filename) != True:
             os.remove(self.filename)
             return "File Not Downloaded"

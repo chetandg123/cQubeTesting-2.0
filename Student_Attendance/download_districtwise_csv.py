@@ -27,6 +27,7 @@ class DistrictwiseCsv():
         time.sleep(3)
         p = pwd()
         self.filename = p.get_download_dir()+files.student_download()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
+        print(self.filename)
         if not os.path.isfile(self.filename):
             print("Districtwise csv is not downloaded")
             count = count + 1

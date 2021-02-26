@@ -30,18 +30,18 @@ class cQube_content_course_regression(unittest.TestCase):
             self.data.page_loading(self.driver)
 
 
-    # def test_diksha_page(self):
-    #     b = Diksha_page(self.driver)
-    #     res = b.test_navigation()
-    #     self.assertEqual(res, 0, msg='content course page is present but url is not matching to report')
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_content_course_hyperlink(self):
-    #     self.data.page_loading(self.driver)
-    #     b = Diksha_hyperlink(self.driver)
-    #     res = b.test_hyperlink()
-    #     print("checked with hyper link functionality ")
-    #     self.data.page_loading(self.driver)
+    def test_diksha_page(self):
+        b = Diksha_page(self.driver)
+        res = b.test_navigation()
+        self.assertEqual(res, 0, msg='content course page is present but url is not matching to report')
+        self.data.page_loading(self.driver)
+
+    def test_content_course_hyperlink(self):
+        self.data.page_loading(self.driver)
+        b = Diksha_hyperlink(self.driver)
+        res = b.test_hyperlink()
+        print("checked with hyper link functionality ")
+        self.data.page_loading(self.driver)
 
     def test_course_districtwise_records(self):
         b = course_districtwise_records(self.driver)
@@ -88,26 +88,26 @@ class cQube_content_course_regression(unittest.TestCase):
         self.assertEqual(res, 0, msg='Some districts does not have table records')
         self.data.page_loading(self.driver)
 
-    # def test_homeicon(self):
-    #     b = Diksha_homeicon(self.driver)
-    #     res = b.test_homeicon()
-    #     print('Home icon is working ')
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_Table_orderwise(self):
-    #     b = Table_orderwise(self.driver)
-    #     res = b.test_tablevalue()
-    #     print("checking order of the table and working as per requirement ")
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_content_course_logout(self):
-    #     b = content_course_logout(self.driver)
-    #     res = b.test_logout()
-    #     self.assertEqual(res, 'Log in to cQube', msg="logout button is not working")
-    #     self.data.login_cqube(self.driver)
-    #     self.data.page_loading(self.driver)
-    #     self.data.navigate_to_diksha_content_course()
-    #     self.data.page_loading(self.driver)
+    def test_homeicon(self):
+        b = Diksha_homeicon(self.driver)
+        res = b.test_homeicon()
+        print('Home icon is working ')
+        self.data.page_loading(self.driver)
+
+    def test_Table_orderwise(self):
+        b = Table_orderwise(self.driver)
+        res = b.test_tablevalue()
+        print("checking order of the table and working as per requirement ")
+        self.data.page_loading(self.driver)
+
+    def test_content_course_logout(self):
+        b = content_course_logout(self.driver)
+        res = b.test_logout()
+        self.assertEqual(res, 'Log in to cQube', msg="logout button is not working")
+        self.data.login_cqube(self.driver)
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_diksha_content_course()
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

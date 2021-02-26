@@ -47,7 +47,7 @@ class Check_Cluster_wise():
                         value = dname[3:] + '_'
                         # times = (self.driver.find_element_by_id('time_range').text).strip()
 
-                        self.filename = self.p.get_download_dir() + "/" + "tpd_" +course.lower()+'_overall_'+ value.strip() + self.data.get_current_date() + ".csv"
+                        self.filename = self.p.get_download_dir() + "/" + "enrollment_completion_" +course.lower()+'_overall_'+ value.strip() + self.data.get_current_date() + ".csv"
                         print(self.filename)
                         if os.path.isfile(self.filename) != True:
                             print(course_type.options[i].text,Districts.options[j].text,Blocks.options[k].text,Cluster.options[m].text,'csv file not downloaded')

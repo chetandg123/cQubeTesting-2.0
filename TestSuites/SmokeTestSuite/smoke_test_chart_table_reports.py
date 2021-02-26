@@ -2,23 +2,8 @@
 import unittest
 
 from CRC import crc_report_smoke_testing
-from Composite_report import composite_smoke_testing
-from Diksha_Reports.usage_by_course import usage_by_course_smoke_testing
-from Diksha_Reports.usage_by_textbook import usage_by_textbook_smoke_suite
-from Diksha_Reports.content_course import content_course_smoke_testing
-from Diksha_Reports.content_textbook import content_textbook_smoke_suite
 
-from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
-from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
-
-from Diksha_TPD.TPD_Course_Progress import lpd_content_smoke_test
-from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_smoke_test
 from Health_Card_Index import health_card_smoke_test
-
-from Pat_Heatchart import patheatchart_smoke_test
-from SI.Report import School_report_smoke_testing
-from Teacher_Attendance import teacher_attendance_smoke_testing
-from pat_LO_Table import PAT_LO_Table_smoke_suite
 
 from get_dir import pwd
 from reuse_func import GetData

@@ -164,12 +164,13 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
         print("Total number of students equals on clicking of blocks,clusters,schools")
         print("Total number of schools equals on clicking of blocks,clusters,schools")
 
-    def test_date_range(self):
-        daterange = DateRange(self.driver)
-        result = daterange.check_date_range()
-        self.driver.find_element_by_id('homeBtn').click()
-        time.sleep(2)
-        self.data.navigate_to_student_report()
+    # def test_date_range(self):
+    #     daterange = DateRange(self.driver)
+    #     result = daterange.check_date_range()
+    #     self.driver.find_element_by_id('homeBtn').click()
+    #     time.sleep(2)
+    #     self.data.navigate_to_student_report()
+    #     self.data.page_loading(self.driver)
         # if result != 0:
         #  raise self.failureException('Data Range in correct')
 

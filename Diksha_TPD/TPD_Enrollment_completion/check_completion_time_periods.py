@@ -32,7 +32,7 @@ class completion_time_periods():
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(5)
             times = (self.driver.find_element_by_name(Data.timeperiods).text).strip()
-            self.filename = self.p.get_download_dir() + '/'+'tpd_completion_all_district_overall_'+self.data.get_current_date()+'.csv'
+            self.filename = self.p.get_download_dir() + '/'+'enrollment_completion_completion_all_district_overall_'+self.data.get_current_date()+'.csv'
             print(self.filename)
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))

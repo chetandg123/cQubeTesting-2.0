@@ -15,18 +15,19 @@ class Blocks_cluster_schools_Buttons():
         self.data  = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.driver.find_element_by_id(Data.sr_block_btn).click()
+        self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')
         result = graph.is_displayed()
         if True != result:
             print("Block level graph is not displayed ")
             count = count + 1
         xaxis_lists = Select(self.driver.find_element_by_id('x_axis'))
-        for i in range(len(xaxis_lists.options)-1):
+        for i in range(1,len(xaxis_lists.options)-10):
             time.sleep(2)
             xaxis_lists.select_by_index(i)
             self.data.page_loading(self.driver)
         yaxis_lists = Select(self.driver.find_element_by_id('y_axis'))
-        for i in range(len(yaxis_lists.options)-1):
+        for i in range(1,len(yaxis_lists.options)-10):
             time.sleep(2)
             yaxis_lists.select_by_index(i)
             self.data.page_loading(self.driver)
@@ -45,12 +46,12 @@ class Blocks_cluster_schools_Buttons():
             print("Cluster level graph is not displayed ")
             count = count + 1
         xaxis_lists = Select(self.driver.find_element_by_id('x_axis'))
-        for i in range(len(xaxis_lists.options)):
+        for i in range(1,len(xaxis_lists.options)-10):
             time.sleep(2)
             xaxis_lists.select_by_index(i)
             self.data.page_loading(self.driver)
         yaxis_lists = Select(self.driver.find_element_by_id('y_axis'))
-        for i in range(len(yaxis_lists.options)):
+        for i in range(1,len(yaxis_lists.options)-10):
             time.sleep(2)
             yaxis_lists.select_by_index(i)
             self.data.page_loading(self.driver)

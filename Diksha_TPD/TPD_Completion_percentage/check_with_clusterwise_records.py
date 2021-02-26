@@ -37,7 +37,7 @@ class Check_with_all_clusters():
                 for k in range(len(clusters.options)-1, len(clusters.options)):
                     clusters.select_by_index(k)
                     name = self.driver.find_element_by_id(Data.sar_cluster).get_attribute('value')
-                    value = name[3:]+'_'
+                    value = name[4:]+'_'
                     self.data.page_loading(self.driver)
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)

@@ -4,11 +4,11 @@
 from CRC import  crc_report_regression_testing
 from Composite_report import composite_regression_testing
 from Health_Card_Index import health_card_regression_test
-from Pat_Heatchart import patheatchart_regression_test
+from Periodic_Test_Reports.Pat_Heatchart import patheatchart_regression_test
 
 from SI.Report import  School_report_regression_testing
 from Telemetry import telemetry_regression_testing
-from pat_LO_Table import PAT_LO_Table_regression_suite
+from Periodic_Test_Reports.pat_LO_Table import PAT_LO_Table_regression_suite
 
 from get_dir import pwd
 

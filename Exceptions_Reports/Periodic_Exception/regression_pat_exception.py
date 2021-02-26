@@ -47,12 +47,12 @@ class cQube_pat_exception_regression_report(unittest.TestCase):
         print('Checking each districtwise markers')
         self.data.page_loading(self.driver)
 
-    def test_Data_not_recieved(self):
-        b = pat_exception_report(self.driver)
-        res,r1,r2,r3 = b.test_total_not_recieved_data()
-        self.assertEqual(res,r1,msg='Block level data not recieved count mismatch found')
-        self.assertEqual(res,r2,msg='cluster level data not recieved count mismatch found')
-        self.assertEqual(res,r3,msg='School level data not recieved count mismatch found')
+    # def test_Data_not_recieved(self):
+    #     b = pat_exception_report(self.driver)
+    #     res,r1,r2,r3 = b.test_total_not_recieved_data()
+    #     self.assertEqual(res,r1,msg='Block level data not recieved count mismatch found')
+    #     self.assertEqual(res,r2,msg='cluster level data not recieved count mismatch found')
+    #     self.assertEqual(res,r3,msg='School level data not recieved count mismatch found')
 
     def test_pat_exception_Blocks(self):
         b = pat_exception_report(self.driver)
@@ -68,12 +68,12 @@ class cQube_pat_exception_regression_report(unittest.TestCase):
         print('Checked cluster wise markers and csv file downloading ')
         self.data.page_loading(self.driver)
 
-    def test_pat_school(self):
-        b = pat_exception_report(self.driver)
-        res = b.check_markers_on_school_map()
-        self.assertNotEqual(0,res,msg="markers are not present on cluster level map")
-        print('Checked schoolwise markers and csv file downloading ')
-        self.data.page_loading(self.driver)
+    # def test_pat_school(self):
+    #     b = pat_exception_report(self.driver)
+    #     res = b.check_markers_on_school_map()
+    #     self.assertNotEqual(0,res,msg="markers are not present on cluster level map")
+    #     print('Checked schoolwise markers and csv file downloading ')
+    #     self.data.page_loading(self.driver)
 
 
     def test_pat_exception_Logout(self):

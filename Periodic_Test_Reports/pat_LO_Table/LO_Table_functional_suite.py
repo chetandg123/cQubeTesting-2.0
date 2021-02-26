@@ -1,47 +1,47 @@
+import time
 import unittest
+
 from Data.parameters import Data
-
-from Pat_Heatchart.Check_random_selection_on_each_dropdown import Random_test
-from Pat_Heatchart.check_blocks_dropdown import blocks
-from Pat_Heatchart.check_catogory_levels import Catagory_series
-from Pat_Heatchart.check_clusters_dropdown import Clusterswise
-from Pat_Heatchart.check_district_dropdown import districtwise
-from Pat_Heatchart.check_download_function import Download_districtwise
-from Pat_Heatchart.check_exam_dates import exams_series
-from Pat_Heatchart.check_gradewise_records import gradewise_records
-from Pat_Heatchart.check_subject_dropdown import subject_levels
-from Pat_Heatchart.check_with_homeicons_and_homebutton import Home_functions
-from Pat_Heatchart.check_with_hyperlink import heatchart_hyperlink
-from Pat_Heatchart.check_with_logout_btn import logout
-from Pat_Heatchart.check_year_dropdown import year_selection
-
+from Periodic_Test_Reports.pat_LO_Table import Random_test
+from Periodic_Test_Reports.pat_LO_Table import blocks
+from Periodic_Test_Reports.pat_LO_Table import Catagory_series
+from Periodic_Test_Reports.pat_LO_Table import Clusterswise
+from Periodic_Test_Reports.pat_LO_Table.check_district_dropdown import districtwise
+from Periodic_Test_Reports.pat_LO_Table.check_download_function import Download_districtwise
+from Periodic_Test_Reports.pat_LO_Table.check_exam_dates import exams_series
+from Periodic_Test_Reports.pat_LO_Table.check_gradewise_records import gradewise_records
+from Periodic_Test_Reports.pat_LO_Table.check_subject_dropdown import subject_levels
+from Periodic_Test_Reports.pat_LO_Table import Home_functions
+from Periodic_Test_Reports.pat_LO_Table.check_with_logout_btn import logout
+from Periodic_Test_Reports.pat_LO_Table.check_year_dropdown import year_selection
+from Periodic_Test_Reports.pat_LO_Table import check_order_of_tabledata
 from reuse_func import GetData
 
 
-class cQube_heatchart_functionalTest(unittest.TestCase):
+class cQube_LOTable_fuuctionalTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
         self.data = GetData()
         self.driver = self.data.get_driver()
-        self.driver.implicitly_wait(100)
+        self.driver.implicitly_wait(200)
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
-        self.data.navigate_to_heatchart_report()
+        self.data.navigate_to_lo_table_report()
 
     def test_heatchart_icon(self):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
-        self.driver.find_element_by_xpath("//div[@id='heatChart']").click()
-        if "heat-chart" in self.driver.current_url:
-            print('Heatchart icon is working ')
+        self.driver.find_element_by_xpath("//div[@id='lotable']").click()
+        if "PAT-LO-table" in self.driver.current_url:
+            print('PAT LO TABLE icon is working ')
         else:
-            print('Heat chart icon is not working')
+            print('PAT LO TABLE  icon is not working')
             count = count + 1
-        self.assertEqual(count,0,msg='heat chart icon is not working')
+        self.assertEqual(count,0,msg='hear chart icon is not working')
         self.data.page_loading(self.driver)
 
     def test_hamburger_chart(self):
@@ -49,10 +49,10 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
-        self.data.navigate_to_heatchart_report()
+        self.data.navigate_to_lo_table_report()
         self.data.page_loading(self.driver)
-        if 'heat-chart' in self.driver.current_url:
-            print('Heat chart report is displayed')
+        if 'PAT-LO-table' in self.driver.current_url:
+            print('PAT-LO Table report is displayed')
         else:
             print("Navigation is failed from hamburger")
             count = count + 1
@@ -71,6 +71,15 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         self.assertEqual(res,0,msg="Districtwise csv file is not downloaded")
         self.data.page_loading(self.driver)
 
+    def test_check_orderwise(self):
+        self.data.page_loading(self.driver)
+        b = check_order_of_tabledata(self.driver)
+        print("Table record order wise..")
+        res = b.test_tablevalue()
+        print("checked with orderwise of table data")
+        self.data.page_loading(self.driver)
+        time.sleep(5)
+
     def test_exams_series(self):
         b = exams_series(self.driver)
         res = b.exams_dates()
@@ -86,7 +95,6 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
     def test_Home_functions(self):
         b = Home_functions(self.driver)
         res = b.test_homeicons()
-        print("Checked with homeicon functionality ")
         self.data.page_loading(self.driver)
 
     def test_Homebtn_functions(self):
@@ -94,14 +102,13 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         res = b.test_homebutton()
         self.assertEqual(res,0,msg='Homebtn is not working')
         self.data.page_loading(self.driver)
-    #
+
     def test_logout_function(self):
         b = logout(self.driver)
         res = b.test_logoutbtn()
         self.assertEqual(0,res,msg="Logout button is not working ")
         self.data.login_cqube(self.driver)
-        self.data.page_loading(self.driver)
-        self.data.navigate_to_heatchart_report()
+        self.data.navigate_to_lo_table_report()
         self.data.page_loading(self.driver)
 
     def test_year_selection(self):
@@ -110,23 +117,23 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         self.assertEqual(0,res,msg='Year is not selected ')
         self.data.page_loading(self.driver)
 
-    def test_check_hyperlinks(self):
-        hyperlinks = heatchart_hyperlink(self.driver)
-        res = hyperlinks.test_hypers()
-        print('hyper link is working ')
-        self.data.page_loading(self.driver)
+    # def test_check_hyperlinks(self):
+    #     hyperlinks = heatchart_hyperlink(self.driver)
+    #     res = hyperlinks.test_hypers()
+    #     print('hyper link is working ')
+    #     self.data.page_loading(self.driver)
 
     def test_districtwise(self):
         b = districtwise(self.driver)
         res = b.District_select_box()
         self.assertEqual(0,res,msg='Some districtwise csv file is not downloaded')
+        print("Checked with districtwise table records")
         self.data.page_loading(self.driver)
 
     def test_blockwise(self):
         b = blocks(self.driver)
         res = b.Blocks_select_box()
         self.assertEqual(0,res,msg='Some block wise csv file is not downloaded ')
-        print('Checked with all block level records')
         self.data.page_loading(self.driver)
 
     def test_clusterwise(self):
@@ -135,6 +142,7 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         self.assertEqual(0,res,msg='Some cluster wise csv file is not downloaded ')
         self.data.page_loading(self.driver)
 
+
     def test_test_questions(self):
         b = Catagory_series(self.driver)
         res = b.test_questions_records()
@@ -142,6 +150,7 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_test_indicators(self):
+        self.data.page_loading(self.driver)
         b = Catagory_series(self.driver)
         res = b.test_indicator_records()
         self.assertEqual(res, 0, msg='Selected view by records are not displayed')
@@ -156,7 +165,7 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
     def test_Random_test(self):
         b = Random_test(self.driver)
         res = b.test_randoms()
-        self.assertEqual(0,res,msg='Random selection is failed ')
+        self.assertEqual(0, res, msg='Random selection is failed ')
         self.data.page_loading(self.driver)
 
     @classmethod

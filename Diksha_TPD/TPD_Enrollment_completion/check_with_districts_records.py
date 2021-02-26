@@ -35,9 +35,9 @@ class Check_Districtwise():
                 self.driver.find_element_by_id(Data.Download).click()
                 self.data.page_loading(self.driver)
                 dname = self.driver.find_element_by_id(Data.sar_district).get_attribute('value')
-                value = dname[3:] + '_'
+                value = dname[4:] + '_'
 
-                self.filename = self.p.get_download_dir()+"/"+"tpd_"+course.lower()+'_overall'+'_'+value.strip()+self.data.get_current_date()+".csv"
+                self.filename = self.p.get_download_dir()+"/"+"enrollment_completion_"+course.lower()+'_overall'+'_'+value.strip()+self.data.get_current_date()+".csv"
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(course_type.options[i].text, Districts.options[j].text, 'csv file not downloaded')

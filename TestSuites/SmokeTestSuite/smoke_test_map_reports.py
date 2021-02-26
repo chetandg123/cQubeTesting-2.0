@@ -5,7 +5,7 @@
 
 from Landing_Page import cQube_landing_page
 from Login import login_page
-from Periodic_report import periodic_smoke_testing
+from Periodic_Test_Reports.Periodic_report import periodic_smoke_testing
 from Student_Attendance import student_attendance_smoke_testing
 from SI.MAP import School_Map_smoke_testing
 

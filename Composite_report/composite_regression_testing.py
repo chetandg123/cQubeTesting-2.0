@@ -26,19 +26,19 @@ class composite_regression_report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    # def test_composite_icon(self):
-    #     self.data.page_loading(self.driver)
-    #     count = 0
-    #     self.driver.find_element_by_id(Data.home).click()
-    #     self.data.page_loading(self.driver)
-    #     if 'dashboard' in self.driver.current_url:
-    #         print("Landing page is displayed ")
-    #     else:
-    #         print('Home button is not working ')
-    #         count = count + 1
-    #     self.assertEqual(0,count,msg="Home btn is not working ")
-    #     self.driver.find_element_by_id('composite').click()
-    #     self.data.page_loading(self.driver)
+    def test_composite_icon(self):
+        self.data.page_loading(self.driver)
+        count = 0
+        self.driver.find_element_by_id(Data.home).click()
+        self.data.page_loading(self.driver)
+        if 'dashboard' in self.driver.current_url:
+            print("Landing page is displayed ")
+        else:
+            print('Home button is not working ')
+            count = count + 1
+        self.assertEqual(0,count,msg="Home btn is not working ")
+        self.driver.find_element_by_id('composite').click()
+        self.data.page_loading(self.driver)
 
     def test_districtwise_csv_download(self):
         b = Districtwise_download(self.driver)
@@ -64,55 +64,56 @@ class composite_regression_report(unittest.TestCase):
         b.remove_file()
         self.data.page_loading(self.driver)
 
-    # def test_hyperlink(self):
-    #     b = click_on_hyperlinks(self.driver)
-    #     res = b.test_hyperlink()
-    #     print("Checked with hyper link ")
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_xaxis_options(self):
-    #     b = test_Graph(self.driver)
-    #     res = b.test_xplots()
-    #     print("Checked with all xaxis options are selectable")
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_yaxis_options(self):
-    #     b = test_Graph(self.driver)
-    #     res = b.test_yplots()
-    #     print("Checked with all yaxis options are selectable")
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_homebutton(self):
-    #     b = Homebutton_icon(self.driver)
-    #     res = b.test_homebutton()
-    #     self.assertEqual(0, res, msg="Home button is not working")
-    #     print("Home button is working ")
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_logout_button(self):
-    #     self.driver.find_element_by_xpath(Data.hyper_link).click()
-    #     self.data.page_loading(self.driver)
-    #     self.driver.find_element_by_id(Data.logout).click()
-    #     self.data.page_loading(self.driver)
-    #     self.assertEqual('Log in to cQube', self.driver.title, msg="Logout button is not working ")
-    #     print("logout button is working fine ")
-    #     self.data.login_cqube(self.driver)
-    #     self.data.page_loading(self.driver)
-    #     self.data.navigate_to_composite_report()
-    #     self.data.page_loading(self.driver)
-    #
-    # def test_blocks_clusters_schools(self):
-    #     b = Blocks_cluster_schools_Buttons(self.driver)
-    #     res = b.click_on_blocks_button()
-    #     self.assertEqual(0, res, msg="Blocks graph is displayed ")
-    #     print("Block wise graph is displayed ")
-    #     self.data.page_loading(self.driver)
-    #
-    #     b = Blocks_cluster_schools_Buttons(self.driver)
-    #     res = b.click_on_clusters_button()
-    #     self.assertEqual(0, res, msg="Cluster graph is displayed ")
-    #     print("Cluster wise graph is displayed ")
-    #     self.data.page_loading(self.driver)
+    def test_hyperlink(self):
+        b = click_on_hyperlinks(self.driver)
+        res = b.test_hyperlink()
+        print("Checked with hyper link ")
+        self.data.page_loading(self.driver)
+
+    def test_xaxis_options(self):
+        b = test_Graph(self.driver)
+        res = b.test_xplots()
+        print("Checked with all xaxis options are selectable")
+        self.data.page_loading(self.driver)
+
+    def test_yaxis_options(self):
+        b = test_Graph(self.driver)
+        res = b.test_yplots()
+        print("Checked with all yaxis options are selectable")
+        self.data.page_loading(self.driver)
+
+    def test_homebutton(self):
+        b = Homebutton_icon(self.driver)
+        res = b.test_homebutton()
+        self.assertEqual(0, res, msg="Home button is not working")
+        print("Home button is working ")
+        self.data.page_loading(self.driver)
+
+    def test_logout_button(self):
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.logout).click()
+        self.data.page_loading(self.driver)
+        self.assertEqual('Log in to cQube', self.driver.title, msg="Logout button is not working ")
+        print("logout button is working fine ")
+        self.data.login_cqube(self.driver)
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_composite_report()
+        self.data.page_loading(self.driver)
+
+    def test_blocks_clusters_schools(self):
+        self.driver.implicitly_wait(100)
+        b = Blocks_cluster_schools_Buttons(self.driver)
+        res = b.click_on_blocks_button()
+        self.assertEqual(0, res, msg="Blocks graph is displayed ")
+        print("Block wise graph is displayed ")
+        self.data.page_loading(self.driver)
+
+        b = Blocks_cluster_schools_Buttons(self.driver)
+        res = b.click_on_clusters_button()
+        self.assertEqual(0, res, msg="Cluster graph is displayed ")
+        print("Cluster wise graph is displayed ")
+        self.data.page_loading(self.driver)
 
 
     def test_composite_schoolwise_records(self):

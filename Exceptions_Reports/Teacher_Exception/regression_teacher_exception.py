@@ -26,13 +26,13 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
             self.month = month.first_selected_option.text
 
 
-    # def test_DistrictwiseDownload(self):
-    #     b = teacher_exception_report(self.driver,self.year, self.month)
-    #     res1,res2 = b.check_districts_csv_download()
-    #     self.assertNotEqual(res1,0,msg='Markers are not present')
-    #     self.assertEqual(0, res2, msg="Some district level csv file is not downloaded")
-    #     print('Checking each districtwise markers and csv file downloading ')
-    #     self.data.page_loading(self.driver)
+    def test_DistrictwiseDownload(self):
+        b = teacher_exception_report(self.driver,self.year, self.month)
+        res1,res2 = b.check_districts_csv_download()
+        self.assertNotEqual(res1,0,msg='Markers are not present')
+        self.assertEqual(0, res2, msg="Some district level csv file is not downloaded")
+        print('Checking each districtwise markers and csv file downloading ')
+        self.data.page_loading(self.driver)
 
     def test_ClusterPerBlockCsvDownload(self):
         b = teacher_exception_report(self.driver,self.year, self.month)
@@ -51,13 +51,13 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    #
-    # def test_Data_not_recieved(self):
-    #     b = teacher_exception_report(self.driver,self.year, self.month)
-    #     res,r1,r2,r3 = b.test_total_not_recieved_data()
-    #     self.assertEqual(res,r1,msg='Block level data not recieved count mismatch found')
-    #     self.assertEqual(res,r2,msg='cluster level data not recieved count mismatch found')
-    #     self.assertEqual(res,r3,msg='School level data not recieved count mismatch found')
+
+    def test_Data_not_recieved(self):
+        b = teacher_exception_report(self.driver,self.year, self.month)
+        res,r1,r2,r3 = b.test_total_not_recieved_data()
+        self.assertEqual(res,r1,msg='Block level data not recieved count mismatch found')
+        self.assertEqual(res,r2,msg='cluster level data not recieved count mismatch found')
+        self.assertEqual(res,r3,msg='School level data not recieved count mismatch found')
 
     def test_teacher_exception_Blocks(self):
         b = teacher_exception_report(self.driver,self.year, self.month)
@@ -90,14 +90,14 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
         self.assertEqual(0,res,msg='teacher exception report is not displayed')
         print("Pat exception icon on landing is working ")
 
-    # def test_teacher_exception_Logout(self):
-    #     b = teacher_exception_report(self.driver,self.year, self.month)
-    #     res = b.click_on_logout()
-    #     self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
-    #     self.data.login_cqube(self.driver)
-    #     self.data.navigate_to_teacher_exception()
-    #     print("Logout button is working fine ")
-    #     self.data.page_loading(self.driver)
+    def test_teacher_exception_Logout(self):
+        b = teacher_exception_report(self.driver,self.year, self.month)
+        res = b.click_on_logout()
+        self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
+        self.data.login_cqube(self.driver)
+        self.data.navigate_to_teacher_exception()
+        print("Logout button is working fine ")
+        self.data.page_loading(self.driver)
 
     def test_cluster_btn_records(self):
         b = teacher_exception_report(self.driver,self.year, self.month)

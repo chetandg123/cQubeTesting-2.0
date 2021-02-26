@@ -22,7 +22,7 @@ class semeste_schools():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_school()
+        self.filename = p.get_download_dir() + "/" + self.fname.exception_school()+cal.get_current_date()+'.csv'
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:

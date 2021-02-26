@@ -37,7 +37,7 @@ class DateRange():
                 s1 = s1.split()
                 dateRange = self.driver.find_element_by_id('dateRange')
                 s = dateRange.text
-                if str(s1[1]) == '10' or  str(s1[1]) == '11' or str(s1[1]) == '12':
+                if str(s1[1]) == '01' or  str(s1[1]) == '02' or str(s1[1]) == '03':
                     self.s2 = str(s1[1])
                 else :
                     self.s2 = str("0" + s1[1])

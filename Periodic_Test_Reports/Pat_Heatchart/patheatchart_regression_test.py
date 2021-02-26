@@ -1,19 +1,24 @@
+
+
+
 import unittest
-from pat_LO_Table.Check_random_selection_on_each_dropdown import Random_test
-from pat_LO_Table.check_catogory_levels import Catagory_series
-from pat_LO_Table.check_clusters_dropdown import Clusterswise
-from pat_LO_Table.check_district_dropdown import districtwise
-from pat_LO_Table.check_download_function import Download_districtwise
-from pat_LO_Table.check_exam_dates import exams_series
-from pat_LO_Table.check_gradewise_records import gradewise_records
-from pat_LO_Table.check_subject_dropdown import subject_levels
-from pat_LO_Table.check_with_homeicons_and_homebutton import Home_functions
-from pat_LO_Table.check_with_logout_btn import logout
-from pat_LO_Table.check_year_dropdown import year_selection
+
+from Periodic_Test_Reports.Pat_Heatchart.Check_random_selection_on_each_dropdown import Random_test
+from Periodic_Test_Reports.Pat_Heatchart.check_catogory_levels import Catagory_series
+from Periodic_Test_Reports.Pat_Heatchart.check_clusters_dropdown import Clusterswise
+from Periodic_Test_Reports.Pat_Heatchart.check_district_dropdown import districtwise
+from Periodic_Test_Reports.Pat_Heatchart.check_download_function import Download_districtwise
+from Periodic_Test_Reports.Pat_Heatchart.check_exam_dates import exams_series
+from Periodic_Test_Reports.Pat_Heatchart.check_gradewise_records import gradewise_records
+from Periodic_Test_Reports.Pat_Heatchart.check_subject_dropdown import subject_levels
+from Periodic_Test_Reports.Pat_Heatchart.check_with_homeicons_and_homebutton import Home_functions
+from Periodic_Test_Reports.Pat_Heatchart.check_with_logout_btn import logout
+from Periodic_Test_Reports.Pat_Heatchart.check_year_dropdown import year_selection
+
 from reuse_func import GetData
 
 
-class cQube_pat_lotable_regression_test(unittest.TestCase):
+class cQube_heatchart_regression_test(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -23,7 +28,7 @@ class cQube_pat_lotable_regression_test(unittest.TestCase):
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
-        self.data.navigate_to_lo_table_report()
+        self.data.navigate_to_heatchart_report()
 
 
     def test_Catagory_series(self):
@@ -66,7 +71,7 @@ class cQube_pat_lotable_regression_test(unittest.TestCase):
         res = b.test_logoutbtn()
         self.assertEqual(0,res,msg="Logout button is not working ")
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_lo_table_report()
+        self.data.navigate_to_heatchart_report()
         self.data.page_loading(self.driver)
 
     def test_year_selection(self):
@@ -100,7 +105,6 @@ class cQube_pat_lotable_regression_test(unittest.TestCase):
         res = b.test_randoms()
         self.assertEqual(0,res,msg='Random selection is failed ')
         self.data.page_loading(self.driver)
-
 
     @classmethod
     def tearDownClass(cls):

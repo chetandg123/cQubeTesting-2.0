@@ -5,7 +5,7 @@ from CRC import crc_report_system_testing
 from Composite_report import composite_system_testing
 
 from Login import login_page
-from Periodic_report import periodic_system_suite
+from Periodic_Test_Reports.Periodic_report import periodic_system_suite
 from Student_Attendance import student_attendance_system_testing
 from SI.MAP import school_map_system_testing
 from SI.Report import school_report_system_testing

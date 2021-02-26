@@ -4,12 +4,11 @@
 from Landing_Page import cQube_landing_page
 from Login import login_page
 
-from Periodic_report import periodic_regression_testing
+from Periodic_Test_Reports.Periodic_report import periodic_regression_testing
 from Student_Attendance import  student_attendance_regression_testing
 from SI.MAP import  School_Map_regression_testing
 
 from Semester import  semester_report_regression_testing
-from Exceptions_Reports.Semester_Exception import  exception_regression_testing
 from Teacher_Attendance import teacher_attendance_regression_testing
 from Telemetry import telemetry_regression_testing
 from UDISE import udise_regression_testing
@@ -33,84 +32,84 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
 
-    #
-    # def test_issue01(self):
-    #
-    #     regression_test = unittest.TestSuite()
-    #     regression_test.addTests([
-    #         # file name .class name
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(login_page.login),
-    #     ])
-    #     p = pwd()
-    #     outfile = open(p.get_regression_map_reports(), "w")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title='login to cQube regression Test Report',
-    #         verbosity=1,
-    #
-    #     )
-    #     runner1.run(regression_test)
-    #     outfile.close()
-    #
-    # def test_issue02(self):
-    #     regression_test = unittest.TestSuite()
-    #     regression_test.addTests([
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(cQube_landing_page.cQube_Home),
-    #     ])
-    #     p = pwd()
-    #     outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title='cQube landing page regression Report',
-    #         verbosity=1,
-    #
-    #     )
-    #     runner1.run(regression_test)
-    #     outfile.close()
-    #
-    #
-    # def test_issue03(self):
-    #
-    #             regression_test = unittest.TestSuite()
-    #             regression_test.addTests([
-    #                 # file name .class name
-    #                 unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_regression_testing.cQube_Student_Attendance),
-    #             ])
-    #             p = pwd()
-    #             outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #             runner1 = HTMLTestRunner.HTMLTestRunner(
-    #                 stream=outfile,
-    #                 title='Student Attendance regression Test Report',
-    #                 verbosity=1,
-    #
-    #             )
-    #
-    #             runner1.run(regression_test)
-    #             outfile.close()
-    #
-    #
-    #
-    # def test_issue04(self):
-    #
-    #         regression_test = unittest.TestSuite()
-    #         regression_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_regression_testing.cQube_Semester_Report),
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Semester regression Test Report',
-    #             verbosity=1,
-    #
-    #         )
-    #
-    #         runner1.run(regression_test)
-    #         outfile.close()
+
+    def test_issue01(self):
+
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            # file name .class name
+            unittest.defaultTestLoader.loadTestsFromTestCase(login_page.login),
+        ])
+        p = pwd()
+        outfile = open(p.get_regression_map_reports(), "w")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='login to cQube regression Test Report',
+            verbosity=1,
+
+        )
+        runner1.run(regression_test)
+        outfile.close()
+
+    def test_issue02(self):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(cQube_landing_page.cQube_Home),
+        ])
+        p = pwd()
+        outfile = open(p.get_regression_map_reports(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='cQube landing page regression Report',
+            verbosity=1,
+
+        )
+        runner1.run(regression_test)
+        outfile.close()
+
+
+    def test_issue03(self):
+
+                regression_test = unittest.TestSuite()
+                regression_test.addTests([
+                    # file name .class name
+                    unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_regression_testing.cQube_Student_Attendance_regression),
+                ])
+                p = pwd()
+                outfile = open(p.get_regression_map_reports(), "a")
+
+                runner1 = HTMLTestRunner.HTMLTestRunner(
+                    stream=outfile,
+                    title='Student Attendance regression Test Report',
+                    verbosity=1,
+
+                )
+
+                runner1.run(regression_test)
+                outfile.close()
+
+
+
+    def test_issue04(self):
+
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_regression_testing.cQube_Semester_Report),
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_map_reports(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Semester regression Test Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
 
     def test_issue05(self):
 
@@ -121,7 +120,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             ])
             p = pwd()
-            outfile = open(p.get_regression_map_reports(), "w")
+            outfile = open(p.get_regression_map_reports(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,

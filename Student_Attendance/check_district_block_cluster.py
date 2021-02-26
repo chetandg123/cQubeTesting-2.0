@@ -38,7 +38,7 @@ class DistrictBlockCluster():
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
                     value = self.driver.find_element_by_name('myCluster').get_attribute('value')
-                    cluvalue = value[3:]+'_'
+                    cluvalue = value[4:]+'_'
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     files = file_extention()
                     if len(markers) - 1 == 0:

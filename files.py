@@ -101,7 +101,7 @@ class Files():
     pat_gradewise ='periodic_assessment_test_all_grade_'
     pat_subjectwise='periodic_assessment_test_all_Grade_'
 
-    location_course ="collectionType_course_data.csv"
+    location_course ="usage_by_course_all_"
     location_textbook="usage_by_textbook_all_"
 
     pchart_district ='periodic_assessment_test_heatmap_overall_allDistricts_'
@@ -120,7 +120,8 @@ class Files():
     patlo_subjectwise = "periodic_assessment_test_loTable_"
     patlo_grades = "periodic_assessment_test_loTable_"
 
-
+    student_academic ="student_academic_"
+    teacher_academic ="teacher_academic_"
 
     tpd_district="TPD_course_progress_allDistrict_overall_"
     tpd_lastday="TPD_course_progress_allDistrict_Last_Day_"
