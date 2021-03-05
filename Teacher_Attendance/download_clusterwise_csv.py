@@ -26,10 +26,11 @@ class ClusterwiseCsv():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         p = pwd()
+        count = 0
         self.filename = p.get_download_dir() +'/'+files.teacher_cluster_download()+self.month+"_"+self.year+'_'+cal.get_current_date()+".csv"
         print(self.filename)
-        os.remove(self.filename)
-        return os.path.isfile(self.filename)
-
-    def remove_csv(self):
-        os.remove(self.filename)
+        if os.path.isfile(self.filename) !=True:
+            count = count + 1
+        else:
+            os.remove(self.filename)
+        return count

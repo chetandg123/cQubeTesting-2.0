@@ -25,7 +25,7 @@ class Home_functions():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='lotable']").click()
+        self.load.navigate_to_lo_table_report()
         self.load.page_loading(self.driver)
         if 'PAT-LO-table' in self.driver.current_url:
             print('Pat LO Table is present ')

@@ -12,6 +12,7 @@ from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
 from Diksha_TPD.TPD_Course_Progress import lpd_content_regression_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_regression_test
+from Teacher_Attendance import teacher_attendance_regression_testing
 
 from get_dir import pwd
 
@@ -109,82 +110,100 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
             runner1.run(regression_test)
             outfile.close()
 
-    def test_issue05(self):
-
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    lpd_content_regression_test.cQube_lpdcontent_regression_Test
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_diksha_tpds_regression_report(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='TPD course Progress Regression Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(regression_test)
-            outfile.close()
-
-
-    def test_issue06(self):
-
-            regression_test = unittest.TestSuite()
-            regression_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    lpd_percentage_regression_test.cQube_lpdpercentage_regression_Test
-                )
-            ])
-            p = pwd()
-            outfile = open(p.get_diksha_tpds_regression_report(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='TPD Percentage Progress Regression Test Report',
-                verbosity=1,
-
-            )
-            runner1.run(regression_test)
-            outfile.close()
-
-    def test_issue07(self):
+    def test_issue10(self):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(
-                enrollment_regression_test.cQube_enrollment_regression
+                teacher_attendance_regression_testing.cQube_Teacher_Attendance_regression
             )
         ])
         p = pwd()
-        outfile = open(p.get_diksha_tpds_regression_report(), "a")
+        outfile = open(p.get_regression_map_reports(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='TPD Enrollment Regression Test Report',
+            title='Teacher Attendance Regression Test Report',
             verbosity=1,
         )
         runner1.run(regression_test)
         outfile.close()
 
-    def test_issue08(self):
-        regression_test = unittest.TestSuite()
-        regression_test.addTests([
-            unittest.defaultTestLoader.loadTestsFromTestCase(
-                completion_regression_test.cQube_completion_percentage_regression
-            )
-        ])
-        p = pwd()
-        outfile = open(p.get_diksha_tpds_regression_report(), "a")
-
-        runner1 = HTMLTestRunner.HTMLTestRunner(
-            stream=outfile,
-            title='TPD Completion percentage Regression Test Report',
-            verbosity=1,
-        )
-        runner1.run(regression_test)
-        outfile.close()
+    # def test_issue05(self):
+    #
+    #         regression_test = unittest.TestSuite()
+    #         regression_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 lpd_content_regression_test.cQube_lpdcontent_regression_Test
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_diksha_tpds_regression_report(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='TPD course Progress Regression Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(regression_test)
+    #         outfile.close()
+    #
+    #
+    # def test_issue06(self):
+    #
+    #         regression_test = unittest.TestSuite()
+    #         regression_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 lpd_percentage_regression_test.cQube_lpdpercentage_regression_Test
+    #             )
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_diksha_tpds_regression_report(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='TPD Percentage Progress Regression Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #         runner1.run(regression_test)
+    #         outfile.close()
+    #
+    # def test_issue07(self):
+    #     regression_test = unittest.TestSuite()
+    #     regression_test.addTests([
+    #         unittest.defaultTestLoader.loadTestsFromTestCase(
+    #             enrollment_regression_test.cQube_enrollment_regression
+    #         )
+    #     ])
+    #     p = pwd()
+    #     outfile = open(p.get_diksha_tpds_regression_report(), "a")
+    #
+    #     runner1 = HTMLTestRunner.HTMLTestRunner(
+    #         stream=outfile,
+    #         title='TPD Enrollment Regression Test Report',
+    #         verbosity=1,
+    #     )
+    #     runner1.run(regression_test)
+    #     outfile.close()
+    #
+    # def test_issue08(self):
+    #     regression_test = unittest.TestSuite()
+    #     regression_test.addTests([
+    #         unittest.defaultTestLoader.loadTestsFromTestCase(
+    #             completion_regression_test.cQube_completion_percentage_regression
+    #         )
+    #     ])
+    #     p = pwd()
+    #     outfile = open(p.get_diksha_tpds_regression_report(), "a")
+    #
+    #     runner1 = HTMLTestRunner.HTMLTestRunner(
+    #         stream=outfile,
+    #         title='TPD Completion percentage Regression Test Report',
+    #         verbosity=1,
+    #     )
+    #     runner1.run(regression_test)
+    #     outfile.close()
 
     @classmethod
     def tearDownClass(self):

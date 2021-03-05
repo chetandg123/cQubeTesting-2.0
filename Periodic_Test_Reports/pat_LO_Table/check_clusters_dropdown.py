@@ -43,10 +43,10 @@ class Clusterswise():
                         clust.select_by_index(k)
                         self.load.page_loading(self.driver)
                         value = self.driver.find_element_by_id(Data.cluster_dropdown).get_attribute('value')
-                        value = value[3:] + '_'
+                        values = value[3:]+'_'
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_schools() + gradenum + "_schools_of_cluster_" + value.strip() + self.month + '_' + self.year + '_' + \
+                        self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_schools() + gradenum + "_schools_of_cluster_" + values.strip() + self.month + '_' + self.year + '_' + \
                                         self.load.get_current_date() + '.csv'
                         print(self.filename)
                         file = os.path.isfile(self.filename)

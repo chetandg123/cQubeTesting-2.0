@@ -28,7 +28,8 @@ class Home_functions():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='heatChart']").click()
+        # self.driver.find_element_by_xpath("//div[@id='heatChart']").click()
+        self.load.navigate_to_heatchart_report()
         self.load.page_loading(self.driver)
         if 'heat-chart' in self.driver.current_url:
             print('Pat heat chart is present ')

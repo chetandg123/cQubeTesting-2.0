@@ -85,9 +85,8 @@ class cQube_Teacher_Attendance_regression(unittest.TestCase):
     def test_clusterwise_csv_download(self):
         csv = ClusterwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_clusters()
-        if result:
+        if result == 0:
             print("Cluster wise csv report download is working")
-            csv.remove_csv()
         else:
             raise self.failureException("Cluster wise csv report download is not working")
 

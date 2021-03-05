@@ -130,6 +130,15 @@ class GetData():
         self.driver.find_element_by_id("lotable").click()
         time.sleep(4)
 
+    def navigate_to_sat_heatchart_report(self):
+        self.driver.implicitly_wait(20)
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        time.sleep(2)
+        self.driver.find_element_by_id("satHeatChart").click()
+        time.sleep(4)
+
     def navigate_to_composite_report(self):
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_id(Data.Dashboard).click()
@@ -254,7 +263,7 @@ class GetData():
         time.sleep(3)
         self.driver.find_element_by_xpath(Data.semester_sel).click()
         time.sleep(2)
-        self.driver.find_element_by_id("semReport").click()
+        self.driver.find_element_by_id("sat").click()
         time.sleep(5)
 
     def navigate_to_udise_report(self):

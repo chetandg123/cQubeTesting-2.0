@@ -19,7 +19,7 @@ class SchoolwiseCsv():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.sr_schools_btn).click()
+        self.driver.find_element_by_id(Data.schoolbtn).click()
         cal.page_loading(self.driver)
         time.sleep(10)
         self.driver.find_element_by_id(Data.Download).click()

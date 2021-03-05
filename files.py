@@ -21,13 +21,23 @@ class Files():
     teacher_clusterwise ='teacher_attendance_schools_of_cluster_'
 
 
-    sr_block='semester_report_2nd_sem_allBlocks_'
-    sr_cluster='semester_report_2nd_sem_allClusters_'
-    sr_school='semester_report_2nd_sem_allSchools_'
-    sr_district='semester_report_2nd_sem_allDistricts_'
-    sr_districtwise='semester_report_2nd_sem_blocks_of_district_'
-    sr_blockwise='semester_report_2nd_sem_clusters_of_block_'
-    sr_clusterwise='semester_report_2nd_sem_schools_of_cluster_'
+    sr_block='semester_assessment_test_all_allGrades__allBlocks_'
+    sr_cluster='semester_assessment_test_all_allGrades__allClusters_'
+    sr_school='semester_assessment_test_all_allGrades__allSchools_'
+    sr_district='semester_assessment_test_all_allGrades__allDistricts_'
+    sr_districtwise='semester_assessment_test_all_allGrades__blocks_of_district_'
+    sr_blockwise='semester_assessment_test_all_allGrades__clusters_of_block_'
+    sr_clusterwise='semester_assessment_test_all_allGrades__schools_of_cluster_'
+    sr_gradewise="semester_assessment_test_all_Grade_"
+    sr_subjectwise="semester_assessment_test_all_Grade_"
+
+    satchart_district = 'semester_assessment_test_heatmap_overall_allDistricts_'
+    satchart_districtwise ='semester_assessment_test_heatmap_'
+    satchart_blockwise ='semester_assessment_test_heatmap_'
+    satchart_clusterwise = 'semester_assessment_test_heatmap_'
+    satchart_view = "semester_assessment_test_heatmap_"
+    sat_subject_wise = "semester_assessment_test_heatmap_"
+    sat_chart_grades = "semester_assessment_test_heatmap_"
 
 
     exception_block='semester_exception_2nd_sem_allBlocks_'

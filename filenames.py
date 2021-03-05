@@ -41,7 +41,18 @@ class file_extention():
         name = Files()
         sr_district = name.sr_district
         return sr_district
-       
+
+    def sr_gradewise(self):
+        name = Files()
+        sr_gradewise = name.sr_gradewise
+        return sr_gradewise
+
+    def sr_subjectwise(self):
+        name = Files()
+        sr_subjectwise = name.sr_subjectwise
+        return sr_subjectwise
+
+
 
     #exception
     def exception_block(self):
@@ -432,6 +443,48 @@ class file_extention():
     def pchart_grades(self):
         name = Files()
         pchart_grades = name.pchart_grades
+        return pchart_grades
+
+        # pat heat chart report
+
+    def satchart_districts(self):
+        name = Files()
+        satchart_districtwise = name.satchart_districtwise
+        return satchart_districtwise
+
+    def satchart_all_districts(self):
+        name = Files()
+        satchart_district = name.satchart_district
+        return satchart_district
+
+    def satchart_blocks(self):
+        name = Files()
+        pchart_blocks = name.satchart_districtwise
+        return pchart_blocks
+
+    def satchart_clusters(self):
+        name = Files()
+        pchart_clusters = name.satchart_blockwise
+        return pchart_clusters
+
+    def satchart_schools(self):
+        name = Files()
+        pchart_schools = name.satchart_clusterwise
+        return pchart_schools
+
+    def satchart_views(self):
+        name = Files()
+        pchart_view = name.satchart_view
+        return pchart_view
+
+    def satchart_subjects(self):
+        name = Files()
+        pchart_subjects = name.sat_subject_wise
+        return pchart_subjects
+
+    def satchart_grades(self):
+        name = Files()
+        pchart_grades = name.sat_chart_grades
         return pchart_grades
 
     #pat lo table

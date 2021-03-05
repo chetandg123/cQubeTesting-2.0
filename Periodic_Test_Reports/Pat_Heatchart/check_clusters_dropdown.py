@@ -43,6 +43,7 @@ class Clusterswise():
                         self.load.page_loading(self.driver)
                         value =self.driver.find_element_by_id(Data.cluster_dropdown).get_attribute('value')
                         value = value[3:]+'_'
+                        print(value)
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
                         self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_schools()+gradenum+"_schools_of_cluster_"+value.strip()+self.month+'_'+self.year+'_'+ \

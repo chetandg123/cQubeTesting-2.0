@@ -21,6 +21,7 @@ class DistrictwiseCsv():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        markers = self.driver.find_elements_by_class_name(Data.dots)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
@@ -32,24 +33,14 @@ class DistrictwiseCsv():
             with open(self.filename) as fin:
                 csv_reader = csv.reader(fin, delimiter=',')
                 header = next(csv_reader)
-                total = 0
-                schools = 0
-                for row in csv.reader(fin):
-                    total += int(row[9])
-                    schools += int(row[10])
-                students = self.driver.find_element_by_id("students").text
-                res = re.sub('\D', "", students)
-
-                school = self.driver.find_element_by_id("schools").text
-                sc = re.sub('\D', "", school)
-                if int(res) != total:
-                    print("student count mismatched")
-                    count = count + 1
-                if int(sc) != schools:
-                    print("school count mismatched")
+                data = list(csv_reader)
+                row_count = len(data)
+                dots = len(markers) - 1
+                if dots != row_count:
+                    print('Markers records and csv file records are not matching ', dots, row_count)
                     count = count + 1
             os.remove(self.filename)
-        return  count
+        return count
 
 
 

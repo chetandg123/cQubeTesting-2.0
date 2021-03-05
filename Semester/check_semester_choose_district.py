@@ -24,17 +24,17 @@ class District():
         cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
-        for x in range(len(select_district.options)-5, len(select_district.options)):
+        for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
-            value = value[3:]+'_'
+            value = value[4:]+'_'
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
             if (len(markers) - 1) == 0 :
                 print("District" + select_district.first_selected_option.text +"no data")
                 count = count + 1
-            else :
+            else:
                 time.sleep(2)
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
@@ -44,28 +44,16 @@ class District():
                 if not os.path.isfile(self.filename):
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
-                else :
+                else:
                     with open(self.filename) as fin:
                         csv_reader = csv.reader(fin, delimiter=',')
                         header = next(csv_reader)
-                        total = 0
-                        schools = 0
-                        for row in csv.reader(fin):
-                            total += int(row[11].replace(',',''))
-                            schools += int(row[12].replace(',',""))
-                        students = self.driver.find_element_by_id("students").text
-                        res = re.sub('\D', "", students)
-
-                        school = self.driver.find_element_by_id("schools").text
-                        sc = re.sub('\D', "", school)
-
-                        if int(res) != total:
-                            print("District" + select_district.first_selected_option.text +"student count mismatched")
+                        data = list(csv_reader)
+                        row_count = len(data)
+                        dots = len(markers)-1
+                        if dots != row_count:
+                            print('Markers records and csv file records are not matching ',dots,row_count)
                             count = count + 1
-                        if int(sc) != schools:
-                            print("District" + select_district.first_selected_option.text +"school count mismatched")
-                            count = count + 1
-
                     self.remove_csv()
 
         return count

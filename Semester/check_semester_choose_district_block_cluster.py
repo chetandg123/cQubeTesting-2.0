@@ -57,27 +57,13 @@ class DistrictBlockCluster():
                         with open(self.filename) as fin:
                             csv_reader = csv.reader(fin, delimiter=',')
                             header = next(csv_reader)
-                            total = 0
-                            for row in csv.reader(fin):
-                                row = row[15].strip('\"')
-                                row1 = row.replace(',', "")
-                                total += int(row1)
-                            students = self.driver.find_element_by_id("students").text
-                            res = re.sub('\D', "", students)
-
-                            school = self.driver.find_element_by_id("schools").text
-                            sc = re.sub('\D', "", school)
-
-                            if int(res) != total:
-                                print(
-                                    "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "student count mismatched")
-                                count = count + 1
-                            if int(sc) != len(markers) - 1:
-                                print(
-                                    "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
+                            data = list(csv_reader)
+                            row_count = len(data)
+                            dots = len(markers) - 1
+                            if dots != row_count:
+                                print('Markers records and csv file records are not matching ', dots, row_count)
                                 count = count + 1
                         self.remove_csv()
 
-        return count
-
+                return count
 
