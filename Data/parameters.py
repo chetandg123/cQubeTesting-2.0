@@ -2,8 +2,8 @@
 
 class Data():
     login = "login"
-    email = "username"
-    passwd = "password"
+    email = "username1"
+    passwd = "password1"
     new_pass = "newPasswd"
     conf_pass = "cnfPasswd"
     change_pass_btn = "btn"
@@ -33,6 +33,12 @@ class Data():
     # Dash board
     Dashboard = "menu"
     header = "//h4"
+    # Data Replay
+    data_replay_icon_id = "replay"
+    data_source_select_box_id = "dataSources"
+    data_replay_submit_button_css_selector = "div > button:first-of-type"
+    data_replay_cancel_button_css_selector = "div > button:last-of-type"
+    data_replay_select_year_class = "time"
     # school_infra_Report
     # school_infra = "si"
     infro_dist = "//select[@name='myDistrict']/option"

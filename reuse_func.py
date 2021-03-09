@@ -48,7 +48,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -674,6 +674,29 @@ class GetData():
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
         return config['config']['database']
+
+    def get_table_data_count(self,query,con):
+        cursor = con.cursor()
+        cursor.execute(query)
+        count = cursor.fetchall()
+        return count
+
+
+    # admin console data replay
+
+    def click_data_replay(self, driver):
+        self.driver = driver
+        self.driver.find_element_by_id(Data.data_replay_icon_id).click()
+
+    def select_data_replay_data_source(self,driver,data_source_name):
+        self.driver = driver
+        select =Select(self.driver.find_element_by_id(Data.data_source_select_box_id))
+        select.select_by_visible_text(data_source_name)
+
+    def select_data_replay_year(self,driver,year):
+        self.driver =driver
+        select = Select(self.driver.find_element_by_class_name(Data.data_replay_select_year_class))
+        select.select_by_visible_text(year)
 
 
 
