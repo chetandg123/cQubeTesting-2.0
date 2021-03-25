@@ -14,7 +14,7 @@ class schools_btn_scores():
         self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        self.driver.find_element_by_id('school').click()
+        self.driver.find_element_by_id('schoolbtn').click()
         self.p.page_loading(self.driver)
         time.sleep(20)
         scores = Select(self.driver.find_element_by_id("choose_infra"))

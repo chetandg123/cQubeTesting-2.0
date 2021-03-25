@@ -76,11 +76,12 @@ class cQube_SI_Report(unittest.TestCase):
 
     def test_check_hyperlinks(self):
         hyperlinks = Hyperlink(self.driver)
-        result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
-        if result1 == False and result2 == False and choose_dist == "Choose a District ":
-            print("hyperlinks are working")
-        else:
-            raise self.failureException("hyperlinks are not working")
+        choose_dist = hyperlinks.click_on_hyperlinks()
+        # if result1 == False and result2 == False and choose_dist == "Choose a District ":
+        #     print("hyperlinks are working")
+        # else:
+        #     raise self.failureException("hyperlinks are not working")
+        print('checked with hyperlinks from district , block and cluster level ')
         self.data.page_loading(self.driver)
 
 

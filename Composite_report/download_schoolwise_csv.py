@@ -27,11 +27,14 @@ class school_wise_download():
         self.cal.page_loading(self.driver)
         clu = Select(self.driver.find_element_by_name('myCluster'))
         clu.select_by_index(1)
+        value = self.driver.find_element_by_name('myCluster').get_attribute('value')
+        value = value[3:]+'_'
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.cal.page_loading(self.driver)
-        self.filename = p.get_download_dir() + "/" + self.fname.composite_clusterwise()
+        self.filename = p.get_download_dir() + "/" + self.fname.composite_clusterwise()+value.strip()+self.cal.get_current_date()+'.csv'
+        print(self.filename)
         self.cal.page_loading(self.driver)
         return os.path.isfile(self.filename)
 

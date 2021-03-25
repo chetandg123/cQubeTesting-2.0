@@ -3,6 +3,7 @@ import time
 
 
 from Data.parameters import Data
+from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
 
@@ -22,8 +23,10 @@ class clusterwise_download():
         count =len(dots)-1
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
-        self.filename = cal.get_download_dir() + '/Cluster_wise_report.csv'
+        self.file = file_extention()
+        self.filename = cal.get_download_dir() + '/' + self.file.udise_cluster()+self.p.get_current_date()+'.csv'
         self.p.page_loading(self.driver)
         file = os.path.isfile(self.filename)
+        os.remove(self.filename)
         return file,count
 

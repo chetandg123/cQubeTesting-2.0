@@ -2,8 +2,8 @@
 
 class Data():
     login = "login"
-    email = "username1"
-    passwd = "password1"
+    email = "username"
+    passwd = "password"
     new_pass = "newPasswd"
     conf_pass = "cnfPasswd"
     change_pass_btn = "btn"
@@ -27,7 +27,7 @@ class Data():
     hyper_link = "//p/span"
     directory = "//p[contains(text(),' Semester report for:')]/span"
     Download = "download"
-    Download_scator ='download1'
+    Download_scator ='download'
     s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
     summ ="//*[@id='summary']/div/td[2]"
     # Dash board
@@ -63,10 +63,10 @@ class Data():
 
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"
-    dist_hyper = "//*[@id='block_level']/span[1]"
-    school_hyper = "//*[@id='school_level']/span[5]"
-    # block_hyper = "//*[@id='block_level']/span[]"
-    cluster_hyper = "//*[@id='cluster_level']/span[3]"
+    dist_hyper = "//*[@id='block']/span[1]"
+    # school_hyper = "//*[@id='school']/span[5]"
+    block_hyper = "//*[@id='cluster']/span[3]"
+    cluster_hyper = "//*[@id='school']/span[5]"
 
 
     x = "x_axis"
@@ -76,14 +76,16 @@ class Data():
     School_infra = "//*[@id='div3']/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
     Reportmap = "mapReport"
     Report = "tblReport"
-    scm_block = "block"
-    scm_cluster = "cluster"
-    scm_school = "school"
+
+    scm_block = "blockbtn"
+    scm_cluster = "clusterbtn"
+    scm_school = "schoolbtn"
+
     sc_choosedist = "//select[@id='choose_dist']/option"
     sc_chooseblock = "//select[@id='choose_block']/option"
     sc_choosecluster = "//select[@id='choose_cluster']/option"
     sc_infrascores = "//select[@id='choose_infra']/option"
-    sc_no_of_schools = "schools"
+    sc_no_of_schools = "footer"
 
     diksha ="//*[@id='div3']/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
     tpds ="//*[@id='div3']/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
@@ -159,9 +161,9 @@ class Data():
     errormsg = "//p"
 
     # for SAR_2
-    SAR_Blocks_btn = "allBlock"
-    SAR_Clusters_btn = "allCluster"
-    SAR_Schools_btn = "allSchool"
+    SAR_Blocks_btn = "blockbtn"
+    SAR_Clusters_btn = "clusterbtn"
+    SAR_Schools_btn = "schoolbtn"
     # footer
     schoolcount = "schools"
     students = "students"

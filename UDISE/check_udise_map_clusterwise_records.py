@@ -41,7 +41,7 @@ class test_school_map_schoollevel_records():
                     self.cal.page_loading(self.driver)
                     time.sleep(2)
                     value = self.driver.find_element_by_id('choose_cluster').get_attribute('value')
-                    values = value[3:]+'_'
+                    values = value[5:]+'_'
                     nodata = self.driver.find_element_by_id("errMsg").text
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     if len(markers)-1 == 0:
@@ -54,7 +54,7 @@ class test_school_map_schoollevel_records():
                         if not os.path.isfile(self.filename):
                             print(select_district.options[x].text,select_block.options[y].text,select_cluster.options[z].text ,"csv file is not downloaded!")
                             count = count + 1
-                        schools = self.driver.find_element_by_id('schools').text
+                        schools = self.driver.find_element_by_id('footer').text
                         sc = re.sub('\D','',schools)
                         if len(markers)-1 != int(sc):
                             print('Total no of school mis match found with no of markers ',len(markers),sc)

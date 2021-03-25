@@ -48,7 +48,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        #options.add_argument('--headless')
+        options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -191,7 +191,8 @@ class GetData():
 
     def get_student_month_and_year_values(self):
         times = Select(self.driver.find_element_by_id('period'))
-        times.select_by_visible_text(' Year and Month ')
+        # times.select_by_visible_text(' Year and Month ')
+        times.select_by_index(4)
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
         self.year = (year.first_selected_option.text).strip()

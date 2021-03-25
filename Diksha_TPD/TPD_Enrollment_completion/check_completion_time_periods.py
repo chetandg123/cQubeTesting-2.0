@@ -21,10 +21,12 @@ class completion_time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         course_type = Select(self.driver.find_element_by_id(Data.coursetype))
-        course_type.select_by_visible_text(' Completion ')
+        # course_type.select_by_visible_text(' Completion ')
+        course_type.select_by_index(2)
         self.data.page_loading(self.driver)
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
-        timeseries.select_by_visible_text(' Overall ')
+        # timeseries.select_by_visible_text(' Overall ')
+        timeseries.select_by_index(4)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for Over All')
@@ -55,10 +57,12 @@ class completion_time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         course_type = Select(self.driver.find_element_by_id(Data.coursetype))
-        course_type.select_by_visible_text(' Completion ')
+        # course_type.select_by_visible_text(' Completion ')
+        course_type.select_by_index(2)
         self.data.page_loading(self.driver)
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
-        timeseries.select_by_visible_text(' Last Day ')
+        # timeseries.select_by_visible_text(' Last Day ')
+        timeseries.select_by_index(1)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for last day')
@@ -90,10 +94,12 @@ class completion_time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         course_type = Select(self.driver.find_element_by_id(Data.coursetype))
-        course_type.select_by_visible_text(' Completion ')
+        # course_type.select_by_visible_text(' Completion ')
+        course_type.select_by_index(2)
         self.data.page_loading(self.driver)
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
-        timeseries.select_by_visible_text(' Last 7 Days ')
+        # timeseries.select_by_visible_text(' Last 7 Days ')
+        timeseries.select_by_index(2)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for last 7 days')
@@ -125,10 +131,12 @@ class completion_time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         course_type = Select(self.driver.find_element_by_id(Data.coursetype))
-        course_type.select_by_visible_text(' Completion ')
+        # course_type.select_by_visible_text(' Completion ')
+        course_type.select_by_index(2)
         self.data.page_loading(self.driver)
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
-        timeseries.select_by_visible_text(' Last 30 Days ')
+        # timeseries.select_by_visible_text(' Last 30 Days ')
+        timeseries.select_by_index(3)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for last 30 days')
@@ -136,8 +144,8 @@ class completion_time_periods():
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             times = (self.driver.find_element_by_name(Data.timeperiods).text).strip()
-            ctype = (self.driver.find_element_by_id(Data.coursetype).text).strip()
-            self.filename = self.p.get_download_dir() + '/'+'tpd_'+ctype+'_all_district_last_30_days_'+'_'+self.data.get_current_date()+'.csv'
+            ctype = course_type.first_selected_option
+            self.filename = self.p.get_download_dir() + '/'+'enrollment_completion_completion_all_district_last_30_days_'+self.data.get_current_date()+'.csv'
             print(self.filename)
             self.data.page_loading(self.driver)
             collnames = Select(self.driver.find_element_by_id(Data.coll_names))
@@ -150,4 +158,4 @@ class completion_time_periods():
                 count = count + 1
             self.data.page_loading(self.driver)
             os.remove(self.filename)
-            # return counter, count
+        return  count

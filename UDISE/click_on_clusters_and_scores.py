@@ -16,7 +16,7 @@ class cluster_btn_scores():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        self.driver.find_element_by_id('cluster').click()
+        self.driver.find_element_by_id(Data.scm_cluster).click()
         self.p.page_loading(self.driver)
         time.sleep(5)
         scores = Select(self.driver.find_element_by_id("choose_infra"))

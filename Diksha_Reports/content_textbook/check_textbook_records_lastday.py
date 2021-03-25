@@ -27,8 +27,10 @@ class course_districtwise_lastday_records():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_visible_text(' Last Day ')
+        # times.select_by_visible_text(' Last Day ')
+        times.select_by_index(1)
         self.data.page_loading(self.driver)
+        print(times.first_selected_option)
         if self.msg.no_data_found() in self.driver.page_source:
             print("Last days showing no records")
         else:

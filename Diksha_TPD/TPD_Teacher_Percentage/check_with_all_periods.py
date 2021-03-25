@@ -22,7 +22,8 @@ class Time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         periods = Select(self.driver.find_element_by_id(Data.timeperiods))
-        periods.select_by_visible_text(' Last Day ')
+        # periods.select_by_visible_text(' Last Day ')
+        periods.select_by_index(1)
         self.data.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print('No Data found for overall')
@@ -56,7 +57,8 @@ class Time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         periods = Select(self.driver.find_element_by_id(Data.timeperiods))
-        periods.select_by_visible_text(' Last 30 Days ')
+        # periods.select_by_visible_text(' Last 30 Days ')
+        periods.select_by_index(3)
         self.data.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print('No Data found for last 30 days')
@@ -90,7 +92,8 @@ class Time_periods():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         periods = Select(self.driver.find_element_by_id(Data.timeperiods))
-        periods.select_by_visible_text(' Last 7 Days ')
+        # periods.select_by_visible_text(' Last 7 Days ')
+        periods.select_by_index(2)
         self.data.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print('No Data found for last 7 days')

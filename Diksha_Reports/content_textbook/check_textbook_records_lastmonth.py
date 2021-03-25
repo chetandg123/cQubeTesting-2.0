@@ -34,7 +34,7 @@ class course_districtwise_lastmonth_chart():
         else:
             districts  =Select(self.driver.find_element_by_id('choose_dist'))
             i = 0
-            for x in range(len(districts.options)-2, len(districts.options)):
+            for x in range(len(districts.options)-10, len(districts.options)):
                 time.sleep(1)
                 districts.select_by_index(x)
                 name = districts.options[x].text
@@ -45,7 +45,7 @@ class course_districtwise_lastmonth_chart():
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
-                    self.filename = self.p.get_download_dir() + "/"+'usage_by_textbook_content_last_7_days_'+self.data.get_current_date()+".csv"
+                    self.filename = self.p.get_download_dir() + "/"+'usage_by_textbook_content_last_30_days_'+self.data.get_current_date()+".csv"
                     print(self.driver)
                     file = os.path.isfile(self.filename)
                     self.data.page_loading(self.driver)

@@ -24,7 +24,9 @@ class district_level_records():
         self.load.page_loading(self.driver)
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
-        period.select_by_visible_text(' Overall ')
+        # period.select_by_visible_text(' Overall ')
+        period.select_by_index(4)
+        print(period.first_selected_option)
         self.load.page_loading(self.driver)
         for i in range(1, len(dists.options)):
             dists.select_by_index(i)
@@ -64,7 +66,8 @@ class district_level_records():
         self.load.page_loading(self.driver)
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
-        period.select_by_visible_text(' Last Day ')
+        # period.select_by_visible_text(' Last Day ')
+        period.select_by_index(1)
         self.load.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print("Last 7 days does not have records ")
@@ -106,7 +109,8 @@ class district_level_records():
         self.load.page_loading(self.driver)
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
-        period.select_by_visible_text(' Last 7 Days ')
+        # period.select_by_visible_text(' Last 7 Days ')
+        period.select_by_index(2)
         self.load.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print("Last 7 days does not have records ")
@@ -149,7 +153,8 @@ class district_level_records():
         self.load.page_loading(self.driver)
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         period = Select(self.driver.find_element_by_id(Data.timeperiods))
-        period.select_by_visible_text(' Last 30 Days ')
+        # period.select_by_visible_text(' Last 30 Days ')
+        period.select_by_index(3)
         self.load.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print("Last 7 days does not have records ")

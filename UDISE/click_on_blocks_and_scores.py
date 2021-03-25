@@ -14,7 +14,7 @@ class block_btn_scores():
         self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        self.driver.find_element_by_id('block').click()
+        self.driver.find_element_by_id(Data.scm_block).click()
         count = 0
         self.p.page_loading(self.driver)
         scores = Select(self.driver.find_element_by_id("choose_infra"))

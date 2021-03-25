@@ -88,7 +88,7 @@ class cQube_enrollment_smoketest(unittest.TestCase):
         b = completion_time_periods(self.driver)
         res1 = b.test_completion_last30_days()
         # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last30 days csv file is not downloaded ")
+        self.assertEqual(res1, 0, msg="Enrollment last30 days csv file is not downloaded ")
         self.data.page_loading(self.driver)
 
 
