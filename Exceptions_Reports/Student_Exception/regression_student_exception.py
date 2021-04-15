@@ -101,7 +101,7 @@ class cQube_regression_Student_exception(unittest.TestCase):
         home = Student_Exceptions(self.driver,self.year, self.month)
         result = home.click_on_blocks_click_on_home_icon()
         if "Student Attendance Exception" in result:
-            print("This is Student Attendance Exception Report page")
+            print("This is Student Attendance Exception Infra_Table_Report page")
         else:
             raise self.failureException('Home Icon is not working')
 
@@ -110,7 +110,7 @@ class cQube_regression_Student_exception(unittest.TestCase):
         res1,res2 = homebtn.click_HomeButton()
         self.assertEqual(0,res1,msg='Homebutton is not worked')
         if 'student-attendance-exception' in res2:
-            print("This is Student Attendance Exception Report page")
+            print("This is Student Attendance Exception Infra_Table_Report page")
             pass
         else:
             raise self.failureException('Home button is not working')

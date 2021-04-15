@@ -18,7 +18,7 @@ class download_schoollevel_csv():
        self.cal.page_loading(self.driver)
        p = pwd()
        District_wise = Select(self.driver.find_element_by_id("downloader"))
-       District_wise.select_by_visible_text(" School_Wise Report ")
+       District_wise.select_by_visible_text(" School_Wise Infra_Table_Report ")
        self.cal.page_loading(self.driver)
        self.driver.find_element_by_id(Data.Download).click()
        self.cal.page_loading(self.driver)

@@ -2,6 +2,7 @@ import csv
 import os
 import re
 import time
+from datetime import date
 
 from selenium.webdriver.support.select import Select
 
@@ -35,7 +36,7 @@ class ClusterPerBlockCsvDownload():
                 self.driver.find_element_by_id('download').click()
                 time.sleep(4)
                 p= pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()+value.strip()+date.today().strftime('%d-%m-%Y').strip()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print("District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text   + "csv is not downloaded")
@@ -46,7 +47,7 @@ class ClusterPerBlockCsvDownload():
                         header = next(csv_reader)
                         schools = 0
                         for row in csv.reader(fin):
-                            schools += int(row[7].replace(',', ''))
+                            schools += int(row[8].replace(',', ''))
                         os.remove(self.filename)
                         missingdata = self.driver.find_element_by_id('schools').text
                         md = re.sub('\D','',missingdata)

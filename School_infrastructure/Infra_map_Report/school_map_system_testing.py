@@ -1,14 +1,14 @@
 import time
 import unittest
 
-from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
-from SI.MAP.check_sc_map_clusterwise_records import test_school_map_schoollevel_records
-from SI.MAP.click_on_anydistrict_and_download_csv import download_icon
-from SI.MAP.click_on_blocksbtn_and_check_download import Blockwise_csv_download
-from SI.MAP.click_on_cluster_check_download import clusterwise_download
+from School_infrastructure.Infra_map_Report.check_infrascore_with_download_functionality import SchoolInfra_scores
+from School_infrastructure.Infra_map_Report.check_sc_map_clusterwise_records import test_school_map_schoollevel_records
+from School_infrastructure.Infra_map_Report.click_on_anydistrict_and_download_csv import download_icon
 
-from SI.MAP.click_on_school_and_check_download import school_wise_download
-from SI.MAP.mouseover_on_districtwise import mouseover
+from School_infrastructure.Infra_map_Report.click_on_blocks import click_on_blocks
+from School_infrastructure.Infra_map_Report.click_on_clusters import cluster_button
+from School_infrastructure.Infra_map_Report.click_on_schools import click_schoolbutton
+from School_infrastructure.Infra_map_Report.mouseover_on_districtwise import mouseover
 
 from reuse_func import GetData
 
@@ -87,26 +87,25 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b.remove_csv()
         self.assertNotEqual(0, Toilet, msg='Failed')
 
-    def test_blocklevel_file(self):
-        b = Blockwise_csv_download(self.driver)
-        res1, res2 = b.test_download_blockwise()
-        self.assertTrue(res1, msg="Blockwise csv file is not downloaded")
-        self.assertNotEqual(0, res2, msg="markers are not present on block level map ")
-        print("blocklevel file is downloaded")
+    def test_click_on_block_cluster_school(self):
+        b = click_on_blocks(self.driver)
+        res1,res2 = b.test_blocks_button()
+        self.assertNotEqual(0, res1, msg="Records are not present on map ")
+        self.assertTrue(res2,msg='Block wise file downloading is not working ')
+        print("Block buttons is working...")
 
-    def test_clusterwise_download(self):
-        b = clusterwise_download(self.driver)
-        res1, res2 = b.test_download()
-        self.assertTrue(res1, msg="clusterwise csv file is not downloaded")
-        self.assertNotEqual(0, res2, msg="markers are not present on block level map ")
-        print("cluster wise csv is downloading working")
+        b = cluster_button(self.driver)
+        res1, res2 = b.test_clusterbtn()
+        self.assertNotEqual(0, res1, msg="Records are not present on map ")
+        self.assertTrue(res2, msg='Cluster wise file downloading is not working ')
+        print("cluster button is working ")
 
-    def test_schoolwise_download(self):
-        b = school_wise_download(self.driver)
-        res1, res2 = b.test_schoolwise()
-        self.assertTrue(res1, msg="School level csv file is not downloaded")
-        self.assertNotEqual(0, res2, msg="markers are not present on block level map ")
-        print("school wise csv is downloaded")
+        b = click_schoolbutton(self.driver)
+        res1,res2 = b.test_click_on_school_btn()
+        self.assertNotEqual(0, res1, msg="Records are not present on map ")
+        self.assertTrue(res2, msg='School wise file downloading is not working ')
+        print("school button is working ")
+
 
     def test_mouseover_on_dots(self):
         b = mouseover(self.driver)

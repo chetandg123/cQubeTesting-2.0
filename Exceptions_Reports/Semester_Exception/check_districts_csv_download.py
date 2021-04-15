@@ -42,7 +42,7 @@ class DistrictwiseDownload():
                     header = next(csv_reader)
                     schools = 0
                     for row in csv.reader(fin):
-                        schools += int(row[5].replace(',', ''))
+                        schools += int(row[6].replace(',', ''))
                     missingdata = self.driver.find_element_by_id('schools').text
                     md = re.sub('\D', '', missingdata)
                     if int(schools) != int(md):

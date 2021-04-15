@@ -41,7 +41,7 @@ class cQube_udise_Report(unittest.TestCase):
         self.driver.find_element_by_id('udise').click()
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:
-            print('UDISE Report home page is displayed ')
+            print('UDISE Infra_Table_Report home page is displayed ')
         else:
             print("Udise report is not exists ")
             count = count + 1
@@ -111,7 +111,7 @@ class cQube_udise_Report(unittest.TestCase):
         self.driver.find_element_by_id('udise').click()
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:
-            print('UDISE Report home page is displayed ')
+            print('UDISE Infra_Table_Report home page is displayed ')
         else:
             print("Udise report is not exists ")
             count = count + 1

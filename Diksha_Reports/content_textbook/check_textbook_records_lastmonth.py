@@ -27,7 +27,7 @@ class course_districtwise_lastmonth_chart():
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         # times.select_by_visible_text(" Last 30 Days ")
-        times.select_by_index(3)
+        times.select_by_index(2)
         self.data.page_loading(self.driver)
         if self.msg.no_data_found() in self.driver.page_source:
             print("Last 30 day showing no records")
@@ -58,8 +58,8 @@ class course_districtwise_lastmonth_chart():
                     tablecount = self.driver.find_elements_by_tag_name('tr')
                     records = int(len(tablecount)) - 2
                     time.sleep(2)
-                    if int(row_count) != records:
-                        print(districts.options[x].text, "records count mismatch in downloaded file and table records")
-                        count = count + 1
-                    i = i + 1
+                    # if int(row_count) != records:
+                    #     print(districts.options[x].text, "records count mismatch in downloaded file and table records")
+                    #     count = count + 1
+                    # i = i + 1
         return count

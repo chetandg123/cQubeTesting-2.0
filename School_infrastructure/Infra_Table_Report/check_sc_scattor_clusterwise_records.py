@@ -37,7 +37,7 @@ class Test_schoolwise():
                     select_cluster.select_by_index(z)
                     self.cal.page_loading(self.driver)
                     value = self.driver.find_element_by_name('myCluster').get_attribute('value')
-                    value = value[4:]+'_'
+                    value = value[3:].strip()+'_'
                     nodata = self.driver.find_element_by_id("errMsg").text
                     if nodata == "No data found":
                         print(select_district.options[x].text,select_block.options[y],select_cluster.options[z].text, "no data found!")

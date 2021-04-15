@@ -23,6 +23,8 @@ class DistrictBlockCluster():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management_name = self.driver.find_element_by_id('name').text
+        name = management_name[16:].strip().lower()
         self.year,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
@@ -35,7 +37,7 @@ class DistrictBlockCluster():
             for y in range(len(select_block.options)-1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
-                for z in range(len(select_cluster.options)-1, len(select_cluster.options)):
+                for z in range(1, len(select_cluster.options)):
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
                     value = self.driver.find_element_by_name('myCluster').get_attribute('value')
@@ -49,7 +51,7 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id('download').click()
                     time.sleep(2)
                     p = pwd()
-                    self.filename =  p.get_download_dir() + '/'+file.teacher_clusterwise_download()+value.strip()+ self.month + "_" + self.year +"_"+ cal.get_current_date()+".csv"
+                    self.filename =  p.get_download_dir() + '/'+file.teacher_clusterwise_download()+name+'_schools_of_cluster_'+value.strip()+ self.month + "_" + self.year +"_"+ cal.get_current_date()+".csv"
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(

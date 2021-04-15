@@ -22,7 +22,7 @@ class Districtwise_lastweek_records():
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         # times.select_by_visible_text(' Last 7 Days ')
-        times.select_by_index(1)
+        times.select_by_index(3)
         time.sleep(2)
         if self.msg.no_data_found() in self.driver.page_source:
             print("Last 7 days records")

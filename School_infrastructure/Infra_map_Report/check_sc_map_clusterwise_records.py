@@ -25,6 +25,8 @@ class test_school_map_schoollevel_records():
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
+        management_name = self.driver.find_element_by_id('nm').text
+        name = management_name[16:].strip().lower()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         select_cluster = Select(self.driver.find_element_by_id('choose_cluster'))
@@ -47,10 +49,11 @@ class test_school_map_schoollevel_records():
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = p.get_download_dir() + "/" + self.fname.scmap_clusterwise()+cvalue.strip()+self.cal.get_current_date()+'.csv'
+                        self.filename = p.get_download_dir() + "/" + self.fname.scmap_clusterwise()+name+'_schools_of_cluster_'+cvalue.strip()+self.cal.get_current_date()+'.csv'
                         print(self.filename)
                         if not os.path.isfile(self.filename):
                             print(select_cluster.options[z].text ,"csv file is not downloaded!")
+                            count = count+1
                         else:
                             with open(self.filename) as fin:
                                 csv_reader = csv.reader(fin)

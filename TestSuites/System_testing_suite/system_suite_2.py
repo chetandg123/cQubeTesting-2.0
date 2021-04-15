@@ -41,7 +41,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' PAT Heat chart Report System Test Report',
+                title=' PAT Heat chart Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -61,7 +61,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' PAT LO Table Report System Test Report',
+                title=' PAT LO Table Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -80,7 +80,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Content BY Course System Test Report',
+                title='Content BY Course System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -100,7 +100,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Content By Textbook report System Test Report',
+                title='Content By Textbook report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -120,7 +120,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' Usage By Course Report System Test Report',
+                title=' Usage By Course Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -140,7 +140,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' Usage By Textbook Report System Test Report',
+                title=' Usage By Textbook Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -160,7 +160,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' Usage By TPD Course Report System Test Report',
+                title=' Usage By TPD Course Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -180,7 +180,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' Usage By TPD Percentage Report System Test Report',
+                title=' Usage By TPD Percentage Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -199,7 +199,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title=' Usage By TPD Enrollment/Completion Report System Test Report',
+            title=' Usage By TPD Enrollment/Completion Infra_Table_Report System Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -218,7 +218,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title=' Usage By TPD Percentage  System Test Report',
+            title=' Usage By TPD Percentage  System Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -237,7 +237,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title=' Health card System Test Report',
+            title=' Health card System Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -256,7 +256,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher  Health System Test Report',
+            title='Teacher  Health System Test Infra_Table_Report',
             verbosity=1,
 
         )

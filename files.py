@@ -4,57 +4,57 @@ class Files():
     completion_error='school_invalid_data.csv'
 
 
-    student_donwload='/student_attendance_allDistricts_'
-    student_block='/student_attendance_allBlocks_'
-    student_cluster='/student_attendance_allClusters_'
-    student_school='/student_attendance_allSchools_'
-    student_districtwise='/student_attendance_Blocks_of_district_'
-    student_blockwise='/student_attendance_Clusters_of_block_'
-    student_clusterwise='/student_attendance_schools_of_cluster_'
+    student_donwload='/student_attendance_'
+    student_block='/student_attendance_'
+    student_cluster='/student_attendance_'
+    student_school='/student_attendance_'
+    student_districtwise='/student_attendance_'
+    student_blockwise='/student_attendance_'
+    student_clusterwise='/student_attendance_'
 
-    teacher_donwload = 'teacher_attendance_allDistricts_overall_'
-    teacher_block = 'teacher_attendance_allBlocks_overall_'
-    teacher_cluster = 'teacher_attendance_allClusters_'
-    teacher_school = 'teacher_attendance_allSchools_'
-    teacher_districtwise ='teacher_attendance_Blocks_of_district_'
-    teacher_blockwise ='teacher_attendance_Clusters_of_block_'
-    teacher_clusterwise ='teacher_attendance_schools_of_cluster_'
+    teacher_donwload = 'teacher_attendance_'
+    teacher_block = 'teacher_attendance_'
+    teacher_cluster = 'teacher_attendance_'
+    teacher_school = 'teacher_attendance_'
+    teacher_districtwise ='teacher_attendance_'
+    teacher_blockwise ='teacher_attendance_'
+    teacher_clusterwise ='teacher_attendance_'
+
+    management='overall'
+    sr_block='semester_assessment_test_'+management+'_all_allGrades__allBlocks_'
+    sr_cluster='semester_assessment_test_'+management+'_all_allGrades__allClusters_'
+    sr_school='semester_assessment_test_'+management+'_all_allGrades__allSchools_'
+    sr_district='semester_assessment_test_'+management+'_all_allGrades__allDistricts_'
+    sr_districtwise='semester_assessment_test_'+management+'_all_allGrades__blocks_of_district_'
+    sr_blockwise='semester_assessment_test_'+management+'_all_allGrades__clusters_of_block_'
+    sr_clusterwise='semester_assessment_test_'+management+'_all_allGrades__schools_of_cluster_'
+    sr_gradewise="semester_assessment_test_"+management+"_all_Grade_"
+    sr_subjectwise="semester_assessment_test_"+management+"_all_Grade_"
+
+    satchart_district = 'semester_assessment_test_heatmap_'+management+'_overall_allDistricts_'
+    satchart_districtwise ='semester_assessment_test_heatmap_'+management+'_'
+    satchart_blockwise ='semester_assessment_test_heatmap_'+management+'_'
+    satchart_clusterwise = 'semester_assessment_test_heatmap_'+management+'_'
+    satchart_view = "semester_assessment_test_heatmap_"+management+'_'
+    sat_subject_wise = "semester_assessment_test_heatmap_"+management+'_'
+    sat_chart_grades = "semester_assessment_test_heatmap_"+management+'_'
 
 
-    sr_block='semester_assessment_test_all_allGrades__allBlocks_'
-    sr_cluster='semester_assessment_test_all_allGrades__allClusters_'
-    sr_school='semester_assessment_test_all_allGrades__allSchools_'
-    sr_district='semester_assessment_test_all_allGrades__allDistricts_'
-    sr_districtwise='semester_assessment_test_all_allGrades__blocks_of_district_'
-    sr_blockwise='semester_assessment_test_all_allGrades__clusters_of_block_'
-    sr_clusterwise='semester_assessment_test_all_allGrades__schools_of_cluster_'
-    sr_gradewise="semester_assessment_test_all_Grade_"
-    sr_subjectwise="semester_assessment_test_all_Grade_"
+    exception_block="semester_assessment_test_exception_"+management+"_overall_allGrades__allBlocks_"
+    exception_cluster="semester_assessment_test_exception_"+management+"_overall_allGrades__allClusters_"
+    exception_school="semester_assessment_test_exception_"+management+"_overall_allGrades__allSchools_"
+    exception_district='semester_assessment_test_exception_'+management+'_overall_allGrades__allBlocks_'
+    exception_districtwise='semester_assessment_test_exception_'+management+'_overall_allGrades__blocks_of_district_'
+    exception_blockwise='semester_assessment_test_exception_'+management+'_overall_allGrades__clusters_of_block_'
+    exception_clusterwise='semester_assessment_test_exception_'+management+'_overall_allGrades__schools_of_cluster_'
 
-    satchart_district = 'semester_assessment_test_heatmap_overall_allDistricts_'
-    satchart_districtwise ='semester_assessment_test_heatmap_'
-    satchart_blockwise ='semester_assessment_test_heatmap_'
-    satchart_clusterwise = 'semester_assessment_test_heatmap_'
-    satchart_view = "semester_assessment_test_heatmap_"
-    sat_subject_wise = "semester_assessment_test_heatmap_"
-    sat_chart_grades = "semester_assessment_test_heatmap_"
-
-
-    exception_block='semester_exception_2nd_sem_allBlocks_'
-    exception_cluster='semester_exception_2nd_sem_allClusters_'
-    exception_school='semester_exception_2nd_sem_allSchools_'
-    exception_district='semester_exception_2nd_sem_allDistricts_'
-    exception_districtwise='semester_exception_2nd_sem_blocks_of_district_'
-    exception_blockwise='semester_exception_2nd_sem_clusters_of_block_'
-    exception_clusterwise='semester_exception_2nd_sem_schools_of_cluster_'
-
-    crc_district='crc_report_overall_allDistricts_'
-    crc_block='crc_report_overall_allBlocks_'
-    crc_cluster='crc_report_overall_allClusters_'
-    crc_school='crc_report_overall_allSchools_'
-    crc_districtwise='crc_report_overall_blocks_of_district_'
-    crc_blockwise='crc_report_overall_clusters_of_block_'
-    crc_clusterwise='crc_report_overall_schools_of_cluster_'
+    crc_district='crc_report_'
+    crc_block='crc_report_'
+    crc_cluster='crc_report_'
+    crc_school='crc_report_'
+    crc_districtwise='crc_report_'
+    crc_blockwise='crc_report_'
+    crc_clusterwise='crc_report_'
 
 
     composite_block='composite_report_across_metrics_allBlocks_'
@@ -64,21 +64,21 @@ class Files():
     composite_blockwise='composite_report_across_metrics_clusters_of_block_'
     composite_clusterwise='composite_report_across_metrics_schools_of_cluster_'
 
-    scmap_block='infrastructure_access_by_location_allBlocks_'
-    scmap_cluster='infrastructure_access_by_location_allClusters_'
-    scmap_school='infrastructure_access_by_location_allSchools_'
-    scmap_district='infrastructure_access_by_location_allDistricts_'
-    scmap_districtwise='infrastructure_access_by_location_blocks_of_district_'
+    scmap_block='infrastructure_access_by_location_'
+    scmap_cluster='infrastructure_access_by_location_'
+    scmap_school='infrastructure_access_by_location_'
+    scmap_district='infrastructure_access_by_location_'
+    scmap_districtwise='infrastructure_access_by_location_'
     scmap_blockwise='infrastructure_access_by_location_clusters_of_block_'
-    scmap_clusterwise='infrastructure_access_by_location_schools_of_cluster_'
+    scmap_clusterwise='infrastructure_access_by_location_'
 
-    sc_district='composite_report_allDistricts_'
-    sc_block='composite_report_allBlocks_'
-    sc_cluster='composite_report_allClusters_'
-    sc_school='composite_report_allSchools_'
-    sc_districtwise='composite_report_blocks_of_district_'
-    sc_blockwise='composite_report_clusters_of_block_'
-    sc_clusterwise='composite_report_schools_of_cluster_'
+    sc_district='composite_report_overall_allDistricts_'
+    sc_block='composite_report_overall_allBlocks_'
+    sc_cluster='composite_report_overall_allClusters_'
+    sc_school='composite_report_overall_allSchools_'
+    sc_districtwise='composite_report_overall_blocks_of_district_'
+    sc_blockwise='composite_report_overall_clusters_of_block_'
+    sc_clusterwise='composite_report_overall_schools_of_cluster_'
 
     diksha_stack_all='Diksha_last_30_days_data_All.csv'
     diksha_stack_teacher='Diksha_last_30_days_data_Teacher.csv'
@@ -101,34 +101,34 @@ class Files():
     telemetry_lastday='telemerty_allDistricts_last_day_'
     telemetry_lastmonth='telemerty_allDistricts_last_30_days_'
 
-    pat_district='periodic_assessment_test_all_allGrades__allDistricts_'
-    pat_block='periodic_assessment_test_all_allGrades__allBlocks_'
-    pat_cluster='periodic_assessment_test_all_allGrades__allClusters_'
-    pat_school='periodic_assessment_test_all_allGrades__allSchools_'
-    pat_districtwise='periodic_assessment_test_all_allGrades__blocks_of_district_'
-    pat_blockwise='periodic_assessment_test_all_allGrades__clusters_of_block_'
-    pat_clusterwise='periodic_assessment_test_all_allGrades__schools_of_cluster_'
-    pat_gradewise ='periodic_assessment_test_all_grade_'
-    pat_subjectwise='periodic_assessment_test_all_Grade_'
+    pat_district='periodic_assessment_test_'+management+'_all_allGrades__allDistricts_'
+    pat_block='periodic_assessment_test_'+management+'_all_allGrades__allBlocks_'
+    pat_cluster='periodic_assessment_test_'+management+'_all_allGrades__allClusters_'
+    pat_school='periodic_assessment_test_'+management+'_all_allGrades__allSchools_'
+    pat_districtwise='periodic_assessment_test_'+management+'_all_allGrades__blocks_of_district_'
+    pat_blockwise='periodic_assessment_test_'+management+'_all_allGrades__clusters_of_block_'
+    pat_clusterwise='periodic_assessment_test_'+management+'_all_allGrades__schools_of_cluster_'
+    pat_gradewise ='periodic_assessment_test_'+management+'_all_Grade_'
+    pat_subjectwise='periodic_assessment_test_'+management+'_all_Grade_'
 
     location_course ="usage_by_course_all_"
     location_textbook="usage_by_textbook_all_"
 
-    pchart_district ='periodic_assessment_test_heatmap_overall_allDistricts_'
-    pchart_districtwise='periodic_assessment_test_heatmap_'
-    pchart_blockwise='periodic_assessment_test_heatmap_'
-    pchart_clusterwise='periodic_assessment_test_heatmap_'
-    pchart_view ="periodic_assessment_test_heatmap_"
-    subject_wise ="periodic_assessment_test_heatmap_"
-    pchart_grades ="periodic_assessment_test_heatmap_"
+    pchart_district ='periodic_assessment_test_heatmap_'+management+'_overall_allDistricts_'
+    pchart_districtwise='periodic_assessment_test_heatmap_'+management+'_'
+    pchart_blockwise='periodic_assessment_test_heatmap_'+management+'_'
+    pchart_clusterwise='periodic_assessment_test_heatmap_'+management+'_'
+    pchart_view ="periodic_assessment_test_heatmap_"+management+"_"
+    subject_wise ="periodic_assessment_test_heatmap_"+management+'_'
+    pchart_grades ="periodic_assessment_test_heatmap_"+management+'_'
 
-    patlo_district = 'periodic_assessment_test_loTable_overall_allDistricts_'
-    patlo_districtwise = 'periodic_assessment_test_loTable_'
-    patlo_blockwise = 'periodic_assessment_test_loTable_'
-    patlo_clusterwise = 'periodic_assessment_test_loTable_'
-    patlo_view = "periodic_assessment_test_loTable_"
-    patlo_subjectwise = "periodic_assessment_test_loTable_"
-    patlo_grades = "periodic_assessment_test_loTable_"
+    patlo_district = 'periodic_assessment_test_loTable_'+management+'_overall_allDistricts_'
+    patlo_districtwise = 'periodic_assessment_test_loTable_'+management+'_'
+    patlo_blockwise = 'periodic_assessment_test_loTable_'+management+'_'
+    patlo_clusterwise = 'periodic_assessment_test_loTable_'+management+'_'
+    patlo_view = "periodic_assessment_test_loTable_"+management+'_'
+    patlo_subjectwise = "periodic_assessment_test_loTable_"+management+'_'
+    patlo_grades = "periodic_assessment_test_loTable_"+management+'_'
 
     student_academic ="student_academic_"
     teacher_academic ="teacher_academic_"

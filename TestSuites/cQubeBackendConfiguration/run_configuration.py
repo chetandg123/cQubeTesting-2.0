@@ -56,7 +56,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Nifi Processor Group Functional Test Report',
+            title='Nifi Processor Group Functional Test Infra_Table_Report',
             verbosity=1,
         )
         runner1.run(functional_test)
@@ -92,7 +92,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Check Base Directory Test Report',
+            title='Check Base Directory Test Infra_Table_Report',
             verbosity=1,
         )
 
@@ -112,7 +112,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Database Test Report',
+            title='Database Test Infra_Table_Report',
             verbosity=1,
         )
 

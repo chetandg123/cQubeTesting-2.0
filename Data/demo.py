@@ -37,16 +37,20 @@ from reuse_func import GetData
 #     @classmethod
 #     def tearDownClass(cls):
 #         cls.driver.close()
-# today = date.today()
-# todaydate = today. strftime('%d-%m-%Y')
-# print(todaydate)
+today = date.today().strftime('%d-%m-%Y').strip()
+print(today)
+todaydate = today. strftime('%d-%m-%Y')
 
 # value = '1: 2425040001'
 # csv2 = '2: 242504002'
 # value = '32: 2407'
-value="1: 2425060001"
-value = value[3:].strip()
-print(value)
-
-s = "Chetan"
-print(s.lower())
+# value="1: 2425060001"
+# value = value[3:].strip()
+# print(value)
+#
+# s = "Chetan"
+# # print(s.lower())
+#
+# str = "management Type: Overall"
+# # print(str[16:].strip().lower())
+# print(str.capitalize())

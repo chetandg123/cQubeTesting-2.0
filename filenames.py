@@ -4,7 +4,7 @@ from files import Files
 class file_extention():
 
 
-    # Semester Report
+    # Semester Infra_Table_Report
     def sr_block(self):
         name = Files()
         sr_block = name.sr_block

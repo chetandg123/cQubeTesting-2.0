@@ -43,7 +43,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Content BY Course Regression Test Report',
+                title='Content BY Course Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -63,7 +63,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Content By Textbook report Regression Test Report',
+                title='Content By Textbook report Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -83,7 +83,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' Usage By Course Report Regression Test Report',
+                title=' Usage By Course Infra_Table_Report Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -103,7 +103,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title=' Usage By Textbook Report Regression Test Report',
+                title=' Usage By Textbook Infra_Table_Report Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -122,7 +122,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Attendance Regression Test Report',
+            title='Teacher Attendance Regression Test Infra_Table_Report',
             verbosity=1,
         )
         runner1.run(regression_test)
@@ -141,7 +141,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title='TPD course Progress Regression Test Report',
+    #             title='TPD course Progress Regression Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -162,7 +162,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title='TPD Percentage Progress Regression Test Report',
+    #             title='TPD Percentage Progress Regression Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -181,7 +181,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
     #
     #     runner1 = HTMLTestRunner.HTMLTestRunner(
     #         stream=outfile,
-    #         title='TPD Enrollment Regression Test Report',
+    #         title='TPD Enrollment Regression Test Infra_Table_Report',
     #         verbosity=1,
     #     )
     #     runner1.run(regression_test)
@@ -199,7 +199,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
     #
     #     runner1 = HTMLTestRunner.HTMLTestRunner(
     #         stream=outfile,
-    #         title='TPD Completion percentage Regression Test Report',
+    #         title='TPD Completion percentage Regression Test Infra_Table_Report',
     #         verbosity=1,
     #     )
     #     runner1.run(regression_test)

@@ -3,6 +3,8 @@ import os
 import re
 import time
 
+from selenium.webdriver.support.select import Select
+
 from Data.parameters import Data
 from filenames import file_extention
 from get_dir import pwd
@@ -20,12 +22,15 @@ class DistrictwiseCsv():
         cal = GetData()
         count = 0
         files = file_extention()
+        management_name = self.driver.find_element_by_id('name').text
+        period = Select(self.driver.find_element_by_id('period'))
+        name = management_name[16:].strip().lower()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir()+'/'+files.teacher_download()+cal.get_current_date()+".csv"
+        self.filename = p.get_download_dir()+'/'+files.teacher_download()+name+'_allDistricts_overall_'+cal.get_current_date()+".csv"
         print(self.filename)
         if not os.path.isfile(self.filename):
             print("Districtwise csv is not downloaded")

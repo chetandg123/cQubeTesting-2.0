@@ -59,7 +59,7 @@ class health_card_homepage():
         if 'healthCard' in self.driver.current_url:
             print("Health card report is displayed")
         else:
-            print("Report to health card is failed in student report ")
+            print("Infra_Table_Report to health card is failed in student report ")
             count = count + 1
         self.data.page_loading(self.driver)
         return count
@@ -81,7 +81,7 @@ class health_card_homepage():
         if 'healthCard' in self.driver.current_url:
             print("Health card report is displayed")
         else:
-            print("Report to health card is failed in semester report ")
+            print("Infra_Table_Report to health card is failed in semester report ")
             count = count + 1
         self.data.page_loading(self.driver)
         return count
@@ -103,7 +103,7 @@ class health_card_homepage():
         if 'healthCard' in self.driver.current_url:
             print("Health card report is displayed")
         else:
-            print("Report to health card is failed in pat report ")
+            print("Infra_Table_Report to health card is failed in pat report ")
             count = count + 1
         self.data.page_loading(self.driver)
         return count
@@ -125,7 +125,7 @@ class health_card_homepage():
         if 'healthCard' in self.driver.current_url:
             print("Health card report is displayed")
         else:
-            print("Report to health card is failed in infrastructure report ")
+            print("Infra_Table_Report to health card is failed in infrastructure report ")
             count = count + 1
         self.data.page_loading(self.driver)
         return count
@@ -147,7 +147,7 @@ class health_card_homepage():
         if 'healthCard' in self.driver.current_url:
             print("Health card report is displayed")
         else:
-            print("Report to health card is failed in udise report ")
+            print("Infra_Table_Report to health card is failed in udise report ")
             count = count + 1
         self.data.page_loading(self.driver)
         return count
@@ -169,7 +169,7 @@ class health_card_homepage():
         if 'healthCard' in self.driver.current_url:
             print("Health card report is displayed")
         else:
-            print("Report to health card is failed in crc report ")
+            print("Infra_Table_Report to health card is failed in crc report ")
             count = count + 1
         self.data.page_loading(self.driver)
         return count

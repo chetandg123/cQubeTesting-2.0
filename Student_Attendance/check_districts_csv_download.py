@@ -24,11 +24,14 @@ class DistrictCsvDownload():
         cal.click_on_state(self.driver)
         self.year ,self.month = cal.get_student_month_and_year_values()
         cal.page_loading(self.driver)
+
         timeseries = Select(self.driver.find_element_by_id('period'))
-        timeseries.select_by_visible_text(' Year and Month ')
+        timeseries.select_by_index(5)
+        management_name = self.driver.find_element_by_id('name').text
+        name = management_name[16:].strip().lower()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
-        for x in range(len(select_district.options)-5, len(select_district.options)):
+        for x in range(1, len(select_district.options)-29):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             val = self.driver.find_element_by_name('myDistrict').get_attribute('value')
@@ -41,7 +44,7 @@ class DistrictCsvDownload():
             self.driver.find_element_by_id('download').click()
             time.sleep(2)
             p = pwd()
-            self.filename = p.get_download_dir() +files.student_districtwise_download()+distval.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"
+            self.filename = p.get_download_dir() +files.student_districtwise_download()+name+'_blockPerDistricts_of_district_'+distval.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"
             if not os.path.isfile(self.filename):
                 print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                 count = count + 1

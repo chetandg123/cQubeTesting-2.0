@@ -37,9 +37,9 @@ class cQube_Student_Attendance(unittest.TestCase):
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
         if "student-attendance" in result:
-            print("Student Attendance Report is Working")
+            print("Student Attendance Infra_Table_Report is Working")
         else:
-            raise self.failureException("Student Attendance Report Is Not Working")
+            raise self.failureException("Student Attendance Infra_Table_Report Is Not Working")
 
     def test_click_on_blocks(self):
         state = GetData()
@@ -96,34 +96,35 @@ class cQube_Student_Attendance(unittest.TestCase):
     def test_check_hyperlinks(self):
         hyperlinks = Hyperlink(self.driver)
         result1, result2, choose_dist = hyperlinks.click_on_hyperlinks()
-        if result1 == False and result2 == False and choose_dist == "Choose a District ":
-            print("hyperlinks are working")
-        else:
-            raise self.failureException("hyperlinks are not working")
+        # if result1 == False and result2 == False and choose_dist == "Choose a District ":
+        #     print("hyperlinks are working")
+        # else:
+        #     raise self.failureException("hyperlinks are not working")
+    #
+    # def test_select_year(self):
+    #     state = GetData()
+    #     state.click_on_state(self.driver)
+    #     year = Select(self.driver.find_element_by_id(Data.sar_year))
+    #     try:
+    #         for x in range(1, len(year.options)):
+    #             year.select_by_index(x)
+    #             self.data.page_loading(self.driver)
+    #         print("Select year is working")
+    #     except WebDriverException:
+    #         raise self.failureException("Select Year is not working")
 
-    def test_select_year(self):
-        state = GetData()
-        state.click_on_state(self.driver)
-        year = Select(self.driver.find_element_by_id(Data.sar_year))
-        try:
-            for x in range(1, len(year.options)):
-                year.select_by_index(x)
-                self.data.page_loading(self.driver)
-            print("Select year is working")
-        except WebDriverException:
-            raise self.failureException("Select Year is not working")
-
-    def test_select_month(self):
-        state = GetData()
-        state.click_on_state(self.driver)
-        month = Select(self.driver.find_element_by_id(Data.sar_month))
-        try:
-            for x in range(1, len(month.options)):
-                month.select_by_index(x)
-                self.data.page_loading(self.driver)
-            print("Select month is working")
-        except WebDriverException:
-            raise self.failureException("Select month is not working")
+    # def test_select_month(self):
+    #     state = GetData()
+    #     state.click_on_state(self.driver)
+    #     year = self.driver.find_element_by_id(Data.sar_year)
+    #     month = Select(self.driver.find_element_by_id(Data.sar_month))
+    #     try:
+    #         for x in range(1, len(month.options)):
+    #             month.select_by_index(x)
+    #             self.data.page_loading(self.driver)
+    #         print("Select month is working")
+    #     except WebDriverException:
+    #         raise self.failureException("Select month is not working")
 
     def test_choose_district(self):
         state = GetData()
@@ -219,14 +220,14 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.assertEqual(int(student_count), int(Cstudents), msg="Cluster level no of students are not equal")
         student_count, Sstudents = tc.schools_total_no_of_students()
         self.assertEqual(int(student_count), int(Sstudents), msg="Cluster level no of students are not equal")
-
-    def test_date_range(self):
-        daterange = DateRange(self.driver)
-        result = daterange.check_date_range()
-        self.driver.find_element_by_id('homeBtn').click()
-        time.sleep(2)
-        self.data.navigate_to_student_report()
-        self.data.page_loading(self.driver)
+    #
+    # def test_date_range(self):
+    #     daterange = DateRange(self.driver)
+    #     result = daterange.check_date_range()
+    #     self.driver.find_element_by_id('homeBtn').click()
+    #     time.sleep(2)
+    #     self.data.navigate_to_student_report()
+    #     self.data.page_loading(self.driver)
 
 
     @classmethod

@@ -2,49 +2,49 @@ import time
 import unittest
 
 
-from SI.MAP.Click_on_School_infra import click_schoolinfra
-from SI.MAP.check_districtwise_school import districtlevel_school
-from SI.MAP.check_infrascore_with_download_functionality import SchoolInfra_scores
-from SI.MAP.check_sc_map_blockwise_records import school_map_blockwise
-from SI.MAP.check_with_districts_from_select_box import District_names
+from School_infrastructure.Infra_map_Report.Click_on_School_infra import click_schoolinfra
+from School_infrastructure.Infra_map_Report.check_districtwise_school import districtlevel_school
+from School_infrastructure.Infra_map_Report.check_infrascore_with_download_functionality import SchoolInfra_scores
+from School_infrastructure.Infra_map_Report.check_sc_map_blockwise_records import school_map_blockwise
+from School_infrastructure.Infra_map_Report.check_with_districts_from_select_box import District_names
 
-from SI.MAP.check_with_map_on_schoolinfra import check_markers_on_map
-from SI.MAP.check_with_schoolinfra_options import School_infra_options
-from SI.MAP.click_on_Dashboard import click_dashboard
-from SI.MAP.click_on_Report_from_scinfra import click_report
-from SI.MAP.click_on_Reportmap import click_on_reportmap
+from School_infrastructure.Infra_map_Report.check_with_map_on_schoolinfra import check_markers_on_map
+from School_infrastructure.Infra_map_Report.check_with_schoolinfra_options import School_infra_options
+from School_infrastructure.Infra_map_Report.click_on_Dashboard import click_dashboard
+from School_infrastructure.Infra_map_Report.click_on_Report_from_scinfra import click_report
+from School_infrastructure.Infra_map_Report.click_on_Reportmap import click_on_reportmap
 
-from SI.MAP.click_on_anydistrict_and_download_csv import download_icon
-from SI.MAP.click_on_blk_clus_school_and_home import click_on_home
-from SI.MAP.click_on_block_and_home import block_level_home
-from SI.MAP.click_on_block_check_with_footer_values import school_count
-from SI.MAP.click_on_block_cluster_school_and_check_schoolscount import Block_school_count
+from School_infrastructure.Infra_map_Report.click_on_anydistrict_and_download_csv import download_icon
+from School_infrastructure.Infra_map_Report.click_on_blk_clus_school_and_home import click_on_home
+from School_infrastructure.Infra_map_Report.click_on_block_and_home import block_level_home
+from School_infrastructure.Infra_map_Report.click_on_block_check_with_footer_values import school_count
+from School_infrastructure.Infra_map_Report.click_on_block_cluster_school_and_check_schoolscount import Block_school_count
 
-from SI.MAP.click_on_blocks import click_on_blocks
-from SI.MAP.click_on_blocks_and_scores import block_btn_scores
-from SI.MAP.click_on_blocksbtn_and_check_download import Blockwise_csv_download
-from SI.MAP.click_on_blockwise_download_csv import cluster_level_map_check
-from SI.MAP.click_on_cluster_and_home import click_cluster_and_home
+from School_infrastructure.Infra_map_Report.click_on_blocks import click_on_blocks
+from School_infrastructure.Infra_map_Report.click_on_blocks_and_scores import block_btn_scores
+from School_infrastructure.Infra_map_Report.click_on_blocksbtn_and_check_download import Blockwise_csv_download
+from School_infrastructure.Infra_map_Report.click_on_blockwise_download_csv import cluster_level_map_check
+from School_infrastructure.Infra_map_Report.click_on_cluster_and_home import click_cluster_and_home
 
-from SI.MAP.click_on_cluster_check_download import clusterwise_download
-from SI.MAP.click_on_clusters import cluster_button
-from SI.MAP.click_on_clusters_and_scores import cluster_btn_scores
-from SI.MAP.click_on_district_and_homeicon import district_home
-from SI.MAP.click_on_district_options import District_options
+from School_infrastructure.Infra_map_Report.click_on_cluster_check_download import clusterwise_download
+from School_infrastructure.Infra_map_Report.click_on_clusters import cluster_button
+from School_infrastructure.Infra_map_Report.click_on_clusters_and_scores import cluster_btn_scores
+from School_infrastructure.Infra_map_Report.click_on_district_and_homeicon import district_home
+from School_infrastructure.Infra_map_Report.click_on_district_options import District_options
 
-from SI.MAP.click_on_hyperlink import click_on_hyperlink
-from SI.MAP.click_on_infra_score import click_on_infrascores
-from SI.MAP.click_on_infra_scores_options import select_infrascore_options
-from SI.MAP.click_on_school_and_check_download import  school_wise_download
-from SI.MAP.click_on_school_infrastructure import School_infra_test
+from School_infrastructure.Infra_map_Report.click_on_hyperlink import click_on_hyperlink
+from School_infrastructure.Infra_map_Report.click_on_infra_score import click_on_infrascores
+from School_infrastructure.Infra_map_Report.click_on_infra_scores_options import select_infrascore_options
+from School_infrastructure.Infra_map_Report.click_on_school_and_check_download import  school_wise_download
+from School_infrastructure.Infra_map_Report.click_on_school_infrastructure import School_infra_test
 
-from SI.MAP.click_on_schools import click_schoolwise
-from SI.MAP.click_on_schools_and_scores import schools_btn_scores
-from SI.MAP.download_clusterlevel_csv import cluster_level_csv
-from SI.MAP.download_districtwise_csv import districtwise_csv
-from SI.MAP.mouseover_on_districtwise import mouseover
+from School_infrastructure.Infra_map_Report.click_on_schools import click_schoolwise
+from School_infrastructure.Infra_map_Report.click_on_schools_and_scores import schools_btn_scores
+from School_infrastructure.Infra_map_Report.download_clusterlevel_csv import cluster_level_csv
+from School_infrastructure.Infra_map_Report.download_districtwise_csv import districtwise_csv
+from School_infrastructure.Infra_map_Report.mouseover_on_districtwise import mouseover
 
-from SI.MAP.select_district_block_from_select_box import select_blockwise
+from School_infrastructure.Infra_map_Report.select_district_block_from_select_box import select_blockwise
 
 from reuse_func import GetData
 
@@ -125,8 +125,8 @@ class cQube_SI_Map_Report(unittest.TestCase):
     def test_school_infra_options(self):
         b = School_infra_options(self.driver)
         res1,res2 = b.test_options()
-        self.assertEqual(res1, "Report", msg="option is not available")
-        self.assertEqual(res2, "Map based Report", msg="option is not available")
+        self.assertEqual(res1, "Infra_Table_Report", msg="option is not available")
+        self.assertEqual(res2, "Map based Infra_Table_Report", msg="option is not available")
         self.data.page_loading(self.driver)
         print("school infra options..")
 

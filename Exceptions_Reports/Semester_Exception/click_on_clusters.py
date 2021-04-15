@@ -12,7 +12,7 @@ class semester_clusters():
         self.driver = driver
 
     def check_markers_on_clusters_map(self):
-        self.driver.find_element_by_id('cluster').click()
+        self.driver.find_element_by_id('clusterbtn').click()
         cal = GetData()
         self.fname = file_extention()
         cal.page_loading(self.driver)

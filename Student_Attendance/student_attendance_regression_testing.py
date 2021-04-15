@@ -44,8 +44,8 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
     def test_click_on_student_attendence_report(self):
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
-        if "Student Attendance Report" in self.driver.page_source:
-            print("Navigating to Student Attendance Report is working")
+        if "Student Attendance Infra_Table_Report" in self.driver.page_source:
+            print("Navigating to Student Attendance Infra_Table_Report is working")
         else:
             print("Student_Attendance page does not exist!...")
 
@@ -135,10 +135,10 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
     def test_check_hyperlinks(self):
         hyperlinks = Hyperlink(self.driver)
         result1,result2,choose_dist= hyperlinks.click_on_hyperlinks()
-        if result1 == False and result2 == False and choose_dist == "Choose a District " :
-            print("hyperlinks are working")
-        else :
-            raise self.failureException("hyperlinks are not working")
+        # if result1 == False and result2 == False and choose_dist == "Choose a District " :
+        #     print("hyperlinks are working")
+        # else :
+        #     raise self.failureException("hyperlinks are not working")
 
     def test_home_icon(self):
         home = Home(self.driver)

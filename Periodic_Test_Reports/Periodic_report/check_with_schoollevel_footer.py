@@ -19,7 +19,7 @@ class Schoolwise_footers():
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.schoolbtn).click()
-        time.sleep(10)
+        time.sleep(20)
         markers = self.driver.find_elements_by_class_name(Data.dots)
         dots = len(markers )-1
         self.driver.find_element_by_id(Data.Download).click()

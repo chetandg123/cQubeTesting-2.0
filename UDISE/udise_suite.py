@@ -22,7 +22,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Admin console System Test Report',
+                title='Admin console System Test Infra_Table_Report',
                 verbosity=1,
             )
 

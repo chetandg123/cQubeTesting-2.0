@@ -7,7 +7,7 @@ from Landing_Page import cQube_landing_page
 from Login import login_page
 from Periodic_Test_Reports.Periodic_report import periodic_smoke_testing
 from Student_Attendance import student_attendance_smoke_testing
-from SI.MAP import School_Map_smoke_testing
+from School_infrastructure.Infra_map_Report import School_Map_smoke_testing
 
 from Semester import semester_report_smoke_testing
 from Exceptions_Reports.Semester_Exception import exception_smoke_testing
@@ -46,7 +46,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Smoke Test Report',
+            title='Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -63,7 +63,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='cQube landing page Report',
+            title='cQube landing page Infra_Table_Report',
             verbosity=1,
 
         )
@@ -83,7 +83,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Student Attendance Smoke Test Report',
+                title='Student Attendance Smoke Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -103,7 +103,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester Test Report',
+                title='Semester Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -124,7 +124,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='School Infra Map Test Report',
+                title='School Infra Map Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -148,7 +148,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester Exception Test Report',
+                title='Semester Exception Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -168,7 +168,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Telemetry smoke Test Report',
+                title='Telemetry smoke Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -188,7 +188,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='UDISE Report smoke Test Report',
+                title='UDISE Infra_Table_Report smoke Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -209,7 +209,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Periodic Report Smoke Test Report',
+                title='Periodic Infra_Table_Report Smoke Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -230,7 +230,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Attendance Report Smoke Test Report',
+            title='Teacher Attendance Infra_Table_Report Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )

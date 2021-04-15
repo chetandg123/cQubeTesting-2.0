@@ -34,7 +34,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title=' PAT Heat chart Report Smoke Test Report',
+    #             title=' PAT Heat chart Infra_Table_Report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -54,7 +54,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title=' PAT LO Table Report Smoke Test Report',
+    #             title=' PAT LO Table Infra_Table_Report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -73,7 +73,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title='Content BY Course Smoke Test Report',
+    #             title='Content BY Course Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -93,7 +93,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title='Content By Textbook report Smoke Test Report',
+    #             title='Content By Textbook report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -113,7 +113,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title=' Usage By Course Report Smoke Test Report',
+    #             title=' Usage By Course Infra_Table_Report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -133,7 +133,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title=' Usage By Textbook Report Smoke Test Report',
+    #             title=' Usage By Textbook Infra_Table_Report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -153,7 +153,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title=' TPD Content Progress Report Smoke Test Report',
+    #             title=' TPD Content Progress Infra_Table_Report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -173,7 +173,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title=' TPD Percentage Progress Report Smoke Test Report',
+    #             title=' TPD Percentage Progress Infra_Table_Report Smoke Test Infra_Table_Report',
     #             verbosity=1,
     #
     #         )
@@ -192,7 +192,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #     runner1 = HTMLTestRunner.HTMLTestRunner(
     #         stream=outfile,
-    #         title=' TPD Enrollment/Completion Report Smoke Test Report',
+    #         title=' TPD Enrollment/Completion Infra_Table_Report Smoke Test Infra_Table_Report',
     #         verbosity=1,
     #
     #     )
@@ -211,7 +211,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #     runner1 = HTMLTestRunner.HTMLTestRunner(
     #         stream=outfile,
-    #         title='TPD Completion Percentage Report Smoke Test Report',
+    #         title='TPD Completion Percentage Infra_Table_Report Smoke Test Infra_Table_Report',
     #         verbosity=1,
     #
     #     )
@@ -231,7 +231,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Health card Report Smoke Test Report',
+            title='Health card Infra_Table_Report Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -249,7 +249,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Crc Test Report',
+            title='Crc Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -267,7 +267,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #     runner1 = HTMLTestRunner.HTMLTestRunner(
     #         stream=outfile,
-    #         title='School Infra Report',
+    #         title='School Infra Infra_Table_Report',
     #         verbosity=1,
     #
     #     )
@@ -286,7 +286,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #     runner1 = HTMLTestRunner.HTMLTestRunner(
     #         stream=outfile,
-    #         title='Composite Report smoke Test Report',
+    #         title='Composite Infra_Table_Report smoke Test Infra_Table_Report',
     #         verbosity=1,
     #
     #     )

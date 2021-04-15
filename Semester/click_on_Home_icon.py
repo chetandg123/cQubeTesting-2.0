@@ -17,7 +17,7 @@ class Home():
             self.driver.find_element_by_id(Data.homeicon).click()
             cal = GetData()
             cal.page_loading(self.driver)
-            return self.driver.page_source
+            return self.driver.current_url
 
 
 

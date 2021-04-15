@@ -34,7 +34,7 @@ class course_districtwise_records():
         tablecount = self.driver.find_elements_by_tag_name('tr')
         records = int(len(tablecount)) - 2
         time.sleep(2)
-        if row_count != records:
-            print("records count mismatch in downloaded file and table records")
-            count = count + 1
+        # if row_count != records:
+        #     print("records count mismatch in downloaded file and table records")
+        #     count = count + 1
         return count

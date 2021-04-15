@@ -143,6 +143,7 @@ class periodic_regression(unittest.TestCase):
     def test_grades_subjects(self):
         b = periodic_grades(self.driver)
         res = b.select_subjects_dropdown()
+        self.assertEqual(0,res,msg='Files are not downloaded')
         print("checking with each grades with subjects")
         self.data.page_loading(self.driver)
 

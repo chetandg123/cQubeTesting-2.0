@@ -36,7 +36,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Summary Functional Test Report',
+            title='Summary Functional Test Infra_Table_Report',
             verbosity=1,
             description="Admin Console Test Result "
         )

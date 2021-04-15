@@ -16,7 +16,7 @@ class Semester_Blocks():
         self.fname =file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id('block').click()
+        self.driver.find_element_by_id('blockbtn').click()
         cal.page_loading(self.driver)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         markers = len(dots) - 1

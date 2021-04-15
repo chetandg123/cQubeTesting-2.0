@@ -45,10 +45,10 @@ class cQube_Semester_Report(unittest.TestCase):
     # def test_click_on_semester_report(self):
     #     sr = SemesterReport(self.driver)
     #     result = sr.click_on_semester()
-    #     if "Semester Report" in result:
-    #         print("This is Semester Report page")
+    #     if "Semester Infra_Table_Report" in result:
+    #         print("This is Semester Infra_Table_Report page")
     #     else:
-    #         raise self.failureException("Semester Report Not Found")
+    #         raise self.failureException("Semester Infra_Table_Report Not Found")
 
 
     def test_click_on_blocks(self):

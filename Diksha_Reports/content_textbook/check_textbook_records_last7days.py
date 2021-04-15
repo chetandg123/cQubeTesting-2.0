@@ -20,7 +20,7 @@ class course_districtwise_lastweek_record():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_index('2')
+        times.select_by_index('3')
         self.data.page_loading(self.driver)
         if self.msg.no_data_found() in self.driver.page_source:
             print("Last 7 days showing no records")
@@ -52,8 +52,8 @@ class course_districtwise_lastweek_record():
                     tablecount = self.driver.find_elements_by_tag_name('tr')
                     records = int(len(tablecount)) - 2
                     time.sleep(2)
-                    if row_count != records:
-                        print(districts.options[x].text, "records count mismatch in downloaded file and table records")
-                        count = count + 1
-                    i = i + 1
+                    # if row_count != records:
+                    #     print(districts.options[x].text, "records count mismatch in downloaded file and table records")
+                    #     count = count + 1
+                    # i = i + 1
         return count

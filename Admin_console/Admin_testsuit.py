@@ -18,7 +18,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Admin console Functional Test Report',
+            title='Admin console Functional Test Infra_Table_Report',
             verbosity=1,
             description="Admin Console Test Result "
         )
@@ -37,7 +37,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Change password Functional Test Report',
+            title='Change password Functional Test Infra_Table_Report',
             verbosity=1,
             description="Admin Console Test Result "
         )
@@ -56,7 +56,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='User list Functional Test Report',
+            title='User list Functional Test Infra_Table_Report',
             verbosity=1,
             description="Admin Console Test Result "
         )
@@ -75,7 +75,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Logs Functional Test Report',
+            title='Logs Functional Test Infra_Table_Report',
             verbosity=1,
             description="Admin Console Test Result "
         )

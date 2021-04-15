@@ -23,7 +23,7 @@ class Time_periods():
         self.data.page_loading(self.driver)
         periods = Select(self.driver.find_element_by_id(Data.timeperiods))
         # periods.select_by_visible_text(' Last Day ')
-        periods.select_by_index(1)
+        periods.select_by_index(4)
         self.data.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print('Last Day does not having records')
@@ -58,7 +58,7 @@ class Time_periods():
         self.data.page_loading(self.driver)
         periods = Select(self.driver.find_element_by_id(Data.timeperiods))
         # periods.select_by_visible_text(' Last 30 Days ')
-        periods.select_by_index(3)
+        periods.select_by_index(2)
         self.data.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print('Last Day does not having records')
@@ -93,7 +93,7 @@ class Time_periods():
         self.data.page_loading(self.driver)
         periods = Select(self.driver.find_element_by_id(Data.timeperiods))
         # periods.select_by_visible_text(' Last 7 Days ')
-        periods.select_by_index(2)
+        periods.select_by_index(3)
         self.data.page_loading(self.driver)
         if self.fname.no_data_found() in self.driver.page_source:
             print('Last 7 Day does not having records')

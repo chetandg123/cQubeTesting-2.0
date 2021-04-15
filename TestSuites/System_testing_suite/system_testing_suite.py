@@ -7,8 +7,8 @@ from Composite_report import composite_system_testing
 from Login import login_page
 from Periodic_Test_Reports.Periodic_report import periodic_system_suite
 from Student_Attendance import student_attendance_system_testing
-from SI.MAP import school_map_system_testing
-from SI.Report import school_report_system_testing
+from School_infrastructure.Infra_map_Report import school_map_system_testing
+from School_infrastructure.Infra_Table_Report import school_report_system_testing
 
 from Semester import semester_report_system_testing
 from Exceptions_Reports.Semester_Exception import exception_system_testing
@@ -42,7 +42,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='login to cQube system Test Report',
+            title='login to cQube system Test Infra_Table_Report',
             verbosity=1,
         )
         runner1.run(system_test)
@@ -59,7 +59,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Student Attendance System Test Report',
+                title='Student Attendance System Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -75,7 +75,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='CRC System Test Report',
+                title='CRC System Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -91,7 +91,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester System Test Report',
+                title='Semester System Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -107,7 +107,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='School Infrastructure Map system Test Report',
+                title='School Infrastructure Map system Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -123,7 +123,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='School Infrastructre scattor plot system Report',
+                title='School Infrastructre scattor plot system Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -138,7 +138,7 @@ class MyTestSuite(unittest.TestCase):
     #         outfile = open(p.get_system_report_path(), "a")
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title='Diksha chart system Test Report',
+    #             title='Diksha chart system Test Infra_Table_Report',
     #             verbosity=1,
     #         )
     #         runner1.run(system_test)
@@ -156,7 +156,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester Exception system Test Report',
+                title='Semester Exception system Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -174,7 +174,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Telemetry system Test Report',
+                title='Telemetry system Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -190,7 +190,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Udise System Test Report',
+                title='Udise System Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -206,7 +206,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Composite Report system Test Report',
+                title='Composite Infra_Table_Report system Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)
@@ -222,7 +222,7 @@ class MyTestSuite(unittest.TestCase):
             outfile = open(p.get_system_report_path(), "a")
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Periodic Report System Test Report',
+                title='Periodic Infra_Table_Report System Test Infra_Table_Report',
                 verbosity=1,
             )
             runner1.run(system_test)

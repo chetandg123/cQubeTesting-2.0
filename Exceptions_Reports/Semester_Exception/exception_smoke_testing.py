@@ -1,10 +1,10 @@
 import unittest
 
 from Data.parameters import Data
-from Exceptions_Reports.Semester_Exception import sem_exception_hyperlink
+from Exceptions_Reports.Semester_Exception.Click_on_hyper_link_in_semester_report import sem_exception_hyperlink
 from Exceptions_Reports.Semester_Exception.check_dots_on_each_districts import DotsOnDistrictwise_map
 from Exceptions_Reports.Semester_Exception.check_with_notrecieved_records import Data_not_recieved
-from Exceptions_Reports.Semester_Exception import exception_Home
+from Exceptions_Reports.Semester_Exception.click_on_Home_icon import exception_Home
 from Exceptions_Reports.Semester_Exception.click_on_blocks import Semester_Blocks
 
 from Exceptions_Reports.Semester_Exception.click_on_clusters import semester_clusters
@@ -12,7 +12,7 @@ from Exceptions_Reports.Semester_Exception.click_on_dashboard import sem_dashboa
 from Exceptions_Reports.Semester_Exception.click_on_icon import semester_exception_icon
 from Exceptions_Reports.Semester_Exception.click_on_schools import semeste_schools
 from Exceptions_Reports.Semester_Exception.click_on_semester_report_and_logout import sem_exception_Logout
-from Exceptions_Reports.Semester_Exception import check_DistrictwiseCsv
+from Exceptions_Reports.Semester_Exception.download_districtwise_csv import check_DistrictwiseCsv
 
 from reuse_func import GetData
 

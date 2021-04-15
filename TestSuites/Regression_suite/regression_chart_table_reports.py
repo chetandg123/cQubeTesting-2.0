@@ -6,7 +6,7 @@ from Composite_report import composite_regression_testing
 from Health_Card_Index import health_card_regression_test
 from Periodic_Test_Reports.Pat_Heatchart import patheatchart_regression_test
 
-from SI.Report import  School_report_regression_testing
+from School_infrastructure.Infra_Table_Report import  School_report_regression_testing
 from Telemetry import telemetry_regression_testing
 from Periodic_Test_Reports.pat_LO_Table import PAT_LO_Table_regression_suite
 
@@ -44,7 +44,7 @@ class MyTestSuite(unittest.TestCase):
 
                 runner1 = HTMLTestRunner.HTMLTestRunner(
                     stream=outfile,
-                    title='Crc regression Test Report',
+                    title='Crc regression Test Infra_Table_Report',
                     verbosity=1,
 
                 )
@@ -66,7 +66,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='School Infra regression Report',
+                title='School Infra regression Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -85,7 +85,7 @@ class MyTestSuite(unittest.TestCase):
     # 
     #         runner1 = HTMLTestRunner.HTMLTestRunner(
     #             stream=outfile,
-    #             title='Diksha usage by profile chart regression Test Report',
+    #             title='Diksha usage by profile chart regression Test Infra_Table_Report',
     #             verbosity=1,
     # 
     #         )
@@ -106,7 +106,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Telemetry Regression Test Report',
+                title='Telemetry Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -126,7 +126,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Composite Report Regression Test Report',
+                title='Composite Infra_Table_Report Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -148,7 +148,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title=' PAT Heat chart Report Regression Test Report',
+            title=' PAT Heat chart Infra_Table_Report Regression Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -167,7 +167,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title=' PAT LO Table Report Regression Test Report',
+            title=' PAT LO Table Infra_Table_Report Regression Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -187,7 +187,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Health card Regression Test Report',
+            title='Health card Regression Test Infra_Table_Report',
             verbosity=1,
         )
         runner1.run(regression_test)

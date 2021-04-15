@@ -3,17 +3,18 @@ import unittest
 
 from selenium.common import exceptions
 
-from SI.Report.check_block_per_district_csv_download import blocklevel_csv
-from SI.Report.check_graph_present_on_school_infra import check_with_graph
-from SI.Report.check_homebtn import home
-from SI.Report.check_table_data_metrics import download_report
-from SI.Report.check_table_present_on_schoolinfra import check_with_table
+from School_infrastructure.Infra_Table_Report.check_block_per_district_csv_download import blocklevel_csv
+from School_infrastructure.Infra_Table_Report.check_graph_present_on_school_infra import check_with_graph
+from School_infrastructure.Infra_Table_Report.check_homebtn import home
+from School_infrastructure.Infra_Table_Report.check_sc_scattor_blockwise_records import school_blockwise
+from School_infrastructure.Infra_Table_Report.check_table_data_metrics import download_report
+from School_infrastructure.Infra_Table_Report.check_table_present_on_schoolinfra import check_with_table
 
-from SI.Report.check_with_hyperlink import Hyperlink
-from SI.Report.click_on_district_block_cluster_home import check_home
-from SI.Report.click_on_table_and_check_with_orderof_values import check_order_of_tabledata
-from SI.Report.navigate_to_SI_report import si_report
-from SI.Report.navigate_to_schoolinfra_and_click_on_logout import schoolinfra_logout
+from School_infrastructure.Infra_Table_Report.check_with_hyperlink import Hyperlink
+from School_infrastructure.Infra_Table_Report.click_on_district_block_cluster_home import check_home
+from School_infrastructure.Infra_Table_Report.click_on_table_and_check_with_orderof_values import check_order_of_tabledata
+from School_infrastructure.Infra_Table_Report.navigate_to_SI_report import si_report
+from School_infrastructure.Infra_Table_Report.navigate_to_schoolinfra_and_click_on_logout import schoolinfra_logout
 
 from reuse_func import GetData
 
@@ -46,8 +47,7 @@ class cQube_SI_Report(unittest.TestCase):
         print("download districtwise csv file")
         b = download_report(self.driver)
         path = b.test_schools()
-        self.assertTrue(path, msg="File is not downloaded")
-        b.remove_csv()
+        self.assertEqual(path,0, msg="File is not downloaded")
         self.data.page_loading(self.driver)
 
     def test_check_hyperlinks(self):
@@ -113,6 +113,13 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure()
+        self.data.page_loading(self.driver)
+
+    def test_sc_scator_blockwise(self):
+        b = school_blockwise(self.driver)
+        result = b.test_blockwise()
+        self.assertEqual(0, result, msg="No data found")
+        print("Checked with each block wise records")
         self.data.page_loading(self.driver)
 
     @classmethod

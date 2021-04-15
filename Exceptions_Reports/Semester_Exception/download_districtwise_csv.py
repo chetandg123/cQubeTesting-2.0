@@ -21,6 +21,8 @@ class check_DistrictwiseCsv():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()+'_'
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
@@ -36,7 +38,7 @@ class check_DistrictwiseCsv():
                 header = next(csv_reader)
                 schools = 0
                 for row in csv.reader(fin):
-                    schools += int(row[3])
+                    schools += int(row[4])
                 school = self.driver.find_element_by_id("schools").text
                 sc = re.sub('\D', "", school)
                 if int(sc) != int(schools):

@@ -13,7 +13,8 @@ class Semester_options():
         count = 0
         self.data.page_loading(self.driver)
         sem = Select(self.driver.find_element_by_id('choose_semester'))
-        sem.select_by_visible_text(' Semester 1 ')
+        # sem.select_by_visible_text(' Semester 1 ')
+        sem.select_by_index(1)
         self.data.page_loading(self.driver)
         if ' Semester 1 ' in self.driver.page_source:
             print('Semester 1 is selected ')

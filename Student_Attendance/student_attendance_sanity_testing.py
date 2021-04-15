@@ -53,8 +53,8 @@ class cQube_Student_Attendance(unittest.TestCase):
     def test_click_on_student_attendence_report(self):
         sar = DahboardSar(self.driver)
         result = sar.click_on_sar()
-        if "Student Attendance Report" in result:
-            print("This is Student Attendance Report page")
+        if "Student Attendance Infra_Table_Report" in result:
+            print("This is Student Attendance Infra_Table_Report page")
         else:
             print("Student_Attendance page does not exist!...")
 
@@ -156,8 +156,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         home = Home(self.driver)
         home.click_on_blocks_click_on_home_icon()
         result = home.click_HomeButton()
-        if "Student Attendance Report" in result:
-            print("This is Student Attendance Report page")
+        if "Student Attendance Infra_Table_Report" in result:
+            print("This is Student Attendance Infra_Table_Report page")
         else:
             raise self.failureException('Home Icon is not working')
 

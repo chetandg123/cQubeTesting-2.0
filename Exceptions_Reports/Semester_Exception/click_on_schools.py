@@ -12,7 +12,8 @@ class semeste_schools():
         self.driver = driver
 
     def check_markers_on_school_map(self):
-        self.driver.find_element_by_id('school').click()
+        self.driver.find_element_by_id('schoolbtn').click()
+        time.sleep(15)
         cal = GetData()
         self.fname = file_extention()
         cal.page_loading(self.driver)

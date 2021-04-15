@@ -23,37 +23,37 @@ class timeseries():
         return count
 
     def time_over_all(self):
-        data = GetData()
+        self.data = GetData()
         p = pwd()
         count =0
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        data.page_loading(self.driver)
+        self.data.page_loading(self.driver)
         dist =Select(self.driver.find_element_by_id('choose_dist'))
         times = Select(self.driver.find_element_by_id('period'))
         for i in range(1,len(times.options)):
             times.select_by_index(i)
             time.sleep(3)
-            if '' in self.driver.page_source:
+            if 'No data found' in self.driver.page_source:
                 print(times.options[i].text,'has no data found')
             else:
-                for j in range(1,len(dist.options)):
+                for j in range(1,len(dist.options)-1):
                     dist.select_by_index(j)
                     value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
-                    value = value[3:]+'_'
+                    value = (value[4:]+'_').strip()
                     time.sleep(2)
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     dots = len(markers) -1
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
-                    self.filename = p.get_download_dir() + '/' + self.fname.pat_districtwise()+value.strip()+data.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() + '/'+ self.fname.pat_districtwise()+value.strip()+self.data.get_current_date()+'.csv'
                     print(self.filename)
                     time.sleep(2)
                     if os.path.isfile(self.filename) !=True:
                         print( dist.options[i],"district csv file not downloaded ")
                         count = count + 1
                     else:
-                        markers = self.driver.find_element_by_class_name(Data.dots)
+                        markers = self.driver.find_elements_by_class_name(Data.dots)
                         dots = len(markers) - 1
                         with open(self.filename) as fin:
                             csv_reader = csv.reader(fin, delimiter=',')

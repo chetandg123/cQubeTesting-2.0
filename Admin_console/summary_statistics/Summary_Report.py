@@ -63,25 +63,25 @@ class Test_summaryreport(unittest.TestCase):
         else:
             print('Student Attendance summmary is not present')
 
-        if "CRC Report Summary:" in self.driver.page_source:
-            print('CRC Report Summary: statistics present')
+        if "CRC Infra_Table_Report Summary:" in self.driver.page_source:
+            print('CRC Infra_Table_Report Summary: statistics present')
         else:
-            print('CRC Report Summary: is not present')
+            print('CRC Infra_Table_Report Summary: is not present')
 
-        if "Semester Report Summary:" in self.driver.page_source:
-            print(' Semester Report Summary: statistics present')
+        if "Semester Infra_Table_Report Summary:" in self.driver.page_source:
+            print(' Semester Infra_Table_Report Summary: statistics present')
         else:
-            print(' Semester Report Summary: is not present')
+            print(' Semester Infra_Table_Report Summary: is not present')
 
-        if "Infra Report Summary:" in self.driver.page_source:
-           print(' Infra Report Summary: statistics present')
+        if "Infra Infra_Table_Report Summary:" in self.driver.page_source:
+           print(' Infra Infra_Table_Report Summary: statistics present')
         else:
-            print(' Infra Report Summary: is not present')
+            print(' Infra Infra_Table_Report Summary: is not present')
 
-        if "Inspection Report Summary:" in self.driver.page_source:
-           print(' Inspection Report Summary: statistics present')
+        if "Inspection Infra_Table_Report Summary:" in self.driver.page_source:
+           print(' Inspection Infra_Table_Report Summary: statistics present')
         else:
-            print(' Inspection Report Summary: is not present')
+            print(' Inspection Infra_Table_Report Summary: is not present')
 
         if "Static district file Summary:" in self.driver.page_source:
             print(' Static district file Summary: statistics present')

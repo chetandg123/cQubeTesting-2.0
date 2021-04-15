@@ -27,7 +27,8 @@ class course_districtwise_lastday_records():
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         # times.select_by_visible_text(' Last Day ')
-        times.select_by_index(1)
+        times.select_by_index(4)
+        time.sleep(5)
         self.data.page_loading(self.driver)
         if self.msg.no_data_found() in self.driver.page_source:
             print(" Last Day does not have records")
@@ -44,7 +45,7 @@ class course_districtwise_lastday_records():
                     print(districts.options[x].text ," does not last day records")
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
-                    time.sleep(3)
+                    time.sleep(5)
                     self.filename = self.p.get_download_dir() + "/"+'usage_by_course_content_last_day_'+self.data.get_current_date()+".csv"
                     print(self.filename)
                     file = os.path.isfile(self.filename)

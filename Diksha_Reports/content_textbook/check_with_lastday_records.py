@@ -21,7 +21,7 @@ class Districtwise_lastday_records():
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
         # times.select_by_visible_text(' Last Day ')
-        times.select_by_index(1)
+        times.select_by_index(3)
         print(times.first_selected_option)
         self.data.page_loading(self.driver)
         if self.msg.no_data_found() in self.driver.page_source:

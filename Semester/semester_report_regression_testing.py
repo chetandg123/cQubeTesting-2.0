@@ -33,14 +33,14 @@ class cQube_Semester_Report(unittest.TestCase):
         self.data.login_cqube(self.driver)
         self.data.navigate_to_semester_report()
         time.sleep(5)
-
-    def test_click_on_semester_report(self):
-        sr = SemesterReport(self.driver)
-        result = sr.check_semester_landing_page()
-        if "Semester Report" in result:
-            print("Navigating to semester Report is working")
-        else:
-            raise self.failureException("Semester Report Not Found")
+    #
+    # def test_click_on_semester_report(self):
+    #     sr = SemesterReport(self.driver)
+    #     result = sr.check_semester_landing_page()
+    #     if "Semester Infra_Table_Report" in result:
+    #         print("Navigating to semester Infra_Table_Report is working")
+    #     else:
+    #         raise self.failureException("Semester Infra_Table_Report Not Found")
 
 
 
@@ -129,7 +129,7 @@ class cQube_Semester_Report(unittest.TestCase):
         self.driver.find_element_by_id('homeBtn').click()
         time.sleep(2)
         self.data.navigate_to_semester_report()
-        if "Semester Report" in self.driver.page_source:
+        if "sat-report" in self.driver.current_url:
             print("test_home_button is working")
         else:
             raise self.failureException('test_home_button is not working')
@@ -139,7 +139,7 @@ class cQube_Semester_Report(unittest.TestCase):
         home = Home(self.driver)
         home.click_on_blocks_click_on_home_icon()
         result = home.click_HomeButton()
-        if "Semester Report" in result:
+        if "sat-report" in result:
             print("Home Icon is working")
         else:
             raise self.failureException('Home Icon is not working')

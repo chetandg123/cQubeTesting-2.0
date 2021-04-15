@@ -24,7 +24,7 @@ class test_course_based_on_timeperiods():
         self.data.page_loading(self.driver)
         timeperiod =Select(self.driver.find_element_by_name('timePeriod'))
         # timeperiod.select_by_visible_text(' Last 30 Days ')
-        timeperiod.select_by_index(3)
+        timeperiod.select_by_index(2)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print("Last 30 days does not having data")
@@ -60,7 +60,7 @@ class test_course_based_on_timeperiods():
         self.data.page_loading(self.driver)
         timeperiod = Select(self.driver.find_element_by_name('timePeriod'))
         # timeperiod.select_by_visible_text(' Last 30 Days ')
-        timeperiod.select_by_index(2)
+        timeperiod.select_by_index(3)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print("Last 7 days does not having data")
@@ -96,7 +96,7 @@ class test_course_based_on_timeperiods():
         self.data.page_loading(self.driver)
         timeperiod = Select(self.driver.find_element_by_name('timePeriod'))
         # timeperiod.select_by_visible_text(' Last 30 Days ')
-        timeperiod.select_by_index(1)
+        timeperiod.select_by_index(3)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print("Last day does not having data")

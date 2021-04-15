@@ -35,7 +35,8 @@ class sat_heat_scripts():
         self.load.page_loading(self.driver)
 
         view_by = Select(self.driver.find_element_by_id(Data.view_by))
-        view_by.select_by_visible_text(' Question Id ')
+        # view_by.select_by_visible_text(' Question Id ')
+        view_by.select_by_index(1)
         self.load.page_loading(self.driver)
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
@@ -46,7 +47,8 @@ class sat_heat_scripts():
         if os.path.isfile(self.filename) != True:
             print(Data.question_id, 'csv file is not downloaded')
             count = count + 1
-        view_by.select_by_visible_text(' Indicator ')
+        # view_by.select_by_visible_text(' Indicator ')
+        view_by.select_by_index(2)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         self.file = self.p.get_download_dir() + "/" + self.fname.satchart_views() + gradenum + '_' + Data.indicator_id + self.month + '_' \

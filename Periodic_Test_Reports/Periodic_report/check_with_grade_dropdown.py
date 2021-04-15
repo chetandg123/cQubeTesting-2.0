@@ -67,12 +67,12 @@ class periodic_grades():
         subjects = Select(self.driver.find_element_by_id(Data.Subject))
         subcount = len(subjects.options)-1
         files = file_extention()
-        for i in range(len(grade.options)):
+        for i in range(1,len(grade.options)):
             grade.select_by_index(i)
             self.data.page_loading(self.driver)
-            gradename = (grade.options[i].text).strip()
+            gradename = grade.options[i].text.strip()
             gradenum = re.sub('\D','',gradename)
-            for j in range(len(subjects.options)):
+            for j in range(1,len(subjects.options)):
                 subjects.select_by_index(j)
                 self.data.page_loading(self.driver)
                 sub = (subjects.options[j].text).strip()
@@ -82,6 +82,7 @@ class periodic_grades():
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(files.pat_gradewise()+gradenum.strip() ,' wise csv file is not downloaded')
+                    count = count+1
                 else:
                     file = open(self.filename)
                     read = file.read()
@@ -89,4 +90,5 @@ class periodic_grades():
                     if grade.options[j].text in read:
                         print(grade.options[j].text, "is present")
         self.data.page_loading(self.driver)
+        return count
 

@@ -19,6 +19,8 @@ class ClusterwiseCsv():
         files = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management_name = self.driver.find_element_by_id('name').text
+        name = management_name[16:].strip().lower()
         self.year,self.month = cal.get_student_month_and_year_values()
         self.driver.find_element_by_id(Data.SAR_Clusters_btn).click()
         cal.page_loading(self.driver)
@@ -27,7 +29,7 @@ class ClusterwiseCsv():
         time.sleep(5)
         p = pwd()
         count = 0
-        self.filename = p.get_download_dir() +'/'+files.teacher_cluster_download()+self.month+"_"+self.year+'_'+cal.get_current_date()+".csv"
+        self.filename = p.get_download_dir() +'/'+files.teacher_cluster_download()+name+'_allClusters_'+self.month+"_"+self.year+'_'+cal.get_current_date()+".csv"
         print(self.filename)
         if os.path.isfile(self.filename) !=True:
             count = count + 1

@@ -20,8 +20,9 @@ class course_districtwise_lastweek_record():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         times = Select(self.driver.find_element_by_name('timePeriod'))
-        times.select_by_index('2')
+        times.select_by_index('3')
         self.data.page_loading(self.driver)
+        time.sleep(5)
         if self.msg.no_data_found() in self.driver.page_source:
             print(" Last 7 Day's does not have records")
         else:

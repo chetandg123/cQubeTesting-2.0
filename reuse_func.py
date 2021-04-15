@@ -54,8 +54,8 @@ class GetData():
 
     def get_current_date(self):
         today = date.today()
-        todaydate = today.strftime('%d-%m-%Y')
-        return todaydate
+        dates = today.strftime('%d-%m-%Y')
+        return dates
 
     def get_firefox_driver(self):
         p = pwd()
@@ -183,6 +183,11 @@ class GetData():
         self.driver.find_element_by_xpath(Data.user_options).click()
         time.sleep(2)
 
+    def get_management_selected_option(self):
+        self.driver.implicitly_wait(10)
+        management_name = self.driver.find_element_by_id('nm').text
+        management_name = management_name[16:].strip().lower()
+        return management_name
 
     def get_month_and_year_values(self):
         year = self.driver.find_element_by_id('year').text
@@ -192,7 +197,7 @@ class GetData():
     def get_student_month_and_year_values(self):
         times = Select(self.driver.find_element_by_id('period'))
         # times.select_by_visible_text(' Year and Month ')
-        times.select_by_index(4)
+        times.select_by_index(5)
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
         self.year = (year.first_selected_option.text).strip()
@@ -233,6 +238,8 @@ class GetData():
 
     def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
+        # name = self.driver.find_element_by_id('name').text
+        # name = name[16:].strip().lower()
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.School_infra).click()

@@ -17,6 +17,7 @@ class cluster_button():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
+        management_name = self.p.get_management_selected_option()
         self.driver.find_element_by_id(Data.scm_cluster).click()
         self.p.page_loading(self.driver)
         time.sleep(20)
@@ -24,7 +25,7 @@ class cluster_button():
         count = len(dots)-1
         self.driver.find_element_by_id('download').click()
         time.sleep(8)
-        self.filename = cal.get_download_dir() + '/' + self.fname.scmap_cluster()+self.p.get_current_date()+'.csv'
+        self.filename = cal.get_download_dir() + '/' + self.fname.scmap_cluster()+management_name+'_allClusters_'+self.p.get_current_date()+'.csv'
         print(self.filename)
         self.p.page_loading(self.driver)
         file = os.path.isfile(self.filename)

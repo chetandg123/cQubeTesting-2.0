@@ -7,7 +7,7 @@ class SemesterReport():
         self.driver = driver
 
     def check_semester_landing_page(self):
-        return self.driver.page_source
+        return self.driver.current_url
 
     # def click_on_semester(self):
     #     cal = GetData()

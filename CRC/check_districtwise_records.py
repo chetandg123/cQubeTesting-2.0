@@ -22,6 +22,9 @@ class test_crc_report_districtwise():
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
+        self.year , self.month = self.cal.get_student_month_and_year_values()
+        management_name = self.driver.find_element_by_id('nm').text
+        name = management_name[16:].strip().lower()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
         self.fname=file_extention()
@@ -37,7 +40,8 @@ class test_crc_report_districtwise():
             else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = p.get_download_dir() + '/' + self.fname.crc_districtwise()+distval.strip()+self.cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + '/' + self.fname.crc_districtwise()+name+'_select_month_blocks_of_district_'+distval.strip()+self.cal.get_current_date()+'.csv'
+                print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(select_district.options[x].text,'csv file is not downloaded')
                     count = count + 1

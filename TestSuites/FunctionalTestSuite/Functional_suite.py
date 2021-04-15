@@ -21,7 +21,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Student Exception functional Test Test Report',
+            title='Student Exception functional Test Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -38,7 +38,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Exception functional Test Test Report',
+            title='Teacher Exception functional Test Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -55,7 +55,7 @@ class MyTestSuite(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Student Time series functional Test Test Report',
+            title='Student Time series functional Test Test Infra_Table_Report',
             verbosity=1,
 
         )

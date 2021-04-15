@@ -73,7 +73,7 @@ class Data():
     y = "y_axis"
     s_dist = "//select[@name='myDistrict']/option[2]"
     # sc_Reportmap
-    School_infra = "//*[@id='div3']/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
+    School_infra = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[1]/mat-list-item/div/mat-icon"
     Reportmap = "mapReport"
     Report = "tblReport"
 
@@ -87,8 +87,8 @@ class Data():
     sc_infrascores = "//select[@id='choose_infra']/option"
     sc_no_of_schools = "footer"
 
-    diksha ="//*[@id='div3']/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
-    tpds ="//*[@id='div3']/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
+    diksha ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
+    tpds ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
     diksha_graph ="chrtReport"
     diksha_table = "dtblReport"
     tpd_progress ="tpd-cp"
@@ -96,9 +96,9 @@ class Data():
     col_course ="clmnReport"
     col_text ="ut"
     content_textbook ="utc"
-    exception_click ="//*[@id='div3']/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
+    exception_click ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
     sem_exception = "SemException"
-    ener_textbook="//*[@id='div3']/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
+    ener_textbook="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
 
 
     sem_exe ="SemExp"
@@ -234,7 +234,7 @@ class Data():
 
     Notemsg = "//div[@class='col-sm-12']/p/b"
     value2 = "Anand"
-    # semester Report
+    # semester Infra_Table_Report
     srDist = "//select[@class='ng-untouched ng-pristine ng-valid']/option"
     srcluster = "//select[@class='ng-pristine ng-valid ng-touched']/option"
     srblock = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-sem-view/div/div[2]/div[2]/select[2]/option"
@@ -255,7 +255,7 @@ class Data():
 
 
 
-    #student Attendance Report
+    #student Attendance Infra_Table_Report
     sar_hyper_link = "p>span"
     sar_year = "year"
     sar_month = "month"
@@ -267,15 +267,15 @@ class Data():
     column_report ="clmnReport"
     completion ="cmplnErr"
     compl_download ="//button[contains(text(),'Download')]"
-   #semester Report
+   #semester Infra_Table_Report
     sr_by_xpath = "//*[@id='sr']"
     sr_by_id = "sr"
-    sr_block_btn= "allBlock"
-    sr_cluster_btn = "allCluster"
-    sr_schools_btn = "allSchool"
-    block_btn ="block"
-    cluster_btn="cluster"
-    schoolbtn="school"
+    sr_block_btn= "blockbtn"
+    sr_cluster_btn = "clusterbtn"
+    sr_schools_btn = "clusterbtn"
+    block_btn ="blockbtn"
+    cluster_btn="clusterbtn"
+    schoolbtn="schoolbtn"
     sr_district = "choose_dist"
     sr_block = "choose_block"
     sr_cluster = "choose_cluster"
@@ -285,9 +285,9 @@ class Data():
 
     #Dashboards
     telmetry_report ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon"
-    attendance = "//*[@id='div3']/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
-    semester_sel = "//*[@id='div3']/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
-    crc_report = "//*[@id='crcReport']/div"
+    attendance = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
+    semester_sel = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
+    crc_report = "//*[@id='crcReport']/div/div[1]"
 
 
 

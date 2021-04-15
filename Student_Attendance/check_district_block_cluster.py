@@ -23,6 +23,8 @@ class DistrictBlockCluster():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        name = management[16:].strip().lower()
         self.year ,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         select_block = Select(self.driver.find_element_by_name('myBlock'))
@@ -34,11 +36,11 @@ class DistrictBlockCluster():
             for y in range(len(select_block.options)-1, len(select_block.options)):
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
-                for z in range(len(select_cluster.options)-1, len(select_cluster.options)):
+                for z in range(1, len(select_cluster.options)):
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
                     value = self.driver.find_element_by_name('myCluster').get_attribute('value')
-                    cluvalue = value[4:]+'_'
+                    cluvalue = value[3:]+'_'
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     files = file_extention()
                     if len(markers) - 1 == 0:
@@ -49,7 +51,7 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id('download').click()
                     time.sleep(3)
                     p = pwd()
-                    self.filename =  p.get_download_dir() +files.student_clusterwise_download()+cluvalue.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
+                    self.filename =  p.get_download_dir() +files.student_clusterwise_download()+name+'_schoolPerClusters_of_cluster_'+cluvalue.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(

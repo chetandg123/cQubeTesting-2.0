@@ -2,13 +2,13 @@
 
 import unittest
 
-from SI.Report.check_sc_scattor_clusterwise_records import Test_schoolwise
-from SI.Report.check_table_data_metrics import download_report
-from SI.Report.click_on_Report_from_scinfra import check_schoolinfra_report
-from SI.Report.click_on_table_and_check_with_orderof_values import check_order_of_tabledata
-from SI.Report.download_blockwise_csv import donwload_blockwise_csv
-from SI.Report.download_clusterwise_csv import donwload_clusterwise_csv
-from SI.Report.download_schoolwise_csv import school_wise_donwload
+from School_infrastructure.Infra_Table_Report.check_sc_scattor_clusterwise_records import Test_schoolwise
+from School_infrastructure.Infra_Table_Report.check_table_data_metrics import download_report
+from School_infrastructure.Infra_Table_Report.click_on_Report_from_scinfra import check_schoolinfra_report
+from School_infrastructure.Infra_Table_Report.click_on_table_and_check_with_orderof_values import check_order_of_tabledata
+from School_infrastructure.Infra_Table_Report.download_blockwise_csv import donwload_blockwise_csv
+from School_infrastructure.Infra_Table_Report.download_clusterwise_csv import donwload_clusterwise_csv
+from School_infrastructure.Infra_Table_Report.download_schoolwise_csv import school_wise_donwload
 from reuse_func import GetData
 
 
@@ -33,8 +33,7 @@ class cQube_SI_Report(unittest.TestCase):
     def test_download_district_wise(self):
         b = download_report(self.driver)
         path = b.test_schools()
-        self.assertTrue(path, msg="File is not downloaded")
-        b.remove_csv()
+        self.assertEqual(0,path, msg="File is not downloaded")
         print("districtwise csv file is downloaded")
         self.data.page_loading(self.driver)
 

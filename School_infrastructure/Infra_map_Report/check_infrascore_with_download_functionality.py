@@ -10,21 +10,24 @@ from reuse_func import GetData
 
 
 class SchoolInfra_scores():
+    
+    
     def __init__(self,driver):
         self.driver = driver
-
+        
     def infra_score(self):
         self.fname = file_extention()
         self.cal = GetData()
         self.driver.find_element_by_css_selector('p >span').click()
         self.cal.page_loading(self.driver)
+        management_name = self.cal.get_management_selected_option()
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(1)
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(self.filename, 'rt')as f:
             reader = csv.reader(f)
@@ -39,10 +42,11 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(2)
         self.cal.page_loading(self.driver)
+        management_name = self.cal.get_management_selected_option()
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -59,7 +63,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -76,7 +81,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -93,7 +99,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -110,7 +117,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -127,7 +135,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -144,7 +153,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -161,7 +171,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -178,7 +189,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -195,7 +207,8 @@ class SchoolInfra_scores():
         self.driver.find_element_by_id('download').click()
         time.sleep(2)
         p = pwd()
-        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+        management_name = self.cal.get_management_selected_option()
+        filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         row_count = 0
         with open(filename, 'rt')as f:
             reader = csv.reader(f)
@@ -217,7 +230,8 @@ class SchoolInfra_scores():
             self.driver.find_element_by_id('download').click()
             time.sleep(2)
             p = pwd()
-            self.filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.cal.get_current_date()+'.csv'
+            self.management_name = self.cal.get_management_selected_option()
+            filename = p.get_download_dir() + "/" + self.fname.scmap_district()+self.management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
             row_count = 0
             with open(self.filename, 'rt')as f:
                 reader = csv.reader(f)

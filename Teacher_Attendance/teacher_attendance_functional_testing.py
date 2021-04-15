@@ -48,8 +48,8 @@ class Teacher_FunctionalTesting(unittest.TestCase):
     def test_click_on_teacher_attendence_report(self):
         tar = DahboardSar(self.driver)
         result = tar.click_on_sar()
-        if "Teacher Attendance Report" in result:
-            print("This is Teacher Attendance Report page")
+        if "Teacher Attendance Infra_Table_Report" in result:
+            print("This is Teacher Attendance Infra_Table_Report page")
         else:
             print("Teacher_Attendance page does not exist!...")
 
@@ -149,7 +149,7 @@ class Teacher_FunctionalTesting(unittest.TestCase):
         self.data.page_loading(self.driver)
         result = home.click_HomeButton()
         if "teacher-attendance" in self.driver.current_url:
-            print("This is Teacher Attendance Report page")
+            print("This is Teacher Attendance Infra_Table_Report page")
         else:
             raise self.failureException('Home Icon is not working')
 

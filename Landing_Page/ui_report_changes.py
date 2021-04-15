@@ -16,7 +16,7 @@ class cQube_All_Reports():
         self.cal.page_loading(self.driver)
         report = self.driver.find_element_by_id('dist').text
         self.cal.page_loading(self.driver)
-        print("Report : ",report)
+        print("Infra_Table_Report : ",report)
         if 'Infrastructure' in report:
             print('infrastructure_by_location is having proper report name ')
         else:
@@ -31,8 +31,8 @@ class cQube_All_Reports():
         self.driver.find_element_by_id("cr").click()
         self.cal.page_loading(self.driver)
         report = self.driver.find_element_by_id('dist_level').text
-        if 'Composite Report' in report:
-            print('Composite Report is having proper report name ')
+        if 'Composite Infra_Table_Report' in report:
+            print('Composite Infra_Table_Report is having proper report name ')
         else:
             print('composite report is not having not proper ')
         self.driver.find_element_by_id("homeBtn").click()

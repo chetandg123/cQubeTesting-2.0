@@ -21,7 +21,7 @@ class MyTestSuite(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Functionality Test Report of New designed login and landing page',
+                title='Functionality Test Infra_Table_Report of New designed login and landing page',
                 verbosity=1,
             )
 

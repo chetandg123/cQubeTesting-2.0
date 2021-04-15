@@ -34,7 +34,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester Exception Smoke Test Report',
+                title='Semester Exception Smoke Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -53,7 +53,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Student Exception Smoke Test Report',
+            title='Student Exception Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -72,7 +72,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Exception Smoke Test Report',
+            title='Teacher Exception Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -91,7 +91,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='PAT Exception Smoke Test Report',
+            title='PAT Exception Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )

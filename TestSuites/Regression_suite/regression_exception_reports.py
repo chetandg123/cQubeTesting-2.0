@@ -34,7 +34,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester Exception Regression Test Report',
+                title='Semester Exception Regression Test Infra_Table_Report',
                 verbosity=1,
 
             )
@@ -53,7 +53,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Student Exception Regression Test Report',
+            title='Student Exception Regression Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -72,7 +72,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Exception Regression Test Report',
+            title='Teacher Exception Regression Test Infra_Table_Report',
             verbosity=1,
 
         )
@@ -91,7 +91,7 @@ class MyTestSuite_Exception(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='PAT Exception Regression Test Report',
+            title='PAT Exception Regression Test Infra_Table_Report',
             verbosity=1,
 
         )
