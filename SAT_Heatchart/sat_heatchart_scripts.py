@@ -2,6 +2,7 @@ import os
 import re
 import time
 
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
@@ -18,6 +19,7 @@ class sat_heat_scripts():
 
     def viewbys_options(self):
         self.p = pwd()
+        self.driver.implicitly_wait(50)
         self.load = GetData()
         count = 0
         self.fname = file_extention()
@@ -30,6 +32,7 @@ class sat_heat_scripts():
 
         grades = Select(self.driver.find_element_by_id(Data.grade))
         grades.select_by_index(2)
+        time.sleep(4)
         gradename = grades.options[2].text
         gradenum = re.sub('\D','',gradename).strip()
         self.load.page_loading(self.driver)
@@ -38,9 +41,8 @@ class sat_heat_scripts():
         # view_by.select_by_visible_text(' Question Id ')
         view_by.select_by_index(1)
         self.load.page_loading(self.driver)
-        self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
+        time.sleep(5)
         self.filename = self.p.get_download_dir() + "/" + self.fname.satchart_views() + gradenum + '_' + Data.question_id + self.month + '_' \
                         + self.year + '_' + self.load.get_current_date() + '.csv'
         print(self.filename)
@@ -49,8 +51,9 @@ class sat_heat_scripts():
             count = count + 1
         # view_by.select_by_visible_text(' Indicator ')
         view_by.select_by_index(2)
-        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
+        self.driver.find_element_by_id(Data.Download).click()
+        time.sleep(5)
         self.file = self.p.get_download_dir() + "/" + self.fname.satchart_views() + gradenum + '_' + Data.indicator_id + self.month + '_' \
                     + self.year + '_' + self.load.get_current_date() + '.csv'
         print(self.file)
@@ -302,26 +305,32 @@ class sat_heat_scripts():
         view_by = Select(self.driver.find_element_by_id(Data.view_by))
         for j in range(len(view_by.options)):
             view_by.select_by_index(j)
+            viewname = view_by.options[j].text
             self.load.page_loading(self.driver)
             for i in range( len(dists.options)-4, len(dists.options)):
                 dists.select_by_index(i)
                 print(dists.options[i].text)
                 value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
-                value = value[5:]+'_'
+                value = value.split(":")
+                values = value[1].strip()
                 self.load.page_loading(self.driver)
-                self.driver.find_element_by_id(Data.Download).click()
-                time.sleep(3)
-                self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_blocks()+gradenum+ \
-                "_blocks_of_district_"+value.strip()+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
-                print(self.filename)
-                file = os.path.isfile(self.filename)
-                if file != True:
-                    print(dists.options[i].text, 'District wise records csv file is not downloaded')
-                    count = count + 1
-                self.load.page_loading(self.driver)
-                os.remove(self.filename)
+                if 'No data found' in self.driver.page_source:
+                    print(dists.options[i].text,viewname,'is not having data')
 
-        return count
+                else:
+                    self.driver.find_element_by_id(Data.Download).click()
+                    time.sleep(3)
+                    self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_blocks()+gradenum+ \
+                    "_blocks_of_district_"+values+'_'+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
+                    print(self.filename)
+                    file = os.path.isfile(self.filename)
+                    if file != True:
+                        print(dists.options[i].text, 'District wise records csv file is not downloaded')
+                        count = count + 1
+                    self.load.page_loading(self.driver)
+                    os.remove(self.filename)
+
+            return count
 
 
     def Clusters_select_box(self):

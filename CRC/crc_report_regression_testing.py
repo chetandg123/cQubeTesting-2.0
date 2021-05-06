@@ -41,7 +41,6 @@ class cQube_CRC_Report(unittest.TestCase):
         b = Districtwise_donwload(self.driver)
         result = b.test_districtwise()
         self.assertTrue(result, msg="File is not downloaded")
-        b.remove_csv()
         print("district wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
@@ -49,7 +48,6 @@ class cQube_CRC_Report(unittest.TestCase):
         b = donwload_blockwise_csv(self.driver)
         result = b.test_blockwise()
         self.assertTrue(result, msg="File is not downloaded")
-        b.remove_file()
         print("blockwise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
@@ -57,7 +55,6 @@ class cQube_CRC_Report(unittest.TestCase):
         b = load_clusterwise_csv(self.driver)
         result = b.test_clusterwise()
         self.assertTrue(result, msg="File is not downloaded")
-        b.remove_file()
         print("cluster wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
@@ -65,7 +62,6 @@ class cQube_CRC_Report(unittest.TestCase):
         b = school_wise_download(self.driver)
         result = b.test_schoolwise()
         self.assertTrue(result, msg="File is not downloaded")
-        b.remove_file()
         print("district wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
@@ -86,13 +82,8 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_schools_per_cluster_csv_download1(self):
         school = crc_schoolevel_records(self.driver)
         result = school.check_csv_download()
-        if result == 0:
-            print("Schools per cluster csv download report is working")
-            print("on selection of each district,block and cluster")
-            print("The footer value of no of schools and no of students are")
-            print("equals to downloaded file")
-        else:
-            raise self.failureException("Schools per cluster csv report download1 is working")
+        self.assertEqual(result,0,msg='csv file is not downloaded')
+        self.data.page_loading(self.driver)
 
     def test_districtwise_tabledata(self):
         b = districtwise_tabledata(self.driver)

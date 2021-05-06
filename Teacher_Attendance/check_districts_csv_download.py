@@ -28,7 +28,7 @@ class DistrictCsvDownload():
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
         files = file_extention()
-        for x in range(1, len(select_district.options)):
+        for x in range(1, len(select_district.options)-26):
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             value = self.driver.find_element_by_name('myDistrict').get_attribute('value')

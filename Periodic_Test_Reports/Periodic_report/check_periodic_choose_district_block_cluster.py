@@ -22,6 +22,9 @@ class DistrictBlockCluster():
         self.driver.implicitly_wait(50)
         self.cal.click_on_state(self.driver)
         self.cal.page_loading(self.driver)
+        period = Select(self.driver.find_element_by_id('period'))
+        period.select_by_index(4)
+        self.cal.page_loading(self.driver)
         self.fname = file_extention()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
@@ -55,15 +58,42 @@ class DistrictBlockCluster():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")
                         count = count + 1
                     else:
-                        markers = self.driver.find_elements_by_class_name(Data.dots)
-                        dots = len(markers) - 1
                         with open(self.filename) as fin:
                             csv_reader = csv.reader(fin, delimiter=',')
                             header = next(csv_reader)
                             data = list(csv_reader)
                             row_count = len(data)
-                            if int(dots) != row_count:
-                                print("Markers and csv file records count mismatched", dots, row_count)
+                            students = 0
+                            schools = 0
+                            attended = 0
+                            for row in csv.reader(fin):
+                                students += int(row[9])
+                                schools += int(row[0])
+                                attended += int(row[0])
+                            schools = self.driver.find_element_by_id('schools').text
+                            scs = re.sub('\D', '', schools)
+
+                            student = self.driver.find_element_by_id('students').text
+                            stds = re.sub('\D', '', student)
+
+                            attended = self.driver.find_element_by_id('studentsAttended').text
+                            attds = re.sub('\D', '', attended)
+
+
+                            if int(scs) != int(schools):
+                                print("schools count in footer and csv file records count mismatched", int(scs),
+                                      int(schools))
                                 count = count + 1
+
+                            if int(stds) != int(students):
+                                print("student count in footer and csv file records count mismatched", int(scs),
+                                      int(schools))
+                                count = count + 1
+
+                            if int(attds) != int(attended):
+                                print("Attended count in footer and csv file records count mismatched", int(scs),
+                                      int(schools))
+                                count = count + 1
+
                         os.remove(self.filename)
-                    return count
+                        return count

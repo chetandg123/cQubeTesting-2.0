@@ -41,7 +41,7 @@ class test_school_map_schoollevel_records():
                     select_cluster.select_by_index(z)
                     self.cal.page_loading(self.driver)
                     value = self.driver.find_element_by_id('choose_cluster').get_attribute('value')
-                    cvalue = value[3:]+'_'
+                    value = value.split(":")
                     nodata = self.driver.find_element_by_id("errMsg").text
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     if len(markers)-1 == 0:
@@ -49,7 +49,7 @@ class test_school_map_schoollevel_records():
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = p.get_download_dir() + "/" + self.fname.scmap_clusterwise()+name+'_schools_of_cluster_'+cvalue.strip()+self.cal.get_current_date()+'.csv'
+                        self.filename = p.get_download_dir() + "/" + self.fname.scmap_clusterwise()+name+'_schools_of_cluster_'+value[1].strip()+'_'+self.cal.get_current_date()+'.csv'
                         print(self.filename)
                         if not os.path.isfile(self.filename):
                             print(select_cluster.options[z].text ,"csv file is not downloaded!")

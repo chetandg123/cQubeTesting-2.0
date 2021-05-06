@@ -169,6 +169,10 @@ class Data():
     students = "students"
     DateRange = "dateRange"
 
+    #management ids
+    period = "period"
+
+
     SAR_Dnames = "//*[@id='choose_dist']/option"
     SAR_Bnames = "//*[@id='choose_block']/option"
     SAR_cnames = "//*[@id='choose_cluster']/option"

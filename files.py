@@ -20,16 +20,16 @@ class Files():
     teacher_blockwise ='teacher_attendance_'
     teacher_clusterwise ='teacher_attendance_'
 
-    management='overall'
-    sr_block='semester_assessment_test_'+management+'_all_allGrades__allBlocks_'
-    sr_cluster='semester_assessment_test_'+management+'_all_allGrades__allClusters_'
-    sr_school='semester_assessment_test_'+management+'_all_allGrades__allSchools_'
-    sr_district='semester_assessment_test_'+management+'_all_allGrades__allDistricts_'
-    sr_districtwise='semester_assessment_test_'+management+'_all_allGrades__blocks_of_district_'
-    sr_blockwise='semester_assessment_test_'+management+'_all_allGrades__clusters_of_block_'
-    sr_clusterwise='semester_assessment_test_'+management+'_all_allGrades__schools_of_cluster_'
-    sr_gradewise="semester_assessment_test_"+management+"_all_Grade_"
-    sr_subjectwise="semester_assessment_test_"+management+"_all_Grade_"
+    management='govt'
+    sr_block='semester_assessment_test_'
+    sr_cluster='semester_assessment_test_'
+    sr_school='semester_assessment_test_'
+    sr_district='semester_assessment_test_'
+    sr_districtwise='semester_assessment_test_'
+    sr_blockwise='semester_assessment_test_'
+    sr_clusterwise='semester_assessment_test_'
+    sr_gradewise="semester_assessment_test_"
+    sr_subjectwise="semester_assessment_test_"
 
     satchart_district = 'semester_assessment_test_heatmap_'+management+'_overall_allDistricts_'
     satchart_districtwise ='semester_assessment_test_heatmap_'+management+'_'
@@ -85,7 +85,7 @@ class Files():
     diskha_stack_student='Diksha_last_30_days_data_Student.csv'
     diskha_stack_others='Diksha_last_30_days_data_Other.csv'
 
-    udise_district='UDISE_report_Infrastructure_Score_allDistricts_'
+    udise_district="UDISE_report_Infrastructure_Score_allDistricts_"
     udise_block='UDISE_report_Infrastructure_Score_allBlocks_'
     udise_cluster='UDISE_report_Infrastructure_Score_allClusters_'
     udise_school='UDISE_report_Infrastructure_Score_allSchools_'

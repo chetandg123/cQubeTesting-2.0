@@ -19,13 +19,15 @@ class SchoolwiseCsv():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.schoolbtn).click()
         cal.page_loading(self.driver)
         time.sleep(10)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(25)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.sr_school()+cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.sr_school()+management+'_all_allGrades__allSchools_'+cal.get_current_date()+'.csv'
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"
         if os.path.isfile(self.filename) == True:

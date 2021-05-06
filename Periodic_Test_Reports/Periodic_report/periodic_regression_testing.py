@@ -15,7 +15,7 @@ from Periodic_Test_Reports.Periodic_report.check_with_schoollevel_footer import 
 from Periodic_Test_Reports.Periodic_report.click_on_Home_icon import Home
 
 from Periodic_Test_Reports.Periodic_report.click_on_periodic_report_and_logout import Logout
-from Periodic_Test_Reports.Periodic_report.timeseries import timeseries
+from Periodic_Test_Reports.Periodic_report.timeseries import  timeseries_patreport
 
 from reuse_func import GetData
 
@@ -82,10 +82,18 @@ class periodic_regression(unittest.TestCase):
 
     def test_TotalStudentsSchools(self):
         b = TotalStudentsSchools(self.driver)
-        res1,res2,res3 = b.block_cluster_schools_footer_info()
-        self.assertNotEqual(0,res1,msg='Block level markers are not present')
-        self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
-        self.assertNotEqual(0, res3, msg='School level markers are not present')
+        stds,scs,attds ,bstds,bscs,battds,cstds,cscs,cattds,sstds,sscs,sattds= b.block_cluster_schools_footer_info()
+        self.assertEqual(stds,bstds,msg='Block level footers  are not matched')
+        self.assertEqual(scs,bscs, msg='Block level footers  are not matched')
+        self.assertEqual(attds,battds, msg='Block level footers  are not matched')
+
+        self.assertEqual(stds, cstds, msg='Cluster level footers  are not matched')
+        self.assertEqual(scs, cscs, msg='Cluster level footers  are not matched')
+        self.assertEqual(attds, cattds, msg='Cluster level footers  are not matched')
+
+        self.assertEqual(stds, sstds, msg='School level footers  are not matched')
+        self.assertEqual(scs, sscs, msg='School level footers  are not matched')
+        self.assertEqual(attds, sattds, msg='School level footers  are not matched')
         self.data.page_loading(self.driver)
 
 
@@ -149,14 +157,14 @@ class periodic_regression(unittest.TestCase):
 
 
     def test_timeseries(self):
-        b = timeseries(self.driver)
+        b = timeseries_patreport(self.driver)
         res =b.test_options_times()
         self.assertNotEqual(0,res,msg="Time series options are not present ")
         print("checking with time period options ")
         self.data.page_loading(self.driver)
 
     def test_timeseries_with_downloading(self):
-        b = timeseries(self.driver)
+        b = timeseries_patreport(self.driver)
         res =b.time_over_all()
         self.assertEqual(0,res,msg="Some mismatch found in footer values")
         print("checking with time period options ")

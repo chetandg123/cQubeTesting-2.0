@@ -18,6 +18,8 @@ class Blockwise_csv_download():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.scm_block).click()
         self.p.page_loading(self.driver)
         markers = self.driver.find_elements_by_class_name(Data.dots)
@@ -25,7 +27,7 @@ class Blockwise_csv_download():
         dots = len(markers)-1
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(4)
-        self.filename = cal.get_download_dir() + '/' + self.fname.udise_block()+self.p.get_current_date()+'.csv'
+        self.filename = cal.get_download_dir() + '/' +'UDISE_report_'+management+'_Infrastructure_Score_allBlocks_'+self.p.get_current_date()+'.csv'
         self.p.page_loading(self.driver)
         file = os.path.isfile(self.filename)
         os.remove(self.filename)

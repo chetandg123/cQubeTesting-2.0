@@ -40,7 +40,7 @@ class DistrictBlockCluster():
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
                     value = self.driver.find_element_by_name('myCluster').get_attribute('value')
-                    cluvalue = value[3:]+'_'
+                    cluvalue = (value[3:]+'_').replace(':','').strip()
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     files = file_extention()
                     if len(markers) - 1 == 0:
@@ -80,7 +80,7 @@ class DistrictBlockCluster():
                                 print(
                                     "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
                                 count = count + 1
-                        self.remove_csv()
+                        os.remove(self.filename)
 
         return count
 

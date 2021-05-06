@@ -17,13 +17,15 @@ class click_schoolbutton():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.scm_school).click()
         self.p.page_loading(self.driver)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         count = len(dots)-1
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(20)
-        self.filename = cal.get_download_dir() + '/' + self.fname.udise_school()+self.p.get_current_date() +'.csv'
+        self.filename = cal.get_download_dir() + '/' +'UDISE_report_'+management+'_Infrastructure_Score_allSchools_'+self.p.get_current_date() +'.csv'
         self.p.page_loading(self.driver)
         file = os.path.isfile(self.filename)
         self.p.page_loading(self.driver)

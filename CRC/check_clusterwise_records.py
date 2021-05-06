@@ -47,7 +47,8 @@ class crc_schoolevel_records():
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
-                    self.filename = p.get_download_dir() + '/' + self.fname.crc_blockwise()+name+'_select_month_clusters_of_block_' + value.strip() + self.cal.get_current_date() + '.csv'
+                    self.filename = p.get_download_dir() + '/' + self.fname.crc_blockwise()+name++'_clusters_of_block_' + value.strip() + self.cal.get_current_date() + '.csv'
+                    print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(select_block.options[y].text, " csv file not downloaded")
                     else:
@@ -80,7 +81,6 @@ class crc_schoolevel_records():
                                       "records are mismatch found")
                                 count = count + 1
 
-                        self.remove_csv1()
-
+                        os.remove(self.filename)
             return count
 

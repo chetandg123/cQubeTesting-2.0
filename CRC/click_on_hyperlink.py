@@ -23,9 +23,10 @@ class click_on_hyperlinks():
         self.p.page_loading(self.driver)
         # self.driver.find_element_by_xpath(Data.school_hyper).click()
         # self.p.page_loading(self.driver)
-        self.driver.find_element_by_xpath(Data.cluster_hyper).click()
-        self.p.page_loading(self.driver)
-        self.driver.find_element_by_xpath(Data.dist_hyper).click()
+        # self.driver.find_element_by_xpath(Data.cluster_hyper).click()
+        # self.p.page_loading(self.driver)
+        # self.driver.find_element_by_xpath(Data.dist_hyper).click()
+        self.driver.find_element_by_id(Data.homeicon).click()
         self.p.page_loading(self.driver)
 
 

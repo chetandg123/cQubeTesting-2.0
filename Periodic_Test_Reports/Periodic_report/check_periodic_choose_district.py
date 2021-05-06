@@ -21,6 +21,8 @@ class District():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        period = Select(self.driver.find_element_by_id('period'))
+        period.select_by_index(4)
         cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
@@ -52,9 +54,38 @@ class District():
                         header = next(csv_reader)
                         data = list(csv_reader)
                         row_count = len(data)
+                        students = 0
+                        schools = 0
+                        attended = 0
+                        for row in csv.reader(fin):
+                            students += int(row[4])
+                            schools += int(row[6])
+                            attended += int(row[5])
+                        schools = self.driver.find_element_by_id('schools').text
+                        scs = re.sub('\D', '', schools)
+
+                        student = self.driver.find_element_by_id('students').text
+                        stds = re.sub('\D', '', student)
+
+                        attended = self.driver.find_element_by_id('studentsAttended').text
+                        attds = re.sub('\D', '', attended)
+
                         if int(dots) != row_count:
                             print("Markers and csv file records count mismatched", dots, row_count)
                             count = count + 1
+
+                        if int(scs) != int(schools):
+                            print("schools count in footer and csv file records count mismatched", int(scs) , int(schools))
+                            count = count + 1
+
+                        if int(stds) != int(students):
+                            print("student count in footer and csv file records count mismatched", int(scs) , int(schools))
+                            count = count + 1
+
+                        if int(attds) != int(attended):
+                            print("Attended count in footer and csv file records count mismatched", int(scs) , int(schools))
+                            count = count + 1
+
                     os.remove(self.filename)
                 return count
 

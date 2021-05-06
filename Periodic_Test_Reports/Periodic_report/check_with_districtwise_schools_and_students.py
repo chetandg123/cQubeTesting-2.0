@@ -12,6 +12,8 @@ class District_wise_schools_students():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        period = Select(self.driver.find_element_by_id('period'))
+        period.select_by_index(4)
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
         for x in range(1, len(select_district.options)):

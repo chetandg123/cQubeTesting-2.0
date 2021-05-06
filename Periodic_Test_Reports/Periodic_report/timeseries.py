@@ -11,7 +11,7 @@ from get_dir import pwd
 from reuse_func import GetData
 
 
-class timeseries():
+class timeseries_patreport():
     def __init__(self,driver):
         self.driver =driver
 

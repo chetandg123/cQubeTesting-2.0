@@ -35,6 +35,22 @@ class DistrictwiseCsv():
                 header = next(csv_reader)
                 data = list(csv_reader)
                 row_count = len(data)
+                # total = 0
+                # schools = 0
+                # for row in csv.reader(fin):
+                #     total += int(row[2])
+                #     schools += int(row[3])
+                # students = self.driver.find_element_by_id("students").text
+                # res = re.sub('\D', "", students)
+                #
+                # school = self.driver.find_element_by_id("schools").text
+                # sc = re.sub('\D', "", school)
+                # if int(res) != total:
+                #     print("student count mismatched")
+                #     count = count + 1
+                # if int(sc) != schools:
+                #     print("school count mismatched")
+                #     count = count + 1
                 if int(dots) != row_count:
                     print("Markers and csv file records count mismatched",dots,row_count)
                     count = count + 1

@@ -1,3 +1,4 @@
+import re
 import unittest
 from datetime import date
 
@@ -37,14 +38,14 @@ from reuse_func import GetData
 #     @classmethod
 #     def tearDownClass(cls):
 #         cls.driver.close()
-today = date.today().strftime('%d-%m-%Y').strip()
-print(today)
-todaydate = today. strftime('%d-%m-%Y')
+# today = date.today().strftime('%d-%m-%Y').strip()
+# print(today)
 
 # value = '1: 2425040001'
 # csv2 = '2: 242504002'
 # value = '32: 2407'
-# value="1: 2425060001"
+# value = "1: 234333"
+# print(value[1:].replace(':',''))
 # value = value[3:].strip()
 # print(value)
 #
@@ -54,3 +55,12 @@ todaydate = today. strftime('%d-%m-%Y')
 # str = "management Type: Overall"
 # # print(str[16:].strip().lower())
 # print(str.capitalize())
+
+# value="1: 2425060001"
+# value = value.split(":")
+# print(value[1].strip())
+
+schools="Number of Schools: 107"
+# schol = re.sub('\D','',schools)
+# print(schol)
+print(schools.replace(' ','_'))

@@ -3,24 +3,25 @@ import time
 from Data.parameters import Data
 
 from Periodic_Test_Reports.Periodic_report.Click_on_hyper_link_in_periodic_report import Hyperlink
-from Periodic_Test_Reports.Periodic_report import DistrictwiseCsv
+from Periodic_Test_Reports.Periodic_report.check_districtlevel_download_csv import DistrictwiseCsv
 
 from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district import District
-from Periodic_Test_Reports.Periodic_report import DistrictsBlock
+from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district_block import DistrictsBlock
 from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district_block_cluster import DistrictBlockCluster
 
 from Periodic_Test_Reports.Periodic_report.check_total_no_students_and_total_no_schools_sr import TotalStudentsSchools
 from Periodic_Test_Reports.Periodic_report.check_with_blocklevel_footer import Block_level_footers
+from Periodic_Test_Reports.Periodic_report.check_with_clusterlevel_footer import Clusterwise_footers
 
-from Periodic_Test_Reports.Periodic_report import Clusterwise_footers
 from Periodic_Test_Reports.Periodic_report.check_with_districtwise_schools_and_students import District_wise_schools_students
 from Periodic_Test_Reports.Periodic_report.check_with_grade_dropdown import periodic_grades
 from Periodic_Test_Reports.Periodic_report.check_with_schoollevel_footer import Schoolwise_footers
-from Periodic_Test_Reports.Periodic_report import Home
+from Periodic_Test_Reports.Periodic_report.click_on_Home_icon import Home
+from Periodic_Test_Reports.Periodic_report.click_on_periodic_report import Pat_Report_icon
 
-from Periodic_Test_Reports.Periodic_report import Pat_Report_icon
 from Periodic_Test_Reports.Periodic_report.click_on_periodic_report_and_logout import Logout
 from Periodic_Test_Reports.Periodic_report import timeseries
+from Periodic_Test_Reports.Periodic_report.timeseries import timeseries_patreport
 
 from reuse_func import GetData
 import unittest
@@ -183,15 +184,15 @@ class periodic_functional_testing(unittest.TestCase):
         print("checking with each grades with download functionality")
         self.data.page_loading(self.driver)
 
-    def test_timeseries(self):
-        b = timeseries(self.driver)
+    def test_timeseries_pat(self):
+        b = timeseries_patreport(self.driver)
         res =b.test_options_times()
         self.assertNotEqual(0,res,msg="Time series options are not present ")
         print("checking with time period options ")
         self.data.page_loading(self.driver)
 
     def test_timeseries_with_downloading(self):
-        b = timeseries(self.driver)
+        b = timeseries_patreport(self.driver)
         res =b.time_over_all()
         self.assertEqual(0,res,msg="Some mismatch found in footer values")
         print("checking with time period options ")

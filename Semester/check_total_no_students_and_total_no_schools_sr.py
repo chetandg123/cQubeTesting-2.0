@@ -33,6 +33,8 @@ class grade_subject_dropdowns():
         count = 0
         p = pwd()
         files = file_extention()
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
         grade =Select(self.driver.find_element_by_id(Data.Grade))
@@ -45,7 +47,7 @@ class grade_subject_dropdowns():
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = p.get_download_dir() + '/'+ files.sr_gradewise()+gradenum.strip()+'__alldistrict_'+self.data.get_current_date()+'.csv'
+            self.filename = p.get_download_dir() + '/'+ files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'__alldistrict_'+self.data.get_current_date()+'.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print('Grade wise csv file is not downloaded')
@@ -66,6 +68,8 @@ class grade_subject_dropdowns():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         grade = Select(self.driver.find_element_by_id(Data.Grade))
         subjects = Select(self.driver.find_element_by_id(Data.Subject))
         subcount = len(subjects.options)-1
@@ -81,7 +85,7 @@ class grade_subject_dropdowns():
                 sub = (subjects.options[j].text).strip()
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = p.get_download_dir() + '/' + files.sr_gradewise()+gradenum.strip()+'_'+sub+'_alldistrict_' + self.data.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + '/' + files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'_'+sub+'_alldistrict_' + self.data.get_current_date()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(files.sr_gradewise()+gradenum.strip() ,' wise csv file is not downloaded')

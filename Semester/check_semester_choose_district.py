@@ -22,6 +22,8 @@ class District():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
         for x in range(1, len(select_district.options)):
@@ -39,7 +41,7 @@ class District():
                 self.driver.find_element_by_id('download').click()
                 time.sleep(2)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_all_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if not os.path.isfile(self.filename):
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")

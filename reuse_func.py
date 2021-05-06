@@ -706,10 +706,66 @@ class GetData():
         select = Select(self.driver.find_element_by_class_name(Data.data_replay_select_year_class))
         select.select_by_visible_text(year)
 
+    #managemets_resuable_functions
 
+    def select_management_to_student_report(self,n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_student_report()
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = year.first_selected_option.text
+        self.month = month.first_selected_option.text
+        return self.year,self.month
 
+    def select_management_to_teacher_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_teacher_attendance_report()
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = year.first_selected_option.text
+        self.month = month.first_selected_option.text
+        return self.year, self.month
 
+    def select_management_to_infra_map_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_school_infrastructure_map()
+        self.data.page_loading(self.driver)
 
+    def select_management_to_udise_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_udise_report()
+        self.data.page_loading(self.driver)
 
+    def select_management_to_teacher_exception_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_teacher_exception()
+        self.data.page_loading(self.driver)
 
-
+    def select_management_to_semester_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_semester_report()
+        self.data.page_loading(self.driver)

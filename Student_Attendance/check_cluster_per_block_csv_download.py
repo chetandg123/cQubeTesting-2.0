@@ -75,7 +75,7 @@ class ClusterPerBlockCsvDownload():
                             print(
                                 "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "school count mismatched")
                             count = count + 1
-                    self.remove_csv()
+                    os.remove(self.filename)
 
         return count
 

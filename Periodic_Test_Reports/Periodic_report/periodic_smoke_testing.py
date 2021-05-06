@@ -102,14 +102,18 @@ class periodic_smoke(unittest.TestCase):
 
     def test_TotalStudentsSchools(self):
         b = TotalStudentsSchools(self.driver)
-        res1, res2, res3, res4, res5, res6, res7, res8 = b.block_cluster_schools_footer_info()
-        self.assertEqual(int(res1), int(res3), msg='Block level student info is mis matched')
-        self.assertEqual(int(res2), int(res4), msg='Block level school info is mis matched')
-        self.assertEqual(int(res1), int(res5), msg='Cluster level student info is mis matched')
-        self.assertEqual(int(res2), int(res6), msg='Cluster level school info is mis matched')
-        self.assertEqual(int(res1), int(res7), msg='School level student info is mis matched')
-        self.assertEqual(int(res2), int(res8), msg='School level school info is mis matched')
-        print('Checked with footer values accross block ,cluster , school levels ')
+        stds, scs, attds, bstds, bscs, battds, cstds, cscs, cattds, sstds, sscs, sattds = b.block_cluster_schools_footer_info()
+        self.assertEqual(stds, bstds, msg='Block level footers  are not matched')
+        self.assertEqual(scs, bscs, msg='Block level footers  are not matched')
+        self.assertEqual(attds, battds, msg='Block level footers  are not matched')
+
+        self.assertEqual(stds, cstds, msg='Cluster level footers  are not matched')
+        self.assertEqual(scs, cscs, msg='Cluster level footers  are not matched')
+        self.assertEqual(attds, cattds, msg='Cluster level footers  are not matched')
+
+        self.assertEqual(stds, sstds, msg='School level footers  are not matched')
+        self.assertEqual(scs, sscs, msg='School level footers  are not matched')
+        self.assertEqual(attds, sattds, msg='School level footers  are not matched')
         self.data.page_loading(self.driver)
 
     def test_Homeicon(self):

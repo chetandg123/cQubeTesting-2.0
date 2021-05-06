@@ -21,11 +21,13 @@ class DistrictwiseCsv():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         markers = self.driver.find_elements_by_class_name(Data.dots)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.sr_district()+cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.sr_district()+management+'_all_allGrades__allDistricts_'+cal.get_current_date()+'.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
            return "File Not Downloaded"
