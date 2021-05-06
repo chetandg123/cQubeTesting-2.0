@@ -769,3 +769,21 @@ class GetData():
         self.data.page_loading(self.driver)
         self.data.navigate_to_semester_report()
         self.data.page_loading(self.driver)
+
+    def select_management_to_student_exception_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_student_exception()
+        self.data.page_loading(self.driver)
+
+    def select_management_to_pat_exception_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_pat_exception()
+        self.data.page_loading(self.driver)

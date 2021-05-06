@@ -51,7 +51,7 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id('download').click()
                     time.sleep(3)
                     p = pwd()
-                    self.filename =  p.get_download_dir() +files.student_clusterwise_download()+name+'_schoolPerClusters_of_cluster_'+cluvalue.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
+                    self.filename =  p.get_download_dir() +files.student_clusterwise_download()+'exception_'+name+'_schools_of_cluster_'+cluvalue.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(
@@ -63,7 +63,7 @@ class DistrictBlockCluster():
                             header = next(csv_reader)
                             total = 0
                             for row in csv.reader(fin):
-                                row = row[9].strip('\"')
+                                row = row[8]
                                 row1 = row.replace(',', "")
                                 total += int(row1)
                             students = self.driver.find_element_by_id("students").text

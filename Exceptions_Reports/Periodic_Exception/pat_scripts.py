@@ -209,12 +209,13 @@ class pat_exception_report():
                     select_cluster.select_by_index(z)
                     cal.page_loading(self.driver)
                     value = self.driver.find_element_by_id('choose_cluster').get_attribute('value')
-                    value = value[3:]+'_'
+                    value = value.split(":")
+                    value = value[1].strip() +'_'
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
                     time.sleep(4)
                     p = pwd()
-                    self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_"+management+"_overall_allGrades__schools_of_cluster_"+value.strip()+cal.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_"+management+"_overall_allGrades__schools_of_cluster_"+value+cal.get_current_date()+'.csv'
                     print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         print(
