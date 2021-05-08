@@ -4,6 +4,7 @@ import unittest
 from Data.parameters import Data
 from Periodic_Test_Reports.Periodic_report.Click_on_hyper_link_in_periodic_report import Hyperlink
 from Periodic_Test_Reports.Periodic_report.check_districtlevel_download_csv import DistrictwiseCsv
+from Periodic_Test_Reports.Periodic_report.check_last30_7_days import pat_time_periodwise
 from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district import District
 
 from Periodic_Test_Reports.Periodic_report.check_periodic_choose_district_block_cluster import DistrictBlockCluster
@@ -82,18 +83,8 @@ class periodic_regression(unittest.TestCase):
 
     def test_TotalStudentsSchools(self):
         b = TotalStudentsSchools(self.driver)
-        stds,scs,attds ,bstds,bscs,battds,cstds,cscs,cattds,sstds,sscs,sattds= b.block_cluster_schools_footer_info()
-        self.assertEqual(stds,bstds,msg='Block level footers  are not matched')
-        self.assertEqual(scs,bscs, msg='Block level footers  are not matched')
-        self.assertEqual(attds,battds, msg='Block level footers  are not matched')
-
-        self.assertEqual(stds, cstds, msg='Cluster level footers  are not matched')
-        self.assertEqual(scs, cscs, msg='Cluster level footers  are not matched')
-        self.assertEqual(attds, cattds, msg='Cluster level footers  are not matched')
-
-        self.assertEqual(stds, sstds, msg='School level footers  are not matched')
-        self.assertEqual(scs, sscs, msg='School level footers  are not matched')
-        self.assertEqual(attds, sattds, msg='School level footers  are not matched')
+        res= b.block_cluster_schools_footer_info()
+        self.assertEqual(res,0,msg='Block level footers  are not matched')
         self.data.page_loading(self.driver)
 
 
@@ -170,7 +161,63 @@ class periodic_regression(unittest.TestCase):
         print("checking with time period options ")
         self.data.page_loading(self.driver)
 
+    def test_click_on_blocks_cluster_schools(self):
+        block = pat_time_periodwise(self.driver)
+        result = block.check_last_30_days()
+        self.assertEqual(0, result, msg='Footer mismatch found')
+        self.data.page_loading(self.driver)
 
+        res = block.check_last_7_days()
+        self.assertEqual(0, result, msg='Footer mismatch found')
+        self.data.page_loading(self.driver)
+
+    def test_last30_districts(self):
+        block = pat_time_periodwise(self.driver)
+        result = block.check_last_30_days_districts()
+        self.assertEqual(0, result, msg='Some footer value mismatch found ')
+        self.assertEqual(0, result, msg='Files are not downloaded')
+
+    def test_last7days_districts(self):
+        block = pat_time_periodwise(self.driver)
+        result = block.check_last_7_days_districts()
+        self.assertEqual(0, result, msg='Some footer value mismatch found ')
+        self.assertEqual(0, result, msg='Files are not downloaded')
+
+    def test_last30days_district_blockwise_clusterwise(self):
+        block = pat_time_periodwise(self.driver)
+        result = block.check_last30days_districts_block()
+        if result == 0:
+            print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+        else:
+            raise self.failureException("Cluster per block csv report download not is working")
+        schools = pat_time_periodwise(self.driver)
+        result = schools.check_last30_district_block_cluster()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download not is working")
+
+    def test_last7days_district_blockwise_clusterwise(self):
+        block = pat_time_periodwise(self.driver)
+        result = block.check_last7days_districts_block()
+        if result == 0:
+            print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+        else:
+            raise self.failureException("Cluster per block csv report download not is working")
+        schools = pat_time_periodwise(self.driver)
+        result = schools.check_last7_district_block_cluster()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download not is working")
 
     @classmethod
     def tearDownClass(cls):

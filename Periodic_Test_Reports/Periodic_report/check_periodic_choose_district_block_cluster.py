@@ -22,9 +22,12 @@ class DistrictBlockCluster():
         self.driver.implicitly_wait(50)
         self.cal.click_on_state(self.driver)
         self.cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         period = Select(self.driver.find_element_by_id('period'))
         period.select_by_index(4)
         self.cal.page_loading(self.driver)
+        self.year ,self.month = self.cal.pat_year_month_firstselected()
         self.fname = file_extention()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
@@ -51,7 +54,7 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id('download').click()
                     time.sleep(3)
                     p = pwd()
-                    self.filename = p.get_download_dir() +"/" + self.fname.pat_clusterwise()+value.strip()+self.cal.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() +"/" + self.fname.pat_clusterwise()+management+"_"+self.year+'_'+self.month+'_allGrades__schools_of_cluster_'+value.strip()+self.cal.get_current_date()+'.csv'
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(

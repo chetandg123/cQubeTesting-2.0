@@ -2,6 +2,9 @@ import unittest
 
 from HTMLTestRunner import HTMLTestRunner
 
+from Management_Reports.Management_Exception_Reports.Semester_Exception_management import \
+    semester_exception_management_1, semester_exception_management_2, semester_exception_management_3, \
+    semester_exception_management_4, semester_exception_management_6, semester_exception_management_5
 from Management_Reports.Student_attendance_report import student_attendance_management_1, \
     student_attendance_management_2, student_attendance_management_3, student_attendance_management_4, \
     student_attendance_management_5, student_attendance_management_6, student_attendance_management_7
@@ -24,13 +27,20 @@ class MyTestSuite(unittest.TestCase):
             # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_6.Management_student_attendance_report),
             # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_7.Management_student_attendance_report),
 
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_1.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_2.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_3.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_4.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_5.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_6.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_7.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_1.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_2.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_3.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_4.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_5.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_6.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_7.Management_teacher_attendance_report),
+
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception_management_1.cQube_semester_exception_report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception_management_2.cQube_semester_exception_report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception_management_3.cQube_semester_exception_report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception_management_4.cQube_semester_exception_report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception_management_5.cQube_semester_exception_report),
+            unittest.defaultTestLoader.loadTestsFromTestCase(semester_exception_management_6.cQube_semester_exception_report),
 
         ])
         p = pwd()

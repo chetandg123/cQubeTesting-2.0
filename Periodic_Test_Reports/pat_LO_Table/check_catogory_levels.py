@@ -34,8 +34,8 @@ class Catagory_series():
         self.load.page_loading(self.driver)
 
         view_by = Select(self.driver.find_element_by_id(Data.view_by))
-        view_by.select_by_visible_text(' Question Id ')
-        self.load.page_loading(self.driver)
+        # view_by.select_by_visible_text(' Question Id ')
+        view_by.select_by_index(1)
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)

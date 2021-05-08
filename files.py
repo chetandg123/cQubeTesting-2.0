@@ -40,12 +40,12 @@ class Files():
     sat_chart_grades = "semester_assessment_test_heatmap_"+management+'_'
 
 
-    exception_block="semester_assessment_test_exception_"+management+"_overall_allGrades__allBlocks_"
+    exception_block="semester_assessment_test_exception_"
     exception_cluster="semester_assessment_test_exception_"+management+"_overall_allGrades__allClusters_"
     exception_school="semester_assessment_test_exception_"+management+"_overall_allGrades__allSchools_"
-    exception_district='semester_assessment_test_exception_'+management+'_overall_allGrades__allBlocks_'
-    exception_districtwise='semester_assessment_test_exception_'+management+'_overall_allGrades__blocks_of_district_'
-    exception_blockwise='semester_assessment_test_exception_'+management+'_overall_allGrades__clusters_of_block_'
+    exception_district='semester_assessment_test_exception_'
+    exception_districtwise='semester_assessment_test_exception_'
+    exception_blockwise='semester_assessment_test_exception_'
     exception_clusterwise='semester_assessment_test_exception_'+management+'_overall_allGrades__schools_of_cluster_'
 
     crc_district='crc_report_'
@@ -105,9 +105,9 @@ class Files():
     pat_block='periodic_assessment_test_'+management+'_all_allGrades__allBlocks_'
     pat_cluster='periodic_assessment_test_'+management+'_all_allGrades__allClusters_'
     pat_school='periodic_assessment_test_'+management+'_all_allGrades__allSchools_'
-    pat_districtwise='periodic_assessment_test_'+management+'_all_allGrades__blocks_of_district_'
-    pat_blockwise='periodic_assessment_test_'+management+'_all_allGrades__clusters_of_block_'
-    pat_clusterwise='periodic_assessment_test_'+management+'_all_allGrades__schools_of_cluster_'
+    pat_districtwise='periodic_assessment_test_'
+    pat_blockwise='periodic_assessment_test_'
+    pat_clusterwise='periodic_assessment_test_'
     pat_gradewise ='periodic_assessment_test_'+management+'_all_Grade_'
     pat_subjectwise='periodic_assessment_test_'+management+'_all_Grade_'
 

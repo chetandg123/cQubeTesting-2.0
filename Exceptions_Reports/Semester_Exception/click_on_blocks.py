@@ -14,6 +14,8 @@ class Semester_Blocks():
     def check_markers_on_block_map(self):
         cal = GetData()
         self.fname =file_extention()
+        management = self.driver.find_element_by_id('name').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
         self.driver.find_element_by_id('blockbtn').click()
@@ -23,7 +25,7 @@ class Semester_Blocks():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_block()+cal.get_current_date()+".csv"
+        self.filename = p.get_download_dir() + "/" + self.fname.exception_block()+management+"_overall_allGrades__allBlocks_"+cal.get_current_date()+".csv"
         if os.path.isfile(self.filename) != True:
             os.remove(self.filename)
             return "File Not Downloaded"

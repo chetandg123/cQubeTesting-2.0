@@ -193,7 +193,12 @@ class GetData():
         year = self.driver.find_element_by_id('year').text
         month = self.driver.find_element_by_id('month').text
         return year , month
-
+    def pat_year_month_firstselected(self):
+        year = Select(self.driver.find_element_by_id('year'))
+        month = Select(self.driver.find_element_by_id('month'))
+        year = year.first_selected_option.text
+        month = month.first_selected_option.text
+        return year , month
     def get_student_month_and_year_values(self):
         times = Select(self.driver.find_element_by_id('period'))
         # times.select_by_visible_text(' Year and Month ')
@@ -786,4 +791,13 @@ class GetData():
         print(management.options[n].text, 'is selected')
         self.data.page_loading(self.driver)
         self.data.navigate_to_pat_exception()
+        self.data.page_loading(self.driver)
+
+    def select_management_to_sat_exception_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_semester_exception()
         self.data.page_loading(self.driver)
