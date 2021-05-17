@@ -94,13 +94,19 @@ class cQube_heatchart_regression_test(unittest.TestCase):
         self.data.page_loading(self.driver)
         time.sleep(4)
 
+    def test_blockwise_records(self):
+        b = Clusterswise(self.driver)
+        res = b.check_block_select_box()
+        self.assertEqual(0, res, msg='Some Block wise csv file is not downloaded ')
+        self.data.page_loading(self.driver)
+        time.sleep(4)
 
     def test_clusterwise(self):
         b = Clusterswise(self.driver)
         res = b.Clusters_select_box()
         self.assertEqual(0,res,msg='Some cluster wise csv file is not downloaded ')
         self.data.page_loading(self.driver)
-        time.sleep(4)
+        time.sleep(2)
 
     def test_gradewise_records(self):
         b =gradewise_records(self.driver)

@@ -3,6 +3,7 @@ import os
 import re
 import time
 
+import pandas as pd
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
@@ -121,7 +122,7 @@ class pat_exception_report():
             else:
                 time.sleep(2)
                 self.driver.find_element_by_id('download').click()
-                time.sleep(2)
+                time.sleep(3)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/" + "periodic_assessment_test_exception_"+management+"_overall_allGrades__blocks_of_district_"+value.strip()+cal.get_current_date()+'.csv'
                 print(self.filename)
@@ -129,19 +130,16 @@ class pat_exception_report():
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
                 else:
-                    with open(self.filename) as fin:
-                        csv_reader = csv.reader(fin, delimiter=',')
-                        header = next(csv_reader)
-                        schools = 0
-                        for row in csv.reader(fin):
-                            schools += int(row[5])
-                        school = self.driver.find_element_by_id("schools").text
-                        sc = re.sub('\D', "", school)
-                        if int(sc) != int(schools):
-                            print("school count mismatched", int(sc), int(schools))
-                            count = count + 1
-                    os.remove(self.filename)
-            return count
+                    df = pd.read_csv(self.filename)
+                    schools = df['Total Schools With Missing Data'].sum()
+                    school = self.driver.find_element_by_id("schools").text
+                    sc = re.sub('\D', "", school)
+                    if int(sc) != int(schools):
+                        print("school count mismatched", int(sc), int(schools))
+                        count = count + 1
+                os.remove(self.filename)
+                return count
+
 
 
     def ClusterPerBlockCsvDownload(self):
@@ -173,18 +171,14 @@ class pat_exception_report():
                         "District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
                 else:
-                    with open(self.filename) as fin:
-                        csv_reader = csv.reader(fin, delimiter=',')
-                        header = next(csv_reader)
-                        schools = 0
-                        for row in csv.reader(fin):
-                            schools += int(row[7])
-                        school = self.driver.find_element_by_id("schools").text
-                        sc = re.sub('\D', "", school)
-                        if int(sc) != int(schools):
-                            print("school count mismatched", int(sc), int(schools))
-                            count = count + 1
-                    os.remove(self.filename)
+                    df = pd.read_csv(self.filename)
+                    schools = df['Total Schools With Missing Data'].sum()
+                    school = self.driver.find_element_by_id("schools").text
+                    sc = re.sub('\D', "", school)
+                    if int(sc) != int(schools):
+                        print("school count mismatched", int(sc), int(schools))
+                        count = count + 1
+                os.remove(self.filename)
                 return count
 
     def SchoolPerClusterCsvDownload(self):
@@ -355,19 +349,15 @@ class pat_exception_report():
                 if os.path.isfile(self.filename) != True:
                     print("Over all time series csv file is not downloaded")
                 else:
-                    with open(self.filename) as fin:
-                        csv_reader = csv.reader(fin, delimiter=',')
-                        header = next(csv_reader)
-                        schools = 0
-                        for row in csv.reader(fin):
-                            schools += int(row[3])
-                        school = self.driver.find_element_by_id("schools").text
-                        sc = re.sub('\D', "", school)
-                        if int(sc) != int(schools):
-                            print("school count mismatched", int(sc), int(schools))
-                            count = count + 1
-                    os.remove(self.filename)
-        return count
+                    df = pd.read_csv(self.filename)
+                    schools = df['Total Schools With Missing Data'].sum()
+                    school = self.driver.find_element_by_id("schools").text
+                    sc = re.sub('\D', "", school)
+                    if int(sc) != int(schools):
+                        print("school count mismatched", int(sc), int(schools))
+                        count = count + 1
+                os.remove(self.filename)
+                return count
 
     def check_time_series_last_7_days(self):
         cal = GetData()

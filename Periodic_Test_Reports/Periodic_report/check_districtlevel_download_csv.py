@@ -17,13 +17,15 @@ class DistrictwiseCsv():
     def click_download_icon(self):
         cal = GetData()
         count =0
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.pat_district()+cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.pat_district()+management+'_all_allGrades__allDistricts_'+cal.get_current_date()+'.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"

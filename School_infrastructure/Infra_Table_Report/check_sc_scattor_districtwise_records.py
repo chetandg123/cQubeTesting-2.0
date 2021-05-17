@@ -19,20 +19,23 @@ class test_districtwise():
         p = pwd()
         self.cal = GetData()
         self.fname =file_extention()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
         for x in range(len(select_district.options)-4, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
             value = self.driver.find_element_by_name('myDistrict').get_attribute("value")
-            blkval =value[4:]
+            blkval =value.split(":")
+            val = blkval[1].strip()
             nodata = self.driver.find_element_by_id("errMsg").text
             if nodata == "No data found":
                 print(select_district.options[x].text, "no data found!")
             else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = p.get_download_dir() + "/" + self.fname.sc_districtwise()+(blkval+'_').strip()+self.cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/" + self.fname.sc_districtwise()+management+'_blocks_of_district_'+(val+'_').strip()+self.cal.get_current_date()+'.csv'
                 print(self.filename)
                 if not os.path.isfile(self.filename):
                     print(select_district.options[x].text , " csv file is not downloaded")

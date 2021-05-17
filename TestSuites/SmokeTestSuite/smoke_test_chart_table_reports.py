@@ -2,8 +2,17 @@
 import unittest
 
 from CRC import crc_report_smoke_testing
+from Diksha_Reports.content_course import content_course_smoke_testing
+from Diksha_Reports.content_textbook import content_textbook_smoke_suite
+from Diksha_Reports.usage_by_course import usage_by_course_smoke_testing
+from Diksha_Reports.usage_by_textbook import usage_by_textbook_smoke_suite
+from Diksha_TPD.TPD_Completion_percentage import completion_smoke_test
+from Diksha_TPD.TPD_Course_Progress import lpd_content_smoke_test
+from Diksha_TPD.TPD_Enrollment_completion import enrollment_smoke_test
+from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_smoke_test
 
 from Health_Card_Index import health_card_smoke_test
+from School_infrastructure.Infra_Table_Report import School_report_smoke_testing
 
 from get_dir import pwd
 from reuse_func import GetData
@@ -61,201 +70,201 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #         runner1.run(smoke_test)
     #         outfile.close()
     #
-    # def test_issue03(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #             content_course_smoke_testing.cQube_content_course_smoke)
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Content BY Course Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #         runner1.run(smoke_test)
-    #         outfile.close()
-    #
-    # def test_issue04(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 content_textbook_smoke_suite.cQube_content_textbook_smoke
-    #             )
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Content By Textbook report Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #         runner1.run(smoke_test)
-    #         outfile.close()
-    #
-    # def test_issue05(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 usage_by_course_smoke_testing.cQube_diskha_course_smoke_test
-    #             )
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title=' Usage By Course Infra_Table_Report Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #         runner1.run(smoke_test)
-    #         outfile.close()
-    #
-    # def test_issue06(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 usage_by_textbook_smoke_suite.cQube_usage_textbook_smoke_report
-    #             )
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title=' Usage By Textbook Infra_Table_Report Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #         runner1.run(smoke_test)
-    #         outfile.close()
-    #
-    # def test_issue07(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 lpd_content_smoke_test.cQube_lpdcontent_smoke_Test
-    #             )
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title=' TPD Content Progress Infra_Table_Report Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #         runner1.run(smoke_test)
-    #         outfile.close()
-    #
-    # def test_issue08(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 lpd_percentage_smoke_test.cQube_tpd_percentage_smoke_Test
-    #             )
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title=' TPD Percentage Progress Infra_Table_Report Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #         runner1.run(smoke_test)
-    #         outfile.close()
-    #
-    # def test_issue09(self):
-    #     smoke_test = unittest.TestSuite()
-    #     smoke_test.addTests([
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(
-    #             enrollment_regression_test.cQube_enrollment_regression
-    #         )
-    #     ])
-    #     p = pwd()
-    #     outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title=' TPD Enrollment/Completion Infra_Table_Report Smoke Test Infra_Table_Report',
-    #         verbosity=1,
-    #
-    #     )
-    #     runner1.run(smoke_test)
-    #     outfile.close()
-    #
-    # def test_issue10(self):
-    #     smoke_test = unittest.TestSuite()
-    #     smoke_test.addTests([
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(
-    #             completion_regression_test.cQube_completion_percentage_regression
-    #         )
-    #     ])
-    #     p = pwd()
-    #     outfile = open(p.get_smoke_chart_tables_report(), "a")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title='TPD Completion Percentage Infra_Table_Report Smoke Test Infra_Table_Report',
-    #         verbosity=1,
-    #
-    #     )
-    #     runner1.run(smoke_test)
-    #     outfile.close()
-    #
-    def test_issue11(self):
+    def test_issue03(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                content_course_smoke_testing.cQube_content_course_smoke)
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Content BY Course Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue04(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    content_textbook_smoke_suite.cQube_content_textbook_smoke
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Content By Textbook report Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue05(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    usage_by_course_smoke_testing.cQube_diskha_course_smoke_test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title=' Usage By Course Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue06(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    usage_by_textbook_smoke_suite.cQube_usage_textbook_smoke_report
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title=' Usage By Textbook  Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue07(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    lpd_content_smoke_test.cQube_lpdcontent_smoke_Test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title=' TPD Content Progress  Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue08(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    lpd_percentage_smoke_test.cQube_tpd_percentage_smoke_Test
+                )
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title=' TPD Percentage Progress  Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+            runner1.run(smoke_test)
+            outfile.close()
+
+    def test_issue09(self):
         smoke_test = unittest.TestSuite()
         smoke_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(
-                health_card_smoke_test.Health_card_smoke_test
-
+                enrollment_smoke_test.cQube_enrollment_smoketest
             )
-        ])
-        p = pwd()
-        outfile = open(p.get_smoke_chart_tables_report(), "w")
-
-        runner1 = HTMLTestRunner.HTMLTestRunner(
-            stream=outfile,
-            title='Health card Infra_Table_Report Smoke Test Infra_Table_Report',
-            verbosity=1,
-
-        )
-        runner1.run(smoke_test)
-        outfile.close()
-
-    def test_issue13(self):
-        smoke_test = unittest.TestSuite()
-        smoke_test.addTests([
-            # file name .class name
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_smoke_testing.cQube_CRC_Report),
         ])
         p = pwd()
         outfile = open(p.get_smoke_chart_tables_report(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Crc Test Infra_Table_Report',
+            title=' TPD Enrollment/Completion Smoke Test Infra_Table_Report',
             verbosity=1,
 
         )
-
         runner1.run(smoke_test)
         outfile.close()
+
+    def test_issue10(self):
+        smoke_test = unittest.TestSuite()
+        smoke_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                completion_smoke_test.cQube_completion_percentage_smoke
+            )
+        ])
+        p = pwd()
+        outfile = open(p.get_smoke_chart_tables_report(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='TPD Completion Percentage Smoke Test Infra_Table_Report',
+            verbosity=1,
+
+        )
+        runner1.run(smoke_test)
+        outfile.close()
+
+    # def test_issue11(self):
+    #     smoke_test = unittest.TestSuite()
+    #     smoke_test.addTests([
+    #         unittest.defaultTestLoader.loadTestsFromTestCase(
+    #             health_card_smoke_test.Health_card_smoke_test
+    #
+    #         )
+    #     ])
+    #     p = pwd()
+    #     outfile = open(p.get_smoke_chart_tables_report(), "w")
+    #
+    #     runner1 = HTMLTestRunner.HTMLTestRunner(
+    #         stream=outfile,
+    #         title='Health card Infra_Table_Report Smoke Test Infra_Table_Report',
+    #         verbosity=1,
+    #
+    #     )
+    #     runner1.run(smoke_test)
+    #     outfile.close()
+
+    # def test_issue13(self):
+    #     smoke_test = unittest.TestSuite()
+    #     smoke_test.addTests([
+    #         # file name .class name
+    #         unittest.defaultTestLoader.loadTestsFromTestCase(crc_report_smoke_testing.cQube_CRC_Report),
+    #     ])
+    #     p = pwd()
+    #     outfile = open(p.get_smoke_chart_tables_report(), "a")
+    #
+    #     runner1 = HTMLTestRunner.HTMLTestRunner(
+    #         stream=outfile,
+    #         title='Crc Test Infra_Table_Report',
+    #         verbosity=1,
+    #
+    #     )
+    #
+    #     runner1.run(smoke_test)
+    #     outfile.close()
 
     # def test_issue14(self):
     #     smoke_test = unittest.TestSuite()
@@ -274,7 +283,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
     #
     #     runner1.run(smoke_test)
     #     outfile.close()
-    #
+
     # def test_issue15(self):
     #     smoke_test = unittest.TestSuite()
     #     smoke_test.addTests([

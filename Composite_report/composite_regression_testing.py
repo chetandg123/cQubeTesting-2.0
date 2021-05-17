@@ -8,7 +8,6 @@ from Composite_report.click_on_hyperlink import click_on_hyperlinks
 from Composite_report.download_blockwise_csv import download_blockwise_csv
 from Composite_report.download_clusterwise_csv import download_clusterwise_csv
 from Composite_report.download_districtwise_csv import Districtwise_download
-from Composite_report.download_schoolwise_csv import school_wise_download
 from Data.parameters import Data
 from reuse_func import GetData
 
@@ -129,6 +128,14 @@ class composite_regression_report(unittest.TestCase):
         self.assertTrue(res, msg="Some of districtwise csv file is not downloaded ")
         print("Checked with districtwise wise csv file downloading ")
         self.data.page_loading(self.driver)
+
+    def test_composite_clusterwise_records(self):
+        b = composite_schoolevel_records(self.driver)
+        res = b.check_csv_download_district_block()
+        self.assertTrue(res, msg="Some of clusters csv file is not downloaded ")
+        print("Checked with cluster wise csv file downloading ")
+        self.data.page_loading(self.driver)
+
 
     @classmethod
     def tearDownClass(cls):

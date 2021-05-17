@@ -1,3 +1,5 @@
+import csv
+import datetime
 import re
 import unittest
 from datetime import date
@@ -56,11 +58,32 @@ from reuse_func import GetData
 # # print(str[16:].strip().lower())
 # print(str.capitalize())
 
-# value="1: 2425060001"
-# value = value.split(":")
-# print(value[1].strip())
+value="6: 242506"
+value = value.split(":")
+print(value[1].strip())
+#
+# schools="Number of Schools: 107"
+# # schol = re.sub('\D','',schools)
+# # print(schol)
+# print(schools.replace(' ','_'))
 
-schools="Number of Schools: 107"
-# schol = re.sub('\D','',schools)
-# print(schol)
-print(schools.replace(' ','_'))
+# with open("/home/chetan/Desktop/semester_assessment_test_exception_overall_overall_allGrades__blocks_of_district_2407_07-05-2021.csv") as fin:
+#     csv_reader = csv.reader(fin, delimiter=',')
+#     header = next(csv_reader)
+#     schools = 0
+# import pandas as pd
+# # df = pd.read_csv("/home/chetan/Desktop/semester_assessment_test_exception_overall_overall_allGrades__blocks_of_district_2407_07-05-2021.csv")
+# # print(df.head())
+# # df['total'] = df['Schools With Missing Data'].sum()
+# # print(df)
+#
+# data = pd.read_csv("/home/chetan/Desktop/semester_assessment_test_exception_overall_overall_allGrades__blocks_of_district_2407_07-05-2021.csv")
+#
+# # sum of all salary
+# print(data)
+# val = data["Total Schools With Missing Data"].sum()
+# print(val)
+long_month_name="January"
+datetime_object = datetime.datetime.strptime(long_month_name, "%B")
+month_number = datetime_object.month
+print(month_number)

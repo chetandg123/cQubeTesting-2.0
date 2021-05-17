@@ -288,6 +288,7 @@ class Blocks():
                     p = pwd()
                     time.sleep(5)
                     self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise() +management+'_'+timeseries.lower()+'_allGrades__blocks_of_district_' + value.strip() + cal.get_current_date() + '.csv'
+                    print(self.filename)
                     if not os.path.isfile(self.filename):
                         print("District " + select_district.first_selected_option.text + " csv is not downloaded")
                         count = count + 1
@@ -363,7 +364,7 @@ class Blocks():
                     self.driver.find_element_by_id('download').click()
                     p = pwd()
                     time.sleep(5)
-                    self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_'+timeseries.lower() + '_allGrades__blocks_of_district_' + values+'_' + cal.get_current_date() + '.csv'
+                    self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_'+timeseries.lower() + '_allGrades__blockPerDistricts_of_district_' + values+'_' + cal.get_current_date() + '.csv'
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print("District " + select_district.first_selected_option.text + " csv is not downloaded")

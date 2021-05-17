@@ -18,6 +18,8 @@ class gradewise_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.fname = file_extention()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
@@ -41,7 +43,7 @@ class gradewise_records():
                 count = count + 1
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + "/" + self.fname.patlo_grades() + gradenum + '_' + 'allDistricts_' + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
+            self.filename = self.p.get_download_dir() + "/" + self.fname.patlo_grades()+management+'_' + gradenum + '_' + 'allDistricts_' + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print(grades.options[i].text, 'csv file is not downloaded ')

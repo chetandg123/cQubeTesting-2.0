@@ -21,6 +21,8 @@ class Clusterwise_footers():
         files = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.cluster_btn).click()
         cal.page_loading(self.driver)
         markers = self.driver.find_elements_by_class_name(Data.dots)
@@ -29,7 +31,7 @@ class Clusterwise_footers():
         time.sleep(10)
         p = pwd()
         count = 0
-        self.filename = p.get_download_dir() + "/"+ files.pat_cluster()+cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/"+ files.pat_cluster()+management+'_all_allGrades__allClusters_'+cal.get_current_date()+'.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"

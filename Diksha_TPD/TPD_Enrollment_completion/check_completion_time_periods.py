@@ -26,7 +26,7 @@ class completion_time_periods():
         self.data.page_loading(self.driver)
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
         # timeseries.select_by_visible_text(' Overall ')
-        timeseries.select_by_index(4)
+        timeseries.select_by_index(1)
         self.data.page_loading(self.driver)
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for Over All')

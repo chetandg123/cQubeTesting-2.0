@@ -22,6 +22,8 @@ class districtwise():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
@@ -45,7 +47,7 @@ class districtwise():
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_blocks()+gradenum+ \
+                self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_blocks()+management+'_'+gradenum+ \
                 "_blocks_of_district_"+value.strip()+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
                 print(self.filename)
                 file = os.path.isfile(self.filename)

@@ -19,8 +19,8 @@ class subject_levels():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        # self.driver.find_element_by_xpath(Data.hyper_link).click()
-        # self.load.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)
         self.load.navigate_to_heatchart_report()
@@ -46,7 +46,7 @@ class subject_levels():
                 count = count + 1
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_subjects()+gradenum+'_'+(subject.options[i].text).strip()+\
+            self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_subjects()+management+'_'+gradenum+'_'+(subject.options[i].text).strip()+\
                             '_allDistricts_'+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:

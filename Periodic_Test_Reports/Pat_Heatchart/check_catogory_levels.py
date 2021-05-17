@@ -21,6 +21,8 @@ class Catagory_series():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
@@ -39,7 +41,7 @@ class Catagory_series():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + "/" + self.fname.pchart_views() + gradenum + '_' + Data.question_id + self.month + '_' \
+        self.filename = self.p.get_download_dir() + "/" + self.fname.pchart_views()+management+"_"+ gradenum + '_' + Data.question_id + self.month + '_' \
                         + self.year + '_' + self.load.get_current_date() + '.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
@@ -49,7 +51,7 @@ class Catagory_series():
         view_by.select_by_index(2)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.file = self.p.get_download_dir() + "/" + self.fname.pchart_views() + gradenum + '_' + Data.indicator_id + self.month + '_' \
+        self.file = self.p.get_download_dir() + "/" + self.fname.pchart_views()+management+"_"+gradenum + '_' + Data.indicator_id + self.month + '_' \
                     + self.year + '_' + self.load.get_current_date() + '.csv'
         print(self.file)
         if os.path.isfile(self.file) != True:

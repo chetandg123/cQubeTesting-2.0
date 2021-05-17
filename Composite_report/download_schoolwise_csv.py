@@ -19,6 +19,8 @@ class school_wise_download():
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
         p =pwd()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         dist =Select(self.driver.find_element_by_name('myDistrict'))
         dist.select_by_index(1)
         self.cal.page_loading(self.driver)
@@ -33,7 +35,7 @@ class school_wise_download():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.cal.page_loading(self.driver)
-        self.filename = p.get_download_dir() + "/" + self.fname.composite_clusterwise()+value.strip()+self.cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.composite_clusterwise()+management+"_"+'schools_of_cluster_'+value.strip()+self.cal.get_current_date()+'.csv'
         print(self.filename)
         self.cal.page_loading(self.driver)
         return os.path.isfile(self.filename)

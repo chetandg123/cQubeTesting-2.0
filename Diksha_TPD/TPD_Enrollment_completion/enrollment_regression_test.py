@@ -43,8 +43,8 @@ class cQube_enrollment_regression(unittest.TestCase):
 
     def test_Enrollment_time_periods_overall(self):
         b=Enrollment_time_periods(self.driver)
-        res,res1 = b.test_Enrollment_overall()
-        self.assertNotEqual(0,res,msg='Collection names are empty')
+        res1 = b.test_Enrollment_overall()
+        # self.assertNotEqual(0,res,msg='Collection names are empty')
         self.assertEqual(res1,0,msg="Enrollment Overall csv file is not downloaded ")
         self.data.page_loading(self.driver)
 

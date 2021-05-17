@@ -2,9 +2,9 @@ import unittest
 
 from HTMLTestRunner import HTMLTestRunner
 
-from Management_Reports.Infrastructure_Map_Report import infrastructure_report_management_1, \
-    infrastructure_report_management_2, infrastructure_report_management_3, infrastructure_report_management_4, \
-    infrastructure_report_management_5, infrastructure_report_management_6, infrastructure_report_management_7
+from Management_Reports.Infrastructure_Report.infra_map_report import infrastructure_report_management_3, \
+    infrastructure_report_management_4, infrastructure_report_management_2, infrastructure_report_management_6, \
+    infrastructure_report_management_5, infrastructure_report_management_7, infrastructure_report_management_1
 from get_dir import pwd
 
 

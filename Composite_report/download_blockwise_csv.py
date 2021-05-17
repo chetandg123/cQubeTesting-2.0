@@ -20,11 +20,13 @@ class download_blockwise_csv():
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.sr_block_btn).click()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
+        self.driver.find_element_by_id('allBlock').click()
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
-        self.filename = p.get_download_dir() + "/" + self.fname.composite_block()+self.cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.composite_block()+management+'_allBlocks_'+self.cal.get_current_date()+'.csv'
         time.sleep(3)
         print(self.filename)
         return os.path.isfile(self.filename)

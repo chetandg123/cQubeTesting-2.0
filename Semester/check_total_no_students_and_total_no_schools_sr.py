@@ -42,11 +42,12 @@ class grade_subject_dropdowns():
             grade.select_by_index(i)
             gradename = (grade.options[i].text).strip()
             gradenum = re.sub('\D','',gradename)
+            self.data.page_loading(self.driver)
             dots = self.driver.find_elements_by_class_name(Data.dots)
             markers = len(dots)-1
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
+            time.sleep(4)
             self.filename = p.get_download_dir() + '/'+ files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'__alldistrict_'+self.data.get_current_date()+'.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:

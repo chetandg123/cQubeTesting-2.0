@@ -14,7 +14,7 @@ class Blocks_cluster_schools_Buttons():
         count = 0
         self.data  = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
-        self.driver.find_element_by_id(Data.sr_block_btn).click()
+        self.driver.find_element_by_id('allBlock').click()
         self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')
         result = graph.is_displayed()
@@ -38,7 +38,7 @@ class Blocks_cluster_schools_Buttons():
         self.data  = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.sr_cluster_btn).click()
+        self.driver.find_element_by_id('allCluster').click()
         self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')
         result = graph.is_displayed()

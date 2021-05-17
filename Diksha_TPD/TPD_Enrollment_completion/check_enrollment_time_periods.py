@@ -27,11 +27,12 @@ class Enrollment_time_periods():
         ctype = (self.driver.find_element_by_id(Data.coursetype).text).strip()
         timeseries = Select(self.driver.find_element_by_name(Data.timeperiods))
         # timeseries.select_by_visible_text(' Overall ')
-        timeseries.select_by_index(4)
+        timeseries.select_by_index(1)
         self.data.page_loading(self.driver)
         times=(self.driver.find_element_by_name(Data.timeperiods).text).strip()
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for overall')
+            count = 0
         else:
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
@@ -48,7 +49,7 @@ class Enrollment_time_periods():
                 count = count + 1
             self.data.page_loading(self.driver)
             os.remove(self.filename)
-            return counter,count
+        return count
 
     def test_Enrollment_last_day(self):
         self.data = GetData()

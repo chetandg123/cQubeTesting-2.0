@@ -20,6 +20,8 @@ class districtwise():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
@@ -27,8 +29,8 @@ class districtwise():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
         grades = Select(self.driver.find_element_by_id(Data.grade))
-        grades.select_by_index(2)
-        gradename = (grades.options[2].text).strip()
+        grades.select_by_index(1)
+        gradename = (grades.options[1].text).strip()
         gradenum = re.sub('\D', '', gradename).strip()
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
         view_by = Select(self.driver.find_element_by_id(Data.view_by))
@@ -42,12 +44,13 @@ class districtwise():
                 value = value[5:] + '_'
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
-                time.sleep(3)
-                self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_blocks() + gradenum + \
+                time.sleep(4)
+                self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_blocks()+management+'_' + gradenum + \
                                 "_blocks_of_district_" + value.strip() + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
                 print(self.filename)
                 if self.filename != True:
                     print(dists.options[i].text,'csv file is not downloaded')
+                    count = count + 0
                 else:
                     with open(self.filename) as fin:
                         csv_reader = csv.reader(fin, delimiter=',')

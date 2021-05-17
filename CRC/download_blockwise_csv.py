@@ -30,7 +30,7 @@ class donwload_blockwise_csv():
         District_wise.select_by_index(2)
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(3)
+        time.sleep(4)
         self.filename = p.get_download_dir() + '/' + self.fname.crc_block()+name+'_overall_allBlocks_'+self.cal.get_current_date()+'.csv'
         print(self.filename)
         if not os.path.isfile(self.filename):

@@ -50,9 +50,9 @@ class DistrictBlockCluster():
                         count = count + 1
                     time.sleep(2)
                     self.driver.find_element_by_id('download').click()
-                    time.sleep(2)
+                    time.sleep(4)
                     p = pwd()
-                    self.filename =  p.get_download_dir() + '/'+file.teacher_clusterwise_download()+name+'_schools_of_cluster_'+value[1].strip()+'_'+ self.month + "_" + self.year +"_"+ cal.get_current_date()+".csv"
+                    self.filename =  p.get_download_dir() + '/'+file.teacher_clusterwise_download()+name+'_schoolPerClusters_of_cluster_'+value[1].strip()+'_'+ self.month + "_" + self.year +"_"+ cal.get_current_date()+".csv"
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(

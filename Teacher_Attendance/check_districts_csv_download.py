@@ -39,9 +39,9 @@ class DistrictCsvDownload():
                 count = count + 1
             time.sleep(2)
             self.driver.find_element_by_id('download').click()
-            time.sleep(2)
+            time.sleep(3)
             p = pwd()
-            self.filename = p.get_download_dir() +'/'+files.teacher_districtwise_download()+name+"_Blocks_of_district_"+value.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
+            self.filename = p.get_download_dir() +'/'+files.teacher_districtwise_download()+name+"_blockPerDistricts_of_district_"+value.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
             print(self.filename)
             if not os.path.isfile(self.filename):
                 print("District" + select_district.first_selected_option.text + "csv is not downloaded")

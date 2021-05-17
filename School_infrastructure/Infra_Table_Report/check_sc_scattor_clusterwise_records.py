@@ -20,6 +20,8 @@ class Test_schoolwise():
         self.cal = GetData()
         self.fname =file_extention()
         self.driver.implicitly_wait(50)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
@@ -37,7 +39,8 @@ class Test_schoolwise():
                     select_cluster.select_by_index(z)
                     self.cal.page_loading(self.driver)
                     value = self.driver.find_element_by_name('myCluster').get_attribute('value')
-                    value = value[3:].strip()+'_'
+                    cvalue = value.split(":")
+                    value = cvalue[1].strip()
                     nodata = self.driver.find_element_by_id("errMsg").text
                     if nodata == "No data found":
                         print(select_district.options[x].text,select_block.options[y],select_cluster.options[z].text, "no data found!")
@@ -45,7 +48,7 @@ class Test_schoolwise():
                     else:
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = p.get_download_dir() + "/" + self.fname.sc_clusterwise()+ value.strip()+self.cal.get_current_date()+".csv"
+                        self.filename = p.get_download_dir() + "/" + self.fname.sc_clusterwise()+management+'_schools_of_cluster_'+ value+'_'+self.cal.get_current_date()+".csv"
                         print(self.filename)
                         if not os.path.isfile(self.filename):
                             print(select_cluster.options[z].text,"csv is not downloaded..")

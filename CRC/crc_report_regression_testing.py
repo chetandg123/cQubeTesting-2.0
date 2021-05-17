@@ -40,35 +40,35 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_download_districtwise(self):
         b = Districtwise_donwload(self.driver)
         result = b.test_districtwise()
-        self.assertTrue(result, msg="File is not downloaded")
+        self.assertEqual(0, result, msg="File is not downloaded")
         print("district wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
     def test_download_blockwise_csv(self):
         b = donwload_blockwise_csv(self.driver)
         result = b.test_blockwise()
-        self.assertTrue(result, msg="File is not downloaded")
+        self.assertEqual(0,result, msg="File is not downloaded")
         print("blockwise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
     def test_download_clusterwise_csv(self):
         b = load_clusterwise_csv(self.driver)
         result = b.test_clusterwise()
-        self.assertTrue(result, msg="File is not downloaded")
+        self.assertEqual(0, result, msg="File is not downloaded")
         print("cluster wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
     def test_download_schoolwise(self):
         b = school_wise_download(self.driver)
         result = b.test_schoolwise()
-        self.assertTrue(result, msg="File is not downloaded")
+        self.assertEqual(0, result, msg="File is not downloaded")
         print("district wise csv file is downloaded ")
         self.data.page_loading(self.driver)
 
     def test_crc_districtwise(self):
         b = test_crc_report_districtwise(self.driver)
         result = b.test_districtwise()
-        self.assertEqual(0, result, msg="no data found")
+        self.assertEqual(0, result, msg="File is not downloaded")
         print('checked with districts records')
         self.data.page_loading(self.driver)
 

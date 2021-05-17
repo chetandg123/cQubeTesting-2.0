@@ -31,13 +31,13 @@ class Files():
     sr_gradewise="semester_assessment_test_"
     sr_subjectwise="semester_assessment_test_"
 
-    satchart_district = 'semester_assessment_test_heatmap_'+management+'_overall_allDistricts_'
-    satchart_districtwise ='semester_assessment_test_heatmap_'+management+'_'
+    satchart_district = 'semester_assessment_test_heatmap_'
+    satchart_districtwise ='semester_assessment_test_heatmap_'
     satchart_blockwise ='semester_assessment_test_heatmap_'+management+'_'
-    satchart_clusterwise = 'semester_assessment_test_heatmap_'+management+'_'
-    satchart_view = "semester_assessment_test_heatmap_"+management+'_'
-    sat_subject_wise = "semester_assessment_test_heatmap_"+management+'_'
-    sat_chart_grades = "semester_assessment_test_heatmap_"+management+'_'
+    satchart_clusterwise = 'semester_assessment_test_heatmap_'
+    satchart_view = "semester_assessment_test_heatmap_"
+    sat_subject_wise = "semester_assessment_test_heatmap_"
+    sat_chart_grades = "semester_assessment_test_heatmap_"
 
 
     exception_block="semester_assessment_test_exception_"
@@ -57,12 +57,12 @@ class Files():
     crc_clusterwise='crc_report_'
 
 
-    composite_block='composite_report_across_metrics_allBlocks_'
-    composite_cluster='composite_report_across_metrics_allClusters_'
-    composite_district='composite_report_across_metrics_allDistricts_'
-    composite_districtwise='composite_report_across_metrics_blocks_of_district_'
-    composite_blockwise='composite_report_across_metrics_clusters_of_block_'
-    composite_clusterwise='composite_report_across_metrics_schools_of_cluster_'
+    composite_block='composite_report_across_metrics_'
+    composite_cluster='composite_report_across_metrics_'
+    composite_district='composite_report_across_metrics_'
+    composite_districtwise='composite_report_across_metrics_'
+    composite_blockwise='composite_report_across_metrics_'
+    composite_clusterwise='composite_report_across_metrics_'
 
     scmap_block='infrastructure_access_by_location_'
     scmap_cluster='infrastructure_access_by_location_'
@@ -72,14 +72,13 @@ class Files():
     scmap_blockwise='infrastructure_access_by_location_clusters_of_block_'
     scmap_clusterwise='infrastructure_access_by_location_'
 
-    sc_district='composite_report_overall_allDistricts_'
-    sc_block='composite_report_overall_allBlocks_'
-    sc_cluster='composite_report_overall_allClusters_'
-    sc_school='composite_report_overall_allSchools_'
-    sc_districtwise='composite_report_overall_blocks_of_district_'
-    sc_blockwise='composite_report_overall_clusters_of_block_'
-    sc_clusterwise='composite_report_overall_schools_of_cluster_'
-
+    sc_district='composite_report_'
+    sc_block='composite_report_'
+    sc_cluster='composite_report_'
+    sc_school='composite_report_'
+    sc_districtwise='composite_report_'
+    sc_blockwise='composite_report_'
+    sc_clusterwise='composite_report_'
     diksha_stack_all='Diksha_last_30_days_data_All.csv'
     diksha_stack_teacher='Diksha_last_30_days_data_Teacher.csv'
     diskha_stack_student='Diksha_last_30_days_data_Student.csv'
@@ -101,34 +100,34 @@ class Files():
     telemetry_lastday='telemerty_allDistricts_last_day_'
     telemetry_lastmonth='telemerty_allDistricts_last_30_days_'
 
-    pat_district='periodic_assessment_test_'+management+'_all_allGrades__allDistricts_'
-    pat_block='periodic_assessment_test_'+management+'_all_allGrades__allBlocks_'
-    pat_cluster='periodic_assessment_test_'+management+'_all_allGrades__allClusters_'
-    pat_school='periodic_assessment_test_'+management+'_all_allGrades__allSchools_'
+    pat_district='periodic_assessment_test_'
+    pat_block='periodic_assessment_test_'
+    pat_cluster='periodic_assessment_test_'
+    pat_school='periodic_assessment_test_'
     pat_districtwise='periodic_assessment_test_'
     pat_blockwise='periodic_assessment_test_'
     pat_clusterwise='periodic_assessment_test_'
-    pat_gradewise ='periodic_assessment_test_'+management+'_all_Grade_'
+    pat_gradewise ='periodic_assessment_test_'
     pat_subjectwise='periodic_assessment_test_'+management+'_all_Grade_'
 
     location_course ="usage_by_course_all_"
     location_textbook="usage_by_textbook_all_"
 
-    pchart_district ='periodic_assessment_test_heatmap_'+management+'_overall_allDistricts_'
-    pchart_districtwise='periodic_assessment_test_heatmap_'+management+'_'
-    pchart_blockwise='periodic_assessment_test_heatmap_'+management+'_'
-    pchart_clusterwise='periodic_assessment_test_heatmap_'+management+'_'
-    pchart_view ="periodic_assessment_test_heatmap_"+management+"_"
-    subject_wise ="periodic_assessment_test_heatmap_"+management+'_'
-    pchart_grades ="periodic_assessment_test_heatmap_"+management+'_'
+    pchart_district ='periodic_assessment_test_heatmap_'
+    pchart_districtwise='periodic_assessment_test_heatmap_'
+    pchart_blockwise='periodic_assessment_test_heatmap_'
+    pchart_clusterwise='periodic_assessment_test_heatmap_'
+    pchart_view ="periodic_assessment_test_heatmap_"
+    subject_wise ="periodic_assessment_test_heatmap_"
+    pchart_grades ="periodic_assessment_test_heatmap_"
 
-    patlo_district = 'periodic_assessment_test_loTable_'+management+'_overall_allDistricts_'
-    patlo_districtwise = 'periodic_assessment_test_loTable_'+management+'_'
-    patlo_blockwise = 'periodic_assessment_test_loTable_'+management+'_'
-    patlo_clusterwise = 'periodic_assessment_test_loTable_'+management+'_'
-    patlo_view = "periodic_assessment_test_loTable_"+management+'_'
-    patlo_subjectwise = "periodic_assessment_test_loTable_"+management+'_'
-    patlo_grades = "periodic_assessment_test_loTable_"+management+'_'
+    patlo_district = 'periodic_assessment_test_loTable_'
+    patlo_districtwise = 'periodic_assessment_test_loTable_'
+    patlo_blockwise = 'periodic_assessment_test_loTable_'
+    patlo_clusterwise = 'periodic_assessment_test_loTable_'
+    patlo_view = "periodic_assessment_test_loTable_"
+    patlo_subjectwise = "periodic_assessment_test_loTable_"
+    patlo_grades = "periodic_assessment_test_loTable_"
 
     student_academic ="student_academic_"
     teacher_academic ="teacher_academic_"

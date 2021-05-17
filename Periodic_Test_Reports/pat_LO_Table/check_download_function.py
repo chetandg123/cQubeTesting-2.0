@@ -14,6 +14,8 @@ class Download_districtwise():
         self.p = pwd()
         self.load = GetData()
         count = 0
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.fname = file_extention()
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)
@@ -22,7 +24,7 @@ class Download_districtwise():
         self.year,self.month = self.load.get_pat_month_and_year_values()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_all_districts()+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
+        self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_all_districts()+management+'_overall_allDistricts_'+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
             print('Districtwise csv file is not downloaded ')

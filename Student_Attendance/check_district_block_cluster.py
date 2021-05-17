@@ -3,6 +3,7 @@ import os
 import re
 import time
 
+import pandas as pd
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
@@ -51,37 +52,31 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id('download').click()
                     time.sleep(3)
                     p = pwd()
-                    self.filename =  p.get_download_dir() +files.student_clusterwise_download()+'exception_'+name+'_schools_of_cluster_'+cluvalue.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
+                    self.filename =  p.get_download_dir() +files.student_clusterwise_download()+name+'_schoolPerClusters_of_cluster_'+cluvalue.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date() + ".csv"
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")
                         count = count + 1
                     else:
-                        with open(self.filename) as fin:
-                            csv_reader = csv.reader(fin, delimiter=',')
-                            header = next(csv_reader)
-                            total = 0
-                            for row in csv.reader(fin):
-                                row = row[8]
-                                row1 = row.replace(',', "")
-                                total += int(row1)
-                            students = self.driver.find_element_by_id("students").text
-                            res = re.sub('\D', "", students)
+                        df = pd.read_csv(self.filename)
+                        student = df['Number Of Students'].sum()
+                        students = self.driver.find_element_by_id("students").text
+                        std = re.sub('\D', "", students)
 
-                            school = self.driver.find_element_by_id("schools").text
-                            sc = re.sub('\D', "", school)
+                        school = self.driver.find_element_by_id("schools").text
+                        sc = re.sub('\D', "", school)
 
-                            if int(res) != total:
-                                print(
-                                    "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "student count mismatched")
-                                count = count + 1
-                            if int(sc) != len(markers) - 1:
-                                print(
-                                    "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
-                                count = count + 1
-                        os.remove(self.filename)
+                        if int(std) != student:
+                            print(
+                                "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "student count mismatched")
+                            count = count + 1
+                        if int(sc) != len(markers)-1:
+                            print(
+                                "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "school count mismatched")
+                            count = count + 1
+                    os.remove(self.filename)
 
-        return count
+                    return count
 
 

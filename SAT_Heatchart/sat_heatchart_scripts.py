@@ -19,10 +19,12 @@ class sat_heat_scripts():
 
     def viewbys_options(self):
         self.p = pwd()
-        self.driver.implicitly_wait(50)
+        self.driver.implicitly_wait(100)
         self.load = GetData()
         count = 0
         self.fname = file_extention()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
         year = Select(self.driver.find_element_by_id('year'))
@@ -43,25 +45,24 @@ class sat_heat_scripts():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
-        self.filename = self.p.get_download_dir() + "/" + self.fname.satchart_views() + gradenum + '_' + Data.question_id + self.month + '_' \
-                        + self.year + '_' + self.load.get_current_date() + '.csv'
+        self.filename = self.p.get_download_dir() + "/" + self.fname.satchart_views() + management+'_'+gradenum + '_' + Data.question_id + self.month + '_' \
+                        + self.year +'_'+self.load.get_current_date()+'.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
-            print(Data.question_id, 'csv file is not downloaded')
+            print(Data.question_id,'csv file is not downloaded')
             count = count + 1
         # view_by.select_by_visible_text(' Indicator ')
+        os.remove(self.filename)
         view_by.select_by_index(2)
         time.sleep(3)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
-        self.file = self.p.get_download_dir() + "/" + self.fname.satchart_views() + gradenum + '_' + Data.indicator_id + self.month + '_' \
-                    + self.year + '_' + self.load.get_current_date() + '.csv'
+        self.file = self.p.get_download_dir() + "/" + self.fname.satchart_views()+management+'_'+ gradenum + '_' + Data.indicator_id + self.month + '_' \
+                    + self.year + '_' + self.load.get_current_date()+'.csv'
         print(self.file)
         if os.path.isfile(self.file) != True:
             print(Data.indicator_id, 'csv file is not downloaded')
             count = count + 1
-
-        os.remove(self.filename)
         os.remove(self.file)
         return count
 
@@ -132,6 +133,8 @@ class sat_heat_scripts():
         cal = GetData()
         count = 0
         self.fname = file_extention()
+        management= self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
@@ -141,7 +144,7 @@ class sat_heat_scripts():
         cal.navigate_to_sat_heatchart_report()
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
-        self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_all_districts() + self.month + '_' + self.year + '_' + cal.get_current_date() + '.csv'
+        self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_all_districts()+management+'_overall_allDistricts_'+ self.month + '_' + self.year + '_' + cal.get_current_date() + '.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
             print("Districtwise csv file is not downloaded")
@@ -181,8 +184,8 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        # self.driver.find_element_by_xpath(Data.hyper_link).click()
-        # self.load.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)
         self.load.navigate_to_sat_heatchart_report()
@@ -208,7 +211,7 @@ class sat_heat_scripts():
                 count = count + 1
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_subjects()+gradenum+'_'+(subject.options[i].text).strip()+\
+            self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_subjects()+management+'_'+gradenum+'_'+(subject.options[i].text).strip()+\
                             '_allDistricts_'+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:
@@ -291,6 +294,8 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
@@ -320,7 +325,7 @@ class sat_heat_scripts():
                 else:
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
-                    self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_blocks()+gradenum+ \
+                    self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_blocks()+management+'_'+gradenum+ \
                     "_blocks_of_district_"+values+'_'+self.month+'_'+self.year+'_'+self.load.get_current_date()+'.csv'
                     print(self.filename)
                     file = os.path.isfile(self.filename)
@@ -340,6 +345,8 @@ class sat_heat_scripts():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.year , self.month = self.load.get_pat_month_and_year_values()
         clust = Select(self.driver.find_element_by_id(Data.cluster_dropdown))
         dists = Select(self.driver.find_element_by_id(Data.district_dropdown))
@@ -364,7 +371,7 @@ class sat_heat_scripts():
                         value = value[3:]+'_'
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
-                        self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_schools()+gradenum+"_schools_of_cluster_"+value.strip()+self.month+'_'+self.year+'_'+ \
+                        self.filename = self.p.get_download_dir() + '/' + self.fname.satchart_schools()+management+'_'+gradenum+"_schools_of_cluster_"+value.strip()+self.month+'_'+self.year+'_'+ \
                         self.load.get_current_date()+'.csv'
                         print(self.filename)
                         file = os.path.isfile(self.filename)
@@ -380,6 +387,8 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
@@ -402,7 +411,7 @@ class sat_heat_scripts():
                 count = count + 1
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
-            self.filename = self.p.get_download_dir() + "/" + self.fname.satchart_grades() + gradenum + '_' + 'allDistricts_' + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
+            self.filename = self.p.get_download_dir() + "/" + self.fname.satchart_grades()+management+'_' + gradenum + '_' + 'allDistricts_' + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print(grades.options[i].text, 'csv file is not downloaded ')

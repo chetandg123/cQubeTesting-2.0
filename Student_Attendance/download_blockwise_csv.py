@@ -3,6 +3,7 @@ import os
 import re
 import time
 
+import pandas as pd
 
 from Data.parameters import Data
 from filenames import file_extention
@@ -35,27 +36,30 @@ class BlockwiseCsv():
             time.sleep(5)
             p = pwd()
             count=0
-            self.filename = p.get_download_dir() +file.student_block_download()+'exception_'+name+'_allBlocks_'+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
+            self.filename = p.get_download_dir() +file.student_block_download()+name+'_allBlocks_'+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
             print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print('Block level csv file is not downloaded')
                 count = count + 1
             else:
-                with open(self.filename) as fin:
-                    csv_reader = csv.reader(fin, delimiter=',')
-                    header = next(csv_reader)
-                    total = 0
-                    for row in csv.reader(fin):
-                        row = row[4].strip('\"')
-                        row1 = row.replace(',', "")
-                        total += int(row1)
-                    students = self.driver.find_element_by_id("students").text
-                    res = re.sub('\D', "", students)
+                df = pd.read_csv(self.filename)
+                student = df['Number Of Students'].sum()
+                sch=df['Number Of Schools'].sum()
 
-                    if  int(res) !=int(total):
-                        print('Number of schools with missing data mismatch found',res,total)
-                        count = count + 1
+                students = self.driver.find_element_by_id("students").text
+                stds = re.sub('\D', "", students)
+
+                school  = self.driver.find_element_by_id('schools').text
+                scs = re.sub('\D',"",school)
+
+                if int(stds) != int(student):
+                    print('Number of students with missing data mismatch found', stds, student)
+                    count = count + 1
+                if int(scs) != int(sch):
+                    print('Number of schools with missing data mismatch found', scs, sch)
+                    count = count + 1
                 os.remove(self.filename)
 
             return count
+
 

@@ -34,7 +34,6 @@ class Management_student_attendance_report(unittest.TestCase):
         self.year,self.month = self.data.select_management_to_student_report(6)
         self.data.page_loading(self.driver)
 
-
     def test_click_on_blocks(self):
         block = Blocks(self.driver)
         result = block.check_markers_on_block_map()
@@ -66,12 +65,8 @@ class Management_student_attendance_report(unittest.TestCase):
     def test_blockwise_csv_download(self):
         csv = BlockwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_blocks()
-        if result:
-            print("Block wise csv report download is working")
-            csv.remove_csv()
-        else:
-            raise self.failureException("Block wise csv report download is not working")
-        time.sleep(2)
+        self.assertEqual(result,0,msg="Block wise csv report download is working")
+        self.data.page_loading(self.driver)
 
     def test_clusterwise_csv_download(self):
         csv = ClusterwiseCsv(self.driver, self.year, self.month)
@@ -112,13 +107,8 @@ class Management_student_attendance_report(unittest.TestCase):
             raise self.failureException("Cluster per block csv report download is working")
         schools = DistrictBlockCluster(self.driver, self.year, self.month)
         result = schools.check_district_block_cluster()
-        if result == 0:
-            print("Schools per cluster csv download report is working")
-            print("on selection of each district,block and cluster")
-            print("The footer value of no of schools and no of students are")
-            print("equals to downloaded file")
-        else:
-            raise self.failureException("Schools per cluster csv report download is working")
+        self.assertEqual(result , 0 ,msg="Schools per cluster csv download report is working")
+        self.data.page_loading(self.driver)
 
     def test_check_hyperlinks(self):
         hyperlinks = Hyperlink(self.driver)

@@ -37,11 +37,12 @@ class Check_with_all_clusters():
                 for k in range(len(clusters.options)-1, len(clusters.options)):
                     clusters.select_by_index(k)
                     name = self.driver.find_element_by_id(Data.sar_cluster).get_attribute('value')
-                    value = name[4:]+'_'
+                    value = name.split(":")
+                    val = value[1].strip()
                     self.data.page_loading(self.driver)
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
-                    self.filename = self.p.get_download_dir() + "/"+'completion_percentage_overall_'+value.strip()+self.data.get_current_date()+".csv"
+                    self.filename = self.p.get_download_dir() + "/"+'completion_percentage_overall_'+val+'_'+self.data.get_current_date()+".csv"
                     print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         print(districts.options[i].text,blocks.options[j].text,clusters.options[k].text,'csv file is not downloaded')
@@ -61,5 +62,5 @@ class Check_with_all_clusters():
                     os.remove(self.filename)
                     self.data.page_loading(self.driver)
 
-        return count, coll_count
+        return count
 

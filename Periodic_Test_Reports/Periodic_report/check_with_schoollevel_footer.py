@@ -18,6 +18,8 @@ class Schoolwise_footers():
         cal = GetData()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.schoolbtn).click()
         time.sleep(20)
         markers = self.driver.find_elements_by_class_name(Data.dots)
@@ -27,7 +29,7 @@ class Schoolwise_footers():
         p = pwd()
         count = 0
         files= file_extention()
-        self.filename = p.get_download_dir() + "/" + files.pat_school()+cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + files.pat_school()+management+'_all_allGrades__allSchools_'+cal.get_current_date()+'.csv'
         print(self.filename)
         if os.path.isfile(self.filename) != True:
             return "File Not Downloaded"

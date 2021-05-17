@@ -1,4 +1,5 @@
 import configparser
+import datetime
 import json
 import os
 import time
@@ -209,6 +210,17 @@ class GetData():
         self.month = (month.first_selected_option.text).strip()
         return self.year,self.month
 
+    def get_crc_month_and_year_values(self):
+        times = Select(self.driver.find_element_by_id('period'))
+        times.select_by_index(5)
+        year = Select(self.driver.find_element_by_id(Data.sar_year))
+        month = Select(self.driver.find_element_by_id(Data.sar_month))
+        self.year = (year.first_selected_option.text).strip()
+        self.month = (month.first_selected_option.text).strip()
+        datetime_object = datetime.datetime.strptime(self.month, "%B")
+        month_number = datetime_object.month
+        return self.year,month_number
+
     def get_pat_month_and_year_values(self):
         year = Select(self.driver.find_element_by_id(Data.sar_year))
         month = Select(self.driver.find_element_by_id(Data.sar_month))
@@ -243,8 +255,6 @@ class GetData():
 
     def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
-        # name = self.driver.find_element_by_id('name').text
-        # name = name[16:].strip().lower()
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.School_infra).click()
@@ -800,4 +810,40 @@ class GetData():
         print(management.options[n].text, 'is selected')
         self.data.page_loading(self.driver)
         self.data.navigate_to_semester_exception()
+        self.data.page_loading(self.driver)
+
+    def select_management_to_crc_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_crc_report()
+        self.data.page_loading(self.driver)
+
+    def select_management_to_infra_table_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_school_infrastructure()
+        self.data.page_loading(self.driver)
+
+    def select_management_to_composite_across_metrics_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_composite_report()
+        self.data.page_loading(self.driver)
+
+    def select_management_to_sat_heatchart_report(self, n):
+        self.data = GetData()
+        management = Select(self.driver.find_element_by_id('management'))
+        management.select_by_index(n)
+        print(management.options[n].text, 'is selected')
+        self.data.page_loading(self.driver)
+        self.data.navigate_to_sat_heatchart_report()
         self.data.page_loading(self.driver)

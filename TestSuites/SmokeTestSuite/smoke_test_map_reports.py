@@ -63,7 +63,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='cQube landing page Infra_Table_Report',
+            title='cQube landing page',
             verbosity=1,
 
         )
@@ -83,7 +83,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Student Attendance Smoke Test Infra_Table_Report',
+                title='Student Attendance Smoke Test Report',
                 verbosity=1,
 
             )
@@ -92,24 +92,24 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
             outfile.close()
 
    
-    def test_issue04(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_smoke_testing.cQube_Semester_Report),
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_map_report(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Semester Test Infra_Table_Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(smoke_test)
-            outfile.close()
+    # def test_issue04(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(semester_report_smoke_testing.cQube_Semester_Report),
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_map_report(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Semester Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(smoke_test)
+    #         outfile.close()
 
     def test_issue05(self):
 
@@ -124,7 +124,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='School Infra Map Test Infra_Table_Report',
+                title='School Infra Map Test Report',
                 verbosity=1,
 
             )
@@ -136,45 +136,45 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
 
 
-    def test_issue06(self):
+    # def test_issue06(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 exception_smoke_testing.cQube_semester_exception_report)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_map_report(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Semester Exception Test Infra_Table_Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(smoke_test)
+    #         outfile.close()
 
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    exception_smoke_testing.cQube_semester_exception_report)
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_map_report(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Semester Exception Test Infra_Table_Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(smoke_test)
-            outfile.close()
-
-    def test_issue07(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    telemetry_smoke_testing.Test_Telemetry)
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_map_report(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Telemetry smoke Test Infra_Table_Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(smoke_test)
-            outfile.close()
+    # def test_issue07(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 telemetry_smoke_testing.Test_Telemetry)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_map_report(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Telemetry smoke Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(smoke_test)
+    #         outfile.close()
 
     def test_issue08(self):
 
@@ -188,7 +188,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='UDISE Infra_Table_Report smoke Test Infra_Table_Report',
+                title='UDISE Infra_Table_Report smoke Report',
                 verbosity=1,
 
             )
@@ -197,25 +197,25 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
             outfile.close()
 
    
-    def test_issue09(self):
-
-            smoke_test = unittest.TestSuite()
-            smoke_test.addTests([
-                unittest.defaultTestLoader.loadTestsFromTestCase(
-                    periodic_smoke_testing.periodic_smoke)
-            ])
-            p = pwd()
-            outfile = open(p.get_smoke_map_report(), "a")
-
-            runner1 = HTMLTestRunner.HTMLTestRunner(
-                stream=outfile,
-                title='Periodic Infra_Table_Report Smoke Test Infra_Table_Report',
-                verbosity=1,
-
-            )
-
-            runner1.run(smoke_test)
-            outfile.close()
+    # def test_issue09(self):
+    #
+    #         smoke_test = unittest.TestSuite()
+    #         smoke_test.addTests([
+    #             unittest.defaultTestLoader.loadTestsFromTestCase(
+    #                 periodic_smoke_testing.periodic_smoke)
+    #         ])
+    #         p = pwd()
+    #         outfile = open(p.get_smoke_map_report(), "a")
+    #
+    #         runner1 = HTMLTestRunner.HTMLTestRunner(
+    #             stream=outfile,
+    #             title='Periodic  Smoke Test Report',
+    #             verbosity=1,
+    #
+    #         )
+    #
+    #         runner1.run(smoke_test)
+    #         outfile.close()
 
 
     def test_issue10(self):
@@ -230,7 +230,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Attendance Infra_Table_Report Smoke Test Infra_Table_Report',
+            title='Teacher Attendance Infra_Table_Report Smoke Test Report',
             verbosity=1,
 
         )

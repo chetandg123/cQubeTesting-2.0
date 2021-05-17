@@ -14,19 +14,24 @@ class download_district_wise_csv():
         self.cal = GetData()
         self.fname = file_extention()
         self.driver.implicitly_wait(20)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
         p =pwd()
+        count = 0
         District_wise=Select(self.driver.find_element_by_name("downloadType"))
         District_wise.select_by_index(1)
         self.cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download_scator).click()
         self.cal.page_loading(self.driver)
-        self.filename = p.get_download_dir() + "/" + self.fname.sc_district()+self.cal.get_current_date()+'.csv'
-        self.cal.page_loading(self.driver)
-        return os.path.isfile(self.filename)
+        self.filename = p.get_download_dir() + "/" + self.fname.sc_district()+management+'_allDistricts_'+self.cal.get_current_date()+'.csv'
+        if os.path.isfile(self.filename) != True:
+            print('File is not downloaded ')
+            count = count + 1
+        else:
+            print('Block level file is downloaded')
+            os.remove(self.filename)
+        return count
 
-
-    def remove_file(self):
-        os.remove(self.filename)
 
