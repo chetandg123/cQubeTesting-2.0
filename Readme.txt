@@ -71,8 +71,8 @@ Steps to execute the test script
            
 	   For Smoke Testing:
                 python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_map_reports.py
-		        python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_chart_table_reports.py
-		        python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_exception_reports.py
+		python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_chart_table_reports.py
+		python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_exception_reports.py
                 python3 -m unittest Admin_console/Admin_smoke_testsuit.py
 
     if any errors like : ImportError: bad magic number in : b'\x03\xf3\r\n' then use this command and again restart execution
