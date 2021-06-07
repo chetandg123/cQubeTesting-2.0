@@ -42,7 +42,7 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(login_page.login),
         ])
         p = pwd()
-        outfile = open(p.get_smoke_map_report(), "w")
+        outfile = open(p.get_smoke_map_report(), "a")
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
@@ -156,25 +156,25 @@ class MyTestSuite_Smoke_map_reports(unittest.TestCase):
     #         runner1.run(smoke_test)
     #         outfile.close()
 
-    # def test_issue07(self):
-    #
-    #         smoke_test = unittest.TestSuite()
-    #         smoke_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 telemetry_smoke_testing.Test_Telemetry)
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_smoke_map_report(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Telemetry smoke Report',
-    #             verbosity=1,
-    #
-    #         )
-    #
-    #         runner1.run(smoke_test)
-    #         outfile.close()
+    def test_issue07(self):
+
+            smoke_test = unittest.TestSuite()
+            smoke_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    telemetry_smoke_testing.Test_Telemetry)
+            ])
+            p = pwd()
+            outfile = open(p.get_smoke_map_report(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Telemetry smoke Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(smoke_test)
+            outfile.close()
 
     def test_issue08(self):
 

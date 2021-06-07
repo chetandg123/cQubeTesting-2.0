@@ -66,6 +66,7 @@ class Enrollment_time_periods():
         # timeseries.select_by_visible_text(' Last Day ')
         timeseries.select_by_index(1)
         self.data.page_loading(self.driver)
+        counter = 0
         if self.msg.no_data_available() in self.driver.page_source:
             print('No Data Available for last day')
         else:
@@ -85,7 +86,7 @@ class Enrollment_time_periods():
                 count = count + 1
             self.data.page_loading(self.driver)
             os.remove(self.filename)
-            # return counter,count
+        return count
 
     def test_Enrollment_last7_days(self):
         self.data = GetData()

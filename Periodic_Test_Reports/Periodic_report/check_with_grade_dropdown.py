@@ -61,7 +61,8 @@ class periodic_grades():
         self.data = GetData()
         p = pwd()
         count = 0
-        management = self.driver.find_element_by_id('nm').text
+        self.driver.implicitly_wait(100)
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
@@ -74,16 +75,16 @@ class periodic_grades():
             self.data.page_loading(self.driver)
             gradename = grade.options[i].text.strip()
             gradenum = re.sub('\D','',gradename)
-            for j in range(1,len(subjects.options)):
+            for j in range(len(subjects.options)-1,len(subjects.options)):
                 subjects.select_by_index(j)
                 self.data.page_loading(self.driver)
                 sub = (subjects.options[j].text).strip()
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = p.get_download_dir() + '/' + files.pat_gradewise()+management+'_all_Grade_'+gradenum.strip()+'_'+sub+'_alldistrict_' + self.data.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + '/' + files.pat_gradewise()+management+'_all_Grade_'+gradenum.strip()+'_'+sub+'_allDistricts_' + self.data.get_current_date()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
-                    print(files.pat_gradewise()+gradenum.strip() ,' wise csv file is not downloaded')
+                    print('grade wise wise csv file is not downloaded')
                     count = count+1
                 else:
                     file = open(self.filename)
@@ -91,6 +92,6 @@ class periodic_grades():
                     os.remove(self.filename)
                     if grade.options[j].text in read:
                         print(grade.options[j].text, "is present")
-        self.data.page_loading(self.driver)
+                    self.data.page_loading(self.driver)
         return count
 

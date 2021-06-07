@@ -22,44 +22,44 @@ class MyTestSuite_Exception(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    # def test_issue01(self):
-    #
-    #         regression_test = unittest.TestSuite()
-    #         regression_test.addTests([
-    #             unittest.defaultTestLoader.loadTestsFromTestCase(
-    #                 exception_smoke_testing.cQube_semester_exception_report)
-    #         ])
-    #         p = pwd()
-    #         outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #         runner1 = HTMLTestRunner.HTMLTestRunner(
-    #             stream=outfile,
-    #             title='Semester Exception Smoke Test Infra_Table_Report',
-    #             verbosity=1,
-    #
-    #         )
-    #
-    #         runner1.run(regression_test)
-    #         outfile.close()
+    def test_issue01(self):
 
-    # def test_issue02(self):
-    #     regression_test = unittest.TestSuite()
-    #     regression_test.addTests([
-    #         unittest.defaultTestLoader.loadTestsFromTestCase(
-    #             smoke_student_exception.cQube_smoke_Student_exception)
-    #     ])
-    #     p = pwd()
-    #     outfile = open(p.get_regression_map_reports(), "a")
-    #
-    #     runner1 = HTMLTestRunner.HTMLTestRunner(
-    #         stream=outfile,
-    #         title='Student Exception Smoke Test Infra_Table_Report',
-    #         verbosity=1,
-    #
-    #     )
-    #
-    #     runner1.run(regression_test)
-    #     outfile.close()
+            regression_test = unittest.TestSuite()
+            regression_test.addTests([
+                unittest.defaultTestLoader.loadTestsFromTestCase(
+                    exception_smoke_testing.cQube_semester_exception_report)
+            ])
+            p = pwd()
+            outfile = open(p.get_regression_map_reports(), "a")
+
+            runner1 = HTMLTestRunner.HTMLTestRunner(
+                stream=outfile,
+                title='Semester Exception Smoke Test Infra_Table_Report',
+                verbosity=1,
+
+            )
+
+            runner1.run(regression_test)
+            outfile.close()
+
+    def test_issue02(self):
+        regression_test = unittest.TestSuite()
+        regression_test.addTests([
+            unittest.defaultTestLoader.loadTestsFromTestCase(
+                smoke_student_exception.cQube_smoke_Student_exception)
+        ])
+        p = pwd()
+        outfile = open(p.get_regression_map_reports(), "a")
+
+        runner1 = HTMLTestRunner.HTMLTestRunner(
+            stream=outfile,
+            title='Student Exception Smoke Test Infra_Table_Report',
+            verbosity=1,
+
+        )
+
+        runner1.run(regression_test)
+        outfile.close()
 
     def test_issue03(self):
         regression_test = unittest.TestSuite()

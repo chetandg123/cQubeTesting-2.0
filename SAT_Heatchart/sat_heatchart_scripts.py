@@ -366,6 +366,7 @@ class sat_heat_scripts():
                     self.load.page_loading(self.driver)
                     for k in range(1, len(clust.options)):
                         clust.select_by_index(k)
+                        time.sleep(2)
                         self.load.page_loading(self.driver)
                         value =self.driver.find_element_by_id(Data.cluster_dropdown).get_attribute('value')
                         value = value[3:]+'_'

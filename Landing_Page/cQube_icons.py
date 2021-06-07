@@ -32,7 +32,7 @@ class cQube_landing_page():
     def test_Semester(self):
         self.cal = GetData()
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id("sr").click()
+        self.driver.find_element_by_xpath("//div[@id='sat']").click()
         self.cal.page_loading(self.driver)
         if "semester-report" in self.driver.current_url:
             print("Navigated to  Semester report")

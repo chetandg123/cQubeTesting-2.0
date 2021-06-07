@@ -59,7 +59,7 @@ class pwd():
 
     def get_functional_report_path(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Managementwise_Result.html')
+        report_path = os.path.join(cwd, 'Reports/infra_Managementwise_Result.html')
         return report_path
 
     def get_integration_report_path(self):

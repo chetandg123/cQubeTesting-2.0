@@ -37,30 +37,16 @@ class cQube_enrollment_smoketest(unittest.TestCase):
 
     def test_Enrollment_time_periods_overall(self):
         b=Enrollment_time_periods(self.driver)
-        res,res1 = b.test_Enrollment_overall()
-        self.assertNotEqual(0,res,msg='Collection names are empty')
+        res1 = b.test_Enrollment_overall()
+        # self.assertNotEqual(0,res,msg='Collection names are empty')
         self.assertEqual(res1,0,msg="Enrollment Overall csv file is not downloaded ")
         self.data.page_loading(self.driver)
 
-    def test_Enrollment_time_periods_lastday(self):
-        b = Enrollment_time_periods(self.driver)
-        res1 = b.test_Enrollment_last_day()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment lastday csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
-    def test_Enrollment_time_periods_last7day(self):
-        b = Enrollment_time_periods(self.driver)
-        res1 = b.test_Enrollment_last7_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last7 days csv file is not downloaded ")
-        self.data.page_loading(self.driver)
-
-    def test_Enrollment_time_periods_last30day(self):
-        b = Enrollment_time_periods(self.driver)
-        res1 = b.test_Enrollment_last30_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last30 days csv file is not downloaded ")
+    def test_tpd_enrollment_from_hamburger(self):
+        b = enrollment_icon(self.driver)
+        res = b.test_dashboard_enrollment_report()
+        self.assertEqual(0,res,msg="Navigation from hamburger is failed")
         self.data.page_loading(self.driver)
 
     def test_completion_time_periods_overall(self):
@@ -70,32 +56,24 @@ class cQube_enrollment_smoketest(unittest.TestCase):
         self.assertEqual(res1, 0, msg="Enrollment Overall csv file is not downloaded ")
         self.data.page_loading(self.driver)
 
-    def test_Completion_time_periods_lastday(self):
-        b = completion_time_periods(self.driver)
-        res1 = b.test_completion_last_day()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment lastday csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
-    def test_Completion_time_periods_last7day(self):
-        b = completion_time_periods(self.driver)
-        res1 = b.test_completion_last7_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        # self.assertEqual(res1, 0, msg="Enrollment last7 days csv file is not downloaded ")
-        self.data.page_loading(self.driver)
 
-    def test_Completion_time_periods_last30day(self):
-        b = completion_time_periods(self.driver)
-        res1 = b.test_completion_last30_days()
-        # self.assertNotEqual(0, res, msg='Collection names are empty')
-        self.assertEqual(res1, 0, msg="Enrollment last30 days csv file is not downloaded ")
+    def test_Home_functionalities(self):
+        b = Home_functionalities(self.driver)
+        res = b.test_homeicon_functionality()
+        # self.assertFalse(res,msg="Time period is not selected")
         self.data.page_loading(self.driver)
-
 
     def test_Homebtn_functionalities(self):
         b = Home_functionalities(self.driver)
         res = b.test_homebtn_funtion()
         self.assertEqual(res,0 ,msg="Homebtn is not worked")
+        self.data.page_loading(self.driver)
+
+    def test_hyperlink_function(self):
+        b=Home_functionalities(self.driver)
+        res = b.test_hyperlink_function()
+        print("Hyper link is working ")
         self.data.page_loading(self.driver)
 
     def test_Click_download_icon(self):

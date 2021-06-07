@@ -33,7 +33,7 @@ class cQube_SI_Report(unittest.TestCase):
     def test_download_district_wise(self):
         b = download_report(self.driver)
         path = b.test_schools()
-        self.assertEqual(0,path, msg="File is not downloaded")
+        self.assertEqual(path, 0, msg="File is not downloaded")
         print("districtwise csv file is downloaded")
         self.data.page_loading(self.driver)
 
@@ -41,24 +41,21 @@ class cQube_SI_Report(unittest.TestCase):
     def test_download_blockwise(self):
         b = donwload_blockwise_csv(self.driver)
         res = b.test_block()
-        self.assertTrue(res, msg="File is not downloaded")
-        b.remove_csv()
+        self.assertEqual(res,0, msg="File is not downloaded")
         print("blockwise csv file downloaded")
         self.data.page_loading(self.driver)
 
     def test_schoolwise_download(self):
         b = school_wise_donwload(self.driver)
         res = b.test_schoolwise()
-        self.assertTrue(res, msg="File is not downloaded")
-        b.remove_csv()
+        self.assertEqual(res,0, msg="File is not downloaded")
         print("school wise csv file is downloaded")
         self.data.page_loading(self.driver)
 
     def test_clusterwise_download(self):
         b = donwload_clusterwise_csv(self.driver)
         res = b.test_clusterwise()
-        self.assertTrue(res, msg="File is not downloaded")
-        b.remove_csv()
+        self.assertEqual(res,0, msg="File is not downloaded")
         print("cluster wise csv file is downloaded")
         self.data.page_loading(self.driver)
 

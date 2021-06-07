@@ -45,7 +45,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='login to cQube regression Test Infra_Table_Report',
+            title='login to cQube regression Test Report',
             verbosity=1,
 
         )
@@ -62,7 +62,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='cQube landing page regression Infra_Table_Report',
+            title='cQube landing page regression Report',
             verbosity=1,
 
         )
@@ -82,7 +82,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
                 runner1 = HTMLTestRunner.HTMLTestRunner(
                     stream=outfile,
-                    title='Student Attendance regression Test Infra_Table_Report',
+                    title='Student Attendance regression Test Report',
                     verbosity=1,
 
                 )
@@ -103,7 +103,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Semester regression Test Infra_Table_Report',
+                title='Semester regression Test Report',
                 verbosity=1,
 
             )
@@ -124,7 +124,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='School Infrastructure Map regression Test Infra_Table_Report',
+                title='School Infrastructure Map regression Test Report',
                 verbosity=1,
 
             )
@@ -145,7 +145,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Telemetry Regression Test Infra_Table_Report',
+                title='Telemetry Regression Test Report',
                 verbosity=1,
 
             )
@@ -164,7 +164,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Udise Regression Test Infra_Table_Report',
+                title='Udise Regression Test Report',
                 verbosity=1,
 
             )
@@ -186,7 +186,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,
-                title='Periodic Infra_Table_Report Regression Test Infra_Table_Report',
+                title='Periodic Report Regression Test Report',
                 verbosity=1,
 
             )
@@ -206,7 +206,7 @@ class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
         runner1 = HTMLTestRunner.HTMLTestRunner(
             stream=outfile,
-            title='Teacher Attendance Regression Test Infra_Table_Report',
+            title='Teacher Attendance Regression Test Report',
             verbosity=1,
         )
         runner1.run(regression_test)

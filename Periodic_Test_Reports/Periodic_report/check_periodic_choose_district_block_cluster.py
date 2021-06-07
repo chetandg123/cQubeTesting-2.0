@@ -9,7 +9,7 @@ from Data.parameters import Data
 from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
-
+import pandas as pd
 
 class DistrictBlockCluster():
     def __init__(self, driver):
@@ -61,42 +61,34 @@ class DistrictBlockCluster():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")
                         count = count + 1
                     else:
-                        with open(self.filename) as fin:
-                            csv_reader = csv.reader(fin, delimiter=',')
-                            header = next(csv_reader)
-                            data = list(csv_reader)
-                            row_count = len(data)
-                            students = 0
-                            schools = 0
-                            attended = 0
-                            for row in csv.reader(fin):
-                                students += int(row[9])
-                                schools += int(row[0])
-                                attended += int(row[0])
-                            schools = self.driver.find_element_by_id('schools').text
-                            scs = re.sub('\D', '', schools)
+                         values = pd.read_csv(self.filename)
+                         school = int(values['Total Schools'])
+                         students = int(values['Total Students'])
+                         attend = int(values['Students Attended'])
+                         schools = self.driver.find_element_by_id('schools').text
+                         scs = re.sub('\D', '', schools)
 
-                            student = self.driver.find_element_by_id('students').text
-                            stds = re.sub('\D', '', student)
+                         student = self.driver.find_element_by_id('students').text
+                         stds = re.sub('\D', '', student)
 
-                            attended = self.driver.find_element_by_id('studentsAttended').text
-                            attds = re.sub('\D', '', attended)
+                         attended = self.driver.find_element_by_id('studentsAttended').text
+                         attds = re.sub('\D', '', attended)
 
+                         if int(scs) != int(school):
+                             print("schools count in footer and csv file records count mismatched", int(scs),
+                                   int(schools))
+                             count = count + 1
 
-                            if int(scs) != int(schools):
-                                print("schools count in footer and csv file records count mismatched", int(scs),
-                                      int(schools))
-                                count = count + 1
+                         if int(stds) != int(students):
+                             print("student count in footer and csv file records count mismatched", int(scs),
+                                   int(schools))
+                             count = count + 1
 
-                            if int(stds) != int(students):
-                                print("student count in footer and csv file records count mismatched", int(scs),
-                                      int(schools))
-                                count = count + 1
+                         if int(attds) != int(attend):
+                             print("Attended count in footer and csv file records count mismatched", int(scs),
+                                   int(schools))
+                             count = count + 1
 
-                            if int(attds) != int(attended):
-                                print("Attended count in footer and csv file records count mismatched", int(scs),
-                                      int(schools))
-                                count = count + 1
+                    os.remove(self.filename)
+                    return count
 
-                        os.remove(self.filename)
-                        return count

@@ -136,25 +136,25 @@ class MyTestSuite(unittest.TestCase):
 
   
 
-    def test_issue06(self):
-        regression_test = unittest.TestSuite()
-        regression_test.addTests([
-            unittest.defaultTestLoader.loadTestsFromTestCase(
-                patheatchart_regression_test.cQube_heatchart_regression_test
-            )
-        ])
-        p = pwd()
-        outfile = open(p.get_regression_chart_table_reports(), "a")
-
-        runner1 = HTMLTestRunner.HTMLTestRunner(
-            stream=outfile,
-            title=' PAT Heat chart Infra_Table_Report Regression Test Infra_Table_Report',
-            verbosity=1,
-
-        )
-        runner1.run(regression_test)
-        outfile.close()
-
+    # def test_issue06(self):
+    #     regression_test = unittest.TestSuite()
+    #     regression_test.addTests([
+    #         unittest.defaultTestLoader.loadTestsFromTestCase(
+    #             patheatchart_regression_test.cQube_heatchart_regression_test
+    #         )
+    #     ])
+    #     p = pwd()
+    #     outfile = open(p.get_regression_chart_table_reports(), "a")
+    #
+    #     runner1 = HTMLTestRunner.HTMLTestRunner(
+    #         stream=outfile,
+    #         title=' PAT Heat chart Infra_Table_Report Regression Test Infra_Table_Report',
+    #         verbosity=1,
+    #
+    #     )
+    #     runner1.run(regression_test)
+    #     outfile.close()
+    #
     def test_issue07(self):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
@@ -174,24 +174,24 @@ class MyTestSuite(unittest.TestCase):
         runner1.run(regression_test)
         outfile.close()
 
-   
-    def test_issue08(self):
-        regression_test = unittest.TestSuite()
-        regression_test.addTests([
-            unittest.defaultTestLoader.loadTestsFromTestCase(
-                health_card_regression_test.Health_card_regression_test
-            )
-        ])
-        p = pwd()
-        outfile = open(p.get_regression_chart_table_reports(), "a")
-
-        runner1 = HTMLTestRunner.HTMLTestRunner(
-            stream=outfile,
-            title='Health card Regression Test Infra_Table_Report',
-            verbosity=1,
-        )
-        runner1.run(regression_test)
-        outfile.close()
+    #
+    # def test_issue08(self):
+    #     regression_test = unittest.TestSuite()
+    #     regression_test.addTests([
+    #         unittest.defaultTestLoader.loadTestsFromTestCase(
+    #             health_card_regression_test.Health_card_regression_test
+    #         )
+    #     ])
+    #     p = pwd()
+    #     outfile = open(p.get_regression_chart_table_reports(), "a")
+    #
+    #     runner1 = HTMLTestRunner.HTMLTestRunner(
+    #         stream=outfile,
+    #         title='Health card Regression Test Infra_Table_Report',
+    #         verbosity=1,
+    #     )
+    #     runner1.run(regression_test)
+    #     outfile.close()
 
     @classmethod
     def tearDownClass(self):

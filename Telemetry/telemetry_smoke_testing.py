@@ -149,7 +149,7 @@ class Test_Telemetry(unittest.TestCase):
 
     def test_last7day_download(self):
         b =last7day_download(self.driver)
-        res = b.test_overall_records()
+        res = b.test_last_7_records()
         self.assertTrue(res,msg="last7day's csv file is not downloaded")
         self.driver.find_element_by_id('homeBtn').click()
         self.data.page_loading(self.driver)

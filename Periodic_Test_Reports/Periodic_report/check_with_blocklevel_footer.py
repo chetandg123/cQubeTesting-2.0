@@ -21,7 +21,7 @@ class Block_level_footers():
         files = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.block_btn).click()
         cal.page_loading(self.driver)

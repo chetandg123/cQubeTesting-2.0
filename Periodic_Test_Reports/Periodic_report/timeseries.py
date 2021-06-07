@@ -26,7 +26,7 @@ class timeseries_patreport():
         self.data = GetData()
         p = pwd()
         count =0
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
@@ -48,7 +48,7 @@ class timeseries_patreport():
                     dots = len(markers) -1
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
-                    self.filename = p.get_download_dir() + '/'+ self.fname.pat_districtwise()+management+'_'+value.strip()+self.data.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() + '/'+ self.fname.pat_districtwise()+management+'_all_allGrades__blocks_of_district_'+value.strip()+self.data.get_current_date()+'.csv'
                     print(self.filename)
                     time.sleep(2)
                     if os.path.isfile(self.filename) !=True:

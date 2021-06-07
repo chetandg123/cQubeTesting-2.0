@@ -25,11 +25,11 @@ class SchoolwiseCsv():
         cal.page_loading(self.driver)
         time.sleep(10)
         self.driver.find_element_by_id(Data.Download).click()
-        time.sleep(25)
+        time.sleep(15)
         p = pwd()
+        count = 0
         self.filename = p.get_download_dir() + "/" + self.fname.sr_school()+management+'_all_allGrades__allSchools_'+cal.get_current_date()+'.csv'
         if os.path.isfile(self.filename) != True:
-            return "File Not Downloaded"
-        if os.path.isfile(self.filename) == True:
-            os.remove(self.filename)
-
+            print('School level csv file is not download')
+            count = count + 1
+        return count

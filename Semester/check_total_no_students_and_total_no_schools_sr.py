@@ -33,6 +33,7 @@ class grade_subject_dropdowns():
         count = 0
         p = pwd()
         files = file_extention()
+        self.driver.implicitly_wait(100)
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
@@ -40,6 +41,7 @@ class grade_subject_dropdowns():
         grade =Select(self.driver.find_element_by_id(Data.Grade))
         for i in range(1,len(grade.options)):
             grade.select_by_index(i)
+            time.sleep(3)
             gradename = (grade.options[i].text).strip()
             gradenum = re.sub('\D','',gradename)
             self.data.page_loading(self.driver)
@@ -48,19 +50,19 @@ class grade_subject_dropdowns():
             self.data.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(4)
-            self.filename = p.get_download_dir() + '/'+ files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'__alldistrict_'+self.data.get_current_date()+'.csv'
+            self.filename = p.get_download_dir() + '/'+ files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'__allDistrict_'+self.data.get_current_date()+'.csv'
             print(self.filename)
+            time.sleep(1)
             if os.path.isfile(self.filename) != True:
-                print('Grade wise csv file is not downloaded')
+                print('Grade '+gradenum.strip()+'wise csv file is not downloaded')
                 count = count + 1
             else:
                 file = open(self.filename)
                 read = file.read()
-                os.remove(self.filename)
                 if grade.options[i].text in read:
                     print(grade.options[i].text ,"is present")
                 self.data.page_loading(self.driver)
-        self.data.page_loading(self.driver)
+                os.remove(self.filename)
         return count
 
     def select_subjects_dropdown(self):
@@ -86,7 +88,7 @@ class grade_subject_dropdowns():
                 sub = (subjects.options[j].text).strip()
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = p.get_download_dir() + '/' + files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'_'+sub+'_alldistrict_' + self.data.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + '/' + files.sr_gradewise()+management+"_all_Grade_"+gradenum.strip()+'_'+sub+'_allDistrict_' + self.data.get_current_date()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(files.sr_gradewise()+gradenum.strip() ,' wise csv file is not downloaded')

@@ -78,9 +78,8 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
     def test_blockwise_csv_download(self):
         csv = BlockwiseCsv(self.driver, self.year, self.month)
         result = csv.click_download_icon_of_blocks()
-        if result:
+        if result==0:
             print("Block wise csv report download is working")
-            csv.remove_csv()
         else:
             raise self.failureException("Block wise csv report download is not working")
         time.sleep(2)

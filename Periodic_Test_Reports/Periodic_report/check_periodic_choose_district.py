@@ -3,6 +3,7 @@ import os
 import re
 import time
 
+import pandas as pd
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
@@ -51,47 +52,37 @@ class District():
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
                 else:
-                    markers = self.driver.find_elements_by_class_name(Data.dots)
-                    dots = len(markers) - 1
-                    with open(self.filename) as fin:
-                        csv_reader = csv.reader(fin, delimiter=',')
-                        header = next(csv_reader)
-                        data = list(csv_reader)
-                        row_count = len(data)
-                        students = 0
-                        schools = 0
-                        attended = 0
-                        for row in csv.reader(fin):
-                            students += int(row[4])
-                            schools += int(row[6])
-                            attended += int(row[5])
-                        schools = self.driver.find_element_by_id('schools').text
-                        scs = re.sub('\D', '', schools)
+                    values = pd.read_csv(self.filename)
+                    school = int(values['Total Schools'])
+                    students = int(values['Total Students'])
+                    attend = int(values['Students Attended'])
+                    schools = self.driver.find_element_by_id('schools').text
+                    scs = re.sub('\D', '', schools)
 
-                        student = self.driver.find_element_by_id('students').text
-                        stds = re.sub('\D', '', student)
+                    student = self.driver.find_element_by_id('students').text
+                    stds = re.sub('\D', '', student)
 
-                        attended = self.driver.find_element_by_id('studentsAttended').text
-                        attds = re.sub('\D', '', attended)
+                    attended = self.driver.find_element_by_id('studentsAttended').text
+                    attds = re.sub('\D', '', attended)
 
-                        if int(dots) != row_count:
-                            print("Markers and csv file records count mismatched", dots, row_count)
-                            count = count + 1
+                    if int(scs) != int(school):
+                        print("schools count in footer and csv file records count mismatched", int(scs),
+                              int(schools))
+                        count = count + 1
 
-                        if int(scs) != int(schools):
-                            print("schools count in footer and csv file records count mismatched", int(scs) , int(schools))
-                            count = count + 1
+                    if int(stds) != int(students):
+                        print("student count in footer and csv file records count mismatched", int(scs),
+                              int(schools))
+                        count = count + 1
 
-                        if int(stds) != int(students):
-                            print("student count in footer and csv file records count mismatched", int(scs) , int(schools))
-                            count = count + 1
+                    if int(attds) != int(attend):
+                        print("Attended count in footer and csv file records count mismatched", int(scs),
+                              int(schools))
+                        count = count + 1
 
-                        if int(attds) != int(attended):
-                            print("Attended count in footer and csv file records count mismatched", int(scs) , int(schools))
-                            count = count + 1
-
-                    os.remove(self.filename)
+                os.remove(self.filename)
                 return count
+
 
 
 

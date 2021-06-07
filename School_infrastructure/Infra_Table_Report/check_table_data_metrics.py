@@ -21,6 +21,8 @@ class download_report():
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
+        management = self.driver.find_element_by_id('nm').text
+        management = management[16:].lower().strip()
         District_wise = Select(self.driver.find_element_by_id("downloader"))
         # District_wise.select_by_visible_text(" Dist Wise Infra_Table_Report ")
         District_wise.select_by_index(1)
@@ -29,7 +31,7 @@ class download_report():
         self.driver.find_element_by_id(Data.Download_scator).click()
         time.sleep(5)
         count = 0
-        self.filename = p.get_download_dir() +'/'+ self.file.sc_district()+self.cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() +'/'+ self.file.sc_district()+management+'_allDistricts_'+self.cal.get_current_date()+'.csv'
         self.cal.page_loading(self.driver)
         if os.path.isfile(self.filename) != True:
             print("District wise csv file is not downloaded")

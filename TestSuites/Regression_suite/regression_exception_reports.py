@@ -30,7 +30,7 @@ class MyTestSuite_Exception(unittest.TestCase):
                     exception_regression_testing.cQube_semester_exception_report)
             ])
             p = pwd()
-            outfile = open(p.get_regression_map_reports(), "w")
+            outfile = open(p.get_regression_map_reports(), "a")
 
             runner1 = HTMLTestRunner.HTMLTestRunner(
                 stream=outfile,

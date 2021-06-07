@@ -31,12 +31,12 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_1.Management_student_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_2.Management_student_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_3.Management_student_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_4.Management_student_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_5.Management_student_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_6.Management_student_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_7.Management_student_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_2.Management_student_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_3.Management_student_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_4.Management_student_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_5.Management_student_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_6.Management_student_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(student_attendance_management_7.Management_student_attendance_report),
 
         ])
         p = pwd()
@@ -55,12 +55,12 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_1.cQube_udise_management_wise_reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_2.cQube_udise_management_wise_reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_3.cQube_udise_management_wise_reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_4.cQube_udise_management_wise_reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_5.cQube_udise_management_wise_reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_6.cQube_udise_management_wise_reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_7.cQube_udise_management_wise_reports)
+            # unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_2.cQube_udise_management_wise_reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_3.cQube_udise_management_wise_reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_4.cQube_udise_management_wise_reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_5.cQube_udise_management_wise_reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_6.cQube_udise_management_wise_reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(udise_management_7.cQube_udise_management_wise_reports)
 
         ])
         p = pwd()
@@ -79,12 +79,12 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_1.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_2.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_3.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_4.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_5.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_6.Management_teacher_attendance_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_7.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_2.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_3.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_4.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_5.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_6.Management_teacher_attendance_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(teacher_attendance_management_7.Management_teacher_attendance_report),
 
         ])
         p = pwd()
@@ -103,12 +103,12 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_1.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_2.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_3.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_4.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_5.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_6.cQube_SI_Map_Report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_7.cQube_SI_Map_Report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_2.cQube_SI_Map_Report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_3.cQube_SI_Map_Report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_4.cQube_SI_Map_Report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_5.cQube_SI_Map_Report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_6.cQube_SI_Map_Report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infrastructure_report_management_7.cQube_SI_Map_Report),
 
         ])
         p = pwd()
@@ -127,11 +127,11 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_1.cQube_Semester_management_Reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_2.cQube_Semester_management_Reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_3.cQube_Semester_management_Reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_4.cQube_Semester_management_Reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_5.cQube_Semester_management_Reports),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_6.cQube_Semester_management_Reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_2.cQube_Semester_management_Reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_3.cQube_Semester_management_Reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_4.cQube_Semester_management_Reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_5.cQube_Semester_management_Reports),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(semester_map_management_6.cQube_Semester_management_Reports),
 
         ])
         p = pwd()
@@ -150,11 +150,11 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_1.cQube_School_infra_management_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_2.cQube_School_infra_management_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_3.cQube_School_infra_management_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_4.cQube_School_infra_management_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_5.cQube_School_infra_management_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_6.cQube_School_infra_management_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_2.cQube_School_infra_management_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_3.cQube_School_infra_management_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_4.cQube_School_infra_management_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_5.cQube_School_infra_management_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(infra_table_management_6.cQube_School_infra_management_report),
         ])
         p = pwd()
         outfile = open(p.get_functional_report_path(), "a")
@@ -172,11 +172,11 @@ class MyTestSuite_Management(unittest.TestCase):
         regression_test = unittest.TestSuite()
         regression_test.addTests([
             unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_1.cQube_CRC_management_wise_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_2.cQube_CRC_management_wise_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_3.cQube_CRC_management_wise_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_4.cQube_CRC_management_wise_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_5.cQube_CRC_management_wise_report),
-            unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_6.cQube_CRC_management_wise_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_2.cQube_CRC_management_wise_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_3.cQube_CRC_management_wise_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_4.cQube_CRC_management_wise_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_5.cQube_CRC_management_wise_report),
+            # unittest.defaultTestLoader.loadTestsFromTestCase(crc_management_6.cQube_CRC_management_wise_report),
 
         ])
         p = pwd()

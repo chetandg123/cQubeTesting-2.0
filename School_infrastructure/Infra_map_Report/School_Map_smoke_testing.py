@@ -1,3 +1,4 @@
+import time
 import unittest
 
 from School_infrastructure.Infra_map_Report.check_with_districts_from_select_box import District_names
@@ -27,7 +28,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
     def setUpClass(self):
         self.data = GetData()
         self.driver = self.data.get_driver()
-        self.driver.implicitly_wait(100)
+        self.driver.implicitly_wait(80)
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_school_infrastructure_map()
@@ -46,6 +47,12 @@ class cQube_SI_Map_Report(unittest.TestCase):
         result = b.test_districtlist()
         self.assertNotEqual(0, result, msg="All Districts are not present in select box!..")
         self.data.page_loading(self.driver)
+    #
+    # def test_dashboard(self):
+    #     print("Dashboard is working")
+    #     b = click_dashboard(self.driver)
+    #     res = b.test_dashboard()
+    #     self.data.page_loading(self.driver)
 
     def test_check_markers_on_map(self):
         print("checking markers on map ")
@@ -86,11 +93,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.assertEqual(int(r), int(r3), msg="mis match found in no of school in school level")
         self.data.page_loading(self.driver)
 
-    def test_dashboard(self):
-        print("Dashboard is working")
-        b = click_dashboard(self.driver)
-        res = b.test_dashboard()
-        self.data.page_loading(self.driver)
+
 
     def test_district_options(self):
         print("districtwise functionality working fine")
@@ -104,6 +107,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
         b = cluster_button(self.driver)
         self.assertNotEqual(0, b, msg="Records are not present on map ")
         self.data.page_loading(self.driver)
+        time.sleep(5)
 
     def test_hyperlink(self):
         b = click_on_hyperlink(self.driver)

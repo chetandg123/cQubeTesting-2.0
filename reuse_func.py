@@ -38,12 +38,12 @@ class GetData():
     def get_admin_username(self):
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
-        return config['config']['admin_username']
+        return config['config']['username']
 
     def get_admin_password(self):
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
-        return config['config']['admin_password']
+        return config['config']['password']
 
     def get_driver(self):
         options = webdriver.ChromeOptions()
@@ -84,16 +84,18 @@ class GetData():
         self.driver.find_element_by_id(Data.login).click()
         self.page_loading(self.driver)
         self.driver.find_element_by_tag_name('button').click()
+        time.sleep(3)
         self.page_loading(self.driver)
 
     def login_to_adminconsole(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.email).send_keys(self.get_admin_username())
-        self.driver.find_element_by_id(Data.passwd).send_keys(self.get_admin_password())
+        self.driver.implicitly_wait(60)
+        self.driver.find_element_by_name(Data.email).send_keys(self.get_username())
+        self.driver.find_element_by_name(Data.passwd).send_keys(self.get_password())
         self.driver.find_element_by_id(Data.login).click()
         self.page_loading(self.driver)
-        self.driver.find_element_by_id("admin_console").click()
+        self.driver.find_element_by_id('admin_console').click()
+        time.sleep(3)
         self.page_loading(self.driver)
 
     def navigate_to_telemetry(self):
