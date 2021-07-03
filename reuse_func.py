@@ -849,3 +849,26 @@ class GetData():
         self.data.page_loading(self.driver)
         self.data.navigate_to_sat_heatchart_report()
         self.data.page_loading(self.driver)
+
+    def get_no_data_found_status(self):
+        count = 0
+        self.data = GetData()
+        if 'No data found' in self.driver.page_source:
+             print(self.driver.current_url,'Report showing no data found!...')
+        else:
+             print(self.driver.current_url,'is not showing no data found!')
+             count = count+1
+        self.driver.find_element_by_id("homeBtn").click()
+        self.data.page_loading(self.driver)
+        return count
+
+    #data source config code
+    def get_data_sources_status(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['data_source']['data_source']
+
+    def get_student_status(self,resource):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_data_source_ini_path())
+        return config['data_source'][resource]

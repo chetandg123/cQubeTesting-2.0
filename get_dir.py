@@ -52,6 +52,11 @@ class pwd():
         report_path = os.path.join(cwd, 'Reports/SmokeReport/Smoke_Test_map_reports.html')
         return report_path
 
+    def get_smoke_exception_report(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/SmokeReport/Smoke_Exception_Reports.html')
+        return report_path
+
     def get_smoke_chart_tables_report(self):
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/SmokeReport/Smoke_chart.html')
@@ -75,6 +80,11 @@ class pwd():
     def get_config_ini_path(self):
         cwd = os.path.dirname(__file__)
         ini = os.path.join(cwd, 'config.ini')
+        return ini
+
+    def get_data_source_ini_path(self):
+        cwd = os.path.dirname(__file__)
+        ini = os.path.join(cwd, 'data_source.ini')
         return ini
 
     def get_summary_statistics_path(self):
