@@ -36,7 +36,8 @@ Steps to execute the test script
                     database= # db name which is provided in the config.yml file
                     user= # db user which is provided in the config.yml file
                     db_password= # db user which is provided in the config.yml file
-		    
+    6. Before running Regression and System suites please fill the data_sources.ini file to run customized suite run
+
     Execution of automation testscripts for both installation and upgradation of backend configuration
 
             python3 -m unittest TestSuites/cQubeBackendConfiguration/run_configuration.py
