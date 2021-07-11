@@ -49,7 +49,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -83,7 +83,7 @@ class GetData():
         self.driver.find_element_by_name(Data.passwd).send_keys(self.get_password())
         self.driver.find_element_by_id(Data.login).click()
         self.page_loading(self.driver)
-        self.driver.find_element_by_tag_name('button').click()
+        self.driver.find_element_by_id('cQb_dhsbrd').click()
         time.sleep(3)
         self.page_loading(self.driver)
 
@@ -172,7 +172,7 @@ class GetData():
 
     def click_on_state(self, driver):
         self.driver = driver
-        self.driver.find_element_by_css_selector(Data.sar_hyper_link).click()
+        self.driver.find_element_by_id(Data.sar_hyper_link).click()
         time.sleep(5)
 
     def get_data_status(self):

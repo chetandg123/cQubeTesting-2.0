@@ -1,6 +1,6 @@
 import unittest
 
-from Data.parameters import Data
+from Diksha_Reports.content_textbook.check_download_rawfiles import download_raw_files_for_each_time_period
 from Diksha_Reports.content_textbook.check_textbook_records_last7days import course_districtwise_lastweek_record
 from Diksha_Reports.content_textbook.check_textbook_records_lastday import course_districtwise_lastday_records
 from Diksha_Reports.content_textbook.check_textbook_records_lastmonth import course_districtwise_lastmonth_chart
@@ -17,7 +17,7 @@ from Diksha_Reports.content_textbook.navigate_to_diskha_report import Diksha_pag
 from reuse_func import GetData
 
 
-class cQube_content_course(unittest.TestCase):
+class cQube_content_textbook_Functional(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -36,48 +36,35 @@ class cQube_content_course(unittest.TestCase):
         self.assertEqual(res,0,msg='content course page is present but url is not matching to report')
         self.data.page_loading(self.driver)
 
-    def test_landingpage_icon(self):
-        count = 0
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
-        self.data.page_loading(self.driver)
-        self.data.navigate_to_diksha_content_textbook()
-        if "usage-by-textbook-content" in self.driver.current_url:
-            print("Diksha usage-by-textbook-content page is Displayed")
-        else:
-            print("Diksha usage-by-textbook-content page is not exist ")
-            count = count + 1
-        self.assertEqual(0,count,msg='content course page is present but url is not matching to report')
-        self.data.page_loading(self.driver)
 
-    def test_content_course_hyperlink(self):
+    def test_content_textbook_hyperlink(self):
         self.data.page_loading(self.driver)
         b = Diksha_hyperlink(self.driver)
         res = b.test_hyperlink()
         print("checked with hyper link functionality ")
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_records(self):
+    def test_textbook_districtwise_records(self):
         b =course_districtwise_records(self.driver)
         res = b.test_alldata_districts()
         self.assertEqual(0,res,msg='Records are not present on table ')
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_lastweek_record(self):
+    def test_textbook_districtwise_lastweek_record(self):
         b = course_districtwise_lastweek_record(self.driver)
         res = b.test_each_districts()
         self.assertEqual(res,0,msg='records count mismatch in downloaded file and table records')
         print('checked with last 7days records ')
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_lastday_record(self):
+    def test_textbook_districtwise_lastday_record(self):
         b = course_districtwise_lastday_records(self.driver)
         res = b.test_each_districts()
         self.assertEqual(res, 0, msg='records count mismatch in downloaded file and table records')
         print('checked with last day records ')
         self.data.page_loading(self.driver)
 
-    def test_course_districtwise_lastmonth_chart(self):
+    def test_textbook_districtwise_lastmonth_chart(self):
         b = course_districtwise_lastmonth_chart(self.driver)
         res = b.test_each_districts()
         self.assertEqual(res, 0, msg='records count mismatch in downloaded file and table records')
@@ -102,11 +89,6 @@ class cQube_content_course(unittest.TestCase):
         self.assertEqual(res, 0, msg='Some districts does not have table records')
         self.data.page_loading(self.driver)
 
-    def test_homeicon(self):
-        b =Diksha_homeicon(self.driver)
-        res = b.test_homeicon()
-        print('Home icon is working ')
-        self.data.page_loading(self.driver)
 
     def test_homebutton(self):
         b = Diksha_homeicon(self.driver)
@@ -114,11 +96,7 @@ class cQube_content_course(unittest.TestCase):
         print('Home btn is working ')
         self.data.page_loading(self.driver)
 
-    def test_searchbox(self):
-        b = Diksha_homeicon(self.driver)
-        res = b.test_searchbox()
-        self.assertEqual(0,res,msg='Search box is not working ')
-        self.data.page_loading(self.driver)
+
 
     def test_Table_orderwise(self):
         b = Table_orderwise(self.driver)
@@ -126,11 +104,31 @@ class cQube_content_course(unittest.TestCase):
         print("checking order of the table and working as per requirement ")
         self.data.page_loading(self.driver)
 
-    def test_content_course_logout(self):
+    def test_content_textbook_logout(self):
         b = content_course_logout(self.driver)
         res = b.test_logout()
         self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
         self.data.page_loading(self.driver)
+
+    def test_download_raw_files_overall_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_overall_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_30days_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_30_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_7_day_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_7_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_lastday_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_day_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
 
     @classmethod
     def tearDownClass(cls):

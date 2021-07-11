@@ -2,6 +2,7 @@
 
 import unittest
 
+from Diksha_Reports.content_textbook.check_download_rawfiles import download_raw_files_for_each_time_period
 from Diksha_Reports.content_textbook.check_textbook_records_last7days import course_districtwise_lastweek_record
 from Diksha_Reports.content_textbook.check_textbook_records_lastday import course_districtwise_lastday_records
 from Diksha_Reports.content_textbook.check_textbook_records_lastmonth import course_districtwise_lastmonth_chart
@@ -110,6 +111,27 @@ class cQube_content_textbook_smoke(unittest.TestCase):
         res = b.test_logout()
         self.assertEqual(res,'Log in to cQube',msg="logout button is not working")
         self.data.page_loading(self.driver)
+
+
+    def test_download_raw_files_overall_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_overall_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_30days_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_30_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_7_day_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_7_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_lastday_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_day_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
 
     @classmethod
     def tearDownClass(cls):

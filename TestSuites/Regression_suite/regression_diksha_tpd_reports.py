@@ -11,7 +11,6 @@ from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
 from Diksha_TPD.TPD_Course_Progress import lpd_content_regression_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_regression_test
-from Teacher_Attendance import teacher_attendance_regression_testing
 
 from get_dir import pwd
 

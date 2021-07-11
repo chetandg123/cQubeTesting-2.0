@@ -2,6 +2,7 @@ import unittest
 from Diksha_Reports.content_course.check_course_records_last7days import course_districtwise_lastweek_record
 from Diksha_Reports.content_course.check_course_records_lastday import course_districtwise_lastday_records
 from Diksha_Reports.content_course.check_course_records_lastmonth import course_districtwise_lastmonth_chart
+from Diksha_Reports.content_course.check_download_rawfiles import download_raw_files_for_each_time_period
 from Diksha_Reports.content_course.check_with_lastday_records import Districtwise_lastday_records
 from Diksha_Reports.content_course.check_with_lastweek_records import Districtwise_lastweek_records
 
@@ -108,6 +109,27 @@ class cQube_content_course_regression(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.data.navigate_to_diksha_content_course()
         self.data.page_loading(self.driver)
+
+
+    def test_download_raw_files_overall_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_overall_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_30days_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_30_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_7_day_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_7_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_lastday_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_day_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
 
     @classmethod
     def tearDownClass(cls):

@@ -260,7 +260,7 @@ class Data():
 
 
     #student Attendance Infra_Table_Report
-    sar_hyper_link = "p>span"
+    sar_hyper_link = "state"
     sar_year = "year"
     sar_month = "month"
     sar_download = "download"

@@ -4,6 +4,7 @@
 import unittest
 
 from Diksha_TPD.TPD_Enrollment_completion.check_completion_time_periods import completion_time_periods
+from Diksha_TPD.TPD_Enrollment_completion.check_download_rawfiles import download_raw_files_for_each_time_period
 from Diksha_TPD.TPD_Enrollment_completion.check_enrollment_time_periods import Enrollment_time_periods
 from Diksha_TPD.TPD_Enrollment_completion.check_homeicon_and_homebtn import Home_functionalities
 from Diksha_TPD.TPD_Enrollment_completion.check_with_blockwise_records import Check_Block_wise
@@ -110,6 +111,26 @@ class cQube_enrollment_regression(unittest.TestCase):
         res = b.click_on_logout_btn()
         self.assertEqual(0,res,msg='Logout btn is not working ')
         self.data.page_loading(self.driver)
+
+    def test_download_raw_files_overall_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_overall_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_30days_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_30_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_7_day_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_7_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_lastday_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_day_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
 
     @classmethod
     def tearDownClass(cls):

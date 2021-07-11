@@ -5,7 +5,6 @@ from Data.parameters import Data
 
 from Student_Attendance.Click_on_hyper_link_in_SAR import Hyperlink
 from Student_Attendance.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
-from Student_Attendance.check_data_range import DateRange
 from Student_Attendance.check_district_block_cluster import DistrictBlockCluster
 from Student_Attendance.check_districts_csv_download import DistrictCsvDownload
 
@@ -40,6 +39,7 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
         month = Select(self.driver.find_element_by_id(Data.sar_month))
         self.year = year.first_selected_option.text
         self.month = month.first_selected_option.text
+        self.driver.implicitly_wait(100)
 
     def test_click_on_student_attendence_report(self):
         sar = DahboardSar(self.driver)

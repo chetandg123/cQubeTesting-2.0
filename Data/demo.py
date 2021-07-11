@@ -4,10 +4,14 @@ import re
 import unittest
 from datetime import date
 
+import pandas as pd
+import yaml
 from selenium.webdriver.support.select import Select
 
 from Data.parameters import Data
 from reuse_func import GetData
+
+
 
 #
 # class cQube_Student_Attendance_exception(unittest.TestCase):
@@ -58,10 +62,10 @@ from reuse_func import GetData
 # # print(str[16:].strip().lower())
 # print(str.capitalize())
 
-value="6: 242506"
-value = value.split(":")
-print(value[1].strip())
-#
+# value="6: 242506"
+# value = value.split(":")
+# print(value[1].strip())
+
 # schools="Number of Schools: 107"
 # # schol = re.sub('\D','',schools)
 # # print(schol)
@@ -83,7 +87,37 @@ print(value[1].strip())
 # print(data)
 # val = data["Total Schools With Missing Data"].sum()
 # print(val)
-long_month_name="January"
-datetime_object = datetime.datetime.strptime(long_month_name, "%B")
-month_number = datetime_object.month
-print(month_number)
+# long_month_name="January"
+# datetime_object = datetime.datetime.strptime(long_month_name, "%B")
+# month_number = datetime_object.month
+# print(month_number)
+
+values ={}
+# file_path = "/home/chetan/datasources_config.yml"
+# print(dict_from_csv["crc"])
+# list_keys =list(dict_from_csv.keys())
+# list_values=list(dict_from_csv.values())
+# print(list_keys)
+# print(list_values)
+""
+# df = pd.read_csv(path,header=None,index_col=0)
+# print(df._get_values_tuple('crc'))
+
+# file_path = "/home/chetan/datasources_config.yml"
+# with open(file_path) as file:
+#     source_list = yaml.load(file, Loader=yaml.FullLoader)
+#     # print(source_list)
+#
+# nifi_crc= source_list['nifi_crc']
+# nifi_attendance= source_list['nifi_attendance']
+# nifi_semester= source_list['nifi_semester']
+# nifi_infra= source_list['nifi_infra']
+# nifi_diksha= source_list['nifi_diksha']
+# nifi_telemetry= source_list['nifi_telemetry']
+# nifi_udise= source_list['nifi_udise']
+# nifi_pat= source_list['nifi_pat']
+# nifi_composite= source_list['nifi_composite']
+# nifi_healthcard= source_list['nifi_healthcard']
+# nifi_teacher_attendance= source_list['nifi_teacher_attendance']
+# nifi_data_replay= source_list['nifi_data_replay']
+# nifi_sat= source_list['nifi_sat']

@@ -2,6 +2,7 @@
 import time
 import unittest
 
+from Diksha_TPD.TPD_Completion_percentage.check_download_rawfiles import download_raw_files_for_each_time_period
 from Diksha_TPD.TPD_Completion_percentage.check_homeicon_and_homebtn import Home_functionalities
 from Diksha_TPD.TPD_Completion_percentage.check_with_blockwise_records import Check_with_all_blocks
 from Diksha_TPD.TPD_Completion_percentage.check_with_clusterwise_records import Check_with_all_clusters
@@ -106,6 +107,11 @@ class cQube_completion_percentage_regression(unittest.TestCase):
         self.assertEqual(0, res2, "Collection name csv file is not downloaded")
         self.data.page_loading(self.driver)
 
+    def test_download_raw_files(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_overall_rawfile_download()
+        self.assertEqual(0,b,msg="Raw file is not downloaded..")
+        self.data.page_loading(self.driver)
 
 
     @classmethod

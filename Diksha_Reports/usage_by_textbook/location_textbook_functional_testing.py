@@ -1,17 +1,16 @@
+
 import unittest
 
-from Data.parameters import Data
 from Diksha_Reports.usage_by_textbook.check_course_type_content_play_counts import test_course_based_on_timeperiods
-from Diksha_Reports.usage_by_textbook.check_with_textbook_collection_records import course_records
+from Diksha_Reports.usage_by_textbook.check_download_rawfiles import download_raw_files_for_each_time_period
 from Diksha_Reports.usage_by_textbook.click_on_homeicon import Diksha_column_homeicon
 from Diksha_Reports.usage_by_textbook.click_on_hyperlink import Diksha_column_hyperlink
 from Diksha_Reports.usage_by_textbook.click_on_logout import Diksha_column_logout
 from Diksha_Reports.usage_by_textbook.donwloading_districtlevel_file import overalldownload
-
 from reuse_func import GetData
 
 
-class cQube_diskha_column_report(unittest.TestCase):
+class cQube_usage_textbook_functional_report(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
@@ -23,23 +22,6 @@ class cQube_diskha_column_report(unittest.TestCase):
             self.data.page_loading(self.driver)
             self.data.navigate_to_column_textbook()
             self.data.page_loading(self.driver)
-
-    def test_location_course_icon(self):
-        count = 0
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='ut']").click()
-        self.data.page_loading(self.driver)
-        if 'usage-by-textbook' in self.driver.current_url:
-            print("diksha textbook report is displayed ")
-        else:
-            print('diksha textbook report icon is not working')
-            count = count + 1
-        self.assertEqual(0,count,msg='diksha column icon is failed for navigate to column report')
-        self.data.page_loading(self.driver)
 
     def test_navigation_from_hamburger(self):
         count = 0
@@ -70,13 +52,13 @@ class cQube_diskha_column_report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_test_course_based_on_last30days(self):
+    def test_test_textbook_based_on_last30days(self):
         b = test_course_based_on_timeperiods(self.driver)
         res = b.test_last30_days()
         self.assertEqual(0,res,msg='mis match found at content usage ')
         self.data.page_loading(self.driver)
 
-    def test_test_course_based_on_last7days(self):
+    def test_test_textbook_based_on_last7days(self):
         b = test_course_based_on_timeperiods(self.driver)
         res = b.test_last7_days()
         self.assertEqual(0,res,msg='mis match found at content usage ')
@@ -86,24 +68,6 @@ class cQube_diskha_column_report(unittest.TestCase):
         b = test_course_based_on_timeperiods(self.driver)
         res = b.test_last_day()
         self.assertEqual(0,res,msg='mis match found at content usage ')
-        self.data.page_loading(self.driver)
-
-    def test_course_records_last30days(self):
-        b =course_records(self.driver)
-        res = b.courserecords_of_last30days()
-        self.assertEqual(0,res,msg='Mis match found at content usage values')
-        self.data.page_loading(self.driver)
-
-    def test_course_records_last7days(self):
-         b =course_records(self.driver)
-         res = b.courserecords_of_last7days()
-         self.assertEqual(0,res,msg='Mis match found at content usage values')
-         self.data.page_loading(self.driver)
-
-    def test_course_records_lastday(self):
-        b =course_records(self.driver)
-        res = b.courserecords_of_lastday()
-        self.assertEqual(0,res,msg='Mis match found at content usage values')
         self.data.page_loading(self.driver)
 
     def test_Diksha_homeicon(self):
@@ -117,6 +81,27 @@ class cQube_diskha_column_report(unittest.TestCase):
         res = b.test_logout()
         self.assertEqual(res, 'Log in to cQube', msg="Logout is not working")
         self.data.page_loading(self.driver)
+
+
+    def test_download_raw_files_overall_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_overall_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_30days_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_30_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_last_7_day_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_7_days_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
+
+    def test_download_raw_files_lastday_period(self):
+        b = download_raw_files_for_each_time_period(self.driver)
+        res = b.test_last_day_rawfile_download()
+        self.assertEqual(0,res,msg='Raw file is not downloaded')
 
     @classmethod
     def tearDownClass(cls):
