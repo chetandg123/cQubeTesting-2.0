@@ -5,7 +5,7 @@ from Diksha_Reports.usage_by_textbook import usage_by_textbook_system_suite
 from Diksha_Reports.content_course import content_course_system_suite
 from Diksha_Reports.content_textbook import content_textbook_system_suite
 from Diksha_TPD.TPD_Completion_percentage import completion_system_test
-from Diksha_TPD.TPD_Course_Progress import lpd_content_system_test
+from Diksha_TPD.TPD_Course_Progress import tpd_course_system_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_system_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_system_test
 from Exceptions_Reports.Periodic_Exception import pat_exception_system_test
@@ -207,7 +207,7 @@ class MyTestSuite(unittest.TestCase):
                 system_test = unittest.TestSuite()
                 system_test.addTests([
                     unittest.defaultTestLoader.loadTestsFromTestCase(
-                        lpd_content_system_test.cQube_lpdcontent_system_Test
+                        tpd_course_system_test.cQube_lpdcontent_system_Test
                     )
                 ])
                 p = pwd()

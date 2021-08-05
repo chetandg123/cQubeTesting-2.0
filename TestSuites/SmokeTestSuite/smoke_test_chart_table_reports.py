@@ -7,7 +7,7 @@ from Diksha_Reports.content_textbook import content_textbook_smoke_suite
 from Diksha_Reports.usage_by_course import usage_by_course_smoke_testing
 from Diksha_Reports.usage_by_textbook import usage_by_textbook_smoke_suite
 from Diksha_TPD.TPD_Completion_percentage import completion_smoke_test
-from Diksha_TPD.TPD_Course_Progress import lpd_content_smoke_test
+from Diksha_TPD.TPD_Course_Progress import tpd_course_smoke_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_smoke_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_smoke_test
 from Health_Card_Index import health_card_smoke_test
@@ -187,7 +187,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
             smoke_test = unittest.TestSuite()
             smoke_test.addTests([
                 unittest.defaultTestLoader.loadTestsFromTestCase(
-                    lpd_content_smoke_test.cQube_lpdcontent_smoke_Test
+                    tpd_course_smoke_test.cQube_lpdcontent_smoke_Test
                 )
             ])
             p = pwd()

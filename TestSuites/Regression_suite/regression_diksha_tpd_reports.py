@@ -8,7 +8,7 @@ from Diksha_Reports.usage_by_textbook import usage_by_textbook_regression_suite
 from Diksha_Reports.content_course import content_course_regression_suite
 from Diksha_Reports.content_textbook import content_textbook_regression_suite
 from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
-from Diksha_TPD.TPD_Course_Progress import lpd_content_regression_test
+from Diksha_TPD.TPD_Course_Progress import tpd_course_regression_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
 from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_regression_test
 
@@ -158,7 +158,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
                 regression_test = unittest.TestSuite()
                 regression_test.addTests([
                     unittest.defaultTestLoader.loadTestsFromTestCase(
-                        lpd_content_regression_test.cQube_lpdcontent_regression_Test
+                        tpd_course_regression_test.cQube_lpdcontent_regression_Test
                     )
                 ])
                 p = pwd()
