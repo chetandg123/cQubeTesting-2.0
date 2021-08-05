@@ -2,10 +2,11 @@ import configparser
 import datetime
 import json
 import os
+import subprocess
 import time
 from datetime import date
 
-import psycopg2
+# import psycopg2
 import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
@@ -872,3 +873,151 @@ class GetData():
         config = configparser.ConfigParser()
         config.read(self.p.get_data_source_ini_path())
         return config['data_source'][resource]
+
+    def get_storage_type(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['storage_type']
+
+    #Nifi data processing
+
+    def get_response(self):
+        self.cal=GetData()
+        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+        response = requests.get(self.url)
+        json_resp = json.loads(response.text)
+        for x in json_resp.values():
+            for y in x:
+                result = y['bulletins']
+                print(result)
+
+    def get_processor_group_info(self, processor_name):
+        while 1:
+            if self.cal.check_nifi_status() == 200:
+                self.cal = GetData()
+                response = requests.get(self.url)
+                json_resp = json.loads(response.text)
+                for x in json_resp.values():
+                    for y in x:
+                        if y['status']['name'] == processor_name:
+                            # return y['bulletins']
+                            return y['id']
+                        break
+            else:
+                print("Nifi is not running \n please start the nifi")
+                time.sleep(2 * 60)
+
+
+    def get_processor_group_id(self, processor_name):
+        self.cal = GetData()
+        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+        lst = []
+        response = requests.get(self.url)
+        json_resp = json.loads(response.text)
+        for x in json_resp.values():
+            for y in x:
+                lst.append({"name": y['status']['name'], "id": y['id']})
+                # print(y['status']['name']+" "+y['id'])
+        for x in lst:
+            if x['name'] == processor_name:
+                return x['id']
+
+    def start_nifi_processor(self, id):
+        while 1 :
+            self.cal = GetData()
+            if self.cal.check_nifi_status() == 200:
+                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + id
+                payload = {"id": id, "state": "RUNNING",
+                           "disconnectedNodeAcknowledged": "false"}
+                headers = {"Content-Type": "application/json"}
+                pg_resp = requests.put(self.url, headers=headers, json=payload)
+                if pg_resp.status_code == 200:
+                    print("successfully started the processor")
+                    break
+                else:
+                    print("Not started the processor")
+            else:
+                print("Nifi is not running \n please start the nifi")
+                time.sleep(2*60)
+
+    def stop_nifi_processor(self, id):
+        while 1:
+            self.cal = GetData()
+            if self.cal.check_nifi_status() == 200:
+                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + id
+                payload = {"id": id, "state": "STOPPED",
+                           "disconnectedNodeAcknowledged": "false"}
+                headers = {"Content-Type": "application/json"}
+                pg_resp = requests.put(self.url, headers=headers, json=payload)
+                if pg_resp.status_code == 200:
+                    print("successfully stopped the processor")
+                    break
+                else:
+                    print("Not stopped the processor")
+            else:
+                print("Nifi is not running \n please start the nifi")
+                time.sleep(2 * 60)
+
+    def get_ini_path(self):
+        cwd = os.path.dirname(__file__)
+        ini = os.path.join(cwd, 'config.ini')
+        return ini
+
+
+    def get_nifi_crc(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_crc']
+
+    def get_filepath(self, config_name):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['filepath'][config_name]
+
+    def get_emission_directory(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['config']['emission_directory']
+
+
+    def copy_file_to_s3(self, filepath, folder_name):
+        value = "aws s3 cp " + filepath + " s3://cqube-qa-emission/" + folder_name + "/"
+        result = subprocess.run([value], shell=True)
+        return result
+
+    def copy_files_to_s3(self, filepath, folder_name):
+        value = "aws s3 cp " + filepath + " s3://cqube-qa-emission/" + folder_name + "/" + " --recursive"
+        result = subprocess.run([value], shell=True)
+        return result
+
+    def copy_file_to_local(self,filepath,folder_name):
+        self.cal = GetData()
+        create_dir= "mkdir "+self.cal.get_emission_directory()+folder_name
+        copy_file = "cp source_filepath" + self.cal.get_emission_directory()
+        result = subprocess.run([create_dir], shell=True)
+        result = subprocess.run([copy_file], shell=True)
+
+
+    def check_nifi_status(self):
+        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+        response = requests.get(self.url)
+        result = response.status_code
+        return result
+
+    def get_queued_count(self,processor_name):
+        while 1:
+            self.cal = GetData()
+            if self.cal.check_nifi_status() == 200:
+                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+                response = requests.get(self.url)
+                json_resp = json.loads(response.text)
+                for x in json_resp.values():
+                    for y in x:
+                        if y['status']['name'] == processor_name:
+                            # return y['bulletins']
+                              return y['status']['aggregateSnapshot']['queued']
+                        break
+            else:
+                print("Nifi is not running \n please start the nifi")
+                time.sleep(2 * 60)
+
