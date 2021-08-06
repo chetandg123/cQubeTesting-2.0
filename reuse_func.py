@@ -963,11 +963,71 @@ class GetData():
         ini = os.path.join(cwd, 'config.ini')
         return ini
 
+    def get_nifi_static(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_static']
 
     def get_nifi_crc(self):
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
         return config['datasource']['nifi_crc']
+
+    def get_nifi_attendance(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_attendance']
+
+    def get_nifi_infra(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_infra']
+
+    def get_nifi_diksha(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_diksha']
+
+    def get_nifi_telemetry(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_telemetry']
+
+    def get_nifi_udise(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_udise']
+
+    def get_nifi_pat(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_pat']
+
+    def get_nifi_composite(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_composite']
+
+
+    def get_nifi_healthcard(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_healthcard']
+
+    def get_nifi_teacher_attendance(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_teacher_attendance']
+
+    def get_nifi_data_replay(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_data_replay']
+
+    def get_nifi_sat(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        return config['datasource']['nifi_sat']
 
     def get_filepath(self, config_name):
         config = configparser.ConfigParser()
@@ -1017,6 +1077,22 @@ class GetData():
                             # return y['bulletins']
                               return y['status']['aggregateSnapshot']['queued']
                         break
+            else:
+                print("Nifi is not running \n please start the nifi")
+                time.sleep(2 * 60)
+
+    def get_processor_group_error_msg(self,processor_name):
+        lst=[]
+        while 1:
+            self.cal = GetData()
+            if self.cal.check_nifi_status() == 200:
+                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+                response = requests.get(self.url)
+                json_resp = json.loads(response.text)
+                for x in json_resp.values():
+                    for y in x:
+                        if y['status']['name'] == processor_name:
+                            return y['bulletins']
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)

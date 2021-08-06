@@ -8,6 +8,7 @@ class CrcTransformer(unittest.TestCase):
     def test_composite_data_processing(self):
         self.cal = GetData()
         storage_type = self.cal.get_storage_type()
+        print("running crc")
         # if storage_type == "s3":
         #     self.cal = GetData()
         #     self.cal.start_nifi_processor(self.cal.get_processor_group_id("composite_transformer"))

@@ -313,3 +313,9 @@ class pwd():
         cwd = os.path.dirname(__file__)
         report_path = os.path.join(cwd, 'Reports/cQubeConfiguration.html')
         return report_path
+
+    def get_nifi_workflow_report_path(self):
+        cwd = os.path.dirname(__file__)
+        report_path = os.path.join(cwd, 'Reports/NifiWorflow.html')
+        return report_path
+
