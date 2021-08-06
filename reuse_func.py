@@ -1092,8 +1092,14 @@ class GetData():
                 for x in json_resp.values():
                     for y in x:
                         if y['status']['name'] == processor_name:
-                            return y['bulletins']
+                            if len(y['bulletins']) == 0:
+                                time.sleep(5)
+                            else:
+                                for x in y['bulletins']:
+                                    lst.append(x['bulletin']['message'])
+
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)
+
 
