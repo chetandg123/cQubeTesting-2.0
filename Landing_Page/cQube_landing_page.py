@@ -75,7 +75,6 @@ class cQube_Home(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()

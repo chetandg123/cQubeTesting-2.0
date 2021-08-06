@@ -5,7 +5,7 @@ from Diksha_Reports.content_textbook import content_textbook_functional_test
 from Diksha_Reports.usage_by_course import location_course_functional_testing
 from Diksha_Reports.usage_by_textbook import location_textbook_functional_testing
 from Diksha_TPD.TPD_Completion_percentage import tpd_completion_functionaltest
-from Diksha_TPD.TPD_Course_Progress import tpd_content_functional_test
+from Diksha_TPD.TPD_Course_Progress import tpd_course_functional_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_functional_test
 from Student_Attendance import student_attendance_functional_testing
 from get_dir import pwd
@@ -144,7 +144,7 @@ class MyTestSuite_Functional(unittest.TestCase):
             else:
                 functional_test = unittest.TestSuite()
                 functional_test.addTests([
-                    unittest.defaultTestLoader.loadTestsFromTestCase(tpd_content_functional_test.cQube_lpdcontent_functional_Test)
+                    unittest.defaultTestLoader.loadTestsFromTestCase(tpd_course_functional_test.cQube_lpdcontent_functional_Test)
                 ])
                 p = pwd()
                 outfile = open(p.get_diksha_tpds_regression_report(), "a")

@@ -110,7 +110,7 @@ class cQube_completion_percentage_regression(unittest.TestCase):
     def test_download_raw_files(self):
         b = download_raw_files_for_each_time_period(self.driver)
         res = b.test_overall_rawfile_download()
-        self.assertEqual(0,b,msg="Raw file is not downloaded..")
+        self.assertEqual(0,res,msg="Raw file is not downloaded..")
         self.data.page_loading(self.driver)
 
 
