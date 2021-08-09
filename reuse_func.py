@@ -923,37 +923,41 @@ class GetData():
                 return x['id']
 
     def start_nifi_processor(self, id):
+        self.cal = GetData()
+        self.processor_id= self.cal.get_processor_group_id(id)
         while 1 :
-            self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + id
-                payload = {"id": id, "state": "RUNNING",
+                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + self.processor_id
+                payload = {"id": self.processor_id, "state": "RUNNING",
                            "disconnectedNodeAcknowledged": "false"}
                 headers = {"Content-Type": "application/json"}
                 pg_resp = requests.put(self.url, headers=headers, json=payload)
                 if pg_resp.status_code == 200:
-                    print("successfully started the processor")
+                    print("successfully started the "+id+" processor")
                     break
                 else:
-                    print("Not started the processor")
+                    print("Not started the "+id+" processor")
+                    break
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2*60)
 
     def stop_nifi_processor(self, id):
+        self.cal = GetData()
+        self.processor_id = self.cal.get_processor_group_id(id)
         while 1:
-            self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + id
-                payload = {"id": id, "state": "STOPPED",
+                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + self.processor_id
+                payload = {"id": self.processor_id, "state": "STOPPED",
                            "disconnectedNodeAcknowledged": "false"}
                 headers = {"Content-Type": "application/json"}
                 pg_resp = requests.put(self.url, headers=headers, json=payload)
                 if pg_resp.status_code == 200:
-                    print("successfully stopped the processor")
+                    print("successfully stopped the "+id+" processor")
                     break
                 else:
-                    print("Not stopped the processor")
+                    print("Not stopped the "+id+" processor")
+                    break
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)
@@ -1060,24 +1064,50 @@ class GetData():
 
     def check_nifi_status(self):
         self.cal = GetData()
-        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+        #self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+        self.url = "https://cqube-qa.tibilprojects.com" + "/nifi-api/process-groups/root/process-groups"
         response = requests.get(self.url)
         result = response.status_code
         return result
 
+    # def get_queued_count(self,processor_name):
+    #     while 1:
+    #         self.cal = GetData()
+    #         if self.cal.check_nifi_status() == 200:
+    #             self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+    #             response = requests.get(self.url)
+    #             json_resp = json.loads(response.text)
+    #             for x in json_resp.values():
+    #                 for y in x:
+    #                     if y['status']['name'] == processor_name:
+    #                         # return y['bulletins']
+    #                           return y['status']['aggregateSnapshot']['queued']
+    #                     break
+    #         else:
+    #             print("Nifi is not running \n please start the nifi")
+    #             time.sleep(2 * 60)
+    def get_bytes(self,lst):
+        bytes = lst[0]
+        bytes = bytes.split(' ')
+        return int(bytes[0])
+
     def get_queued_count(self,processor_name):
         while 1:
+            lst=[]
             self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+                self.url = "https://cqube-qa.tibilprojects.com" + "/nifi-api/process-groups/root/process-groups"
                 response = requests.get(self.url)
                 json_resp = json.loads(response.text)
                 for x in json_resp.values():
                     for y in x:
                         if y['status']['name'] == processor_name:
                             # return y['bulletins']
-                              return y['status']['aggregateSnapshot']['queued']
-                        break
+                            lst.append( y['status']['aggregateSnapshot']['queued'])
+                            break
+                    break
+                bytes = self.cal.get_bytes(lst)
+                return bytes
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)
@@ -1094,11 +1124,13 @@ class GetData():
                     for y in x:
                         if y['status']['name'] == processor_name:
                             if len(y['bulletins']) == 0:
-                                time.sleep(5)
+                                break
                             else:
                                 for x in y['bulletins']:
                                     lst.append(x['bulletin']['message'])
-                                    break
+                            break
+                    break
+
 
                 return lst
 

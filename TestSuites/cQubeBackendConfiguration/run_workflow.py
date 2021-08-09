@@ -1,4 +1,4 @@
-from Backend_tests.DataProcessing import crc, test
+from Backend_tests.DataProcessing import crc, test, static
 from get_dir import pwd
 import unittest
 from HTMLTestRunner import HTMLTestRunner
@@ -18,10 +18,10 @@ class MyTestSuite(unittest.TestCase):
             functional_test = unittest.TestSuite()
             functional_test.addTests([
                 # file name .class name
-                unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticDistrict),
-                unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticBlock),
-                unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticCluster),
-                unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticSchools),
+                unittest.defaultTestLoader.loadTestsFromTestCase(static.StaticDistrictMaster),
+                # unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticBlock),
+                # unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticCluster),
+                # unittest.defaultTestLoader.loadTestsFromTestCase(test.StaticSchools),
             ])
             p = pwd()
             outfile = open(p.get_nifi_workflow_report_path(), "a")
