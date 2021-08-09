@@ -1059,6 +1059,7 @@ class GetData():
 
 
     def check_nifi_status(self):
+        self.cal = GetData()
         self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
         response = requests.get(self.url)
         result = response.status_code
@@ -1097,9 +1098,22 @@ class GetData():
                             else:
                                 for x in y['bulletins']:
                                     lst.append(x['bulletin']['message'])
+                                    break
+
+                return lst
 
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)
+
+    def clear_error_message_list(self,processor_name):
+        self.cal = GetData()
+        self.cal.get_processor_group_error_msg(processor_name)
+
+
+
+
+
+
 
 
