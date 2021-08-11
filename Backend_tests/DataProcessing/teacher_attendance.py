@@ -3,40 +3,60 @@ import unittest
 
 from reuse_func import GetData
 
-class TeacherTransformer(unittest.TestCase):
 
-    def test_teacher_data_processing(self,storage_type):
-        if storage_type == "s3":
-            cal = GetData()
-            filepath = cal.get_filepath("teacher_attendance")
-            result = cal.copy_file_to_s3(filepath,"teacher_attendance")
+class TAR(unittest.TestCase):
+
+    def setUp(self):
+        self.processor_name="teacher_attendance_transformer"
+        self.folder_name="teacher_attendance"
+        self.cal = GetData()
+        self.storage_type = self.cal.get_storage_type()
+        self.cal.start_nifi_processor("cQube_data_storage")
+        self.cal.start_nifi_processor(self.processor_name)
+        self.filepath = self.cal.get_filepath(self.folder_name)
+
+    def test_teacher_student_attendance(self):
+        if self.storage_type == "s3":
+            result = self.cal.copy_file_to_s3(self.filepath, self.folder_name)
+            time.sleep(10)
             if result.returncode == 0:
-                print("teacher_attendance file is successfully uploaded to s3")
-                cal.start_nifi_processor(cal.get_processor_group_id("teacher_attendance_transformer"))
-                while 1:
-                    if cal.get_queued_count("teacher_attendance_transformer") !=0:
-                        time.sleep(60)
-                    else:
-                        cal.stop_nifi_processor(cal.get_processor_group_id("teacher_attendance_transformer"))
+                print(self.folder_name.capitalize()+" file is successfully uploaded to s3")
+                while 1 :
+                    if self.cal.get_queued_count(self.processor_name) == 0 and len(self.cal.get_processor_group_error_msg(self.processor_name)) == 0:
+                        print(self.folder_name.capitalize()+" file is successfully processed")
+                        self.assertTrue(0 == 0,self.folder_name.capitalize()+" file is successfully processed")
                         break
-            else :
-                print("teacher_attendance file is not uploaded to s3")
-        else:
-            cal = GetData()
-            filepath = cal.get_filepath("teacher_attendance")
-            result = cal.copy_file_to_local(filepath, "teacher_attendance")
-            if result.returncode == 0:
-                print("teacher_attendance file is successfully copied to local emission directory")
-                cal.start_nifi_processor(cal.get_processor_group_id("teacher_attendance_transformer"))
-                while 1:
-                    if cal.get_queued_count("teacher_attendance_transformer") != 0:
-                        time.sleep(60)
-                    else:
-                        cal.stop_nifi_processor(cal.get_processor_group_id("teacher_attendance_transformer"))
+                    elif len(self.cal.get_processor_group_error_msg(self.processor_name)) != 0:
+                        self.assertEqual(0,len(self.cal.get_processor_group_error_msg(self.processor_name)),self.cal.get_processor_group_error_msg(self.processor_name)[0])
                         break
+                    elif self.cal.get_queued_count(self.processor_name) != 0:
+                        time.sleep(2)
             else:
-                print("teacher_attendance file is not copied to local emission directory")
+                print(self.folder_name.capitalize()+" file is not uploaded to s3")
+        else:
+            dir_created_result, file_copied_result = self.cal.copy_file_to_local(self.filepath, self.folder_name)
+            time.sleep(5)
+            if dir_created_result.returncode == 0 or dir_created_result.returncode == 1:
+                print(self.folder_name.capitalize() + " folder is successfully created in emission directory")
+                if file_copied_result.returncode == 0:
+                    print(self.folder_name.capitalize() + " file is successfully copied in emission directory of "+self.folder_name)
+                    while 1:
+                        if self.cal.get_queued_count(self.processor_name) == 0 and len(self.cal.get_processor_group_error_msg(self.processor_name)) == 0:
+                            print(self.folder_name.capitalize() + " file is successfully processed")
+                            self.assertTrue(0 == 0, self.folder_name.capitalize() + " file is successfully processed")
+                            break
+                        elif len(self.cal.get_processor_group_error_msg(self.processor_name)) != 0:
+                            self.assertEqual(0, len(self.cal.get_processor_group_error_msg(self.processor_name)),
+                                             self.cal.get_processor_group_error_msg(self.processor_name)[0])
+                            break
+                        elif self.cal.get_queued_count(self.processor_name) != 0:
+                            time.sleep(2)
+                else:
+                    print(self.folder_name.capitalize() + " file is not copied in emission directory of " + self.folder_name)
+
+            else:
+                print(self.folder_name.capitalize() + " folder is not created in emission directory")
 
 
-if __name__ == '__main__':
-    unittest.main()
+    def tearDown(self):
+        self.cal.stop_nifi_processor(self.processor_name)

@@ -909,18 +909,21 @@ class GetData():
 
 
     def get_processor_group_id(self, processor_name):
-        self.cal = GetData()
-        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
-        lst = []
-        response = requests.get(self.url)
-        json_resp = json.loads(response.text)
-        for x in json_resp.values():
-            for y in x:
-                lst.append({"name": y['status']['name'], "id": y['id']})
-                # print(y['status']['name']+" "+y['id'])
-        for x in lst:
-            if x['name'] == processor_name:
-                return x['id']
+            self.cal = GetData()
+            if self.cal.check_nifi_status() == 200:
+                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+                lst = []
+                response = requests.get(self.url)
+                json_resp = json.loads(response.text)
+                for x in json_resp.values():
+                    for y in x:
+                        lst.append({"name": y['status']['name'], "id": y['id']})
+                        # print(y['status']['name']+" "+y['id'])
+                for x in lst:
+                    if x['name'] == processor_name:
+                        return x['id']
+            else:
+                print("Nifi is not running \n please start the nifi")
 
     def start_nifi_processor(self, id):
         self.cal = GetData()
@@ -1057,9 +1060,18 @@ class GetData():
     def copy_file_to_local(self,filepath,folder_name):
         self.cal = GetData()
         create_dir= "mkdir "+self.cal.get_emission_directory()+folder_name
+        copy_file = "cp "+filepath+" "+self.cal.get_emission_directory()+folder_name
+        dir_created_result = subprocess.run([create_dir], shell=True)
+        file_copied_result = subprocess.run([copy_file], shell=True)
+        return dir_created_result, file_copied_result
+
+    def copy_files_to_local(self,filepath,folder_name):
+        self.cal = GetData()
+        create_dir= "mkdir "+self.cal.get_emission_directory()+" "+folder_name
         copy_file = "cp source_filepath" + self.cal.get_emission_directory()
-        result = subprocess.run([create_dir], shell=True)
-        result = subprocess.run([copy_file], shell=True)
+        dir_created_result = subprocess.run([create_dir], shell=True)
+        file_copied_result = subprocess.run([copy_file], shell=True)
+        return dir_created_result,file_copied_result
 
 
     def check_nifi_status(self):

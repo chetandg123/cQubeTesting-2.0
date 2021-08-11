@@ -3,19 +3,30 @@ import unittest
 
 from reuse_func import GetData
 
-class DikshaTransformer(unittest.TestCase):
 
-    def test_diksha_data_processing(self,storage_type):
-        if storage_type == "s3":
-            self.cal = GetData()
-            self.cal.start_nifi_processor(self.cal.get_processor_group_id("diksha_transformer"))
-            time.sleep(60000)
-            self.cal.stop_nifi_processor(self.cal.get_processor_group_id("diksha_transformer"))
-        else:
-            self.cal.start_nifi_processor(self.cal.get_processor_group_id("diksha_transformer"))
-            time.sleep(60000)
-            self.cal.stop_nifi_processor(self.cal.get_processor_group_id("diksha_transformer"))
+class Composite(unittest.TestCase):
 
+    def setUp(self):
+        self.processor_name = "diksha"
+        self.folder_name = "diksha"
+        self.cal = GetData()
+        self.storage_type = self.cal.get_storage_type()
+        self.cal.start_nifi_processor("cQube_data_storage")
+        self.cal.start_nifi_processor(self.processor_name)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_inspection_master(self):
+        while 1:
+            if self.cal.get_queued_count(self.processor_name) == 0 and len(
+                    self.cal.get_processor_group_error_msg(self.processor_name)) == 0:
+                print(self.folder_name.capitalize() + " data is successfully processed")
+                self.assertTrue(0 == 0, self.folder_name.capitalize() + " file is successfully processed")
+                break
+            elif len(self.cal.get_processor_group_error_msg(self.processor_name)) != 0:
+                self.assertEqual(0, len(self.cal.get_processor_group_error_msg(self.processor_name)),
+                                 self.cal.get_processor_group_error_msg(self.processor_name)[0])
+                break
+            elif self.cal.get_queued_count(self.processor_name) != 0:
+                time.sleep(2)
+
+    def tearDown(self):
+        self.cal.stop_nifi_processor(self.processor_name)
